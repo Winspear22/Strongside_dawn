@@ -1,0 +1,513 @@
+{% comment %}
+  STRONGSIDE Custom Header - Exact Replica of React Navbar
+{% endcomment %}
+
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'strongside-header.js' | asset_url }}" defer="defer"></script>
+
+<style>
+  /* Base reset for header to ensure it behaves like the React fixed header */
+  .strongside-header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    transition: all 0.3s ease;
+    padding: 1.5rem; /* px-6 */
+  }
+
+  @media (min-width: 768px) {
+    .strongside-header-wrapper {
+      padding: 1.5rem 3rem; /* md:px-12 */
+    }
+  }
+
+  /* Transparent mode default */
+  .strongside-header-wrapper.is-transparent {
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+  }
+
+  /* Scrolled state */
+  .strongside-header-wrapper.is-scrolled {
+    backdrop-filter: blur(12px);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .strongside-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80rem; /* max-w-7xl */
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* LOGO */
+  .strongside-logo {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 900; /* font-black */
+    letter-spacing: -0.05em; /* tracking-tighter */
+    color: white;
+    font-style: italic;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+  }
+
+  .strongside-logo:hover {
+    color: #ff2222; /* hover:text-brand-accent */
+  }
+
+  .strongside-logo span {
+    color: #ff2222; /* text-brand-accent */
+  }
+
+  /* DESKTOP MENU */
+  .strongside-desktop-menu {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .strongside-desktop-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem; /* space-x-2 */
+    }
+  }
+
+  .strongside-nav-link {
+    padding: 0 1rem; /* px-4 */
+    text-align: center;
+    font-size: 0.75rem; /* text-xs */
+    font-weight: 700; /* font-bold */
+    letter-spacing: 0.2em; /* tracking-[0.2em] */
+    text-transform: uppercase;
+    color: #9ca3af; /* text-gray-400 */
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .strongside-nav-link:hover {
+    color: white;
+  }
+
+  /* Pill style for first item (Equipment) */
+  .strongside-nav-link.is-pill {
+    padding: 0.375rem 1rem; /* px-4 py-1.5 */
+    color: white;
+    background-color: rgba(255, 34, 34, 0.2);
+    border: 1px solid rgba(255, 34, 34, 0.5);
+    border-radius: 9999px;
+    margin-right: 0.5rem;
+  }
+
+  .strongside-nav-link.is-pill:hover {
+    background-color: #ff2222;
+  }
+
+  /* Account Button */
+  .strongside-account-btn {
+    padding: 0.25rem 1rem; /* px-4 py-1 */
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #ff2222;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(255, 34, 34, 0.3);
+    border-radius: 9999px;
+    margin-left: 0.5rem;
+    transition: all 0.3s;
+  }
+
+  .strongside-account-btn:hover {
+    color: white;
+    background-color: #ff2222; /* Correction: hover text white */
+  }
+
+  /* Separator */
+  .strongside-separator {
+    height: 1rem;
+    width: 1px;
+    background-color: #374151; /* bg-gray-700 */
+    margin: 0 1.5rem;
+  }
+
+  /* RIGHT ICONS */
+  .strongside-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* gap-6 */
+    justify-content: flex-end;
+  }
+
+  .strongside-icon-btn {
+    position: relative;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s;
+  }
+
+  .strongside-icon-btn:hover {
+    color: #ff2222;
+  }
+
+  .strongside-cart-badge {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background-color: #ff2222;
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 700;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* MOBILE HAMBURGER */
+  .strongside-hamburger {
+    display: block;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 60; /* Higher than header */
+    position: relative;
+  }
+
+  .strongside-hamburger:hover {
+    color: #ff2222;
+  }
+
+  @media (min-width: 768px) {
+    .strongside-hamburger {
+      display: none;
+    }
+  }
+
+  /* MOBILE MENU OVERLAY */
+  .strongside-mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 100; /* Top most */
+    background-color: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(24px);
+    display: flex;
+    flex-col: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none; /* Hidden by default */
+    transition: opacity 0.3s ease;
+  }
+
+  .strongside-mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .strongside-mobile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .strongside-mobile-link {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .strongside-mobile-link:hover {
+    color: #ff2222;
+  }
+
+  .strongside-mobile-link.is-pill {
+    color: #ff2222;
+    background-color: rgba(255, 34, 34, 0.2);
+    border: 1px solid rgba(255, 34, 34, 0.5);
+    border-radius: 9999px;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .strongside-mobile-link.is-pill:hover {
+    color: white;
+    background-color: #ff2222;
+  }
+
+  .strongside-mobile-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .strongside-mobile-close:hover {
+    color: #ff2222;
+  }
+</style>
+
+<div id="shopify-section-header" class="strongside-header-wrapper is-transparent">
+  <div class="strongside-nav-container">
+    
+    <!-- LEFT: LOGO -->
+    <a href="{{ routes.root_url }}" class="strongside-logo">
+      STRONGSIDE <span>technologies</span>
+    </a>
+
+    <!-- CENTER: DESKTOP MENU -->
+    <nav class="strongside-desktop-menu">
+      <!-- Hardcoded links to match React exactly, dynamic Shopify links can be added via settings if needed -->
+      <!-- Item 1: Équipement (Pill) -->
+      <a href="#product-section" class="strongside-nav-link is-pill">Équipement</a>
+      
+      <!-- Item 2: Renforts -->
+      <a href="#elastics-section" class="strongside-nav-link">Renforts</a>
+      
+      <!-- Item 3: Entraînement -->
+      <a href="#training-videos" class="strongside-nav-link">Entraînement</a>
+      
+      <!-- Item 4: FAQ -->
+      <a href="#faq-section" class="strongside-nav-link">FAQ</a>
+
+      <!-- MON ESPACE -->
+      <a href="{{ routes.account_url }}" class="strongside-account-btn">MON ESPACE</a>
+      
+      <div class="strongside-separator"></div>
+
+      <!-- Language Selector (Functional) -->
+      {%- if localization.available_languages.size > 1 -%}
+        <localization-form class="no-js-hidden" data-prevent-hide>
+          {%- form 'localization', id: 'HeaderLanguageFormDesktop', class: 'localization-form' -%}
+            <div class="strongside-lang-wrapper" style="position:relative;">
+              <button type="button" class="strongside-nav-link" aria-expanded="false" aria-controls="HeaderLanguageListDesktop" aria-describedby="HeaderLanguageLabelDesktop" style="border:none;background:none;padding:0;cursor:pointer;display:flex;align-items:center;gap:4px;">
+                {{ localization.language.iso_code | upcase }} <span style="font-size:0.6em;">▼</span>
+              </button>
+              <ul id="HeaderLanguageListDesktop" role="list" class="strongside-lang-list" hidden style="position:absolute;top:100%;right:0;background:#050505;border:1px solid #333;list-style:none;padding:0;margin:0;min-width:60px;z-index:99;">
+                {%- for language in localization.available_languages -%}
+                  <li class="localization-form__item" tabindex="-1">
+                    <a class="strongside-lang-item" href="#" hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %} data-value="{{ language.iso_code }}" style="display:block;padding:8px 12px;color:white;text-decoration:none;font-size:12px;font-weight:bold;text-transform:uppercase;">
+                      {{ language.iso_code | upcase }}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+              <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+            </div>
+          {%- endform -%}
+          <script>
+             // Robust Language Selector Logic
+             document.addEventListener('DOMContentLoaded', function() {
+                const langBtn = document.querySelector('#HeaderLanguageFormDesktop button');
+                const langList = document.querySelector('#HeaderLanguageListDesktop');
+                
+                if (langBtn && langList) {
+                    langBtn.addEventListener('click', function(e) {
+                       e.stopPropagation();
+                       const isHidden = langList.hidden;
+                       langList.hidden = !isHidden;
+                       this.setAttribute('aria-expanded', isHidden);
+                    });
+
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', function(e) {
+                       if (!langBtn.contains(e.target) && !langList.contains(e.target)) {
+                          langList.hidden = true;
+                          langBtn.setAttribute('aria-expanded', 'false');
+                       }
+                    });
+                }
+
+                document.querySelectorAll('.strongside-lang-item').forEach(item => {
+                   item.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      const form = document.getElementById('HeaderLanguageFormDesktop');
+                      const input = form.querySelector('input[name="locale_code"]');
+                      const newLang = this.getAttribute('lang');
+                      
+                      if (form && input && newLang) {
+                          input.value = newLang;
+                          form.submit();
+                      }
+                   });
+                });
+             });
+          </script>
+        </localization-form>
+      {%- else -%}
+         <!-- Fallback if only 1 language (just display it) -->
+         <span class="strongside-nav-link">{{ localization.language.iso_code | upcase }}</span>
+      {%- endif -%}
+
+    </nav>
+
+    <!-- RIGHT: ICONS -->
+    <div class="strongside-icons">
+    
+      <!-- Theme Toggle (Moved here) -->
+      <button id="theme-toggle" class="strongside-icon-btn" aria-label="Toggle Dark Mode" style="margin-right:1rem;">
+        <!-- Sun Icon (for Dark Mode) -->
+        <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <!-- Moon Icon (for Light Mode) -->
+        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+
+      <!-- Cart Icon -->
+      <a href="{{ routes.cart_url }}" class="strongside-icon-btn" id="cart-icon-bubble">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        {%- if cart.item_count > 0 -%}
+          <div class="cart-count-bubble">
+             <span aria-hidden="true">{{ cart.item_count }}</span>
+             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
+
+      <!-- Mobile Hamburger -->
+      <button class="strongside-hamburger" onclick="toggleMobileMenu()">
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE MENU OVERLAY -->
+<div id="strongside-mobile-menu" class="strongside-mobile-menu">
+  <button class="strongside-mobile-close" onclick="toggleMobileMenu()">
+    <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <div class="strongside-mobile-content">
+    <a href="#product-section" class="strongside-mobile-link is-pill" onclick="toggleMobileMenu()">Équipement</a>
+    <a href="#elastics-section" class="strongside-mobile-link" onclick="toggleMobileMenu()">Renforts</a>
+    <a href="#training-videos" class="strongside-mobile-link" onclick="toggleMobileMenu()">Entraînement</a>
+    <a href="#faq-section" class="strongside-mobile-link" onclick="toggleMobileMenu()">FAQ</a>
+    <a href="{{ routes.account_url }}" class="strongside-mobile-link" style="color:#ff2222;border:1px solid rgba(255,34,34,0.5);border-radius:9999px;padding:0.5rem 1.5rem;font-size:1.25rem;">MON ESPACE</a>
+    
+    <div style="width:50px;height:1px;background:rgba(255,255,255,0.1);margin:1rem 0;"></div>
+
+    <!-- Theme Toggle Mobile -->
+    <button id="theme-toggle-mobile" class="strongside-mobile-link" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:0.5rem;">
+      <span id="theme-text-mobile">DARK MODE</span>
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+      </svg>
+    </button>
+    
+    <div style="display:flex;gap:1rem;margin-top:2rem;">
+      <span style="color:#ff2222;font-weight:700;">FR</span>
+      <span style="color:#6b7280;font-weight:700;">EN</span>
+      <span style="color:#6b7280;font-weight:700;">DE</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ----- MOBILE MENU -----
+  function toggleMobileMenu() {
+    const menu = document.getElementById('strongside-mobile-menu');
+    menu.classList.toggle('is-open');
+    document.body.style.overflow = menu.classList.contains('is-open') ? 'hidden' : '';
+  }
+
+  // ----- SCROLL EFFECT -----
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('shopify-section-header');
+    if (window.scrollY > 50) {
+      header.classList.add('is-scrolled');
+      header.classList.remove('is-transparent');
+    } else {
+      header.classList.add('is-transparent');
+      header.classList.remove('is-scrolled');
+    }
+  });
+
+  // ----- DARK MODE LOGIC -----
+  document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const themeTextMobile = document.getElementById('theme-text-mobile');
+
+    // Check localStorage or default to dark
+    const isDark = localStorage.getItem('theme') !== 'light'; // Default dark if null
+
+    function updateThemeUI(dark) {
+      if (dark) {
+        body.classList.add('strongside-dark');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+        themeTextMobile.textContent = 'LIGHT MODE';
+      } else {
+        body.classList.remove('strongside-dark');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+        themeTextMobile.textContent = 'DARK MODE';
+      }
+    }
+
+    // Initialize
+    updateThemeUI(isDark);
+
+    function toggleTheme() {
+      const isCurrentlyDark = body.classList.contains('strongside-dark');
+      if (isCurrentlyDark) {
+        localStorage.setItem('theme', 'light');
+        updateThemeUI(false);
+      } else {
+        localStorage.setItem('theme', 'dark');
+        updateThemeUI(true);
+      }
+    }
+
+    if(toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+    if(toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Strongside Header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Custom Header"
+    }
+  ]
+}
+{% endschema %}

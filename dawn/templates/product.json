@@ -1,0 +1,169 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title"
+        },
+        "price": {
+          "type": "price"
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "description": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "icon": "clipboard",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible-row-0": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Contenu du Pack",
+            "icon": "box",
+            "content": "<p>• Bandes de résistance professionnelles<br>• Guide d'entraînement complet<br>• Sac de transport<br>• Accès aux tutoriels vidéo</p>",
+            "page": ""
+          }
+        },
+        "collapsible-row-1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Livraison & Retours",
+            "icon": "truck",
+            "content": "<p>Expédié sous 24h. Livraison Gratuite vers l'Europe. Retours acceptés sous 30 jours.</p>",
+            "page": ""
+          }
+        },
+        "collapsible-row-2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Garantie",
+            "icon": "check_mark",
+            "content": "<p>Garantie à vie sur les défauts de fabrication. Support client 7j/7.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "description",
+        "collapsible-row-0",
+        "collapsible-row-1",
+        "collapsible-row-2"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "video-section": {
+      "type": "video",
+      "settings": {
+        "heading": "Vidéos d'Entraînement",
+        "heading_size": "h2",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "<p>Découvre comment utiliser ton équipement STRONGSIDE avec nos tutoriels exclusifs.</p>",
+        "full_width": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "faq-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Puis-je l'utiliser avec des gants ?",
+            "row_content": "<p>Oui, totalement compatible avec gants de boxe et MMA.</p>",
+            "icon": "question_mark",
+            "page": ""
+          }
+        },
+        "faq-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Est-ce adapté aux débutants ?",
+            "row_content": "<p>Oui, la résistance est progressive et contrôlée. Parfait pour tous les niveaux.</p>",
+            "icon": "question_mark",
+            "page": ""
+          }
+        },
+        "faq-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Convient-il à toutes les morphologies ?",
+            "row_content": "<p>Oui, le harnais est entièrement ajustable.</p>",
+            "icon": "question_mark",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq-1",
+        "faq-2",
+        "faq-3"
+      ],
+      "settings": {
+        "caption": "Des Questions?",
+        "heading": "FAQ",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Tu pourrais aussi aimer",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "video-section",
+    "faq",
+    "related-products"
+  ]
+}
