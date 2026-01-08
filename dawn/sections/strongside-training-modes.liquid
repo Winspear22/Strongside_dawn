@@ -1,0 +1,278 @@
+{% schema %}
+{
+  "name": "Strongside Training Modes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Un Outil, Infinies Possibilités"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Utilise STRONGSIDE Partout"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "training_mode",
+      "name": "Training Mode",
+      "settings": [
+        {
+           "type": "text",
+           "id": "number",
+           "label": "Number",
+           "default": "01"
+        },
+        {
+           "type": "text",
+           "id": "title",
+           "label": "Title",
+           "default": "SAC DE FRAPPE"
+        },
+        {
+           "type": "textarea",
+           "id": "description",
+           "label": "Description",
+           "default": "Déchaîne ta puissance sur le sac avec le STRONGSIDE Boxing Harness Pro."
+        },
+        {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image (Fallback)"
+        },
+        {
+            "type": "text",
+            "id": "video_filename",
+            "label": "Video Filename (in assets)",
+            "info": "e.g. 'Sac-de-frappe.mp4'. If set, overrides image."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Strongside Training Modes",
+      "blocks": [
+        {
+          "type": "training_mode",
+          "settings": {
+            "number": "01",
+            "title": "SAC DE FRAPPE",
+            "video_filename": "1.mp4"
+          }
+        },
+        {
+          "type": "training_mode",
+          "settings": {
+            "number": "02",
+            "title": "PATTES D'OURS",
+            "video_filename": "2.mp4"
+          }
+        },
+        {
+          "type": "training_mode",
+          "settings": {
+            "number": "03",
+            "title": "SHADOW BOXING",
+            "video_filename": "3.mp4"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="strongside-training-section">
+  <div class="page-width">
+    <!-- Header -->
+    <div class="strongside-training-header">
+      <span class="strongside-subtitle">{{ section.settings.section_subtitle }}</span>
+      <h2 class="strongside-title">{{ section.settings.section_title }}</h2>
+    </div>
+
+    <!-- Modes Loop -->
+    <div class="strongside-modes-list">
+      {% for block in section.blocks %}
+        <div class="strongside-mode-row {% cycle 'is-normal', 'is-reversed' %}">
+          
+          <!-- Media Column -->
+          <div class="strongside-mode-media">
+             <div class="media-container">
+               {% if block.settings.video_filename != blank %}
+                  <video autoplay loop muted playsinline class="media-content">
+                    <source src="{{ block.settings.video_filename | asset_url }}" type="video/mp4">
+                  </video>
+               {% elsif block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: class: 'media-content', loading: 'lazy' }}
+               {% else %}
+                  <div class="media-placeholder">No Media</div>
+               {% endif %}
+               <div class="media-overlay"></div>
+             </div>
+          </div>
+
+          <!-- Text Column -->
+          <div class="strongside-mode-text">
+            <span class="mode-number">{{ block.settings.number }}.</span>
+            <h3 class="mode-title">{{ block.settings.title }}</h3>
+            <p class="mode-desc">{{ block.settings.description }}</p>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Base Layout */
+  .strongside-training-section {
+    padding: 5rem 1.5rem;
+    background-color: #050505;
+    color: white;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .page-width {
+    max-width: 80rem; /* 7xl equivalent */
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .strongside-training-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .strongside-subtitle {
+    color: #ff2222; /* brand-accent */
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .strongside-title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    color: white;
+    margin: 0;
+    line-height: 1;
+  }
+  @media (min-width: 1024px) {
+    .strongside-title { font-size: 3rem; }
+  }
+
+  /* Modes List */
+  .strongside-modes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  /* Mode Row */
+  .strongside-mode-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  @media (min-width: 1024px) {
+    .strongside-mode-row {
+      flex-direction: row;
+      gap: 4rem;
+    }
+    .strongside-mode-row.is-reversed {
+      flex-direction: row-reverse;
+    }
+  }
+
+  /* Media */
+  .strongside-mode-media {
+    width: 100%;
+  }
+  @media (min-width: 1024px) {
+    .strongside-mode-media { width: 50%; }
+  }
+  .media-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: #171717;
+  }
+  .media-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    pointer-events: none;
+  }
+
+  /* Text */
+  .strongside-mode-text {
+    width: 100%;
+    text-align: center;
+  }
+  @media (min-width: 1024px) {
+    .strongside-mode-text { 
+       width: 50%; 
+       text-align: left;
+    }
+    .strongside-mode-row.is-reversed .strongside-mode-text {
+       text-align: right;
+    }
+  }
+
+  .mode-number {
+    display: block;
+    font-size: 4rem;
+    font-weight: 900;
+    font-style: italic;
+    color: #ff2222;
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: -1rem;
+  }
+  @media (min-width: 1024px) {
+    .mode-number { font-size: 6rem; margin-bottom: -2rem; }
+  }
+
+  .mode-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+    color: white;
+    margin: 0 0 1rem 0;
+    position: relative; /* to stack on top of number visually if needed */
+  }
+  @media (min-width: 1024px) {
+    .mode-title { font-size: 2.25rem; }
+  }
+
+  .mode-desc {
+    color: #9ca3af;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 1024px) {
+    .mode-desc { margin: 0; font-size: 1.125rem; }
+    .strongside-mode-row.is-reversed .mode-desc { margin-left: auto; }
+  }
+
+</style>

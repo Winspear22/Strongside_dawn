@@ -6,7 +6,7 @@
 <script src="{{ 'strongside-header.js' | asset_url }}" defer="defer"></script>
 
 <style>
-  /* Base reset for header to ensure it behaves like the React fixed header */
+  /* Base reset for header - Scaled 1.6x from React original */
   .strongside-header-wrapper {
     position: fixed;
     top: 0;
@@ -14,55 +14,38 @@
     right: 0;
     z-index: 50;
     transition: all 0.3s ease;
-    padding: 1.5rem; /* px-6 */
+    padding: 2.4rem 2.4rem; /* React: p-6 (1.5rem) -> 2.4rem */
+    background-color: rgba(0, 0, 0, 0.2); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px); 
   }
 
   @media (min-width: 768px) {
     .strongside-header-wrapper {
-      padding: 1.5rem 3rem; /* md:px-12 */
+      padding: 2.4rem 4.8rem; /* React: md:px-12 (3rem) -> 4.8rem */
     }
-  }
-
-  /* Transparent mode default */
-  .strongside-header-wrapper.is-transparent {
-    background-color: transparent;
-    border-bottom: 1px solid transparent;
-  }
-
-  /* Scrolled state */
-  .strongside-header-wrapper.is-scrolled {
-    backdrop-filter: blur(12px);
-    background-color: rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .strongside-nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 80rem; /* max-w-7xl */
+    max-width: 95%; 
     margin: 0 auto;
     position: relative;
   }
 
-  /* LOGO */
+  /* LOGO - Scaled 1.6x */
   .strongside-logo {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 900; /* font-black */
-    letter-spacing: -0.05em; /* tracking-tighter */
+    font-size: 2.4rem; /* React: text-2xl (1.5rem) -> 2.4rem */
+    font-weight: 900; 
+    letter-spacing: -0.05em; 
     color: white;
     font-style: italic;
     cursor: pointer;
     text-decoration: none;
     user-select: none;
-  }
-
-  .strongside-logo:hover {
-    color: #ff2222; /* hover:text-brand-accent */
-  }
-
-  .strongside-logo span {
-    color: #ff2222; /* text-brand-accent */
+    transition: color 0.3s;
   }
 
   /* DESKTOP MENU */
@@ -75,18 +58,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem; /* space-x-2 */
+      gap: 0.8rem; /* React: space-x-2 (0.5rem) -> 0.8rem */
     }
   }
 
+  /* LINKS - Scaled 1.6x */
   .strongside-nav-link {
-    padding: 0 1rem; /* px-4 */
+    padding: 0 1.6rem; /* React: px-4 (1rem) -> 1.6rem */
     text-align: center;
-    font-size: 0.75rem; /* text-xs */
-    font-weight: 700; /* font-bold */
-    letter-spacing: 0.2em; /* tracking-[0.2em] */
+    font-size: 1.2rem; /* React: text-xs (0.75rem) -> 1.2rem */
+    font-weight: 800; 
+    letter-spacing: 0.15em; 
     text-transform: uppercase;
-    color: #9ca3af; /* text-gray-400 */
+    color: #9ca3af; 
     text-decoration: none;
     transition: color 0.3s;
   }
@@ -95,39 +79,31 @@
     color: white;
   }
 
-  /* Pill style for first item (Equipment) */
+  /* Pill style - Scaled 1.6x */
   .strongside-nav-link.is-pill {
-    padding: 0.375rem 1rem; /* px-4 py-1.5 */
+    padding: 0.6rem 1.6rem; /* React: py-1.5 (0.375rem) -> 0.6rem, px-4 -> 1.6rem */
     color: white;
     background-color: rgba(255, 34, 34, 0.2);
     border: 1px solid rgba(255, 34, 34, 0.5);
     border-radius: 9999px;
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
   }
 
-  .strongside-nav-link.is-pill:hover {
-    background-color: #ff2222;
-  }
-
-  /* Account Button */
+  /* Account Button - Scaled 1.6x */
   .strongside-account-btn {
-    padding: 0.25rem 1rem; /* px-4 py-1 */
+    padding: 0.4rem 1.6rem; /* React: py-1 (0.25rem) -> 0.4rem, px-4 -> 1.6rem */
     text-align: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: #ff2222;
+    font-size: 1.2rem; /* React: text-xs -> 1.2rem */
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #ff2222; 
     text-transform: uppercase;
     text-decoration: none;
     border: 1px solid rgba(255, 34, 34, 0.3);
     border-radius: 9999px;
-    margin-left: 0.5rem;
+    margin-left: 0.8rem;
     transition: all 0.3s;
-  }
-
-  .strongside-account-btn:hover {
-    color: white;
-    background-color: #ff2222; /* Correction: hover text white */
   }
 
   /* Separator */

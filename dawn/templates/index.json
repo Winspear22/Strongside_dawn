@@ -42,6 +42,41 @@
         "badge_secure": "Paiement Sécurisé"
       }
     },
+    "training_modes": {
+      "type": "strongside-training-modes",
+      "blocks": {
+        "mode-1": {
+          "type": "training_mode",
+          "settings": {
+            "number": "01",
+            "title": "SAC DE FRAPPE",
+            "video_filename": "1.mp4"
+          }
+        },
+        "mode-2": {
+          "type": "training_mode",
+          "settings": {
+            "number": "02",
+            "title": "PATTES D'OURS",
+            "video_filename": "2.mp4"
+          }
+        },
+        "mode-3": {
+          "type": "training_mode",
+          "settings": {
+            "number": "03",
+            "title": "SHADOW BOXING",
+            "video_filename": "3.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "mode-1",
+        "mode-2",
+        "mode-3"
+      ],
+      "settings": {}
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -184,6 +219,7 @@
   },
   "order": [
     "strongside-hero",
+    "training_modes",
     "featured_collection",
     "faq",
     "cta"

@@ -224,159 +224,213 @@
     }
   }
 
-  /* Product Title */
+  /* TYPOGRAPHY OVERRIDES - STRICT 1.6x SCALING */
+  .strongside-hero-container {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Title - 1.6x Scale */
   .strongside-product-title {
-    font-size: 2.25rem; /* text-4xl */
-    font-weight: 900;
-    text-transform: uppercase;
-    font-style: italic;
-    letter-spacing: -0.05em;
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 3.6rem; /* React: text-4xl (2.25rem) * 1.6 = 3.6rem */
     line-height: 0.9;
-    margin-bottom: 1.5rem;
-    margin-top: 0.5rem;
+    font-weight: 900; 
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    color: white !important; 
+    margin-bottom: 2.4rem; /* React: mb-4 (1rem) * 1.6 = 1.6rem? Wait, mb-6 (1.5) -> 2.4 */
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4); 
   }
 
   @media (min-width: 1024px) {
     .strongside-product-title {
-      font-size: 3.75rem; /* text-6xl */
-      margin-top: 0;
+      font-size: 6rem; /* React: text-6xl (3.75rem) * 1.6 = 6rem */
+      margin-bottom: 3.2rem; /* React: mb-6 (1.5rem) -> 2.4rem? Let's use 3.2 for mb-8 equiv */
     }
   }
 
   /* Description Toggle */
   .strongside-desc-toggle {
     width: 100%;
-    margin-bottom: 1.5rem;
-    padding: 0.75rem 1rem;
+    margin-bottom: 2.4rem; /* 1.5 * 1.6 = 2.4 */
+    padding: 1.2rem 1.6rem; /* React: py-3 (0.75) -> 1.2, px-4 (1) -> 1.6 */
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 0.5rem;
+    border-radius: 0.8rem; /* 0.5 * 1.6 = 0.8 */
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     transition: all 0.2s;
     color: white;
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-
-  .strongside-desc-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
-
-  .strongside-desc-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    margin-bottom: 1.5rem;
-  }
-
-  .strongside-desc-content.is-open {
-    max-height: 500px; /* arbitrary large value */
+  
+  .strongside-desc-toggle span {
+     font-size: 1.2rem; /* React: text-xs (0.75) * 1.6 = 1.2rem */
+     font-weight: 800; 
+     text-transform: uppercase; 
+     letter-spacing: 0.05em;
   }
 
   /* Price */
   .strongside-price-container {
     display: flex;
     align-items: baseline;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
+    gap: 1.2rem; /* 0.75 * 1.6 = 1.2 */
+    margin-bottom: 1.2rem;
   }
 
   .strongside-price-main {
-    font-size: 2.25rem; /* text-4xl */
+    font-size: 3.6rem; /* React: text-4xl (2.25) -> 3.6rem */
     font-weight: 900;
     color: white;
   }
-
-  .strongside-price-currency {
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: #9ca3af;
+  
+  @media (min-width: 1024px) {
+    .strongside-price-main { font-size: 6rem; /* 3.75 * 1.6 = 6 */ }
   }
-
-  .strongside-price-compare {
-    font-size: 1.5rem; /* text-2xl */
-    color: #9ca3af;
-    text-decoration: line-through;
-  }
-
-  .strongside-discount-badge {
-    padding: 0.25rem 0.5rem;
-    background-color: #ff2222;
-    color: white;
-    font-size: 0.875rem;
-    font-weight: 700;
-    border-radius: 9999px;
-  }
-
-  /* Reviews Badge */
-  .strongside-reviews-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 1rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 9999px;
-    margin-bottom: 1.5rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: white;
-  }
-
-  .strongside-reviews-badge:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-
-  /* Variants */
-  .strongside-variants {
-    margin-bottom: 2rem;
-  }
-
-  .strongside-variant-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-  .strongside-variant-btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: transparent;
-    color: #9ca3af;
-    cursor: pointer;
-    margin-right: 0.5rem;
-  }
-
-  .strongside-variant-btn.is-selected {
-    background: white;
-    color: black;
-    border-color: white;
-  }
-
-  /* Action Buttons */
+  
+  /* Action Buttons Container */
   .strongside-actions {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
+    gap: 1.2rem; /* 0.75 * 1.6 = 1.2 */
+    margin-bottom: 2.4rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .strongside-actions {
+       gap: 1.6rem; 
+       margin-bottom: 4rem;
+    }
   }
 
+  /* ADD TO CART */
   .strongside-btn-add {
     width: 100%;
-    padding: 0.75rem;
-    background-color: white;
-    color: black;
-    font-size: 1.125rem;
+    padding: 1.2rem; /* React: py-3 (0.75) -> 1.2rem */
+    background-color: white; 
+    color: black;            
+    font-size: 1.8rem; /* React: text-lg (1.125) * 1.6 = 1.8rem */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .strongside-btn-add:hover {
+    background-color: #f3f4f6;
+  }
+
+  /* BUY NOW */
+  .strongside-btn-buy {
+    width: 100%;
+    padding: 1.2rem; /* React: py-3 -> 1.2 */
+    background-color: #10b981; 
+    color: white;          
+    font-size: 1.6rem; /* React: text-base (1) * 1.6 = 1.6rem */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+    border: none;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .strongside-btn-buy:hover {
+    background-color: #059669;
+  }
+
+  @media (min-width: 1024px) {
+    .strongside-btn-add { padding: 2rem; font-size: 2rem; /* React: py-5 px-? -> ~2rem padding, text-xl (1.25) -> 2rem */ }
+    .strongside-btn-buy { padding: 1.6rem; font-size: 1.8rem; /* React: py-4 -> 1.6rem, text-lg -> 1.8rem */ }
+  }
+
+  /* Description Toggle */
+  .strongside-desc-toggle {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem; 
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .strongside-desc-toggle span {
+     font-size: 0.875rem; /* 14px */
+     font-weight: 800; 
+     text-transform: uppercase; 
+     letter-spacing: 0.05em;
+  }
+
+  /* Price */
+  .strongside-price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem; 
+    margin-bottom: 1rem;
+  }
+
+  .strongside-price-main {
+    font-size: 2.75rem; 
+    font-weight: 900;
+    color: white;
+  }
+  
+  @media (min-width: 1024px) {
+    .strongside-price-main { font-size: 4.5rem; }
+  }
+  
+  /* Action Buttons Container */
+  .strongside-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .strongside-actions {
+       gap: 1.25rem;
+       margin-bottom: 3rem;
+    }
+  }
+
+  /* ADD TO CART */
+  .strongside-btn-add {
+    width: 100%;
+    padding: 1.25rem;
+    background-color: white; 
+    color: black;            
+    font-size: 1.25rem;     
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -387,19 +441,21 @@
     gap: 0.75rem;
     cursor: pointer;
     transition: all 0.2s;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 
   .strongside-btn-add:hover {
     background-color: #f3f4f6;
   }
 
+  /* BUY NOW */
   .strongside-btn-buy {
     width: 100%;
-    padding: 0.75rem;
-    background-color: #10b981; /* emerald-500 */
-    color: white;
-    font-size: 1rem;
+    padding: 1.25rem;
+    background-color: #10b981; 
+    color: white;          
+    font-size: 1.25rem;       
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -412,15 +468,16 @@
     transition: all 0.2s;
     box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
     border: none;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 
   .strongside-btn-buy:hover {
-    background-color: #059669; /* emerald-600 */
+    background-color: #059669;
   }
 
   @media (min-width: 1024px) {
-    .strongside-btn-add { padding: 1.25rem; font-size: 1.25rem; }
-    .strongside-btn-buy { padding: 1rem; font-size: 1.125rem; }
+    .strongside-btn-add { padding: 1.5rem; font-size: 1.5rem; }
+    .strongside-btn-buy { padding: 1.5rem; font-size: 1.5rem; }
   }
 
 
@@ -474,14 +531,16 @@
 
   .strongside-accordion-btn {
     width: 100%;
-    padding: 1rem 0;
+    padding: 1.6rem 0; /* React: py-4 (1rem) * 1.6 = 1.6rem */
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: white;
-    font-weight: 700;
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-weight: 800; 
     text-transform: uppercase;
-    font-size: 0.875rem;
+    font-size: 1.4rem; /* React: text-sm (0.875rem) * 1.6 = 1.4rem */
+    letter-spacing: 0.05em; /* React: tracking-widest (0.1em) */
     cursor: pointer;
     background: none;
     border: none;
@@ -491,14 +550,31 @@
      max-height: 0;
      overflow: hidden;
      transition: max-height 0.3s;
-     color: #d1d5db; /* gray-300 */
-     font-size: 0.875rem;
+     color: #d1d5db; 
+     font-family: 'Inter', system-ui, sans-serif !important;
+     font-size: 1.4rem; /* React: text-sm (0.875rem) * 1.6 = 1.4rem */
      line-height: 1.6;
+     padding-bottom: 0;
   }
   
   .strongside-accordion-content.is-open {
-    max-height: 200px;
-    padding-bottom: 1rem;
+    max-height: 500px; /* Increased safely */
+    padding-bottom: 2.4rem; /* React: pb-6 (1.5rem) * 1.6 = 2.4rem */
+  }
+  
+  /* Trust Badges Font Override */
+  .strongside-trust-text {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-weight: 700;
+    font-size: 1rem; /* React Mobile: text-[10px] (0.625) * 1.6 = 1rem */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 1024px) {
+    .strongside-trust-text {
+      font-size: 1.2rem; /* React Desktop: text-xs (0.75) * 1.6 = 1.2rem */
+    }
   }
 </style>
 
@@ -550,25 +626,49 @@
         <h1 class="strongside-product-title">{{ product.title }}</h1>
 
         <!-- Description Toggle -->
-        <button class="strongside-desc-toggle" onclick="toggleDescription()" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:0.5rem;cursor:pointer;">
-          <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;color:white;">Voir la description</span>
-           <div id="desc-arrow" style="width:20px;height:20px;transition:transform 0.3s;display:flex;align-items:center;">
-             <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:100%;height:100%;color:#9ca3af;">
+        <button class="strongside-desc-toggle" onclick="toggleDescription()" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:0.75rem 1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:0.5rem;cursor:pointer;transition:background 0.2s; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased;">
+          <span style="font-size:0.75rem; line-height:1rem; font-weight:700; text-transform:uppercase; color:white; letter-spacing:0.05em;">Voir la description</span>
+           <div id="desc-arrow" style="width:16px;height:16px;transition:transform 0.3s;display:flex;align-items:center;color:#9ca3af;">
+             <svg width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
              </svg>
            </div>
         </button>
         
-        <div id="desc-content" class="strongside-desc-content" style="overflow:hidden;max-height:0;transition:max-height 0.3s ease-out;margin-bottom:1.5rem;">
-          <div class="prose prose-invert text-gray-300 text-sm" style="padding-top:1rem;color:#d1d5db;line-height:1.6;">
+        <div id="desc-content" class="strongside-desc-content" style="overflow:hidden;max-height:0;transition:max-height 0.3s ease-out;margin-bottom:1.5rem; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased;">
+          <div class="prose prose-invert strongside-desc-body">
+             <style>
+               /* React Mobile: text-sm (14px) */
+               .strongside-desc-body { font-size: 0.875rem; line-height: 1.625; color: #d1d5db; padding-top: 1rem; }
+               .strongside-desc-body h3 { font-size: 1.125rem; font-weight: 800; text-transform: uppercase; color: white; margin-top: 1.5rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; line-height:1.4; }
+               .strongside-desc-body h4 { font-size: 1rem; font-weight: 700; color: white; margin-top: 1rem; margin-bottom: 0.5rem; line-height:1.4; }
+               .strongside-desc-body p { margin-bottom: 1em; }
+               .strongside-desc-body ul { list-style: disc; margin-left: 1.2rem; margin-bottom: 1em; color: #9ca3af; }
+               .strongside-desc-body li { margin-bottom: 0.25em; }
+               .strongside-desc-body strong { color: white; font-weight: 700; }
+               .strongside-desc-body em { color: #d1d5db; font-style: italic; }
+
+               /* React Desktop: text-base (16px) */
+               @media (min-width: 1024px) {
+                 .strongside-desc-body { font-size: 1rem; line-height: 1.75; }
+                 .strongside-desc-body h3 { font-size: 1.25rem; }
+                 .strongside-desc-body h4 { font-size: 1.125rem; }
+               }
+             </style>
              {% if product.description != blank %}
                {{ product.description }}
              {% else %}
-               <p>Le harnais de boxe STRONGSIDE Pro est conçu pour maximiser la puissance et l'explosivité de vos mouvements. Testé par des athlètes professionnels, il offre une résistance progressive et une liberté de mouvement totale.</p>
-               <ul style="list-style:disc;margin-left:1.5rem;margin-top:0.5rem;">
-                 <li>Résistance ajustable</li>
-                 <li>Compatible sac de frappe & sparring</li>
-                 <li>Mousquetons renforcés</li>
+               <h3>Le système ultime de résistance</h3>
+               <p>Conçu pour sculpter votre puissance de frappe. <strong>MORE RESISTANCE MORE POWER.</strong></p>
+               <p>Conçu pour le Shadow Boxing, le travail au sac, les pads, les paos et le conditionnement physique global.</p>
+               
+               <p><em>Un équipement sports de combat unique, conçu et disponible exclusivement sur strongside.tech</em></p>
+
+               <h3>Ce qui est inclus dans la boîte :</h3>
+               <h4>1. STRONGSIDE Pro Boxing Harness (Ajustable)</h4>
+               <ul>
+                 <li>Conception ergonomique pour un maintien parfait sans gêner les mouvements.</li>
+                 <li>Matériaux haute résistance.</li>
                </ul>
              {% endif %}
           </div>
@@ -584,24 +684,30 @@
         </div>
 
         <!-- Reviews Badge -->
-        <button class="strongside-reviews-badge">
-           <div style="color:#eab308;display:flex;gap:2px;">
-             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        <button class="strongside-reviews-badge" style="display:flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.05); padding:0.8rem 1.6rem; border-radius:9999px; border:1px solid rgba(255,255,255,0.1); cursor:pointer; margin-bottom:2.4rem; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+           <div style="color:#facc15; display:flex; gap:2px;">
+             <!-- 5 Stars SVG -->
+             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
            </div>
-           <span style="font-size:0.75rem;color:#9ca3af;margin-left:0.5rem;">Lire les commentaires</span>
+           <span style="font-size:1.4rem; color:#9ca3af; font-family:'Inter',sans-serif; margin-left:1rem;">Lire les 9 commentaires</span>
+           <svg width="20" height="20" fill="none" stroke="#9ca3af" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </button>
 
         <!-- Variants -->
         {% unless product.has_only_default_variant %}
           <div class="strongside-variants">
-            <label class="strongside-variant-label">Choisir une option</label>
+            <label class="strongside-variant-label" style="font-size:1.2rem; font-family:'Inter', sans-serif;">Choisir une option</label>
             <div class="flex flex-wrap gap-2">
               {% for variant in product.variants %}
                 <button 
                   class="strongside-variant-btn {% if forloop.first %}is-selected{% endif %}" 
                   data-variant-id="{{ variant.id }}"
                   onclick="selectVariant(this, '{{ variant.id }}', '{{ variant.price | money }}')"
-                  style="border:1px solid {% if forloop.first %}white{% else %}rgba(255,255,255,0.2){% endif %}; background:{% if forloop.first %}white{% else %}transparent{% endif %}; color:{% if forloop.first %}black{% else %}#9ca3af{% endif %};"
+                  style="border:1px solid {% if forloop.first %}white{% else %}rgba(255,255,255,0.2){% endif %}; background:{% if forloop.first %}white{% else %}transparent{% endif %}; color:{% if forloop.first %}black{% else %}#9ca3af{% endif %}; padding:1rem 2rem; font-size:1.2rem; font-family:'Inter',sans-serif;"
                 >
                   {{ variant.title }}
                 </button>
@@ -616,15 +722,15 @@
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
           
           <div class="strongside-actions">
-            <!-- ADD TO CART: GREEN BUTTON, WHITE TEXT -->
-            <button type="submit" name="add" class="strongside-btn-add" style="background-color:#10b981 !important; color:white !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1.25rem;">
-               <svg style="width:24px;height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+            <!-- ADD TO CART -->
+            <button type="submit" name="add" class="strongside-btn-add">
+               <svg style="width:32px;height:32px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
                Ajouter au Panier
             </button>
             
-            <!-- BUY NOW: WHITE BUTTON, BLACK TEXT -->
-            <button type="submit" name="add" class="strongside-btn-buy" style="background-color:white !important; color:black !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1rem; box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1);">
-               <svg style="width:20px;height:20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            <!-- BUY NOW -->
+            <button type="submit" name="add" class="strongside-btn-buy">
+               <svg style="width:28px;height:28px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                Achat Immédiat
             </button>
           </div>
@@ -639,15 +745,15 @@
         <div class="flex flex-col items-center justify-center gap-2 mt-2">
 			<div class="strongside-trust-text">
 				<span class="strongside-trust-item">
-					<svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+					<svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
 					Livraison Rapide
 				</span>
 				<span class="strongside-trust-item">
-					<svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+					<svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
 					Garantie
 				</span>
 				<span class="strongside-trust-item">
-					<svg style="width:16px;height:16px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" /></svg>
+					<svg style="width:24px;height:24px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" /></svg>
 					Paiement sécurisé
 				</span>
 			</div>
@@ -692,6 +798,19 @@
      const arrow = document.getElementById('desc-arrow');
      desc.classList.toggle('is-open');
      arrow.style.transform = desc.classList.contains('is-open') ? 'rotate(180deg)' : 'rotate(0deg)';
+  }
+
+  function toggleDescription() {
+     const content = document.getElementById('desc-content');
+     const arrow = document.getElementById('desc-arrow');
+     
+     if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        content.style.maxHeight = '0px';
+        arrow.style.transform = 'rotate(0deg)';
+     } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        arrow.style.transform = 'rotate(180deg)';
+     }
   }
 
   function selectVariant(btn, id, price) {
