@@ -925,13 +925,13 @@
         <!-- INTEGRATED VIDEO CAROUSEL -->
         <div class="strongside-hero-videos" style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1);">
            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-              <h3 style="font-size:1rem; font-weight:700; color:white; text-transform:uppercase; letter-spacing:0.1em; margin:0;">VIDÉOS D'ENTRAÎNEMENT</h3>
-              <div class="flex gap-2">
-                 <button id="hero-vid-prev" style="width:2rem;height:2rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <h3 style="font-size:1.25rem; font-weight:700; color:white; text-transform:uppercase; letter-spacing:0.1em; margin:0;">VIDÉOS D'ENTRAÎNEMENT</h3>
+              <div style="display:flex; gap:0.5rem;">
+                 <button id="hero-vid-prev" style="width:3.25rem;height:3.25rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                  </button>
-                 <button id="hero-vid-next" style="width:2rem;height:2rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                 <button id="hero-vid-next" style="width:3.25rem;height:3.25rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                  </button>
               </div>
            </div>
@@ -1072,16 +1072,54 @@
         const card = document.createElement('div');
         card.style.cssText = "position:relative; flex-shrink:0; aspect-ratio:9/16; border-radius:0.5rem; overflow:hidden; cursor:pointer; border:1px solid rgba(255,255,255,0.1); background:#171717; width:calc(33.333% - 0.35rem);";
         card.innerHTML = `
-          <video src="${video.src}" loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;opacity:0.8;transition:all 0.5s;pointer-events:none;"></video>
+          <video data-src="${video.src}" loop muted playsinline preload="none" style="width:100%;height:100%;object-fit:cover;opacity:0.8;transition:all 0.5s;pointer-events:none;"></video>
+          
+          <!-- Play Icon Overlay (Double Nav Size: 6.5rem) -->
+          <div class="hero-play-icon" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; transition:opacity 0.3s; opacity:1;">
+             <div style="width:6.5rem; height:6.5rem; border-radius:50%; background:rgba(255,255,255,0.2); backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center;">
+                <!-- Icon double size of Nav (24px * 2 = 48px) -->
+                <svg width="48" height="48" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+             </div>
+          </div>
+
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);opacity:0.8;"></div>
           <div style="position:absolute;bottom:0.5rem;left:0.5rem;right:0.5rem;color:white;font-weight:700;font-size:0.7rem;text-transform:uppercase;font-style:italic;line-height:1.1;text-shadow:0 1px 2px rgba(0,0,0,0.5);">${video.title}</div>
-          <button style="position:absolute;top:0.3rem;right:0.3rem;width:1.5rem;height:1.5rem;border-radius:50%;background:rgba(0,0,0,0.5);backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.1);color:white;display:flex;align-items:center;justify-content:center;z-index:10;cursor:pointer;" class="hero-card-mute">
-             <svg style="width:12px;height:12px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
+          
+          <!-- Mute Button (Same Size as Nav: 3.25rem) -->
+          <button style="position:absolute;top:0.3rem;right:0.3rem;width:3.25rem;height:3.25rem;border-radius:50%;background:rgba(0,0,0,0.5);backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,0.1);color:white;display:flex;align-items:center;justify-content:center;z-index:10;cursor:pointer;" class="hero-card-mute">
+             <!-- Icon match Nav (24px) -->
+             <svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
           </button>
         `;
         
-        card.addEventListener('mouseenter', () => { if(window.innerWidth >= 768) { const v=card.querySelector('video'); v.play().catch(()=>{}); card.querySelector('video').style.opacity='1'; card.querySelector('video').style.transform='scale(1.05)'; } });
-        card.addEventListener('mouseleave', () => { if(window.innerWidth >= 768) { const v=card.querySelector('video'); v.pause(); v.currentTime=0; card.querySelector('video').style.opacity='0.8'; card.querySelector('video').style.transform='scale(1)'; } });
+        // HOVER LOGIC FOR DESKTOP (Lazy Load)
+        card.addEventListener('mouseenter', () => { 
+            if(window.innerWidth >= 768) { 
+                const v = card.querySelector('video');
+                const playIcon = card.querySelector('.hero-play-icon');
+                
+                // Lazy Load
+                if(!v.src) v.src = v.dataset.src;
+                
+                v.play().then(() => {
+                    playIcon.style.opacity = '0'; // Hide play icon
+                    v.style.opacity = '1';
+                    v.style.transform = 'scale(1.05)';
+                }).catch(()=>{}); 
+            } 
+        });
+
+        card.addEventListener('mouseleave', () => { 
+            if(window.innerWidth >= 768) { 
+                const v = card.querySelector('video');
+                const playIcon = card.querySelector('.hero-play-icon');
+                v.pause(); 
+                v.currentTime = 0; 
+                playIcon.style.opacity = '1'; // Show play icon
+                v.style.opacity = '0.8'; 
+                v.style.transform = 'scale(1)'; 
+            } 
+        });
         card.addEventListener('click', () => { if(window.innerWidth < 768) openModal(index); });
 
         const muteBtn = card.querySelector('.hero-card-mute');
@@ -1113,7 +1151,7 @@
          item.style.cssText = "width:100%;height:100dvh;scroll-snap-align:center;position:relative;background:black;";
          item.id = `hero-modal-video-${index}`;
          item.innerHTML = `
-           <video src="${video.src}" loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+           <video data-src="${video.src}" loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
            <div class="strongside-play-overlay" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none;"><div style="width:4rem;height:4rem;background:rgba(0,0,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
            <button class="hero-modal-mute" style="position:absolute;top:7rem;right:1rem;z-index:50;width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,0.4);color:white;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg></button>
            <div style="position:absolute;bottom:4rem;left:1rem;right:4rem;pointer-events:none;">
@@ -1124,7 +1162,10 @@
          const overlay = item.querySelector('.strongside-play-overlay');
          const mute = item.querySelector('.hero-modal-mute');
          
-         item.addEventListener('click', () => { if(vid.paused){ vid.play(); overlay.style.display='none'; } else { vid.pause(); overlay.style.display='flex'; } });
+         item.addEventListener('click', () => { 
+            if(!vid.src) vid.src = vid.dataset.src;
+            if(vid.paused){ vid.play(); overlay.style.display='none'; } else { vid.pause(); overlay.style.display='flex'; } 
+         });
          mute.addEventListener('click', (e) => { e.stopPropagation(); vid.muted = !vid.muted; mute.style.background = vid.muted ? 'white' : 'rgba(0,0,0,0.4)'; mute.style.color = vid.muted ? 'black' : 'white'; });
 
          scroller.appendChild(item);
@@ -1134,7 +1175,13 @@
       const observer = new IntersectionObserver(entries => {
          entries.forEach(entry => {
             const vid = entry.target.querySelector('video');
-            if(entry.isIntersecting) { vid.currentTime=0; vid.play().catch(()=>{}); } else { vid.pause(); }
+            if(entry.isIntersecting) { 
+                if(!vid.src) vid.src = vid.dataset.src;
+                vid.currentTime=0; 
+                vid.play().catch(()=>{}); 
+            } else { 
+                vid.pause(); 
+            }
          });
       }, {threshold:0.6});
       document.querySelectorAll('#hero-modal-scroller > div').forEach(el=>observer.observe(el));
