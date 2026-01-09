@@ -33,434 +33,668 @@
     {%- break -%}
   {%- endif -%}
 {%- endfor -%}
-{%- assign pro_product = product -%}  --&gt;
+{%- assign pro_product = product -%}  -->
 
 
 <script src="{{ 'strongside-product.js' | asset_url }}" defer="defer"></script>
 
 <style>
+  /* 
+    CONTAINER GLOBAL
+    Sert de wrapper principal pour toute la section Hero.
+  */
   .strongside-hero {
-    min-height: 100vh;
-    background-color: #050505; /* brand-black */
-    color: white;
-    font-family: var(--font-body-family);
+    min-height: 100vh; /* Force la hauteur minimale à 100% de la hauteur de l'écran */
+    background-color: #050505; /* Couleur de fond noire (Brand Black) */
+    color: white; /* Couleur de texte par défaut : Blanc */
+    font-family: var(--font-body-family); /* Utilise la police définie dans les réglages du thème Shopify */
   }
 
+  /* 
+    LAYOUT DE LA SECTION (GRID/FLEX)
+    Gère la disposition des deux colonnes (Gauche: Images, Droite: Infos)
+  */
   .strongside-hero-container {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Active le mode Flexbox pour aligner les enfants */
+    flex-direction: column; /* MOBILE D'ABORD : Les éléments s'empilent verticalement */
   }
 
+  /* MODIFICATION LAYOUT PR PC (Media Query) */
   @media (min-width: 1024px) {
     .strongside-hero-container {
-      flex-direction: row;
+      flex-direction: row; /* SURCHARGE ligne 51 : Passe en horizontal sur grand écran */
     }
   }
 
-  /* LEFT COLUMN - GALLERY */
+  /* 
+    COLONNE GAUCHE (GALERIE IMAGES)
+    Conteneur pour les photos du produit.
+  */
   .strongside-gallery-col {
-    width: 100%;
-    background-color: #171717; /* neutral-900 */
-    position: relative;
+    width: 100%; /* Prend toute la largeur sur mobile */
+    background-color: #171717; /* Fond gris très foncé (Neutral-900) pour contraster avec le noir principal */
+    position: relative; /* Permet de positionner des éléments en absolu à l'intérieur si besoin */
   }
 
+  /* MODIFICATION LARGEUR COLONNE GAUCHE POUR PC */
   @media (min-width: 1024px) {
     .strongside-gallery-col {
-      width: 55%;
+      width: 55%; /* SURCHARGE ligne 62 : Réduit la largeur à 55% sur PC pour laisser place au texte à droite */
     }
   }
 
+  /* 
+    CONTAINER INTERNE GALERIE
+    Gère l'espacement autour des images.
+  */
   .strongside-gallery-sticky {
-    padding: 1rem;
+    padding: 1rem; /* Ajoute une marge interne de 10px (si base 10px) sur mobile */
   }
 
+  /* AJUSTEMENT PADDING GALERIE POUR PC */
   @media (min-width: 1024px) {
     .strongside-gallery-sticky {
-      position: sticky;
-      top: 4rem; /* top-16 */
-      padding: 1.5rem;
+      position: sticky; /* Rend le bloc collant lors du scroll */
+      top: 4rem; /* Le bloc se colle à 4rem du haut de l'écran */
+      padding: 1.5rem; /* Augmente légèrement le padding sur PC */
     }
   }
 
+  /* 
+    GRILLE GALERIE
+    Organise les miniatures et l'image principale.
+  */
   .strongside-gallery-grid {
-    display: flex;
-    gap: 1rem;
+    display: flex; /* Active Flexbox */
+    gap: 1rem; /* Espace de 1rem entre les miniatures et l'image principale */
   }
 
-  /* Thumbnails */
+  /* 
+    MINIATURES (DESKTOP)
+    La liste verticale des petites images à gauche de l'image principale.
+  */
   .strongside-thumbs-desktop {
-    display: none;
-    flex-direction: column;
-    gap: 0.5rem;
-    max-height: 70vh;
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    display: none; /* Caché par défaut sur mobile (on utilise un slider horizontal en bas) */
+    flex-direction: column; /* Empile les miniatures verticalement */
+    gap: 0.5rem; /* Espace de 0.5rem entre chaque miniature */
+    max-height: 70vh; /* Limite la hauteur à 70% de l'écran */
+    overflow-y: auto; /* Ajoute une barre de défilement si trop d'images */
+    -ms-overflow-style: none; /* Cache la scrollbar (IE/Edge) */
+    scrollbar-width: none; /* Cache la scrollbar (Firefox) */
   }
 
+  /* CACHE SCROLLBAR CHROME/SAFARI */
   .strongside-thumbs-desktop::-webkit-scrollbar {
-    display: none;
+    display: none; /* Cache visuellement la barre de défilement */
   }
 
+  /* AFFICHER MINIATURES SUR PC */
   @media (min-width: 1024px) {
     .strongside-thumbs-desktop {
-      display: flex;
+      display: flex; /* SURCHARGE ligne 92 : Affiche le bloc sur PC */
     }
   }
 
+  /* 
+    BOUTON MINIATURE INDIVIDUEL
+    Le cadre autour de chaque petite image.
+  */
   .strongside-thumb-btn {
-    width: 4rem; /* w-16 */
-    height: 4rem; /* h-16 */
-    border-radius: 0.5rem;
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    opacity: 0.7;
-    transition: all 0.2s;
-    cursor: pointer;
-    flex-shrink: 0;
+    width: 4rem; /* Largeur fixe */
+    height: 4rem; /* Hauteur fixe */
+    border-radius: 0.5rem; /* Coins arrondis */
+    overflow: hidden; /* Coupe l'image si elle dépasse des coins */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Bordure fine semi-transparente */
+    opacity: 0.7; /* Légèrement transparent quand pas sélectionné */
+    transition: all 0.2s; /* Animation douce au survol/clic */
+    cursor: pointer; /* Curseur main */
+    flex-shrink: 0; /* Empêche le bouton de s'écraser */
   }
 
+  /* ETAT HOVER DU BOUTON */
   .strongside-thumb-btn:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.3); /* Eclaircit la bordure au survol */
+    opacity: 1; /* Devient totalement opaque */
   }
 
+  /* ETAT ACTIF (IMAGE SELECTIONNEE) */
   .strongside-thumb-btn.is-active {
-    border-color: #ff2222; /* brand-accent */
-    box-shadow: 0 0 0 2px rgba(255, 34, 34, 0.3);
-    transform: scale(1.05);
-    opacity: 1;
+    border-color: #ff2222; /* Bordure rouge (Brand Accent) */
+    box-shadow: 0 0 0 2px rgba(255, 34, 34, 0.3); /* Effet de halo rouge */
+    transform: scale(1.05); /* Grossit légèrement */
+    opacity: 1; /* Totalement opaque */
   }
 
-  /* Main Image */
+  /* 
+    CONTENEUR IMAGE PRINCIPALE
+    Le cadre de la grande image.
+  */
   .strongside-main-image-container {
-    flex: 1;
-    aspect-ratio: 1/1;
-    position: relative;
-    overflow: hidden;
-    border-radius: 1rem;
-    background-color: #262626; /* neutral-800 */
-    cursor: zoom-in;
+    flex: 1; /* Prend tout l'espace restant disponible */
+    aspect-ratio: 1/1; /* Force un ratio carré parfait */
+    position: relative; /* Référence pour le positionnement absolu du hint de zoom */
+    overflow: hidden; /* Coupe ce qui dépasse */
+    border-radius: 1rem; /* Coins arrondis */
+    background-color: #262626; /* Fond gris (Neutral-800) en attendant le chargement */
+    cursor: zoom-in; /* Curseur loupe */
   }
 
+  /* 
+    L'IMAGE PRINCIPALE ELLE-MEME
+  */
   .strongside-main-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: opacity 0.3s;
+    width: 100%; /* Remplit le conteneur en largeur */
+    height: 100%; /* Remplit le conteneur en hauteur */
+    object-fit: contain; /* L'image est contenue entièrement sans être coupée (ajoute des bandes si besoin) */
+    transition: opacity 0.3s; /* Fondu lors du changement d'image */
   }
 
-  /* Zoom Hint */
+  /* 
+    HINT DE ZOOM (OVERLAY OVER)
+    Le voile noir qui apparait au survol.
+  */
   .strongside-zoom-hint {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0);
-    transition: background-color 0.3s;
-    pointer-events: none;
+    position: absolute; /* Se place par dessus l'image */
+    inset: 0; /* Colle aux 4 bords (Top/Right/Bottom/Left = 0) */
+    display: flex; /* Pour centrer le texte */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    background-color: rgba(0, 0, 0, 0); /* Invisible par défaut */
+    transition: background-color 0.3s; /* Animation douce */
+    pointer-events: none; /* Laisse passer les clics au travers */
   }
 
+  /* APPARITION AU SURVOL */
   .strongside-main-image-container:hover .strongside-zoom-hint {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2); /* Devient gris foncé semi-transparent */
   }
 
+  /* 
+    LABEL DE ZOOM ("Cliquer pour agrandir")
+    La pilule de texte.
+  */
   .strongside-zoom-label {
-    opacity: 0;
-    transition: opacity 0.3s;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
+    opacity: 0; /* Invisible par défaut */
+    transition: opacity 0.3s; /* Animation douce */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent */
+    color: white; /* Texte blanc */
+    padding: 0.25rem 0.75rem; /* Espace autour du texte */
+    border-radius: 9999px; /* Bords totalement ronds (pilule) */
+    font-size: 0.875rem; /* Texte petit */
   }
 
+  /* APPARITION DU LABEL AU SURVOL */
   .strongside-main-image-container:hover .strongside-zoom-label {
-    opacity: 1;
+    opacity: 1; /* Devient visible */
   }
 
-  /* Mobile Thumbs */
+  /* 
+    MINIATURES MOBILES
+    Le slider horizontal en bas sur petit écran.
+  */
   .strongside-thumbs-mobile {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-    margin-top: 0.5rem;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    display: flex; /* Affiche en ligne */
+    gap: 0.5rem; /* Espace entre les items */
+    overflow-x: auto; /* Permet le scroll horizontal */
+    padding-bottom: 0.5rem; /* Espace pour la scrollbar (même si cachée) */
+    margin-top: 0.5rem; /* Espace au dessus */
+    -ms-overflow-style: none; /* Cache scrollbar IE */
+    scrollbar-width: none; /* Cache scrollbar Firefox */
   }
 
+  /* CACHE MINIATURES MOBILES SUR PC */
   @media (min-width: 1024px) {
     .strongside-thumbs-mobile {
-      display: none;
+      display: none; /* SURCHARGE ligne 185 : On cache car on utilise la version Desktop */
     }
   }
 
-  /* RIGHT COLUMN - INFO */
+  /* 
+    COLONNE DROITE (INFOS PRODUIT)
+    Contient le Titre, Prix, Boutons, etc.
+  */
   .strongside-info-col {
-    width: 100%;
-    background-color: #050505;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
+    width: 100%; /* Pleine largeur sur mobile */
+    background-color: #050505; /* Fond noir */
+    padding: 1rem; /* Marge interne petite */
+    display: flex; /* Flexbox vertical */
+    flex-direction: column; /* Empilement vertical */
   }
 
+  /* AJUSTEMENT COLONNE DROITE SUR PC */
   @media (min-width: 1024px) {
     .strongside-info-col {
-      width: 45%;
-      padding: 4rem;
+      width: 45%; /* SURCHARGE ligne 202 : Prend 45% de la largeur */
+      padding: 4rem; /* Marge interne beaucoup plus grande */
     }
   }
 
+  /* 
+    CONTAINER CONTENU DROITE (Sticky supprimé)
+  */
   .strongside-info-sticky {
-    padding-top: 1rem;
+    padding-top: 1rem; /* Petit espace au dessus */
   }
 
   @media (min-width: 1024px) {
     .strongside-info-sticky {
-      position: sticky;
-      top: 5rem;
+      /* Le sticky a été supprimé ici à votre demande pour éviter que le texte suive le scroll */
     }
   }
 
-  /* TYPOGRAPHY OVERRIDES - STRICT 1.6x SCALING */
+  /* 
+    OVERRIDES TYPOGRAPHIE GLOBALE
+    Force la police système Réact partout.
+  */
+  .strongside-hero-container,
+  #strongside-hero-wrapper .strongside-product-title,
+  #strongside-hero-wrapper .strongside-desc-toggle,
+  #strongside-hero-wrapper .strongside-desc-toggle span,
+  #strongside-hero-wrapper .strongside-price-container,
+  #strongside-hero-wrapper .strongside-reviews-badge,
+  #strongside-hero-wrapper .strongside-variant-label,
+  #strongside-hero-wrapper .strongside-variant-btn,
+  #strongside-hero-wrapper .strongside-btn-add,
+  #strongside-hero-wrapper .strongside-btn-buy,
+  #strongside-hero-wrapper .strongside-trust-item,
+  #strongside-hero-wrapper .strongside-accordion-btn {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    /* Force la police "Système" (comme React) partout en écrasant 'Inter' */
+  }
+
   .strongside-hero-container {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased; /* Lissage de police (Mac) */
+    -moz-osx-font-smoothing: grayscale; /* Lissage de police (Firefox) */
   }
 
-  /* Title - 1.6x Scale */
-  /* Title - 1.6x Scale - HIGH SPECIFICITY */
+  /* 
+    TITRE PRODUIT
+    Le gros titre en haut.
+  */
   #strongside-hero-wrapper .strongside-product-title {
-    font-family: 'Inter', system-ui, sans-serif !important;
-    font-size: 3.6rem !important; /* React: text-4xl (2.25rem) * 1.6 = 3.6rem */
-    line-height: 0.9 !important;
-    font-weight: 900 !important; 
-    font-style: italic !important;
-    text-transform: uppercase !important;
-    letter-spacing: -0.05em !important;
-    color: white !important; 
-    margin-bottom: 2.4rem !important; 
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4) !important;
+    font-family: 'Inter', system-ui, sans-serif !important; /* Garde Inter juste pour le titre (exception) */
+    font-size: 3.6rem !important; /* Taille Mobile (36px env) */
+    line-height: 0.9 !important; /* Ligne très serrée */
+    font-weight: 900 !important; /* Ultra Gras */
+    font-style: italic !important; /* Italique */
+    text-transform: uppercase !important; /* MAJUSCULES */
+    letter-spacing: -0.05em !important; /* Lettres très serrées */
+    color: white !important; /* Blanc */
+    margin-bottom: 2.4rem !important; /* Marge dessous */
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4) !important; /* Léger halo lumineux */
   }
 
+  /* AJUSTEMENT TITRE SUR PC */
   @media (min-width: 1024px) {
     #strongside-hero-wrapper .strongside-product-title {
-      font-size: 6rem !important; /* React: text-6xl (3.75rem) * 1.6 = 6rem */
-      margin-bottom: 3.2rem; /* React: mb-6 (1.5rem) -> 2.4rem? Let's use 3.2 for mb-8 equiv */
+      font-size: 6rem !important; /* SURCHARGE ligne 237 : Devient GÉANT sur PC (60px+) */
+      margin-bottom: 3.2rem; /* Augmente la marge dessous */
     }
   }
 
-  /* Description Toggle */
+  /* 
+    BOUTON DESCRIPTION ("Voir la description")
+    Taille ajustée (-10% par rapport au gros test)
+  */
   #strongside-hero-wrapper .strongside-desc-toggle {
-    width: 100%;
-    margin-bottom: 1.6rem;
-    padding: 1.2rem 1.6rem; 
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 0.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: white;
-    font-family: 'Inter', system-ui, sans-serif !important;
-  }
-  
-  #strongside-hero-wrapper .strongside-desc-toggle span {
-     font-size: 1.2rem; 
-     font-weight: 700; 
-     text-transform: uppercase; 
-     letter-spacing: 0.05em;
-     font-family: 'Inter', system-ui, sans-serif !important;
+    width: 100%; /* Toute la largeur */
+    margin-bottom: 1.6rem; /* Marge dessous */
+    padding: 1.25rem 1.6rem; /* Ajusté (-10%) */
+    background-color: #171717; /* Fond Neutral-900 */
+    border: 1px solid #262626; /* Bordure Neutral-800 */
+    border-radius: 0.5rem; /* Coins arrondis */
+    display: flex; /* Flexbox */
+    align-items: center; /* Centre verticalement */
+    justify-content: space-between; /* Espace extrémités */
+    cursor: pointer; /* Curseur main */
+    transition: all 0.2s; /* Animation */
+    color: white; /* Texte blanc */
+    font-family: inherit;
   }
 
+  /* HOVER BOUTON */
+  #strongside-hero-wrapper .strongside-desc-toggle:hover {
+     background-color: #262626; /* Eclaircit au survol */
+  }
+  
+  /* TEXTE DU BOUTON */
+  #strongside-hero-wrapper .strongside-desc-toggle span {
+     font-size: 1.2rem; /* Ajusté (-10%) */
+     line-height: 1.5rem;
+     font-weight: 700; /* Gras */
+     text-transform: uppercase; /* MAJUSCULES */
+     letter-spacing: 0.05em; /* Espacement */
+     color: white; 
+  }
+
+  /* FLECHE DU BOUTON */
   #strongside-hero-wrapper #desc-arrow {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 1.6rem; /* Ajusté (-10%) */
+    height: 1.6rem; 
     transition: transform 0.3s;
     display: flex;
     align-items: center;
     color: #9ca3af;
   }
 
-  /* Price */
+  /* 
+    ZONE PRIX
+    Contient Prix actuel, barré et badge promo.
+  */
   #strongside-hero-wrapper .strongside-price-container {
-    display: flex;
-    align-items: baseline;
-    gap: 1.2rem; 
-    margin-bottom: 1rem;
-    font-family: 'Inter', system-ui, sans-serif !important;
+    display: flex; /* Aligne les prix sur une ligne */
+    align-items: baseline; /* Aligne sur la ligne de base du texte (pour que les tailles différentes s'alignent bien en bas) */
+    gap: 1.2rem; /* Espace entre les éléments */
+    margin-bottom: 1rem; /* Marge dessous */
   }
 
+  /* PRIX PRINCIPAL */
   #strongside-hero-wrapper .strongside-price-main {
-    font-size: 3.6rem; 
-    font-weight: 900;
-    color: white !important;
+    font-size: 3.6rem; /* Gros (36px env) */
+    font-weight: 900; /* Très gras */
+    color: white !important; /* Blanc forcé */
   }
 
+  /* DEVISE (€) */
   #strongside-hero-wrapper .strongside-price-currency {
-    font-size: 2rem;
-    font-weight: 400;
-    color: #9ca3af;
+    font-size: 2rem; /* Plus petit */
+    font-weight: 400; /* Normal */
+    color: #9ca3af; /* Gris */
   }
 
+  /* PRIX BARRE (ANCIEN PRIX) */
   #strongside-hero-wrapper .strongside-price-compare {
-    font-size: 2.4rem;
-    color: #9ca3af;
-    text-decoration: line-through;
+    font-size: 2.4rem; /* Moyen */
+    color: #9ca3af; /* Gris */
+    text-decoration: line-through; /* Barré */
   }
 
+  /* BADGE PROMO (-XX%) */
   #strongside-hero-wrapper .strongside-discount-badge {
-    background: #ff2222;
-    color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 9999px;
-    font-size: 1.4rem;
-    font-weight: 700;
+    background: #ff2222; /* Fond Rouge vif */
+    color: white; /* Texte Blanc */
+    padding: 0.4rem 0.8rem; /* Espace interne */
+    border-radius: 9999px; /* Pilule */
+    font-size: 1.4rem; /* Taille texte */
+    font-weight: 700; /* Gras */
   }
 
-  /* Reviews Badge */
+  /* 
+    BADGE AVIS (ETOILES)
+  */
   #strongside-hero-wrapper .strongside-reviews-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.8rem 1.6rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    margin-bottom: 2.4rem;
-    transition: all 0.2s;
-    font-family: 'Inter', system-ui, sans-serif !important;
+    display: flex; /* Flex pour aligner étoiles et texte */
+    align-items: center; /* Centre verticalement */
+    gap: 0.5rem; /* Espace */
+    background: rgba(255, 255, 255, 0.05); /* Fond très léger (5%) */
+    padding: 0.8rem 1.6rem; /* Padding */
+    border-radius: 9999px; /* Pilule */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure légère */
+    cursor: pointer; /* Curseur main */
+    margin-bottom: 2.4rem; /* Marge dessous */
+    transition: all 0.2s; /* Animation */
   }
 
+  /* HOVER BADGE AVIS */
   #strongside-hero-wrapper .strongside-reviews-badge:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Eclaircit le fond au survol */
   }
   
+  /* ETOILES JAUNES */
   #strongside-hero-wrapper .strongside-stars {
-    color: #facc15;
-    display: flex;
-    gap: 2px;
+    color: #facc15; /* Jaune/Or */
+    display: flex; /* Ligne */
+    gap: 2px; /* Espace très fin entre étoiles */
   }
 
-  /* Variants */
+  /* 
+    VARIANTES (CHOIX OPTIONS)
+  */
   #strongside-hero-wrapper .strongside-variants {
-    margin-bottom: 2.4rem;
+    margin-bottom: 2.4rem; /* Marge dessous */
   }
 
+  /* TITRE VARIANTE */
   #strongside-hero-wrapper .strongside-variant-label {
-    font-size: 1.2rem;
-    font-family: 'Inter', system-ui, sans-serif !important;
-    color: #9ca3af;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.8rem;
-    display: block;
-    font-weight: 700;
+    font-size: 1.2rem; /* Taille */
+    color: #9ca3af; /* Gris */
+    text-transform: uppercase; /* MAJUSCULES */
+    letter-spacing: 0.05em; /* Espacement */
+    margin-bottom: 0.8rem; /* Marge dessous */
+    display: block; /* Bloc pour passer à la ligne */
+    font-weight: 700; /* Gras */
   }
 
+  /* BOUTON VARIANTE */
   #strongside-hero-wrapper .strongside-variant-btn {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: transparent;
-    color: #9ca3af;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    font-family: 'Inter', system-ui, sans-serif !important;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 700;
-    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure défaut */
+    background: transparent; /* Fond transparent défaut */
+    color: #9ca3af; /* Texte gris défaut */
+    padding: 1rem 2rem; /* Padding */
+    font-size: 1.2rem; /* Taille */
+    border-radius: 9999px; /* Pilule */
+    cursor: pointer; /* Curseur main */
+    transition: all 0.2s; /* Animation */
+    font-weight: 700; /* Gras */
+    text-transform: uppercase; /* MAJUSCULES */
   }
 
+  /* VARIANTE SELECTIONNEE */
   #strongside-hero-wrapper .strongside-variant-btn.is-selected {
-    background: white;
-    color: black;
-    border-color: white;
+    background: white; /* Fond blanc */
+    color: black; /* Texte noir */
+    border-color: white; /* Bordure blanche */
   }
 
-  /* Action Buttons */
+  /* 
+    BOUTONS D'ACTION (AJOUT PANIER / ACHAT)
+  */
   #strongside-hero-wrapper .strongside-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem; 
-    margin-bottom: 2.4rem;
+    display: flex; /* Flexbox */
+    flex-direction: column; /* MOBILE : Empilés verticalement */
+    gap: 1.2rem; /* Espace entre boutons */
+    margin-bottom: 2.4rem; /* Marge dessous */
   }
   
+  /* ACTIONS SUR PC */
   @media (min-width: 1024px) {
     #strongside-hero-wrapper .strongside-actions {
-       gap: 1.6rem; 
-       margin-bottom: 4rem;
+       gap: 1.6rem; /* Augmente l'espace */
+       margin-bottom: 4rem; /* Augmente la marge globale */
     }
   }
 
+  /* 
+    BOUTON "AJOUTER AU PANIER" (BLANC)
+  */
   #strongside-hero-wrapper .strongside-btn-add {
-    width: 100%;
-    padding: 2rem; 
-    background-color: white !important; 
-    color: black !important; /* Force black text */           
-    font-size: 2rem !important; 
-    font-weight: 900 !important;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.2rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: none;
-    font-family: 'Inter', system-ui, sans-serif !important;
+    width: 100%; /* Pleine largeur */
+    padding: 2rem; /* Gros padding */
+    background-color: white !important; /* Fond Blanc forcé */
+    color: black !important; /* Texte Noir forcé */           
+    font-size: 2rem !important; /* Gros texte */
+    font-weight: 900 !important; /* Très Gras */
+    text-transform: uppercase; /* MAJUSCULES */
+    letter-spacing: 0.1em; /* Espacement large */
+    border-radius: 9999px; /* Pilule */
+    display: flex; /* Pour centrer icone + texte */
+    align-items: center; /* Centre vertical */
+    justify-content: center; /* Centre horizontal */
+    gap: 1.2rem; /* Espace icone/texte */
+    cursor: pointer; /* Curseur main */
+    transition: all 0.2s; /* Animation */
+    border: none; /* Pas de bordure */
   }
 
+  /* HOVER AJOUTER AU PANIER */
   #strongside-hero-wrapper .strongside-btn-add:hover {
-    background-color: #f3f4f6 !important;
+    background-color: #f3f4f6 !important; /* Devient gris très clair */
   }
 
+  /* 
+    BOUTON "ACHAT IMMEDIAT" (VERT)
+  */
   #strongside-hero-wrapper .strongside-btn-buy {
-    width: 100%;
-    padding: 1.6rem; 
-    background-color: #10b981 !important; 
-    color: white !important;          
-    font-size: 1.8rem !important; 
-    font-weight: 900 !important;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.2rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
-    border: none;
-    font-family: 'Inter', system-ui, sans-serif !important;
+    width: 100%; /* Pleine largeur */
+    padding: 1.6rem; /* Padding un peu plus petit que l'autre */
+    background-color: #10b981 !important; /* Vert Emeraude forcé */
+    color: white !important; /* Texte Blanc */         
+    font-size: 1.8rem !important; /* Taille texte */
+    font-weight: 900 !important; /* Très gras */
+    text-transform: uppercase; /* MAJUSCULES */
+    letter-spacing: 0.1em; /* Espacement */
+    border-radius: 9999px; /* Pilule */
+    display: flex; /* Centre */
+    align-items: center; /* Centre vertical */
+    justify-content: center; /* Centre horizontal */
+    gap: 1.2rem; /* Espace */
+    cursor: pointer; /* Curseur main */
+    transition: all 0.2s; /* Animation */
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3); /* Ombre portée verte */
+    border: none; /* Pas de bordure */
   }
 
+  /* HOVER ACHAT IMMEDIAT */
   #strongside-hero-wrapper .strongside-btn-buy:hover {
-     background-color: #059669 !important;
+     background-color: #059669 !important; /* Vert plus foncé */
   }
 
-  /* Trust Badges Font Override */
+  /* 
+    TEXTE DE CONFIANCE (Livraison, Garantie...)
+  */
   #strongside-hero-wrapper .strongside-trust-text {
-    font-family: 'Inter', system-ui, sans-serif !important;
+    /* Obsolète ou hérité, c'est .strongside-trust-item qui prime */
     font-weight: 400 !important;
     font-size: 1rem; 
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
+  /* 
+    CONTENEUR TEXTE CONFIANCE
+    Gère l'alignement des éléments de réassurance.
+  */
+  #strongside-hero-wrapper .strongside-trust-text-container {
+    display: flex; /* Flexbox */
+    flex-direction: row; /* FORCE LIGNE : Alignement horizontal forcé */
+    flex-wrap: wrap; /* Permet de passer à la ligne si pas assez de place */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    gap: 1.5rem; /* Espace de 1.5rem entre chaque élément */
+    margin-bottom: 0.5rem; /* Marge dessous */
+    width: 100%; /* Pleine largeur */
+  }
+
+  /* 
+    ITEM DE CONFIANCE INDIVIDUEL
+    (Icône + Texte)
+  */
+  #strongside-hero-wrapper .strongside-trust-item {
+    display: flex; /* Flex pour aligner icone et texte */
+    align-items: center; /* Centre vertical */
+    gap: 0.5rem; /* Espace icone/texte */
+    font-family: 'ui-sans-serif', system-ui, sans-serif !important; /* Police Système forcée */
+    font-size: 1.5rem !important; /* TAILLE FORCEE (Attention: grand, comme demandé) */
+    letter-spacing: 0.1em; /* Espacement */
+    text-transform: uppercase; /* MAJUSCULES */
+    color: #9ca3af; /* Gris par défaut */
+    font-weight: 600; /* Gras */
+    transition: color 0.2s; /* Animation couleur */
+  }
+  
+  /* PREMIER ELEMENT CONFIANCE (LIVRAISON) */
+  #strongside-hero-wrapper .strongside-trust-item:first-child {
+     color: white; /* Il est blanc, le reste est gris */
+  }
+
+  /* MEDIAS QUERIES CONFIANCE (PC) */
   @media (min-width: 1024px) {
-    #strongside-hero-wrapper .strongside-trust-text {
-      font-size: 1.2rem; 
+    #strongside-hero-wrapper .strongside-trust-text-container {
+       gap: 2rem; /* Augmente l'espace entre items sur PC */
     }
+    #strongside-hero-wrapper .strongside-trust-item {
+      font-size: 1.5rem !important; /* Réaffirme la taille sur PC pour éviter écrasement */
+    }
+  }
+
+  /* 
+    CONTENEUR LOGOS PAIEMENT (VISA, CB...)
+  */
+  #strongside-hero-wrapper .strongside-trust-logos {
+    display: flex; /* Flexbox */
+    align-items: center; /* Centre */
+    justify-content: center; /* Centre */
+    gap: 1.5rem; /* Espace entre les images */
+    margin-top: 1rem; /* Marge dessus */
+  }
+
+  /* 
+    IMAGE LOGO PAIEMENT
+  */
+  #strongside-hero-wrapper .strongside-trust-logo-img {
+    height: 5rem !important; /* Hauteur forcée (Grande) */
+    width: auto !important; /* Largeur s'adapte */
+    max-width: 80px !important; /* Largeur max de sécurité */
+    object-fit: contain; /* L'image ne doit pas être déformée */
+    opacity: 0.7; /* Semi transparent par défaut */
+    transition: opacity 0.2s; /* Animation opacité */
+  }
+
+  /* HOVER LOGO PAIEMENT */
+  #strongside-hero-wrapper .strongside-trust-logo-img:hover {
+     opacity: 1; /* Devient opaque au survol */
+  }
+
+  /* 
+    ACCORDEONS (FAQ PRODUIT)
+  */
+  /* CONTAINER GLOBAL ACCORDEON */
+  #strongside-hero-wrapper .strongside-accordion {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Ligne de séparation fine en bas de chaque item */
+  }
+
+  /* PREMIER ACCORDEON */
+  #strongside-hero-wrapper .strongside-accordion:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ajoute aussi une ligne au dessus du tout premier */
+  }
+
+  /* BOUTON DECLENCHEUR ACCORDEON */
+  #strongside-hero-wrapper .strongside-accordion-btn {
+    width: 100%; /* Pleine largeur */
+    display: flex; /* Flex pour espacer texte et "+" */
+    align-items: center; /* Centre vertical */
+    justify-content: space-between; /* Texte à gauche, "+" à droite */
+    padding: 1.25rem 0; /* Padding haut/bas */
+    background: transparent; /* Fond transparent */
+    border: none; /* Pas de bordure bouton */
+    color: white; /* Texte Blanc */
+    font-size: 1rem; /* Taille 10px ou 16px selon base */
+    font-weight: 700; /* Gras */
+    text-transform: uppercase; /* MAJUSCULES */
+    letter-spacing: 0.05em; /* Espacement */
+    cursor: pointer; /* Main */
+    transition: color 0.2s; /* Animation couleur */
+  }
+
+  /* HOVER BOUTON ACCORDEON */
+  #strongside-hero-wrapper .strongside-accordion-btn:hover {
+    color: #ff2222; /* Devient rouge au survol */
+  }
+
+  /* CONTENU DEPLIABLE ACCORDEON */
+  #strongside-hero-wrapper .strongside-accordion-content {
+    max-height: 0; /* CACHE PAR DEFAUT (hauteur 0) */
+    overflow: hidden; /* Cache ce qui dépasse */
+    transition: max-height 0.3s ease-out; /* Animation d'ouverture fluide */
+    color: #9ca3af; /* Texte contenu gris */
+    font-size: 0.95rem; /* Taille un peu plus petite */
+    line-height: 1.6; /* Interligne aéré */
+  }
+
+  /* ETAT OUVERT (via Javascript) */
+  #strongside-hero-wrapper .strongside-accordion-content.is-open {
+    max-height: 500px; /* Donne une hauteur max suffisante pour afficher le texte */
+    padding-bottom: 1.25rem; /* Marge en bas quand ouvert */
   }
 </style>
 
@@ -512,9 +746,9 @@
         <h1 class="strongside-product-title">{{ product.title }}</h1>
 
         <!-- Description Toggle -->
-        <button class="strongside-desc-toggle" onclick="toggleDescription()" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:0.75rem 1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:0.5rem;cursor:pointer;transition:background 0.2s; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased;">
-          <span style="font-size:0.75rem; line-height:1rem; font-weight:700; text-transform:uppercase; color:white; letter-spacing:0.05em;">Voir la description</span>
-           <div id="desc-arrow" style="width:16px;height:16px;transition:transform 0.3s;display:flex;align-items:center;color:#9ca3af;">
+        <button class="strongside-desc-toggle" onclick="toggleDescription()">
+          <span>Voir la description</span>
+           <div id="desc-arrow">
              <svg width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
              </svg>
@@ -628,18 +862,18 @@
         {% endif %}
 
         <!-- Trust Badges -->
-        <div class="flex flex-col items-center justify-center gap-2 mt-2">
-			<div class="strongside-trust-text" style="font-weight:400 !important;">
+        <div class="flex flex-col items-center justify-center gap-4 mt-6 mb-6">
+			<div class="strongside-trust-text-container">
 				<span class="strongside-trust-item">
-					<svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+					<svg style="width:20px;height:20px;color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
 					Livraison Rapide
 				</span>
 				<span class="strongside-trust-item">
-					<svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+					<svg style="width:20px;height:20px;color:#9ca3af;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
 					Garantie
 				</span>
 				<span class="strongside-trust-item">
-					<svg style="width:24px;height:24px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" /></svg>
+					<svg style="width:20px;height:20px;color:#9ca3af;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" /></svg>
 					Paiement sécurisé
 				</span>
 			</div>
@@ -648,6 +882,7 @@
                <img src="{{ 'paypal logo.webp' | asset_url }}" alt="PayPal" class="strongside-trust-logo-img">
                <img src="{{ 'cb logo.webp' | asset_url }}" alt="CB" class="strongside-trust-logo-img">
             </div>
+        </div>
         </div>
 
         <!-- Accordions -->
@@ -699,70 +934,87 @@
      }
   }
 
-  function selectVariant(btn, id, price) {
-     document.querySelectorAll('.strongside-variant-btn').forEach(b => b.classList.remove('is-selected'));
-     btn.classList.add('is-selected');
-     document.querySelector('input[name="id"]').value = id;
-     // Update price display if needed (would need to parse money)
+  function toggleAccordion(btn) {
+    const content = btn.nextElementSibling;
+    const allContents = document.querySelectorAll('.strongside-accordion-content');
+    const allBtns = document.querySelectorAll('.strongside-accordion-btn');
+
+    // Close others
+    allContents.forEach(c => {
+      if (c !== content) {
+        c.classList.remove('is-open');
+        c.style.maxHeight = '0';
+      }
+    });
+
+    // Toggle current
+    content.classList.toggle('is-open');
+    if (content.classList.contains('is-open')) {
+       content.style.maxHeight = content.scrollHeight + "px";
+       // Optional: Change + to - if needed
+    } else {
+       content.style.maxHeight = '0';
+    }
   }
 
-  function toggleAccordion(btn) {
-     const content = btn.nextElementSibling;
-     const icon = btn.querySelector('.plus-icon');
-     content.classList.toggle('is-open');
-     icon.textContent = content.classList.contains('is-open') ? '-' : '+';
+  // Auto-select first variant on load if needed
+  function selectVariant(btn, id, price) {
+    // Styling
+    document.querySelectorAll('.strongside-variant-btn').forEach(b => {
+      b.classList.remove('is-selected');
+      b.style.background = 'transparent';
+      b.style.color = '#9ca3af';
+      b.style.borderColor = 'rgba(255,255,255,0.2)';
+    });
+    btn.classList.add('is-selected');
+    btn.style.background = 'white';
+    btn.style.color = 'black';
+    btn.style.borderColor = 'white';
+
+    // Logic
+    // Find hidden input for form
+    const input = document.querySelector('input[name="id"]');
+    if(input) input.value = id;
+
+    // Update Price
+    const priceDisplay = document.querySelector('.strongside-price-main');
+    if(priceDisplay) priceDisplay.innerText = price;
   }
 </script>
 
 {% schema %}
 {
-  "name": "Strongside Hero",
+  "name": "Strongside Hero Replica",
   "settings": [
-    {
-      "type": "product",
-      "id": "product",
-      "label": "Product"
-    }
+     {
+        "type": "product",
+        "id": "product",
+        "label": "Product to display"
+     }
   ],
   "blocks": [
     {
-      "type": "info_row",
-      "name": "Info Row",
-      "settings": [
-        {
-           "type": "text",
-           "id": "title",
-           "label": "Title",
-           "default": "Shipping & Returns"
-        },
-        {
-           "type": "richtext",
-           "id": "content",
-           "label": "Content",
-           "default": "<p>Content here</p>"
-        }
-      ]
+       "type": "info_row",
+       "name": "Accordion Row",
+       "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Livraison & Retours"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content",
+            "default": "<p>Content here...</p>"
+          }
+       ]
     }
   ],
   "presets": [
     {
-      "name": "Strongside Hero",
-      "blocks": [
-        {
-          "type": "info_row",
-          "settings": {
-            "title": "Contenu du Pack",
-            "content": "<p>Bandes de résistance, Guide, Sac...</p>"
-          }
-        },
-        {
-          "type": "info_row",
-          "settings": {
-            "title": "Livraison & Retours",
-            "content": "<p>Expédition 24h...</p>"
-          }
-        }
-      ]
+      "name": "Strongside Hero Replica"
     }
   ]
 }
