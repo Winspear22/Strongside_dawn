@@ -51,12 +51,14 @@
   }
 
   /* 
+  /* 
     LAYOUT DE LA SECTION (GRID/FLEX)
     Gère la disposition des deux colonnes (Gauche: Images, Droite: Infos)
   */
   .strongside-hero-container {
     display: flex; /* Active le mode Flexbox pour aligner les enfants */
     flex-direction: column; /* MOBILE D'ABORD : Les éléments s'empilent verticalement */
+    padding-top: 5.10rem !important; /* EMPÊCHE la navbar de cacher le contenu (Gap correction) */
   }
 
   /* MODIFICATION LAYOUT PR PC (Media Query) */
@@ -140,15 +142,27 @@
     Le cadre autour de chaque petite image.
   */
   .strongside-thumb-btn {
-    width: 4rem; /* Largeur fixe */
-    height: 4rem; /* Hauteur fixe */
+    width: 9rem; /* Largeur augmentée (+60%) */
+    height: 9rem; /* Hauteur augmentée */
     border-radius: 0.5rem; /* Coins arrondis */
     overflow: hidden; /* Coupe l'image si elle dépasse des coins */
-    border: 2px solid rgba(255, 255, 255, 0.1); /* Bordure fine semi-transparente */
+    background: transparent !important; /* SUPPRIME le fond blanc/gris */
+    border: none !important; /* SUPPRIME les bordures */
+    /*border: 2px solid rgba(255, 255, 255, 0.1);*/ /* Bordure fine semi-transparente (COMMENTÉ) */
     opacity: 0.7; /* Légèrement transparent quand pas sélectionné */
     transition: all 0.2s; /* Animation douce au survol/clic */
     cursor: pointer; /* Curseur main */
     flex-shrink: 0; /* Empêche le bouton de s'écraser */
+  }
+
+  /* 
+    IMAGE INTERIEURE MINIATURE
+    Empêcher le zoom/crop (cover) et forcer l'affichage entier (contain).
+  */
+  .strongside-thumb-btn img {
+    object-fit: contain !important; /* Affiche toute l'image sans couper */
+    width: 100%;
+    height: 100%;
   }
 
   /* ETAT HOVER DU BOUTON */
