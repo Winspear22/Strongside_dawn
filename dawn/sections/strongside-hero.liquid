@@ -602,10 +602,7 @@
     transition: color 0.2s; /* Animation couleur */
   }
   
-  /* PREMIER ELEMENT CONFIANCE (LIVRAISON) */
-  #strongside-hero-wrapper .strongside-trust-item:first-child {
-     color: white; /* Il est blanc, le reste est gris */
-  }
+  /* PREMIER ELEMENT CONFIANCE (LIVRAISON) - Règle supprimée pour uniformité */
 
   /* MEDIAS QUERIES CONFIANCE (PC) */
   @media (min-width: 1024px) {
@@ -630,11 +627,12 @@
 
   /* 
     IMAGE LOGO PAIEMENT
+    Taille augmentée de 40% (5rem -> 7rem / 80px -> 112px)
   */
   #strongside-hero-wrapper .strongside-trust-logo-img {
-    height: 5rem !important; /* Hauteur forcée (Grande) */
+    height: 7rem !important; /* Hauteur augmentée */
     width: auto !important; /* Largeur s'adapte */
-    max-width: 80px !important; /* Largeur max de sécurité */
+    max-width: 112px !important; /* Largeur max augmentée */
     object-fit: contain; /* L'image ne doit pas être déformée */
     opacity: 0.7; /* Semi transparent par défaut */
     transition: opacity 0.2s; /* Animation opacité */
@@ -664,11 +662,11 @@
     display: flex; /* Flex pour espacer texte et "+" */
     align-items: center; /* Centre vertical */
     justify-content: space-between; /* Texte à gauche, "+" à droite */
-    padding: 1.25rem 0; /* Padding haut/bas */
+    padding: 1.5rem 0; /* Padding encore agrandi (+30%) */
     background: transparent; /* Fond transparent */
     border: none; /* Pas de bordure bouton */
     color: white; /* Texte Blanc */
-    font-size: 1rem; /* Taille 10px ou 16px selon base */
+    font-size: 1.2rem; /* Taille augmentée pour matcher le bouton description */
     font-weight: 700; /* Gras */
     text-transform: uppercase; /* MAJUSCULES */
     letter-spacing: 0.05em; /* Espacement */
