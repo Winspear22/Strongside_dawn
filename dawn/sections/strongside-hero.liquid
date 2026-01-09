@@ -685,7 +685,7 @@
     overflow: hidden; /* Cache ce qui dépasse */
     transition: max-height 0.3s ease-out; /* Animation d'ouverture fluide */
     color: #9ca3af; /* Texte contenu gris */
-    font-size: 0.95rem; /* Taille un peu plus petite */
+    font-size: 1.5rem; /* Taille augmentée pour matcher description (approx 20px) */
     line-height: 1.6; /* Interligne aéré */
   }
 
@@ -757,7 +757,8 @@
           <div class="prose prose-invert strongside-desc-body">
              <style>
                /* React Mobile: text-sm (14px) */
-               .strongside-desc-body { font-size: 0.875rem; line-height: 1.625; color: #d1d5db; padding-top: 1rem; }
+                /* Force font size larger to 1.2rem (approx 19px) to be clearly visible */
+                .strongside-desc-body { font-size: 1.25rem !important; line-height: 1.6; color: #d1d5db; padding-top: 1rem; }
                .strongside-desc-body h3 { font-size: 1.125rem; font-weight: 800; text-transform: uppercase; color: white; margin-top: 1.5rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; line-height:1.4; }
                .strongside-desc-body h4 { font-size: 1rem; font-weight: 700; color: white; margin-top: 1rem; margin-bottom: 0.5rem; line-height:1.4; }
                .strongside-desc-body p { margin-bottom: 1em; }
