@@ -1,0 +1,691 @@
+{% schema %}
+{
+  "name": "Strongside Videos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Titre Section",
+      "default": "VIDÉOS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Strongside Videos"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %}
+  STRONGSIDE VIDEOS SECTION
+  - Desktop: Carousel horizontal + Hover-to-play
+  - Mobile: Modal plein écran style "TikTok" (Scroll Vertical)
+  - Vanilla JS Implementation of ProductVideos.jsx
+{% endcomment %}
+
+<style>
+  /* --- SECTION WRAPPER --- */
+  .strongside-videos-section {
+    padding: 2rem 0;
+    position: relative;
+    background-color: transparent;
+  }
+
+  /* TITLE & NAV */
+  .strongside-videos-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 0 5%;
+  }
+
+  .strongside-videos-title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em; /* tracking-widest */
+  }
+
+  /* NAV ARROWS (Hidden by default, shown via JS if needed or CSS) */
+  .strongside-videos-nav {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .strongside-nav-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .strongside-nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .strongside-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  /* --- CAROUSEL TRACK --- */
+  .strongside-videos-carousel {
+    overflow: hidden;
+    padding: 0 5%; /* Align with header */
+    margin-bottom: 2rem;
+  }
+
+  .strongside-videos-track {
+    display: flex;
+    gap: 1rem; /* gap-4 */
+    transition: transform 0.3s ease-out;
+  }
+
+  /* --- VIDEO CARD --- */
+  .strongside-video-card {
+    position: relative;
+    flex-shrink: 0;
+    aspect-ratio: 9/16;
+    border-radius: 0.75rem; /* rounded-xl */
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: #171717; /* neutral-900 */
+    /* Width calculation logic will be handled via inline styles in loop or JS, 
+       but we can set defaults here. 
+       Mobile: 2 visible (~50%)
+       Desktop: 3 visible (~33%)
+    */
+    width: calc(33.333% - 0.75rem); /* Default Desktop */
+  }
+
+  @media (max-width: 768px) {
+    .strongside-video-card {
+      width: calc(50% - 0.5rem); /* Mobile */
+    }
+  }
+
+  /* VIDEO ELEMENT */
+  .strongside-video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: all 0.5s;
+    pointer-events: none; /* Let clicks pass to card container */
+  }
+
+  .strongside-video-card:hover video {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  /* OVERLAYS */
+  .strongside-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .strongside-video-card:hover .strongside-card-overlay {
+    opacity: 1;
+  }
+
+  /* CARD TITLE */
+  .strongside-card-title {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    color: white;
+    font-weight: 900;
+    font-size: 0.875rem; /* text-sm */
+    text-transform: uppercase;
+    font-style: italic;
+    line-height: 1.25;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s;
+  }
+  .strongside-video-card:hover .strongside-card-title {
+    color: #ff2222; /* Brand Accent */
+  }
+
+  /* MUTE BUTTON (Top Right) */
+  .strongside-card-mute {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .strongside-card-mute:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* PLAY ICON (Center) */
+  .strongside-card-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .strongside-video-card:hover .strongside-card-play {
+    opacity: 0; /* Hide on hover when playing */
+  }
+  .strongside-play-circle {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px); /* blur-md */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  /* PAGINATION DOTS */
+  .strongside-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .strongside-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .strongside-dot.is-active {
+    width: 1.5rem;
+    background-color: #ff2222;
+  }
+  .strongside-dot:hover:not(.is-active) {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* --- MOBILE MODAL (TIKTOK STYLE) --- */
+  .strongside-mobile-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: black;
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .strongside-mobile-modal.is-open {
+    display: block;
+    opacity: 1;
+  }
+
+  .strongside-modal-scroller {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
+  }
+  .strongside-modal-scroller::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  .strongside-modal-item {
+    width: 100%;
+    height: 100dvh; /* Dynamic Viewport Height */
+    scroll-snap-align: center;
+    position: relative;
+    background-color: black;
+  }
+
+  .strongside-modal-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Modal Close Button */
+  .strongside-modal-close {
+    position: absolute;
+    top: 7rem; /* Below header area roughly */
+    left: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* Modal Mute Button */
+  .strongside-modal-mute {
+    position: absolute;
+    top: 7rem;
+    right: 1rem;
+    z-index: 50;
+    /* Same style as close */
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .strongside-modal-info {
+    position: absolute;
+    bottom: 4rem;
+    left: 1rem;
+    right: 4rem;
+    pointer-events: none;
+  }
+  .strongside-modal-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 0.5rem;
+  }
+
+  .strongside-modal-progress-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .strongside-modal-progress-bar {
+    height: 100%;
+    background-color: #ff2222;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  .strongside-play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .strongside-play-icon-lg {
+    width: 5rem;
+    height: 5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+</style>
+
+<div class="strongside-videos-section" id="strongside-videos">
+  <!-- HEAD OF SECTION -->
+  <div class="strongside-videos-header">
+    <h3 class="strongside-videos-title">{{ section.settings.section_title }}</h3>
+
+    <div class="strongside-videos-nav">
+      <button class="strongside-nav-btn" id="btn-prev">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="strongside-nav-btn" id="btn-next">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- CAROUSEL -->
+  <div class="strongside-videos-carousel">
+    <div class="strongside-videos-track" id="video-track">
+      {% comment %} Generated via JS using the data array below to keep Liquid clean {% endcomment %}
+    </div>
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="strongside-pagination" id="video-pagination"></div>
+
+  <!-- MOBILE MODAL CONTAINER -->
+  <div class="strongside-mobile-modal" id="mobile-video-modal">
+    <button class="strongside-mobile-close" id="modal-close-btn">
+      <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <div class="strongside-modal-scroller" id="modal-scroller">
+      <!-- Vertical videos injected here -->
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    // --- VIDEO DATA (Hardcoded from shopVideos.js) ---
+    // NOTE: Ensure '1.mp4' ... '13.mp4' are in Assets
+    const videos = [
+      { id: '1', src: "{{ '1.mp4' | asset_url }}", title: 'Upper Body Power' },
+      { id: '2', src: "{{ '2.mp4' | asset_url }}", title: 'Shadow Boxing Flow' },
+      { id: '3', src: "{{ '3.mp4' | asset_url }}", title: 'Core Stability' },
+      { id: '4', src: "{{ '4.mp4' | asset_url }}", title: 'Explosive Hooks' },
+      { id: '5', src: "{{ '5.mp4' | asset_url }}", title: 'Defensive Drills' },
+      { id: '6', src: "{{ '6.mp4' | asset_url }}", title: 'Bag Work Intensity' },
+      { id: '7', src: "{{ '7.mp4' | asset_url }}", title: 'Footwork Agility' },
+      { id: '8', src: "{{ '8.mp4' | asset_url }}", title: 'Endurance Round' },
+      { id: '9', src: "{{ '9.mp4' | asset_url }}", title: 'Speed Training' },
+      { id: '10', src: "{{ '10.mp4' | asset_url }}", title: 'Full Body Torque' },
+      { id: '11', src: "{{ '11.mp4' | asset_url }}", title: 'Resistance Training' },
+      { id: '12', src: "{{ '12.mp4' | asset_url }}", title: 'Knockout Power' },
+      { id: '13', src: "{{ '13.mp4' | asset_url }}", title: 'Cool Down Stretch' },
+    ];
+
+    // --- DOM ELEMENTS ---
+    const track = document.getElementById('video-track');
+    const pagination = document.getElementById('video-pagination');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+
+    // Modal
+    const modal = document.getElementById('mobile-video-modal');
+    const scroller = document.getElementById('modal-scroller');
+    const closeBtn = document.getElementById('modal-close-btn');
+
+    // State
+    let currentIndex = 0;
+    let isMobile = window.innerWidth < 768;
+    const visibleCount = isMobile ? 2 : 3;
+    const maxIndex = Math.max(0, videos.length - visibleCount);
+
+    // --- INITIALIZATION ---
+    function init() {
+      renderDesktopCarousel();
+      renderMobileModal(); // Prepared but hidden
+      updateCarousel();
+
+      // Events
+      btnPrev.addEventListener('click', () => scroll(-1));
+      btnNext.addEventListener('click', () => scroll(1));
+      closeBtn.addEventListener('click', closeModal);
+
+      window.addEventListener('resize', () => {
+        const wasMobile = isMobile;
+        isMobile = window.innerWidth < 768;
+        if (wasMobile !== isMobile) {
+          // Re-render if switching mode helps, mostly for visible count logic
+          // In this specific implementation, CSS handles card width, but JS handles scroll limits
+          location.reload(); // Simple way to reset state on major breakpoint change
+        }
+      });
+    }
+
+    // --- DESKTOP RENDER ---
+    function renderDesktopCarousel() {
+      track.innerHTML = '';
+      videos.forEach((video, index) => {
+        const card = document.createElement('div');
+        card.className = 'strongside-video-card';
+        card.innerHTML = `
+          <video src="${video.src}" loop muted playsinline preload="metadata"></video>
+          <div class="strongside-card-overlay"></div>
+          <div class="strongside-card-play">
+             <div class="strongside-play-circle">
+               <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+             </div>
+          </div>
+          <div class="strongside-card-title">${video.title}</div>
+          <button class="strongside-card-mute">
+             <svg class="icon-volume-off" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
+             <svg class="icon-volume-on" style="display:none;" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+          </button>
+        `;
+
+        // Desktop Interaction
+        card.addEventListener('mouseenter', () => {
+          if (!isMobile) {
+            const v = card.querySelector('video');
+            v.play().catch((e) => {
+              /* Autoplay block handled silently */
+            });
+          }
+        });
+        card.addEventListener('mouseleave', () => {
+          if (!isMobile) {
+            const v = card.querySelector('video');
+            v.pause();
+            v.currentTime = 0;
+          }
+        });
+
+        // Click -> Mobile Modal
+        card.addEventListener('click', (e) => {
+          if (isMobile) {
+            openModal(index);
+          } else {
+            // Desktop click logic (if any specific logic besides hover)
+            // Could define behavior here
+          }
+        });
+
+        // Mute Toggle
+        const muteBtn = card.querySelector('.strongside-card-mute');
+        muteBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const v = card.querySelector('video');
+          v.muted = !v.muted;
+          muteBtn.querySelector('.icon-volume-off').style.display = v.muted ? 'block' : 'none';
+          muteBtn.querySelector('.icon-volume-on').style.display = v.muted ? 'none' : 'block';
+        });
+
+        track.appendChild(card);
+      });
+
+      // Pagination dots
+      pagination.innerHTML = '';
+      for (let i = 0; i <= maxIndex; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'strongside-dot';
+        dot.ariaLabel = `Go to slide ${i + 1}`;
+        dot.onclick = () => {
+          currentIndex = i;
+          updateCarousel();
+        };
+        pagination.appendChild(dot);
+      }
+    }
+
+    function scroll(direction) {
+      const newIndex = currentIndex + direction;
+      if (newIndex >= 0 && newIndex <= maxIndex) {
+        currentIndex = newIndex;
+        updateCarousel();
+      }
+    }
+
+    function updateCarousel() {
+      // Calculation: (100% / visible items) + gap adjustment roughly
+      // Desktop gap is 1rem (16px), Mobile gap is smaller
+      // Simplest: Translate by percentage step
+      const step = 100 / (isMobile ? 2 : 3);
+      // Need to account for gap, simpler to use index * (100 / count) approximation or precise calculation
+      // Since CSS handles width: calc(33.333% - gap), we can translate by (33.333% + gap)
+      // Let's use simple percent logic:
+      const percentage = currentIndex * (isMobile ? 51 : 34); // Approx with gap
+      track.style.transform = `translateX(-${percentage}%)`;
+
+      // Nav buttons
+      btnPrev.disabled = currentIndex === 0;
+      btnNext.disabled = currentIndex === maxIndex;
+
+      // Dots
+      Array.from(pagination.children).forEach((dot, idx) => {
+        dot.classList.toggle('is-active', idx === currentIndex);
+      });
+    }
+
+    // --- MOBILE MODAL RENDER ---
+    function renderMobileModal() {
+      scroller.innerHTML = '';
+      videos.forEach((video, index) => {
+        const item = document.createElement('div');
+        item.className = 'strongside-modal-item';
+        item.id = `modal-video-${index}`;
+        item.innerHTML = `
+            <video class="strongside-modal-video" src="${video.src}" loop playsinline></video>
+            
+            <div class="strongside-play-overlay" id="play-overlay-${index}" style="display:none;">
+               <div class="strongside-play-icon-lg">
+                 <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+               </div>
+            </div>
+
+            <button class="strongside-modal-mute" id="modal-mute-${index}">
+               <svg class="icon-volume-on" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+               <svg class="icon-volume-off" style="display:none;" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
+            </button>
+
+            <div class="strongside-modal-info">
+               <div class="strongside-modal-title">${video.title}</div>
+            </div>
+            
+            <div class="strongside-modal-progress-bg">
+               <div class="strongside-modal-progress-bar" id="progress-${index}"></div>
+            </div>
+          `;
+
+        // Interactions
+        const vid = item.querySelector('video');
+        const playOverlay = item.querySelector('.strongside-play-overlay');
+        const muteBtn = item.querySelector('.strongside-modal-mute');
+
+        // Play/Pause on click
+        item.addEventListener('click', () => {
+          if (vid.paused) {
+            vid.play();
+            playOverlay.style.display = 'none';
+          } else {
+            vid.pause();
+            playOverlay.style.display = 'flex';
+          }
+        });
+
+        // Mute
+        muteBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          vid.muted = !vid.muted;
+          updateMuteIcon(muteBtn, vid.muted);
+        });
+
+        // Progress
+        vid.addEventListener('timeupdate', () => {
+          const pct = (vid.currentTime / vid.duration) * 100;
+          item.querySelector(`#progress-${index}`).style.width = `${pct}%`;
+        });
+
+        scroller.appendChild(item);
+      });
+
+      // Scroll Observer to auto-play active video
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const vid = entry.target.querySelector('video');
+            if (entry.isIntersecting) {
+              vid.currentTime = 0;
+              vid.play().catch(() => {});
+              // Reset visible overlay
+              entry.target.querySelector('.strongside-play-overlay').style.display = 'none';
+            } else {
+              vid.pause();
+            }
+          });
+        },
+        { threshold: 0.6 }
+      );
+
+      document.querySelectorAll('.strongside-modal-item').forEach((el) => observer.observe(el));
+    }
+
+    function openModal(startIndex) {
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden'; // Lock body scroll
+
+      // Scoll to index
+      const height = window.innerHeight;
+      scroller.scrollTo({ top: startIndex * height, behavior: 'auto' });
+
+      // Ensure muted is false when opening (immersive)
+      const vid = document.getElementById(`modal-video-${startIndex}`).querySelector('video');
+      vid.muted = false;
+      // Update icon
+      const btn = document.getElementById(`modal-video-${startIndex}`).querySelector('.strongside-modal-mute');
+      updateMuteIcon(btn, false);
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      // Pause all
+      document.querySelectorAll('.strongside-modal-video').forEach((v) => v.pause());
+    }
+
+    function updateMuteIcon(btn, isMuted) {
+      btn.querySelector('.icon-volume-off').style.display = isMuted ? 'block' : 'none';
+      btn.querySelector('.icon-volume-on').style.display = isMuted ? 'none' : 'block';
+    }
+
+    // Boot
+    document.addEventListener('DOMContentLoaded', init);
+    // Also run immediately if deferred
+    if (document.readyState !== 'loading') init();
+  })();
+</script>
