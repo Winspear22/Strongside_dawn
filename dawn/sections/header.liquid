@@ -15,9 +15,9 @@
     z-index: 50;
     transition: all 0.3s ease;
     padding: 2.4rem 2.4rem; /* React: p-6 (1.5rem) -> 2.4rem */
-    background-color: rgba(0, 0, 0, 0.2); 
+    background-color: rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px); 
+    backdrop-filter: blur(12px);
   }
 
   @media (min-width: 768px) {
@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 95%; 
+    max-width: 95%;
     margin: 0 auto;
     position: relative;
   }
@@ -38,8 +38,8 @@
   /* LOGO - Scaled 1.6x */
   .strongside-logo {
     font-size: 2.4rem; /* React: text-2xl (1.5rem) -> 2.4rem */
-    font-weight: 900; 
-    letter-spacing: -0.05em; 
+    font-weight: 900;
+    letter-spacing: -0.05em;
     color: white;
     font-style: italic;
     cursor: pointer;
@@ -48,13 +48,13 @@
     transition: color 0.3s;
     font-family: 'Inter', sans-serif !important;
   }
-  
+
   .strongside-logo span {
-    font-family: 'Inter', sans-serif !important; 
-    color: #9ca3af; /* gray-400 */
-    font-weight: 400; /* Regular/Light */
+    font-family: 'Inter', sans-serif !important;
+    color: #ff2222; /* BRAND ACCENT (Rouge) comme demandé */
+    font-weight: 700 !important; /* Gras */
     margin-left: 0.1rem;
-    font-style: italic;
+    font-style: italic; /* Italique */
   }
 
   /* DESKTOP MENU */
@@ -76,10 +76,10 @@
     padding: 0 1.6rem; /* React: px-4 (1rem) -> 1.6rem */
     text-align: center;
     font-size: 1.2rem; /* React: text-xs (0.75rem) -> 1.2rem */
-    font-weight: 800; 
-    letter-spacing: 0.15em; 
+    font-weight: 800;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #9ca3af; 
+    color: #9ca3af;
     text-decoration: none;
     transition: color 0.3s;
   }
@@ -106,7 +106,7 @@
     font-size: 1.2rem; /* React: text-xs -> 1.2rem */
     font-weight: 800;
     letter-spacing: 0.15em;
-    color: #ff2222; 
+    color: #ff2222;
     text-transform: uppercase;
     text-decoration: none;
     border: 1px solid rgba(255, 34, 34, 0.3);
@@ -257,30 +257,27 @@
 
 <div id="shopify-section-header" class="strongside-header-wrapper is-transparent">
   <div class="strongside-nav-container">
-    
     <!-- LEFT: LOGO -->
-    <a href="{{ routes.root_url }}" class="strongside-logo">
-      STRONGSIDE <span>technologies</span>
-    </a>
+    <a href="{{ routes.root_url }}" class="strongside-logo"> STRONGSIDE <span>technologies</span> </a>
 
     <!-- CENTER: DESKTOP MENU -->
     <nav class="strongside-desktop-menu">
       <!-- Hardcoded links to match React exactly, dynamic Shopify links can be added via settings if needed -->
       <!-- Item 1: Équipement (Pill) -->
       <a href="#product-section" class="strongside-nav-link is-pill">Équipement</a>
-      
+
       <!-- Item 2: Renforts -->
       <a href="#elastics-section" class="strongside-nav-link">Renforts</a>
-      
+
       <!-- Item 3: Entraînement -->
       <a href="#training-videos" class="strongside-nav-link">Entraînement</a>
-      
+
       <!-- Item 4: FAQ -->
       <a href="#faq-section" class="strongside-nav-link">FAQ</a>
 
       <!-- MON ESPACE -->
       <a href="{{ routes.account_url }}" class="strongside-account-btn">MON ESPACE</a>
-      
+
       <div class="strongside-separator"></div>
 
       <!-- Language Selector (Functional) -->
@@ -288,13 +285,37 @@
         <localization-form class="no-js-hidden" data-prevent-hide>
           {%- form 'localization', id: 'HeaderLanguageFormDesktop', class: 'localization-form' -%}
             <div class="strongside-lang-wrapper" style="position:relative;">
-              <button type="button" class="strongside-nav-link" aria-expanded="false" aria-controls="HeaderLanguageListDesktop" aria-describedby="HeaderLanguageLabelDesktop" style="border:none;background:none;padding:0;cursor:pointer;display:flex;align-items:center;gap:4px;">
-                {{ localization.language.iso_code | upcase }} <span style="font-size:0.6em;">▼</span>
+              <button
+                type="button"
+                class="strongside-nav-link"
+                aria-expanded="false"
+                aria-controls="HeaderLanguageListDesktop"
+                aria-describedby="HeaderLanguageLabelDesktop"
+                style="border:none;background:none;padding:0;cursor:pointer;display:flex;align-items:center;gap:4px;"
+              >
+                {{ localization.language.iso_code | upcase }}
+                <span style="font-size:0.6em;">▼</span>
               </button>
-              <ul id="HeaderLanguageListDesktop" role="list" class="strongside-lang-list" hidden style="position:absolute;top:100%;right:0;background:#050505;border:1px solid #333;list-style:none;padding:0;margin:0;min-width:60px;z-index:99;">
+              <ul
+                id="HeaderLanguageListDesktop"
+                role="list"
+                class="strongside-lang-list"
+                hidden
+                style="position:absolute;top:100%;right:0;background:#050505;border:1px solid #333;list-style:none;padding:0;margin:0;min-width:60px;z-index:99;"
+              >
                 {%- for language in localization.available_languages -%}
                   <li class="localization-form__item" tabindex="-1">
-                    <a class="strongside-lang-item" href="#" hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %} data-value="{{ language.iso_code }}" style="display:block;padding:8px 12px;color:white;text-decoration:none;font-size:12px;font-weight:bold;text-transform:uppercase;">
+                    <a
+                      class="strongside-lang-item"
+                      href="#"
+                      hreflang="{{ language.iso_code }}"
+                      lang="{{ language.iso_code }}"
+                      {% if language.iso_code == localization.language.iso_code %}
+                        aria-current="true"
+                      {% endif %}
+                      data-value="{{ language.iso_code }}"
+                      style="display:block;padding:8px 12px;color:white;text-decoration:none;font-size:12px;font-weight:bold;text-transform:uppercase;"
+                    >
                       {{ language.iso_code | upcase }}
                     </a>
                   </li>
@@ -304,75 +325,101 @@
             </div>
           {%- endform -%}
           <script>
-             // Robust Language Selector Logic
-             document.addEventListener('DOMContentLoaded', function() {
-                const langBtn = document.querySelector('#HeaderLanguageFormDesktop button');
-                const langList = document.querySelector('#HeaderLanguageListDesktop');
-                
-                if (langBtn && langList) {
-                    langBtn.addEventListener('click', function(e) {
-                       e.stopPropagation();
-                       const isHidden = langList.hidden;
-                       langList.hidden = !isHidden;
-                       this.setAttribute('aria-expanded', isHidden);
-                    });
+            // Robust Language Selector Logic
+            document.addEventListener('DOMContentLoaded', function () {
+              const langBtn = document.querySelector('#HeaderLanguageFormDesktop button');
+              const langList = document.querySelector('#HeaderLanguageListDesktop');
 
-                    // Close dropdown when clicking outside
-                    document.addEventListener('click', function(e) {
-                       if (!langBtn.contains(e.target) && !langList.contains(e.target)) {
-                          langList.hidden = true;
-                          langBtn.setAttribute('aria-expanded', 'false');
-                       }
-                    });
-                }
-
-                document.querySelectorAll('.strongside-lang-item').forEach(item => {
-                   item.addEventListener('click', function(e) {
-                      e.preventDefault();
-                      const form = document.getElementById('HeaderLanguageFormDesktop');
-                      const input = form.querySelector('input[name="locale_code"]');
-                      const newLang = this.getAttribute('lang');
-                      
-                      if (form && input && newLang) {
-                          input.value = newLang;
-                          form.submit();
-                      }
-                   });
+              if (langBtn && langList) {
+                langBtn.addEventListener('click', function (e) {
+                  e.stopPropagation();
+                  const isHidden = langList.hidden;
+                  langList.hidden = !isHidden;
+                  this.setAttribute('aria-expanded', isHidden);
                 });
-             });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function (e) {
+                  if (!langBtn.contains(e.target) && !langList.contains(e.target)) {
+                    langList.hidden = true;
+                    langBtn.setAttribute('aria-expanded', 'false');
+                  }
+                });
+              }
+
+              document.querySelectorAll('.strongside-lang-item').forEach((item) => {
+                item.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  const form = document.getElementById('HeaderLanguageFormDesktop');
+                  const input = form.querySelector('input[name="locale_code"]');
+                  const newLang = this.getAttribute('lang');
+
+                  if (form && input && newLang) {
+                    input.value = newLang;
+                    form.submit();
+                  }
+                });
+              });
+            });
           </script>
         </localization-form>
       {%- else -%}
-         <!-- Fallback if only 1 language (just display it) -->
-         <span class="strongside-nav-link">{{ localization.language.iso_code | upcase }}</span>
+        <!-- Fallback if only 1 language (just display it) -->
+        <span class="strongside-nav-link">{{ localization.language.iso_code | upcase }}</span>
       {%- endif -%}
-
     </nav>
 
     <!-- RIGHT: ICONS -->
     <div class="strongside-icons">
-    
       <!-- Theme Toggle (Moved here) -->
       <button id="theme-toggle" class="strongside-icon-btn" aria-label="Toggle Dark Mode" style="margin-right:1rem;">
         <!-- Sun Icon (for Dark Mode) -->
-        <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none;">
+        <svg
+          id="sun-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          style="display:none;"
+        >
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
         <!-- Moon Icon (for Light Mode) -->
-        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none;">
+        <svg
+          id="moon-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          style="display:none;"
+        >
           <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
       </button>
 
       <!-- Cart Icon -->
       <a href="{{ routes.cart_url }}" class="strongside-icon-btn" id="cart-icon-bubble">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
         </svg>
         {%- if cart.item_count > 0 -%}
           <div class="cart-count-bubble">
-             <span aria-hidden="true">{{ cart.item_count }}</span>
-             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            <span aria-hidden="true">{{ cart.item_count }}</span>
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- endif -%}
       </a>
@@ -400,18 +447,27 @@
     <a href="#elastics-section" class="strongside-mobile-link" onclick="toggleMobileMenu()">Renforts</a>
     <a href="#training-videos" class="strongside-mobile-link" onclick="toggleMobileMenu()">Entraînement</a>
     <a href="#faq-section" class="strongside-mobile-link" onclick="toggleMobileMenu()">FAQ</a>
-    <a href="{{ routes.account_url }}" class="strongside-mobile-link" style="color:#ff2222;border:1px solid rgba(255,34,34,0.5);border-radius:9999px;padding:0.5rem 1.5rem;font-size:1.25rem;">MON ESPACE</a>
-    
+    <a
+      href="{{ routes.account_url }}"
+      class="strongside-mobile-link"
+      style="color:#ff2222;border:1px solid rgba(255,34,34,0.5);border-radius:9999px;padding:0.5rem 1.5rem;font-size:1.25rem;"
+      >MON ESPACE</a
+    >
+
     <div style="width:50px;height:1px;background:rgba(255,255,255,0.1);margin:1rem 0;"></div>
 
     <!-- Theme Toggle Mobile -->
-    <button id="theme-toggle-mobile" class="strongside-mobile-link" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:0.5rem;">
+    <button
+      id="theme-toggle-mobile"
+      class="strongside-mobile-link"
+      style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:0.5rem;"
+    >
       <span id="theme-text-mobile">DARK MODE</span>
       <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
       </svg>
     </button>
-    
+
     <div style="display:flex;gap:1rem;margin-top:2rem;">
       <span style="color:#ff2222;font-weight:700;">FR</span>
       <span style="color:#6b7280;font-weight:700;">EN</span>
@@ -480,8 +536,8 @@
       }
     }
 
-    if(toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
-    if(toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
+    if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+    if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
   });
 </script>
 

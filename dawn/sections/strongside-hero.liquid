@@ -256,6 +256,13 @@
     scrollbar-width: none; /* Cache scrollbar Firefox */
   }
 
+  /* Force la taille des miniatures SUR MOBILE UNIQUEMENT */
+  .strongside-thumbs-mobile .strongside-thumb-btn {
+    width: 4.5rem !important; /* Taille large pour mobile (triplé vs avant) */
+    height: 4.5rem !important;
+    flex-shrink: 0; /* Empêche l'écrasement */
+  }
+
   /* CACHE MINIATURES MOBILES SUR PC */
   @media (min-width: 1024px) {
     .strongside-thumbs-mobile {
