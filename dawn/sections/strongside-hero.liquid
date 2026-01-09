@@ -1074,7 +1074,7 @@
         card.style.cssText = "position:relative; flex-shrink:0; aspect-ratio:9/16; border-radius:1.5rem; overflow:hidden; cursor:pointer; background:#171717; width:calc(33.333% - 1.05rem); border:none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);";
         
         card.innerHTML = `
-          <video data-src="${video.src}" loop muted playsinline preload="none" style="width:100%;height:100%;object-fit:cover;opacity:0.9;transition:transform 0.5s ease;pointer-events:none;" class="hero-video-el"></video>
+          <video src="${video.src}" loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;opacity:0.9;transition:transform 0.5s ease;pointer-events:none;" class="hero-video-el"></video>
           
           <!-- Gradient Overlay: Bottom Black/80 -> Transparent -->
           <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 30%, transparent 100%); opacity:1; pointer-events:none;"></div>
@@ -1100,7 +1100,6 @@
             if(window.innerWidth >= 768) { 
                 const v = card.querySelector('video');
                 const playIcon = card.querySelector('.hero-play-icon');
-                if(!v.src) v.src = v.dataset.src;
                 v.play().then(() => {
                     playIcon.style.opacity = '0';
                     v.style.transform = 'scale(1.05)';
@@ -1151,7 +1150,7 @@
          item.style.cssText = "width:100%;height:100dvh;scroll-snap-align:center;position:relative;background:black;";
          item.id = `hero-modal-video-${index}`;
          item.innerHTML = `
-           <video data-src="${video.src}" loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+           <video src="${video.src}" loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
            <div class="strongside-play-overlay" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none;"><div style="width:4rem;height:4rem;background:rgba(0,0,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
            <button class="hero-modal-mute" style="position:absolute;top:7rem;right:1rem;z-index:50;width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,0.4);color:white;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg></button>
            <div style="position:absolute;bottom:4rem;left:1rem;right:4rem;pointer-events:none;">
@@ -1163,7 +1162,6 @@
          const mute = item.querySelector('.hero-modal-mute');
          
          item.addEventListener('click', () => { 
-            if(!vid.src) vid.src = vid.dataset.src;
             if(vid.paused){ vid.play(); overlay.style.display='none'; } else { vid.pause(); overlay.style.display='flex'; } 
          });
          mute.addEventListener('click', (e) => { e.stopPropagation(); vid.muted = !vid.muted; mute.style.background = vid.muted ? 'white' : 'rgba(0,0,0,0.4)'; mute.style.color = vid.muted ? 'black' : 'white'; });
@@ -1176,7 +1174,6 @@
          entries.forEach(entry => {
             const vid = entry.target.querySelector('video');
             if(entry.isIntersecting) { 
-                if(!vid.src) vid.src = vid.dataset.src;
                 vid.currentTime=0; 
                 vid.play().catch(()=>{}); 
             } else { 
