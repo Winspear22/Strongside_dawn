@@ -8,19 +8,19 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "CE QUE TU REÇOIS"
+      "default": "CE QUE VOUS OBTENEZ"
     },
     {
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "Tout ce qu'il te faut pour des frappes plus explosives"
+      "default": "Tout ce qu'il vous faut pour des frappes plus explosives"
     },
     {
       "type": "text",
       "id": "tagline",
       "label": "Bottom Tagline",
-      "default": "Résistance progressive pour une puissance explosive"
+      "default": "Amplifiez encore plus votre entraînement avec les Extra Performance 34kg resistance bands."
     }
   ],
   "blocks": [
@@ -79,7 +79,16 @@
         { "type": "item", "settings": { "title": "2x Résistance 18KG", "desc": "40LB / 18KG", "icon": "long_bands" } },
         { "type": "item", "settings": { "title": "Sangles Poignet", "desc": "Broderie Premium", "icon": "wrist" } },
         { "type": "item", "settings": { "title": "Poignées Grip", "desc": "Mousse Confort", "icon": "handle" } },
-        { "type": "item", "settings": { "title": "Sac Transport", "desc": "Noir Sleek", "icon": "bag" } }
+        { "type": "item", "settings": { "title": "Sac Transport", "desc": "Noir Sleek", "icon": "bag" } },
+        {
+          "type": "item",
+          "settings": {
+            "title": "ACCESSOIRE :\nExtra performance 34kg resistance bands",
+            "desc": "Ajoute jusqu'à 34KG (75LBS)\nde résistance - 41cm / 16.4in",
+            "icon": "check",
+            "is_extra": true
+          }
+        }
       ]
     }
   ]
@@ -249,8 +258,9 @@
 
   .ss-wyg-card.is-extra .ss-wyg-item-title {
     color: #ff2222;
-    font-size: 2.8rem; /* Scaled 2.5x (was 1.125rem) */
+    font-size: 2.8rem; /* Scaled 2.5x */
     letter-spacing: 0.025em;
+    line-height: 1.2;
   }
 
   .ss-wyg-item-desc {
@@ -266,9 +276,12 @@
   .ss-wyg-tagline {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 1.25rem; /* xl */
-    color: #d1d5db; /* gray-300 */
+    font-size: 1.5rem; /* Increased from 1.25rem */
+    color: white; /* Changed from gray-300 to white */
     font-weight: 500;
+  }
+  @media (min-width: 1024px) {
+    .ss-wyg-tagline { font-size: 1.75rem; }
   }
 
   /* EXTRA ITEM WRAPPER */
@@ -278,7 +291,7 @@
     margin-top: 2rem;
   }
   .ss-wyg-extra-wrapper .ss-wyg-card {
-    max-width: 24rem;
+    max-width: 60rem; /* Increased to match grid item size */
     width: 100%;
   }
 
@@ -370,8 +383,8 @@
 
           <div class="ss-wyg-content">
             <!-- Icon removed to match React design -->
-            <h3 class="ss-wyg-item-title">{{ block.settings.title }}</h3>
-            <p class="ss-wyg-item-desc">{{ block.settings.desc }}</p>
+            <h3 class="ss-wyg-item-title">{{ block.settings.title | newline_to_br }}</h3>
+            <p class="ss-wyg-item-desc">{{ block.settings.desc | newline_to_br }}</p>
           </div>
         </div>
       {% endunless %}
@@ -404,8 +417,8 @@
 
           <div class="ss-wyg-content">
             <!-- Usually no icon for extra in React, but title is styled differently -->
-            <h3 class="ss-wyg-item-title">{{ block.settings.title }}</h3>
-            <p class="ss-wyg-item-desc">{{ block.settings.desc }}</p>
+            <h3 class="ss-wyg-item-title">{{ block.settings.title | newline_to_br }}</h3>
+            <p class="ss-wyg-item-desc">{{ block.settings.desc | newline_to_br }}</p>
           </div>
         </div>
       {% endif %}

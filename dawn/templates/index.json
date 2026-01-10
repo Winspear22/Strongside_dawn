@@ -92,6 +92,15 @@
             "desc": "Hauteur 30cm / 11.8in",
             "icon": "bag"
           }
+        },
+        "item-extra": {
+          "type": "item",
+          "settings": {
+            "title": "ACCESSOIRE :\nExtra performance 34kg resistance bands",
+            "desc": "Ajoute jusqu'à 34KG (75LBS)\nde résistance - 41cm / 16.4in",
+            "icon": "check",
+            "is_extra": true
+          }
         }
       },
       "block_order": [
@@ -100,12 +109,13 @@
         "item-3",
         "item-4",
         "item-5",
-        "item-6"
+        "item-6",
+        "item-extra"
       ],
       "settings": {
-        "title": "CE QUE TU REÇOIS",
-        "subtitle": "Tout ce qu'il te faut pour des frappes plus explosives",
-        "tagline": "Résistance progressive pour une puissance explosive"
+        "title": "CE QUE VOUS OBTENEZ",
+        "subtitle": "Tout ce qu'il vous faut pour des frappes plus explosives",
+        "tagline": "Amplifiez encore plus votre entraînement avec les Extra Performance 34kg resistance bands."
       }
     },
     "training_modes": {
