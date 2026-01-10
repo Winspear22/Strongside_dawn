@@ -42,6 +42,72 @@
         "badge_secure": "Paiement Sécurisé"
       }
     },
+    "what_you_get": {
+      "type": "strongside-what-you-get",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "title": "Ceinture Tactique",
+            "desc": "Multi-fonctions",
+            "icon": "belt"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "title": "2x Résistance 16KG",
+            "desc": "35LB / 16KG",
+            "icon": "short_bands"
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "title": "2x Résistance 18KG",
+            "desc": "40LB / 18KG",
+            "icon": "long_bands"
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "title": "Sangles Poignet",
+            "desc": "Broderie Premium",
+            "icon": "wrist"
+          }
+        },
+        "item-5": {
+          "type": "item",
+          "settings": {
+            "title": "Poignées Grip",
+            "desc": "Mousse Confort",
+            "icon": "handle"
+          }
+        },
+        "item-6": {
+          "type": "item",
+          "settings": {
+            "title": "Sac Transport",
+            "desc": "Noir Sleek",
+            "icon": "bag"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4",
+        "item-5",
+        "item-6"
+      ],
+      "settings": {
+        "title": "CE QUE TU REÇOIS",
+        "subtitle": "Tout ce qu'il te faut pour des frappes plus explosives",
+        "tagline": "Résistance progressive pour une puissance explosive"
+      }
+    },
     "training_modes": {
       "type": "strongside-training-modes",
       "blocks": {
@@ -232,6 +298,7 @@
     "strongside-hero",
     "training_modes",
     "accessories",
+    "what_you_get",
     "featured_collection",
     "faq",
     "cta"

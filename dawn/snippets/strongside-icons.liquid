@@ -1,0 +1,31 @@
+{% case icon %}
+  {% when 'belt' %}
+    <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16M4 12a2 2 0 012-2h12a2 2 0 012 2M4 12a2 2 0 002 2h12a2 2 0 002-2M12 10v4" />
+    </svg>
+  {% when 'short_bands' %}
+    <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12c.5-2 2-2 2.5 0s2 2 2.5 0 2-2 2.5 0 2 2 2.5 0 2-2 2.5 0 2-2 2.5 0" />
+    </svg>
+  {% when 'long_bands' %}
+    <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12c1-2 4-2 5 0s4 2 5 0 4-2 5 0 4 2 5 0" />
+    </svg>
+  {% when 'wrist' %}
+    <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8a4 4 0 100 8 4 4 0 000-8zM12 8V6m0 10v2" />
+    </svg>
+  {% when 'handle' %}
+    <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 8a3 3 0 00-3 3v2a3 3 0 003 3h10a3 3 0 003-3v-2a3 3 0 00-3-3" />
+    </svg>
+  {% when 'bag' %}
+    <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l-1 9h10l-1-9M8 9V6a3 3 0 116 0v3" />
+    </svg>
+  {% else %}
+    <!-- Default Check Icon -->
+    <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+    </svg>
+{% endcase %}

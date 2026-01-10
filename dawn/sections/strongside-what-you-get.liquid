@@ -1,0 +1,448 @@
+{% schema %}
+{
+  "name": "What You Get",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "CE QUE TU REÇOIS"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Tout ce qu'il te faut pour des frappes plus explosives"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Bottom Tagline",
+      "default": "Résistance progressive pour une puissance explosive"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Pack Item",
+      "limit": 7,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Item Title",
+          "default": "Equipment Name"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Description",
+          "default": "Feature description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image (Lightbox)"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "belt", "label": "Waist Belt" },
+            { "value": "short_bands", "label": "Short Bands (Waves)" },
+            { "value": "long_bands", "label": "Long Bands" },
+            { "value": "wrist", "label": "Wrist Straps" },
+            { "value": "handle", "label": "Handles" },
+            { "value": "bag", "label": "Travel Bag" },
+            { "value": "check", "label": "Checkmark" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_extra",
+          "label": "Is Extra/Bonus Item?",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Strongside What You Get",
+      "blocks": [
+        { "type": "item", "settings": { "title": "Ceinture Tactique", "desc": "Multi-fonctions", "icon": "belt" } },
+        { "type": "item", "settings": { "title": "2x Résistance 16KG", "desc": "35LB / 16KG", "icon": "short_bands" } },
+        { "type": "item", "settings": { "title": "2x Résistance 18KG", "desc": "40LB / 18KG", "icon": "long_bands" } },
+        { "type": "item", "settings": { "title": "Sangles Poignet", "desc": "Broderie Premium", "icon": "wrist" } },
+        { "type": "item", "settings": { "title": "Poignées Grip", "desc": "Mousse Confort", "icon": "handle" } },
+        { "type": "item", "settings": { "title": "Sac Transport", "desc": "Noir Sleek", "icon": "bag" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: linear-gradient(to bottom, rgba(23, 23, 23, 0.5), #000000);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem 1.5rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} { padding: 5rem 1.5rem; }
+  }
+
+  .ss-wyg-container {
+    max-width: 200rem; /* Scaled 2.5x (was 80rem) */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* HEADER */
+  .ss-wyg-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .ss-wyg-title {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1.875rem; /* 3xl */
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+    color: white;
+    margin-bottom: 1rem;
+    line-height:1;
+  }
+  @media (min-width: 768px) {
+    .ss-wyg-title { font-size: 2.25rem; /* 4xl */ }
+  }
+  .ss-wyg-subtitle {
+    color: #9ca3af; /* gray-400 */
+    font-size: 1.125rem; /* lg */
+    max-width: 42rem;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* GRID */
+  .ss-wyg-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.75rem; /* Scaled 2.5x (was 1.5rem) */
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .ss-wyg-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5rem; /* Scaled 2.5x (was 2rem) */
+    }
+  }
+
+  /* ITEM CARD */
+  .ss-wyg-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10rem 1rem; /* Scaled 2.5x (was 4rem) */
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    cursor: zoom-in; /* Indicates lightbox */
+    transition: all 0.3s ease;
+  }
+
+  @media (min-width: 768px) {
+    .ss-wyg-card { padding: 15rem 1rem; } /* Scaled 2.5x (was 6rem) */
+  }
+
+  /* HOVER EFFECTS */
+  .ss-wyg-card:hover {
+    border-color: rgba(255, 34, 34, 0.5); /* Brand Accent */
+  }
+
+  /* EXTRA ITEM STYLING */
+  .ss-wyg-card.is-extra {
+    background-color: rgba(255, 34, 34, 0.05);
+    border-color: rgba(255, 34, 34, 0.3);
+  }
+  .ss-wyg-card.is-extra:hover {
+    background-color: rgba(255, 34, 34, 0.1);
+  }
+
+  /* BACKGROUND IMAGE */
+  .ss-wyg-bg {
+    position: absolute;
+    inset: 0 !important;
+    background-size: cover !important;
+    background-position: center !important;
+    transition: transform 0.7s ease;
+    z-index: 0 !important;
+    opacity: 1 !important; /* FORCE VISIBILITY */
+    display: block !important;
+    visibility: visible !important;
+  }
+  .ss-wyg-card:hover .ss-wyg-bg {
+    transform: scale(1.1);
+  }
+  /* Overlay to darken bg image */
+  .ss-wyg-bg-overlay {
+    position: absolute;
+    inset: 0 !important;
+    background-color: rgba(0,0,0,0.6) !important; /* Match React bg-black/60 */
+    z-index: 1 !important;
+    transition: background-color 0.3s;
+    pointer-events: none !important;
+  }
+  .ss-wyg-card:hover .ss-wyg-bg-overlay {
+    background-color: rgba(0,0,0,0.5) !important;
+  }
+
+  /* Show BG if image exists - FORCE VISIBILITY REDUNDANT BUT SAFE */
+  .ss-wyg-card.has-image .ss-wyg-bg { opacity: 1 !important; }
+
+
+  /* CONTENT (ICONS + TEXT) */
+  .ss-wyg-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ss-wyg-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s;
+  }
+  .ss-wyg-card:hover .ss-wyg-icon {
+    transform: scale(1.1);
+    color: #ff2222;
+  }
+
+  .ss-wyg-item-title {
+    font-size: 1rem; /* text-base */
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .ss-wyg-card.is-extra .ss-wyg-item-title {
+    color: #ff2222;
+    font-size: 1.125rem; /* text-lg */
+    letter-spacing: 0.025em;
+  }
+
+  .ss-wyg-item-desc {
+    font-size: 0.75rem; /* text-xs */
+    color: #6b7280; /* gray-500 */
+    margin: 0;
+  }
+  @media (min-width: 768px) {
+    .ss-wyg-item-desc { font-size: 0.875rem; /* text-sm */ }
+  }
+
+  /* TAGLINE */
+  .ss-wyg-tagline {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.25rem; /* xl */
+    color: #d1d5db; /* gray-300 */
+    font-weight: 500;
+  }
+
+  /* EXTRA ITEM WRAPPER */
+  .ss-wyg-extra-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .ss-wyg-extra-wrapper .ss-wyg-card {
+    max-width: 24rem;
+    width: 100%;
+  }
+
+  /* LIGHTBOX */
+  .ss-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .ss-lightbox.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .ss-lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
+  .ss-lightbox.is-open .ss-lightbox-img { transform: scale(1); }
+
+  .ss-lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .ss-lightbox-close:hover { color: white; }
+  .ss-lightbox-close svg { width: 2.5rem; height: 2.5rem; }
+</style>
+
+<div class="ss-wyg-container">
+  <!-- TITLE -->
+  <div class="ss-wyg-header">
+    <h2 class="ss-wyg-title">{{ section.settings.title }}</h2>
+    <p class="ss-wyg-subtitle">{{ section.settings.subtitle }}</p>
+  </div>
+
+  <!-- GRID (STANDARD ITEMS) -->
+  <div class="ss-wyg-grid">
+    {% for block in section.blocks %}
+      {% unless block.settings.is_extra %}
+        {% assign item_image = block.settings.image %}
+        {% if item_image == blank %}
+          {% case block.settings.icon %}
+            {% when 'belt' -%}
+              {%- assign item_image = 'Mannequin_4k_background_sans_watermark.webp' | asset_url %}
+            {% when 'short_bands' -%}
+              {%- assign item_image = 'Elastique_02_4k_background_sans_watermark.webp' | asset_url %}
+            {% when 'long_bands' -%}
+              {%- assign item_image = 'Elastique_01_4k_background_sans_watermark.webp' | asset_url %}
+            {% when 'wrist' -%}
+              {%- assign item_image = 'Poignets_4k_background_sans_watermark.webp' | asset_url %}
+            {% when 'handle' -%}
+              {%- assign item_image = 'handles_4k_background_sans_watermark.webp' | asset_url %}
+            {% when 'bag' -%}
+              {%- assign item_image = 'Sac_4k_background_sans_watermark.webp' | asset_url %}
+          {% endcase %}
+        {% else %}
+          {% assign item_image = item_image | image_url: width: 600 %}
+        {% endif %}
+
+        <div
+          class="ss-wyg-card {% if item_image != blank %}has-image{% endif %}"
+          {{ block.shopify_attributes }}
+          onclick="{% if item_image != blank %}openWygLightbox('{{ item_image }}'){% endif %}"
+        >
+          {% if item_image != blank %}
+            <div
+              class="ss-wyg-bg"
+              style="background-image: url('{{ item_image }}');"
+            ></div>
+            <div class="ss-wyg-bg-overlay"></div>
+          {% endif %}
+
+          <div class="ss-wyg-content">
+            <!-- Icon removed to match React design -->
+            <h3 class="ss-wyg-item-title">{{ block.settings.title }}</h3>
+            <p class="ss-wyg-item-desc">{{ block.settings.desc }}</p>
+          </div>
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+
+  <!-- TAGLINE -->
+  <p class="ss-wyg-tagline">{{ section.settings.tagline }}</p>
+
+  <!-- EXTRA ITEM -->
+  <div class="ss-wyg-extra-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.is_extra %}
+        {% assign item_image = block.settings.image %}
+        {% if item_image == blank %}
+          {% assign item_image = 'Elastiques_03_4k_background_sans_watermark.webp' | asset_url %}
+        {% else %}
+          {% assign item_image = item_image | image_url: width: 600 %}
+        {% endif %}
+
+        <div
+          class="ss-wyg-card is-extra {% if item_image != blank %}has-image{% endif %}"
+          {{ block.shopify_attributes }}
+          onclick="{% if item_image != blank %}openWygLightbox('{{ item_image }}'){% endif %}"
+        >
+          {% if item_image != blank %}
+            <div class="ss-wyg-bg" style="background-image: url('{{ item_image }}');"></div>
+            <div class="ss-wyg-bg-overlay"></div>
+          {% endif %}
+
+          <div class="ss-wyg-content">
+            <!-- Usually no icon for extra in React, but title is styled differently -->
+            <h3 class="ss-wyg-item-title">{{ block.settings.title }}</h3>
+            <p class="ss-wyg-item-desc">{{ block.settings.desc }}</p>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="ss-wyg-lightbox" class="ss-lightbox" onclick="closeWygLightbox()">
+  <button class="ss-lightbox-close" onclick="closeWygLightbox()">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  <img id="ss-wyg-lightbox-img" class="ss-lightbox-img" src="" alt="Zoom" onclick="event.stopPropagation()">
+</div>
+
+<script>
+  function openWygLightbox(url) {
+    var lightbox = document.getElementById('ss-wyg-lightbox');
+    var img = document.getElementById('ss-wyg-lightbox-img');
+    if (lightbox && img) {
+      img.src = url;
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden'; // Prevent scroll
+    }
+  }
+
+  function closeWygLightbox() {
+    var lightbox = document.getElementById('ss-wyg-lightbox');
+    if (lightbox) {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Close on Escape
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeWygLightbox();
+    }
+  });
+</script>
