@@ -87,9 +87,9 @@
 {% endschema %}
 
 <div class="strongside-training-section">
-  <div class="page-width">
+  <div class="strongside-container">
     <!-- Header -->
-    <div class="strongside-training-header">
+    <div class="strongside-training-header ss-observe ss-fade-up">
       <span class="strongside-subtitle">{{ section.settings.section_subtitle }}</span>
       <h2 class="strongside-title">{{ section.settings.section_title }}</h2>
     </div>
@@ -97,17 +97,28 @@
     <!-- Modes Loop -->
     <div class="strongside-modes-list">
       {% for block in section.blocks %}
-        <div class="strongside-mode-row {% cycle 'is-normal', 'is-reversed' %}">
+        {% assign is_even = forloop.index | modulo: 2 %}
+        {% if is_even == 0 %}
+            {% assign row_class = 'is-reversed' %}
+            {% assign media_anim = 'ss-slide-in-right' %}
+            {% assign text_anim = 'ss-slide-in-left' %}
+        {% else %}
+            {% assign row_class = 'is-normal' %}
+            {% assign media_anim = 'ss-slide-in-left' %}
+            {% assign text_anim = 'ss-slide-in-right' %}
+        {% endif %}
+
+        <div class="strongside-mode-row {{ row_class }}">
           
           <!-- Media Column -->
-          <div class="strongside-mode-media">
+          <div class="strongside-mode-media ss-observe {{ media_anim }}" style="transition-delay: 200ms;">
              <div class="media-container">
                {% if block.settings.video_filename != blank %}
                   <video autoplay loop muted playsinline class="media-content">
                     <source src="{{ block.settings.video_filename | asset_url }}" type="video/mp4">
                   </video>
                {% elsif block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 800 | image_tag: class: 'media-content', loading: 'lazy' }}
+                  {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'media-content', loading: 'lazy' }}
                {% else %}
                   <div class="media-placeholder">No Media</div>
                {% endif %}
@@ -116,7 +127,7 @@
           </div>
 
           <!-- Text Column -->
-          <div class="strongside-mode-text">
+          <div class="strongside-mode-text ss-observe {{ text_anim }}" style="transition-delay: 300ms;">
             <span class="mode-number">{{ block.settings.number }}.</span>
             <h3 class="mode-title">{{ block.settings.title }}</h3>
             <p class="mode-desc">{{ block.settings.description }}</p>
@@ -128,17 +139,38 @@
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.15 }); // Trigger when 15% visible
+
+    document.querySelectorAll('.ss-observe').forEach(el => observer.observe(el));
+  });
+</script>
+
 <style>
   /* Base Layout */
   .strongside-training-section {
     padding: 5rem 1.5rem;
-    background-color: #050505;
-    color: white;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #050505 !important; /* Force Black Background */
+    color: white !important;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
   }
-  .page-width {
-    max-width: 80rem; /* 7xl equivalent */
-    margin: 0 auto;
+  @media (min-width: 1024px) {
+    .strongside-training-section { padding: 8rem 1.5rem; }
+  }
+
+  /* Renamed container to avoid Dawn conflict and force width */
+  .strongside-container {
+    max-width: 1400px !important; /* Increased from 1280px (80rem) */
+    width: 100% !important;
+    margin: 0 auto !important;
   }
 
   /* Header */
@@ -146,34 +178,41 @@
     text-align: center;
     margin-bottom: 4rem;
   }
+  @media (min-width: 1024px) {
+    .strongside-training-header { margin-bottom: 8rem !important; } /* Increased vertical space */
+  }
+
   .strongside-subtitle {
-    color: #ff2222; /* brand-accent */
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    color: #ff2222 !important; /* Force Brand Accent */
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
     display: block;
     margin-bottom: 0.5rem;
   }
   .strongside-title {
-    font-size: 2.25rem;
-    font-weight: 900;
-    font-style: italic;
-    text-transform: uppercase;
-    letter-spacing: -0.05em;
-    color: white;
+    font-size: 2.25rem !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.05em !important;
+    color: white !important;
     margin: 0;
-    line-height: 1;
+    line-height: 1 !important;
   }
   @media (min-width: 1024px) {
-    .strongside-title { font-size: 3rem; }
+    .strongside-title { font-size: 3rem !important; }
   }
 
   /* Modes List */
   .strongside-modes-list {
     display: flex;
     flex-direction: column;
-    gap: 6rem;
+    gap: 8rem !important; /* Force large vertical gap */
+  }
+  @media (min-width: 1024px) {
+    .strongside-modes-list { gap: 12rem !important; } /* Even larger gap on desktop */
   }
 
   /* Mode Row */
@@ -181,12 +220,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem !important;
   }
   @media (min-width: 1024px) {
     .strongside-mode-row {
       flex-direction: row;
-      gap: 4rem;
+      gap: 6rem !important; /* Increased gap between text/image */
+      justify-content: space-between !important; /* Push elements apart */
     }
     .strongside-mode-row.is-reversed {
       flex-direction: row-reverse;
@@ -198,7 +238,7 @@
     width: 100%;
   }
   @media (min-width: 1024px) {
-    .strongside-mode-media { width: 50%; }
+    .strongside-mode-media { width: 50% !important; } /* Stay half width but container is wider */
   }
   .media-container {
     position: relative;
@@ -206,7 +246,7 @@
     aspect-ratio: 4/3;
     border-radius: 1rem;
     overflow: hidden;
-    background-color: #171717;
+    background-color: #171717 !important;
   }
   .media-content {
     width: 100%;
@@ -216,7 +256,7 @@
   .media-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent) !important;
     pointer-events: none;
   }
 
@@ -227,7 +267,7 @@
   }
   @media (min-width: 1024px) {
     .strongside-mode-text { 
-       width: 50%; 
+       width: 45% !important; /* Slightly smaller text box to allow gap */
        text-align: left;
     }
     .strongside-mode-row.is-reversed .strongside-mode-text {
@@ -237,42 +277,64 @@
 
   .mode-number {
     display: block;
-    font-size: 4rem;
-    font-weight: 900;
-    font-style: italic;
-    color: #ff2222;
-    opacity: 0.3;
-    line-height: 1;
-    margin-bottom: -1rem;
+    font-size: 3.75rem !important; /* text-6xl */
+    font-weight: 900 !important;
+    font-style: italic !important;
+    color: #ff2222 !important; /* Force Red */
+    opacity: 0.3 !important;
+    line-height: 1 !important;
+    margin-bottom: -1rem !important; /* Negative margin for overlap */
   }
   @media (min-width: 1024px) {
-    .mode-number { font-size: 6rem; margin-bottom: -2rem; }
+    .mode-number { 
+        font-size: 6rem !important; /* text-8xl */
+        margin-bottom: -2rem !important; 
+    }
   }
 
   .mode-title {
-    font-size: 1.5rem;
-    font-weight: 900;
-    font-style: italic;
-    text-transform: uppercase;
-    letter-spacing: -0.025em;
-    color: white;
-    margin: 0 0 1rem 0;
-    position: relative; /* to stack on top of number visually if needed */
+    font-size: 1.8rem !important; /* 2xl-ish */
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.025em !important;
+    color: white !important;
+    margin: 0;
+    position: relative; 
+    z-index: 2; /* Approx overlay z-index */
   }
   @media (min-width: 1024px) {
-    .mode-title { font-size: 2.25rem; }
+    .mode-title { font-size: 2.25rem !important; }
   }
 
   .mode-desc {
-    color: #9ca3af;
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 30rem;
-    margin: 0 auto;
+    color: #9ca3af !important; /* Force Gray */
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    max-width: 28rem;
+    margin: 1rem auto 0 auto;
   }
   @media (min-width: 1024px) {
-    .mode-desc { margin: 0; font-size: 1.125rem; }
+    .mode-desc { margin: 1rem 0 0 0; font-size: 1.125rem !important; }
     .strongside-mode-row.is-reversed .mode-desc { margin-left: auto; }
   }
+
+  /* --- ANIMATIONS --- */
+  .ss-observe {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth ease-out */
+  }
+  
+  /* Fade Up (Header) */
+  .ss-fade-up { transform: translateY(30px); }
+  .ss-fade-up.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* Slide In Left */
+  .ss-slide-in-left { transform: translateX(-50px); }
+  .ss-slide-in-left.is-visible { opacity: 1; transform: translateX(0); }
+
+  /* Slide In Right */
+  .ss-slide-in-right { transform: translateX(50px); }
+  .ss-slide-in-right.is-visible { opacity: 1; transform: translateX(0); }
 
 </style>
