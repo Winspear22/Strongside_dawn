@@ -111,25 +111,28 @@
     margin-bottom: 3rem;
   }
   .ss-wyg-title {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 1.875rem; /* 3xl */
-    font-weight: 900;
-    font-style: italic;
-    text-transform: uppercase;
-    letter-spacing: -0.025em;
-    color: white;
-    margin-bottom: 1rem;
-    line-height:1;
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 3.375rem !important; /* Match Accessories mobile */
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.05em !important; /* Match Accessories */
+    color: white !important;
+    margin-bottom: 1rem !important;
+    line-height: 1 !important;
   }
-  @media (min-width: 768px) {
-    .ss-wyg-title { font-size: 2.25rem; /* 4xl */ }
+  @media (min-width: 1024px) {
+    .ss-wyg-title { font-size: 5rem !important; /* Match Accessories desktop */ }
   }
   .ss-wyg-subtitle {
-    color: #9ca3af; /* gray-400 */
-    font-size: 1.125rem; /* lg */
-    max-width: 42rem;
-    margin: 0 auto;
-    line-height: 1.5;
+    color: #9ca3af !important; /* gray-400 */
+    font-size: 1.5rem !important; /* Exact match from screenshot */
+    max-width: 50rem !important;
+    margin: 0 auto !important;
+    line-height: 1.4 !important;
+  }
+  @media (min-width: 1024px) {
+    .ss-wyg-subtitle { font-size: 1.875rem !important; /* ~1.25x scaling for desktop */ }
   }
 
   /* GRID */
