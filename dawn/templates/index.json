@@ -50,6 +50,7 @@
           "settings": {
             "number": "01",
             "title": "SAC DE FRAPPE",
+            "description": "Déchaîne ta puissance sur le sac avec le STRONGSIDE Boxing Harness Pro. La résistance progressive transforme chaque frappe en coup dévastateur.",
             "video_filename": "1.mp4"
           }
         },
@@ -58,6 +59,7 @@
           "settings": {
             "number": "02",
             "title": "PATTES D'OURS",
+            "description": "Entraîne-toi avec un partenaire et ses pattes d'ours plus efficacement grâce au STRONGSIDE Boxing Harness Pro. Combine avec les Extra Performance 34kg resistance bands pour une explosivité maximale.",
             "video_filename": "2.mp4"
           }
         },
@@ -66,6 +68,7 @@
           "settings": {
             "number": "03",
             "title": "SHADOW BOXING",
+            "description": "Perfectionne ta technique n'importe où avec le STRONGSIDE Boxing Harness Pro. Ajoute les Extra Performance 34kg resistance bands pour un conditionnement intense lors du Shadow boxing.",
             "video_filename": "3.mp4"
           }
         }

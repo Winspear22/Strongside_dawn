@@ -61,6 +61,7 @@
           "settings": {
             "number": "01",
             "title": "SAC DE FRAPPE",
+            "description": "Déchaîne ta puissance sur le sac avec le STRONGSIDE Boxing Harness Pro. La résistance progressive transforme chaque frappe en coup dévastateur.",
             "video_filename": "1.mp4"
           }
         },
@@ -69,6 +70,7 @@
           "settings": {
             "number": "02",
             "title": "PATTES D'OURS",
+            "description": "Entraîne-toi avec un partenaire et ses pattes d'ours plus efficacement grâce au STRONGSIDE Boxing Harness Pro. Combine avec les Extra Performance 34kg resistance bands pour une explosivité maximale.",
             "video_filename": "2.mp4"
           }
         },
@@ -77,6 +79,7 @@
           "settings": {
             "number": "03",
             "title": "SHADOW BOXING",
+            "description": "Perfectionne ta technique n'importe où avec le STRONGSIDE Boxing Harness Pro. Ajoute les Extra Performance 34kg resistance bands pour un conditionnement intense lors du Shadow boxing.",
             "video_filename": "3.mp4"
           }
         }
@@ -296,51 +299,52 @@
   #shopify-section-{{ section.id }} .mode-number {
     display: block;
     font-family: 'Inter', system-ui, sans-serif !important; /* Match Hero */
-    font-size: 3.75rem !important; /* text-6xl */
+    font-size: 7.5rem !important; /* Doubled from 3.75rem */
     font-weight: 900 !important;
     font-style: italic !important;
     color: #ff2222 !important; /* Force Red */
     opacity: 0.3 !important;
     line-height: 1 !important;
-    margin-bottom: -1rem !important; /* Negative margin for overlap */
+    margin-bottom: -2rem !important; /* Increased negative margin for larger overlap */
   }
   @media (min-width: 1024px) {
     #shopify-section-{{ section.id }} .mode-number {
-      font-size: 6rem !important; /* text-8xl */
-      margin-bottom: -2rem !important;
+      font-size: 12rem !important; /* Doubled from 6rem */
+      margin-bottom: -4rem !important; /* Increased negative margin */
     }
   }
 
   #shopify-section-{{ section.id }} .mode-title {
     font-family: 'Inter', system-ui, sans-serif !important; /* Match Hero */
-    font-size: 1.8rem !important; /* 2xl-ish */
+    font-size: 2.25rem !important; /* 75% of 3rem (Main Title) */
     font-weight: 900 !important;
     font-style: italic !important;
     text-transform: uppercase !important;
-    letter-spacing: -0.025em !important;
+    letter-spacing: -0.05em !important; /* Match Main Title */
     color: white !important;
     margin: 0;
+    line-height: 0.9 !important; /* Match Main Title */
     position: relative;
     z-index: 2; /* Approx overlay z-index */
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.4) !important;
   }
   @media (min-width: 1024px) {
     #shopify-section-{{ section.id }} .mode-title {
-      font-size: 2.25rem !important;
+      font-size: 3.75rem !important; /* 75% of 5rem (Main Title) */
     }
   }
 
   #shopify-section-{{ section.id }} .mode-desc {
     color: #9ca3af !important; /* Force Gray */
-    font-size: 1rem !important;
+    font-size: 1.25rem !important; /* Increased from 1rem */
     line-height: 1.6 !important;
-    max-width: 28rem;
+    max-width: 32rem; /* Increased max-width slightly to accommodate larger text */
     margin: 1rem auto 0 auto;
   }
   @media (min-width: 1024px) {
     #shopify-section-{{ section.id }} .mode-desc {
       margin: 1rem 0 0 0;
-      font-size: 1.125rem !important;
+      font-size: 1.5rem !important; /* Increased from 1.125rem */
     }
     #shopify-section-{{ section.id }} .strongside-mode-row.is-reversed .mode-desc {
       margin-left: auto;
