@@ -48,8 +48,8 @@
         "item-1": {
           "type": "item",
           "settings": {
-            "title": "Ceinture Tactique",
-            "desc": "Multi-fonctions",
+            "title": "STRONGSIDE Pro Boxing Harness",
+            "desc": "H: 60cm/23.62in - C: 77cm/30.31in (Ajustable)",
             "icon": "belt"
           }
         },
@@ -57,7 +57,7 @@
           "type": "item",
           "settings": {
             "title": "2x Résistance 16KG",
-            "desc": "35LB / 16KG",
+            "desc": "16KG (35LB) - 36cm / 14.17in",
             "icon": "short_bands"
           }
         },
@@ -65,31 +65,31 @@
           "type": "item",
           "settings": {
             "title": "2x Résistance 18KG",
-            "desc": "40LB / 18KG",
+            "desc": "18KG (40LB) - 48cm / 18.9in",
             "icon": "long_bands"
           }
         },
         "item-4": {
           "type": "item",
           "settings": {
-            "title": "Sangles Poignet",
-            "desc": "Broderie Premium",
+            "title": "2 Sangles de Poignet",
+            "desc": "32.5cm / 12.8in",
             "icon": "wrist"
           }
         },
         "item-5": {
           "type": "item",
           "settings": {
-            "title": "Poignées Grip",
-            "desc": "Mousse Confort",
+            "title": "Poignées Mousse",
+            "desc": "12cm / 4.72in",
             "icon": "handle"
           }
         },
         "item-6": {
           "type": "item",
           "settings": {
-            "title": "Sac Transport",
-            "desc": "Noir Sleek",
+            "title": "Sac de Transport",
+            "desc": "Hauteur 30cm / 11.8in",
             "icon": "bag"
           }
         }
