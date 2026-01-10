@@ -1,0 +1,130 @@
+{% schema %}
+{
+  "name": "Strongside Reviews",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "AVIS CLIENTS"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "CE QUE NOS CLIENTS DISENT"
+    },
+    {
+      "type": "color",
+      "id": "bg_start",
+      "label": "Gradient Start",
+      "default": "#171717"
+    },
+    {
+      "type": "color",
+      "id": "bg_end",
+      "label": "Gradient End",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Strongside Reviews",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: linear-gradient(to bottom, {{ section.settings.bg_start }}, {{ section.settings.bg_end }});
+    padding: 4rem 1.5rem;
+    color: white;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} { padding: 6rem 1.5rem; }
+  }
+
+  /* CONTAINER */
+  .ss-reviews-container {
+    max-width: 56rem; /* max-w-4xl */
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .ss-reviews-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .ss-reviews-subtitle {
+    color: #ff2222; /* brand-accent */
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+  }
+  .ss-reviews-title {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1;
+    margin: 0;
+  }
+  @media (min-width: 768px) {
+    .ss-reviews-title { font-size: 4rem; }
+  }
+
+  /* APP WIDGET OVERRIDES (To help it blend in) */
+  .ss-reviews-widget-wrapper {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  /* Force dark mode styles on common review widgets if possible */
+  .ss-reviews-widget-wrapper .jdgm-rev-widg {
+    color: white !important;
+  }
+  .ss-reviews-widget-wrapper .jdgm-rev-widg__title {
+    color: white !important;
+  }
+  .ss-reviews-widget-wrapper .jdgm-rev-widg__body {
+    color: #d1d5db !important;
+  }
+</style>
+
+<div class="ss-reviews-container">
+  <!-- HEADER -->
+  <div class="ss-reviews-header">
+    <span class="ss-reviews-subtitle">{{ section.settings.subtitle }}</span>
+    <h2 class="ss-reviews-title">{{ section.settings.title }}</h2>
+  </div>
+
+  <!-- APP BLOCK WRAPPER -->
+  <div class="ss-reviews-widget-wrapper">
+    {%- for block in section.blocks -%}
+      {% render block %}
+    {%- endfor -%}
+
+    {%- if section.blocks.size == 0 -%}
+      <div style="text-align:center; padding: 2rem; color: #9ca3af;">
+        <p>Ajoutez le bloc "Judge.me Reviews" ici via l'éditeur.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</div>

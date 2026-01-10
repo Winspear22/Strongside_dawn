@@ -159,9 +159,21 @@
     "accessories": {
       "type": "strongside-accessories",
       "settings": {
-        "subtitle": "ACCESSOIRES",
-        "title": "AJOUTE PLUS DE RÉSISTANCE",
-        "description": "Amplifie ton entraînement avec les Extra Performance 34kg resistance bands"
+        "title": "Formation Gratuite",
+        "subtitle": "INCLUS DANS VOTRE COMMANDE"
+      }
+    },
+    "reviews": {
+      "type": "strongside-reviews",
+      "blocks": {
+        "judgeme": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/612g6836-8c9f-4307-8854-8c8a531c305e",
+          "settings": {}
+        }
+      },
+      "settings": {
+        "title": "AVIS CLIENTS",
+        "subtitle": "CE QUE NOS CLIENTS DISENT"
       }
     },
     "featured_collection": {
@@ -309,6 +321,7 @@
     "training_modes",
     "accessories",
     "what_you_get",
+    "reviews",
     "featured_collection",
     "faq",
     "cta"
