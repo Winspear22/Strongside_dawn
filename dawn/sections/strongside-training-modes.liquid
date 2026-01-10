@@ -21,33 +21,33 @@
       "name": "Training Mode",
       "settings": [
         {
-           "type": "text",
-           "id": "number",
-           "label": "Number",
-           "default": "01"
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "01"
         },
         {
-           "type": "text",
-           "id": "title",
-           "label": "Title",
-           "default": "SAC DE FRAPPE"
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "SAC DE FRAPPE"
         },
         {
-           "type": "textarea",
-           "id": "description",
-           "label": "Description",
-           "default": "Déchaîne ta puissance sur le sac avec le STRONGSIDE Boxing Harness Pro."
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Déchaîne ta puissance sur le sac avec le STRONGSIDE Boxing Harness Pro."
         },
         {
-           "type": "image_picker",
-           "id": "image",
-           "label": "Image (Fallback)"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (Fallback)"
         },
         {
-            "type": "text",
-            "id": "video_filename",
-            "label": "Video Filename (in assets)",
-            "info": "e.g. 'Sac-de-frappe.mp4'. If set, overrides image."
+          "type": "text",
+          "id": "video_filename",
+          "label": "Video Filename (in assets)",
+          "info": "e.g. 'Sac-de-frappe.mp4'. If set, overrides image."
         }
       ]
     }
@@ -99,31 +99,30 @@
       {% for block in section.blocks %}
         {% assign is_even = forloop.index | modulo: 2 %}
         {% if is_even == 0 %}
-            {% assign row_class = 'is-reversed' %}
-            {% assign media_anim = 'ss-slide-in-right' %}
-            {% assign text_anim = 'ss-slide-in-left' %}
+          {% assign row_class = 'is-reversed' %}
+          {% assign media_anim = 'ss-slide-in-right' %}
+          {% assign text_anim = 'ss-slide-in-left' %}
         {% else %}
-            {% assign row_class = 'is-normal' %}
-            {% assign media_anim = 'ss-slide-in-left' %}
-            {% assign text_anim = 'ss-slide-in-right' %}
+          {% assign row_class = 'is-normal' %}
+          {% assign media_anim = 'ss-slide-in-left' %}
+          {% assign text_anim = 'ss-slide-in-right' %}
         {% endif %}
 
         <div class="strongside-mode-row {{ row_class }}">
-          
           <!-- Media Column -->
           <div class="strongside-mode-media ss-observe {{ media_anim }}" style="transition-delay: 200ms;">
-             <div class="media-container">
-               {% if block.settings.video_filename != blank %}
-                  <video autoplay loop muted playsinline class="media-content">
-                    <source src="{{ block.settings.video_filename | asset_url }}" type="video/mp4">
-                  </video>
-               {% elsif block.settings.image != blank %}
-                  {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'media-content', loading: 'lazy' }}
-               {% else %}
-                  <div class="media-placeholder">No Media</div>
-               {% endif %}
-               <div class="media-overlay"></div>
-             </div>
+            <div class="media-container">
+              {% if block.settings.video_filename != blank %}
+                <video autoplay loop muted playsinline class="media-content">
+                  <source src="{{ block.settings.video_filename | asset_url }}" type="video/mp4">
+                </video>
+              {% elsif block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'media-content', loading: 'lazy' }}
+              {% else %}
+                <div class="media-placeholder">No Media</div>
+              {% endif %}
+              <div class="media-overlay"></div>
+            </div>
           </div>
 
           <!-- Text Column -->
@@ -132,7 +131,6 @@
             <h3 class="mode-title">{{ block.settings.title }}</h3>
             <p class="mode-desc">{{ block.settings.description }}</p>
           </div>
-
         </div>
       {% endfor %}
     </div>
@@ -141,106 +139,126 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-        }
-      });
-    }, { threshold: 0.15 }); // Trigger when 15% visible
+          }
+        });
+      },
+      { threshold: 0.15 }
+    ); // Trigger when 15% visible
 
-    document.querySelectorAll('.ss-observe').forEach(el => observer.observe(el));
+    document.querySelectorAll('.ss-observe').forEach((el) => observer.observe(el));
   });
 </script>
 
 <style>
-  /* Base Layout */
-  .strongside-training-section {
+  /* Scoped styles with high specificity to potential Dawn overrides */
+  #shopify-section-{{ section.id }} .strongside-training-section {
     padding: 5rem 1.5rem;
     background-color: #050505 !important; /* Force Black Background */
     color: white !important;
     overflow-x: hidden; /* Prevent horizontal scroll from animations */
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+      Arial, sans-serif !important;
   }
   @media (min-width: 1024px) {
-    .strongside-training-section { padding: 8rem 1.5rem; }
+    #shopify-section-{{ section.id }} .strongside-training-section {
+      padding: 8rem 1.5rem;
+    }
   }
 
   /* Renamed container to avoid Dawn conflict and force width */
-  .strongside-container {
+  #shopify-section-{{ section.id }} .strongside-container {
     max-width: 1400px !important; /* Increased from 1280px (80rem) */
     width: 100% !important;
     margin: 0 auto !important;
   }
 
   /* Header */
-  .strongside-training-header {
+  #shopify-section-{{ section.id }} .strongside-training-header {
     text-align: center;
     margin-bottom: 4rem;
   }
   @media (min-width: 1024px) {
-    .strongside-training-header { margin-bottom: 8rem !important; } /* Increased vertical space */
+    #shopify-section-{{ section.id }} .strongside-training-header {
+      margin-bottom: 8rem !important;
+    } /* Increased vertical space */
   }
 
-  .strongside-subtitle {
+  #shopify-section-{{ section.id }} .strongside-subtitle {
     color: #ff2222 !important; /* Force Brand Accent */
-    font-size: 0.875rem !important;
-    font-weight: 700 !important;
+    font-size: 1.25rem !important; /* Reduced by 30% (approx) */
+    font-weight: 900 !important; /* Bold */
+    line-height: 1.6rem !important; /* Adjusted */
     text-transform: uppercase !important;
     letter-spacing: 0.1em !important;
     display: block;
     margin-bottom: 0.5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  .strongside-title {
-    font-size: 2.25rem !important;
+  #shopify-section-{{ section.id }} .strongside-title {
+    font-family: 'Inter', system-ui, sans-serif !important; /* Match Hero Title */
+    font-size: 3rem !important; /* HUGE: 48px */
     font-weight: 900 !important;
     font-style: italic !important;
     text-transform: uppercase !important;
     letter-spacing: -0.05em !important;
     color: white !important;
     margin: 0;
-    line-height: 1 !important;
+    line-height: 0.9 !important;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4) !important;
+    /* border: 1px solid red !important; DEBUG - A supprimer si visible */
   }
   @media (min-width: 1024px) {
-    .strongside-title { font-size: 3rem !important; }
+    #shopify-section-{{ section.id }} .strongside-title {
+      font-size: 5rem !important; /* HUGE: 80px */
+    }
   }
 
   /* Modes List */
-  .strongside-modes-list {
+  #shopify-section-{{ section.id }} .strongside-modes-list {
     display: flex;
     flex-direction: column;
     gap: 8rem !important; /* Force large vertical gap */
   }
   @media (min-width: 1024px) {
-    .strongside-modes-list { gap: 12rem !important; } /* Even larger gap on desktop */
+    #shopify-section-{{ section.id }} .strongside-modes-list {
+      gap: 12rem !important;
+    } /* Even larger gap on desktop */
   }
 
   /* Mode Row */
-  .strongside-mode-row {
+  #shopify-section-{{ section.id }} .strongside-mode-row {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem !important;
   }
   @media (min-width: 1024px) {
-    .strongside-mode-row {
+    #shopify-section-{{ section.id }} .strongside-mode-row {
       flex-direction: row;
       gap: 6rem !important; /* Increased gap between text/image */
       justify-content: space-between !important; /* Push elements apart */
     }
-    .strongside-mode-row.is-reversed {
+    #shopify-section-{{ section.id }} .strongside-mode-row.is-reversed {
       flex-direction: row-reverse;
     }
   }
 
   /* Media */
-  .strongside-mode-media {
+  #shopify-section-{{ section.id }} .strongside-mode-media {
     width: 100%;
   }
   @media (min-width: 1024px) {
-    .strongside-mode-media { width: 50% !important; } /* Stay half width but container is wider */
+    #shopify-section-{{ section.id }} .strongside-mode-media {
+      width: 50% !important;
+    } /* Stay half width but container is wider */
   }
-  .media-container {
+  #shopify-section-{{ section.id }} .media-container {
     position: relative;
     width: 100%;
     aspect-ratio: 4/3;
@@ -248,35 +266,36 @@
     overflow: hidden;
     background-color: #171717 !important;
   }
-  .media-content {
+  #shopify-section-{{ section.id }} .media-content {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .media-overlay {
+  #shopify-section-{{ section.id }} .media-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent) !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent) !important;
     pointer-events: none;
   }
 
   /* Text */
-  .strongside-mode-text {
+  #shopify-section-{{ section.id }} .strongside-mode-text {
     width: 100%;
     text-align: center;
   }
   @media (min-width: 1024px) {
-    .strongside-mode-text { 
-       width: 45% !important; /* Slightly smaller text box to allow gap */
-       text-align: left;
+    #shopify-section-{{ section.id }} .strongside-mode-text {
+      width: 45% !important; /* Slightly smaller text box to allow gap */
+      text-align: left;
     }
-    .strongside-mode-row.is-reversed .strongside-mode-text {
-       text-align: right;
+    #shopify-section-{{ section.id }} .strongside-mode-row.is-reversed .strongside-mode-text {
+      text-align: right;
     }
   }
 
-  .mode-number {
+  #shopify-section-{{ section.id }} .mode-number {
     display: block;
+    font-family: 'Inter', system-ui, sans-serif !important; /* Match Hero */
     font-size: 3.75rem !important; /* text-6xl */
     font-weight: 900 !important;
     font-style: italic !important;
@@ -286,13 +305,14 @@
     margin-bottom: -1rem !important; /* Negative margin for overlap */
   }
   @media (min-width: 1024px) {
-    .mode-number { 
-        font-size: 6rem !important; /* text-8xl */
-        margin-bottom: -2rem !important; 
+    #shopify-section-{{ section.id }} .mode-number {
+      font-size: 6rem !important; /* text-8xl */
+      margin-bottom: -2rem !important;
     }
   }
 
-  .mode-title {
+  #shopify-section-{{ section.id }} .mode-title {
+    font-family: 'Inter', system-ui, sans-serif !important; /* Match Hero */
     font-size: 1.8rem !important; /* 2xl-ish */
     font-weight: 900 !important;
     font-style: italic !important;
@@ -300,14 +320,17 @@
     letter-spacing: -0.025em !important;
     color: white !important;
     margin: 0;
-    position: relative; 
+    position: relative;
     z-index: 2; /* Approx overlay z-index */
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4) !important;
   }
   @media (min-width: 1024px) {
-    .mode-title { font-size: 2.25rem !important; }
+    #shopify-section-{{ section.id }} .mode-title {
+      font-size: 2.25rem !important;
+    }
   }
 
-  .mode-desc {
+  #shopify-section-{{ section.id }} .mode-desc {
     color: #9ca3af !important; /* Force Gray */
     font-size: 1rem !important;
     line-height: 1.6 !important;
@@ -315,8 +338,13 @@
     margin: 1rem auto 0 auto;
   }
   @media (min-width: 1024px) {
-    .mode-desc { margin: 1rem 0 0 0; font-size: 1.125rem !important; }
-    .strongside-mode-row.is-reversed .mode-desc { margin-left: auto; }
+    #shopify-section-{{ section.id }} .mode-desc {
+      margin: 1rem 0 0 0;
+      font-size: 1.125rem !important;
+    }
+    #shopify-section-{{ section.id }} .strongside-mode-row.is-reversed .mode-desc {
+      margin-left: auto;
+    }
   }
 
   /* --- ANIMATIONS --- */
@@ -324,17 +352,31 @@
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth ease-out */
   }
-  
+
   /* Fade Up (Header) */
-  .ss-fade-up { transform: translateY(30px); }
-  .ss-fade-up.is-visible { opacity: 1; transform: translateY(0); }
+  .ss-fade-up {
+    transform: translateY(30px);
+  }
+  .ss-fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   /* Slide In Left */
-  .ss-slide-in-left { transform: translateX(-50px); }
-  .ss-slide-in-left.is-visible { opacity: 1; transform: translateX(0); }
+  .ss-slide-in-left {
+    transform: translateX(-50px);
+  }
+  .ss-slide-in-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
   /* Slide In Right */
-  .ss-slide-in-right { transform: translateX(50px); }
-  .ss-slide-in-right.is-visible { opacity: 1; transform: translateX(0); }
-
+  .ss-slide-in-right {
+    transform: translateX(50px);
+  }
+  .ss-slide-in-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 </style>
