@@ -1,0 +1,648 @@
+{% comment %}
+  STRONGSIDE Accessories Section - React Replica
+  Based on AccessoriesShop.jsx
+{% endcomment %}
+
+{%- assign product = section.settings.product -%}
+
+{%- comment -%} SMART AUTO-SELECT: Find "Bands" product if not selected {%- endcomment -%}
+{%- if product == blank -%}
+  {%- for p in collections.all.products -%}
+    {%- assign title_down = p.title | downcase -%}
+    {%- if title_down contains 'bands'
+      or title_down contains 'resistance'
+      or title_down contains 'extra performance'
+    -%}
+      {%- assign product = p -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- assign variant = product.selected_or_first_available_variant -%}
+
+<style>
+  /* SCOPED CSS to avoid theme conflicts */
+  #shopify-section-{{ section.id }} .strongside-accessories-section {
+    padding: 4rem 1.5rem;
+    background: linear-gradient(to bottom, #050505, rgba(23, 23, 23, 0.5)); /* From brand-black to neutral-900/50 */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* border-white/5 */
+    color: white;
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .strongside-accessories-section { padding: 6rem 1.5rem; }
+  }
+
+  /* HEADER */
+  #shopify-section-{{ section.id }} .ss-acc-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-subtitle {
+    color: #ff2222; /* brand-accent */
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-title {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 3.375rem; /* Reduced by 10% */
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    color: white;
+    line-height: 1;
+    margin: 0 0 1rem 0;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .ss-acc-title { font-size: 5rem; /* Reduced by 10% */ }
+  }
+  #shopify-section-{{ section.id }} .ss-acc-desc {
+    color: #9ca3af; /* gray-400 */
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+
+  /* CARD CONTAINER */
+  #shopify-section-{{ section.id }} .ss-acc-card {
+    max-width: 47.25rem; /* Reduced by 10% */
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.05); /* bg-white/5 */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* border-white/10 */
+    border-radius: 1rem; /* rounded-2xl */
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-card:hover {
+    border-color: rgba(255, 34, 34, 0.5); /* border-brand-accent/50 */
+  }
+
+  /* GALLERY GRID */
+  #shopify-section-{{ section.id }} .ss-acc-gallery {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  /* THUMBNAILS */
+  #shopify-section-{{ section.id }} .ss-acc-thumbs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* Hide scrollbar */
+    scrollbar-width: none;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-thumbs::-webkit-scrollbar { display: none; }
+
+  #shopify-section-{{ section.id }} .ss-acc-thumb-btn {
+    width: 5rem; /* Reduced by 10% */
+    height: 5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+    cursor: pointer;
+    background: transparent;
+    padding: 0;
+    transition: all 0.2s;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-thumb-btn:hover {
+    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  #shopify-section-{{ section.id }} .ss-acc-thumb-btn.is-active {
+    border-color: #ff2222;
+    opacity: 1;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* MAIN IMAGE */
+  #shopify-section-{{ section.id }} .ss-acc-main-img-container {
+    flex: 1;
+    aspect-ratio: 1/1;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    cursor: zoom-in;
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure full visibility */
+  }
+
+  /* PRODUCT INFO */
+  #shopify-section-{{ section.id }} .ss-acc-prod-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 2.25rem; /* Kept identical as requested */
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.05em !important; /* Adjusted to match hero */
+    line-height: 1 !important;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
+    color: white;
+    margin: 0;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-price {
+    color: #ff2222;
+    font-weight: 700;
+    font-size: 2rem; /* Reduced by 10% */
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  /* DESCRIPTION TOGGLE */
+  /* DESCRIPTION TOGGLE */
+  #shopify-section-{{ section.id }} .ss-acc-desc-btn {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem; /* Re-added margin */
+    padding: 1.6rem; /* Kept scale */
+    background-color: #171717 !important; /* Neutral-900 */
+    border: 1px solid #262626 !important; /* Neutral-800 */
+    border-radius: 0.5rem !important; /* Rounded */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: white;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-desc-btn:hover {
+    background-color: #262626 !important; /* Lighter on hover */
+    color: white; /* Keep white text */
+  }
+  #shopify-section-{{ section.id }} .ss-acc-desc-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: white !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 0.25rem;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-content.is-open {
+    max-height: 500px; /* Arbitrary high value */
+  }
+  #shopify-section-{{ section.id }} .ss-acc-html {
+    font-size: 1.15rem !important; /* Reduced by 20% from 1.4rem */
+    color: #d1d5db !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+    padding-top: 1rem !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+    -webkit-font-smoothing: antialiased !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-html h3,
+  #shopify-section-{{ section.id }} .ss-acc-html h2,
+  #shopify-section-{{ section.id }} .ss-acc-html h1 {
+    font-size: 1.125rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    color: white !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.4 !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-html h4 {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: white !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.4 !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-html p {
+    margin-bottom: 1em !important;
+    color: #d1d5db !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-html ul {
+    list-style: disc !important;
+    margin-left: 1.2rem !important;
+    margin-bottom: 1em !important;
+    color: #9ca3af !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-html li {
+    margin-bottom: 0.25em !important;
+    color: #9ca3af !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-html strong {
+    color: white !important;
+    font-weight: 700 !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-html em {
+    color: #d1d5db !important;
+    font-style: italic !important;
+  }
+
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .ss-acc-html { font-size: 1.2rem !important; line-height: 1.75 !important; }
+    #shopify-section-{{ section.id }} .ss-acc-html h3 { font-size: 1.3rem !important; }
+    #shopify-section-{{ section.id }} .ss-acc-html h4 { font-size: 1.15rem !important; }
+    #shopify-section-{{ section.id }} .ss-acc-meta-row { font-size: 1.2rem !important; }
+  }
+  #shopify-section-{{ section.id }} .ss-acc-meta-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem !important; /* Matches mobile html text */
+  }
+  #shopify-section-{{ section.id }} .ss-acc-meta-label { color: #6b7280; font-weight: 500; }
+  #shopify-section-{{ section.id }} .ss-acc-meta-val { color: white; font-family: monospace; text-align: right; }
+
+  /* ACTIONS */
+  #shopify-section-{{ section.id }} .ss-acc-btn-add {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1.6rem; /* Reduced by 10% */
+    background-color: white !important;
+    color: black !important;
+    font-weight: 700;
+    font-size: 1.35rem; /* Reduced by 10% */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 1 !important; /* Force opacity */
+    -webkit-font-smoothing: antialiased; /* Crisp text */
+  }
+  /* Force all children to be black */
+  #shopify-section-{{ section.id }} .ss-acc-btn-add *,
+  #shopify-section-{{ section.id }} .ss-acc-btn-add svg,
+  #shopify-section-{{ section.id }} .ss-acc-btn-add span {
+    color: black !important;
+    stroke: black !important;
+    opacity: 1 !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-btn-add:hover { background-color: #f3f4f6 !important; }
+
+  #shopify-section-{{ section.id }} .ss-acc-btn-buy {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1.6rem; /* Reduced by 10% */
+    background-color: #10b981 !important; /* Emerald-500 */
+    color: white !important;
+    font-weight: 700;
+    font-size: 1.35rem; /* Reduced by 10% */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 1 !important; /* Force opacity */
+    -webkit-font-smoothing: antialiased; /* Crisp text */
+  }
+  /* Force all children to be white */
+  #shopify-section-{{ section.id }} .ss-acc-btn-buy *,
+  #shopify-section-{{ section.id }} .ss-acc-btn-buy svg,
+  #shopify-section-{{ section.id }} .ss-acc-btn-buy span {
+    color: white !important;
+    stroke: white !important;
+    opacity: 1 !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-btn-buy:hover { background-color: #059669 !important; }
+
+  /* TRUST */
+  #shopify-section-{{ section.id }} .ss-acc-trust {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-secure {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6b7280;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-logos {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-logo-img {
+    height: 4rem; /* Reduced by 10% */
+    object-fit: contain;
+    opacity: 0.8;
+  }
+
+  /* MODAL */
+  #shopify-section-{{ section.id }} .ss-acc-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(5px);
+  }
+  #shopify-section-{{ section.id }} .ss-acc-modal.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-modal-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 0.5rem;
+  }
+</style>
+
+<div class="strongside-accessories-section">
+  <div class="ss-acc-header">
+    <span class="ss-acc-subtitle">{{ section.settings.subtitle }}</span>
+    <h2 class="ss-acc-title">{{ section.settings.title }}</h2>
+    <p class="ss-acc-desc">{{ section.settings.description }}</p>
+  </div>
+
+  {% if product != blank %}
+    <div class="ss-acc-card">
+      <!-- GALLERY -->
+      <div class="ss-acc-gallery">
+        <!-- Thumbnails -->
+        {% if product.media.size > 1 %}
+          <div class="ss-acc-thumbs">
+            {% for media in product.media %}
+              <button
+                class="ss-acc-thumb-btn {% if forloop.first %}is-active{% endif %}"
+                onclick="changeAccessoryImage(this, '{{ media | image_url: width: 800 }}', {{ forloop.index0 }})"
+              >
+                <img src="{{ media | image_url: width: 100 }}" class="ss-acc-thumb-img">
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Main Image -->
+        <div class="ss-acc-main-img-container" onclick="openAccessoryModal()">
+          <img id="ss-acc-main-img" src="{{ product.featured_media | image_url: width: 800 }}" class="ss-acc-main-img">
+        </div>
+      </div>
+
+      <!-- INFO -->
+      <h3 class="ss-acc-prod-title">{{ product.title }}</h3>
+      <span class="ss-acc-price">{{ variant.price | money }}</span>
+
+      <!-- DESCRIPTION TOGGLE -->
+      <button class="ss-acc-desc-btn" onclick="toggleAccessoryDesc()">
+        <span class="ss-acc-desc-label" id="ss-acc-desc-label">VOIR LA DESCRIPTION</span>
+        <svg
+          id="ss-acc-desc-icon"
+          width="16"
+          height="16"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          style="transition: transform 0.2s;"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <div id="ss-acc-content" class="ss-acc-content">
+        <div class="ss-acc-html">
+          {{ product.description }}
+        </div>
+
+        <!-- Metadata Fallback if Metafields aren't set -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem;">
+          {% if variant.sku != blank %}
+            <div class="ss-acc-meta-row">
+              <span class="ss-acc-meta-label">SKU:</span>
+              <span class="ss-acc-meta-val">{{ variant.sku }}</span>
+            </div>
+          {% endif %}
+          <div class="ss-acc-meta-row">
+            <span class="ss-acc-meta-label">Type:</span>
+            <span class="ss-acc-meta-val">{{ product.type }}</span>
+          </div>
+          {% if variant.weight > 0 %}
+            <div class="ss-acc-meta-row">
+              <span class="ss-acc-meta-label">Poids:</span>
+              <span class="ss-acc-meta-val">{{ variant.weight | weight_with_unit }}</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- ACTIONS -->
+      <button
+        class="ss-acc-btn-add"
+        onclick="addAccessoryToCart('{{ variant.id }}')"
+      >
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span>Ajouter au Panier</span>
+      </button>
+
+      <button
+        class="ss-acc-btn-buy"
+        onclick="buyAccessoryNow('{{ variant.id }}')"
+      >
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        <span>Achat Immédiat</span>
+      </button>
+
+      <!-- TRUST -->
+      <div class="ss-acc-trust">
+        <div class="ss-acc-secure">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+          </svg>
+          <span>Paiement sécurisé</span>
+        </div>
+        <div class="ss-acc-logos">
+          <img
+            src="{{ 'visa mastercard.webp' | asset_url }}"
+            alt="Visa Mastercard"
+            class="ss-acc-logo-img"
+          >
+          <img
+            src="{{ 'paypal logo.webp' | asset_url }}"
+            alt="PayPal"
+            class="ss-acc-logo-img"
+          >
+          <img src="{{ 'cb logo.webp' | asset_url }}" alt="CB" class="ss-acc-logo-img">
+        </div>
+        <!-- NOTE: Using standard CDN placeholders or text if images missing in assets -->
+      </div>
+    </div>
+  {% else %}
+    <p style="text-align:center; color:#9ca3af;">
+      Produit non trouvé. Veuillez sélectionner un produit dans l'éditeur.
+    </p>
+  {% endif %}
+</div>
+
+<!-- ZOOM MODAL -->
+<div id="ss-acc-modal" class="ss-acc-modal" onclick="closeAccessoryModal()">
+  <button class="ss-acc-close-btn" onclick="closeAccessoryModal()">✕</button>
+  <img id="ss-acc-modal-img" src="" class="ss-acc-modal-img" onclick="event.stopPropagation()">
+</div>
+
+<script>
+  let currentAccessoryImage = '{{ product.featured_media | image_url: width: 1200 }}';
+
+  function changeAccessoryImage(btn, url, index) {
+    document.getElementById('ss-acc-main-img').src = url;
+    currentAccessoryImage = url;
+
+    // Update Active Thumbs
+    document
+      .querySelectorAll('#shopify-section-{{ section.id }} .ss-acc-thumb-btn')
+      .forEach((b) => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+  }
+
+  function toggleAccessoryDesc() {
+    const content = document.getElementById('ss-acc-content');
+    const label = document.getElementById('ss-acc-desc-label');
+    const icon = document.getElementById('ss-acc-desc-icon');
+
+    content.classList.toggle('is-open');
+    if (content.classList.contains('is-open')) {
+      label.textContent = 'MASQUER LA DESCRIPTION';
+      icon.style.transform = 'rotate(180deg)';
+    } else {
+      label.textContent = 'VOIR LA DESCRIPTION';
+      icon.style.transform = 'rotate(0deg)';
+    }
+  }
+
+  function openAccessoryModal() {
+    const modal = document.getElementById('ss-acc-modal');
+    modal.classList.add('is-visible');
+    document.getElementById('ss-acc-modal-img').src = currentAccessoryImage;
+  }
+
+  function closeAccessoryModal() {
+    document.getElementById('ss-acc-modal').classList.remove('is-visible');
+  }
+
+  function addAccessoryToCart(variantId) {
+    let formData = {
+      items: [
+        {
+          id: variantId,
+          quantity: 1,
+        },
+      ],
+    };
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        // Refresh cart or open drawer (Dawn default behavior might need trigger)
+        window.location.href = '/cart'; // Simple redirect for now
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+  function buyAccessoryNow(variantId) {
+    window.location.href = '/cart/' + variantId + ':1';
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Accessoires Strongside",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "ACCESSOIRES"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "AJOUTE PLUS DE RÉSISTANCE"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Amplifie ton entraînement avec les Extra Performance 34kg resistance bands"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Produit à afficher"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accessoires Strongside"
+    }
+  ]
+}
+{% endschema %}
