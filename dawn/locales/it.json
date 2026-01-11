@@ -277,48 +277,48 @@
   },
   "sections": {
     "header": {
-      "announcement": "Annuncio",
+      "announcement": "Annonce",
       "menu": "Menu",
       "cart_count": {
-        "one": "{{ count }} articolo",
-        "other": "{{ count }} articoli",
-        "many": "{{ count }} articoli"
+        "one": "{{ count }} article",
+        "other": "{{ count }} articles",
+        "many": "{{ count }} articles"
       }
     },
     "cart": {
-      "title": "Il tuo carrello",
-      "caption": "Articoli nel carrello",
-      "remove_title": "Rimuovi {{ title }}",
-      "note": "Istruzioni speciali per l'ordine",
-      "checkout": "Procedi al pagamento",
-      "empty": "Il tuo carrello è vuoto",
-      "cart_error": "Si è verificato un errore durante l'aggiornamento del carrello. Riprova.",
-      "cart_quantity_error_html": "Non puoi aggiungere più di {{ quantity }} di questo prodotto al carrello.",
+      "title": "Votre panier",
+      "caption": "Articles du panier",
+      "remove_title": "Supprimer {{ title }}",
+      "note": "Instructions spéciales concernant la commande",
+      "checkout": "Procéder au paiement",
+      "empty": "Votre panier est vide",
+      "cart_error": "Une erreur est survenue lors de l’actualisation de votre panier. Veuillez réessayer.",
+      "cart_quantity_error_html": "Vous ne pouvez pas ajouter plus de {{ quantity }} de ce produit à votre panier.",
       "headings": {
-        "product": "Prodotto",
-        "price": "Prezzo",
-        "total": "Totale",
-        "quantity": "Quantità",
-        "image": "Immagine prodotto"
+        "product": "Produit",
+        "price": "Prix",
+        "total": "Total",
+        "quantity": "Quantité",
+        "image": "Image de produit"
       },
-      "update": "Aggiorna",
+      "update": "Mise à jour",
       "login": {
-        "title": "Hai un account?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Accedi</a> per pagare più velocemente."
+        "title": "Vous possédez un compte ?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Connectez-vous</a> pour payer plus vite."
       },
-      "estimated_total": "Totale stimato",
-      "new_estimated_total": "Nuovo totale stimato",
-      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Dazi e tasse inclusi. Sconti e <a href=\"{{ link }}\">spese di spedizione</a> calcolati al checkout.",
-      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Dazi e tasse inclusi. Sconti e spese di spedizione calcolati al checkout.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Tasse incluse. Sconti e <a href=\"{{ link }}\">spese di spedizione</a> calcolati al checkout.",
-      "taxes_included_shipping_at_checkout_without_policy": "Tasse incluse. Sconti e spese di spedizione calcolati al checkout.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Dazi inclusi. Tasse, sconti e <a href=\"{{ link }}\">spese di spedizione</a> calcolati al checkout.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Dazi inclusi. Tasse, sconti e spese di spedizione calcolati al checkout.",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Tasse, sconti e <a href=\"{{ link }}\">spese di spedizione</a> calcolati al checkout.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Tasse, sconti e spese di spedizione calcolati al checkout."
+      "estimated_total": "Total estimé",
+      "new_estimated_total": "Nouveau total estimé",
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Frais de douane et taxes inclus. Réductions et <a href=\"{{ link }}\">frais d’expédition</a> calculés à l’étape du paiement.",
+      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Frais de douane et taxes inclus. Réductions et frais d’expédition calculés à l’étape du paiement.",
+      "taxes_included_shipping_at_checkout_with_policy_html": "Taxes incluses. Réductions et <a href=\"{{ link }}\">frais d’expédition</a> calculés à l’étape du paiement.",
+      "taxes_included_shipping_at_checkout_without_policy": "Taxes incluses. Réductions et frais d’expédition calculés à l’étape du paiement.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Frais de douane inclus. Taxes, réductions et <a href=\"{{ link }}\">frais d’expédition</a> calculés à l’étape du paiement.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Frais de douane inclus. Taxes, réductions et frais d’expédition calculés à l’étape du paiement.",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Taxes, réductions et <a href=\"{{ link }}\">frais d’expédition</a> calculés à l’étape du paiement.",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Taxes, réductions et frais d’expédition calculés à l’étape du paiement."
     },
     "footer": {
-      "payment": "Metodi di pagamento"
+      "payment": "Moyens de paiement"
     },
     "featured_blog": {
       "view_all": "Tout afficher",
@@ -540,16 +540,6 @@
     }
   },
   "strongside": {
-    "header": {
-      "equipment": "Attrezzatura",
-      "reinforcements": "Rinforzi",
-      "concept": "Concetto",
-      "training": "Allenamento",
-      "buy": "ACQUISTA",
-      "reviews": "Recensioni",
-      "faq": "FAQ",
-      "account": "Il Mio Account"
-    },
     "hero": {
       "subtitle": "Sistema a Resistenza Progressiva",
       "line1": "Colpisci",
@@ -560,194 +550,23 @@
       "cta": "Negozio"
     },
     "features": {
+      "subtitle": "Perché funziona",
       "title": "Il Vantaggio Sleale",
-      "subtitle": "Perché i pro lo usano",
-      "cards": {
-        "1_title": "Resistenza Fluida",
-        "1_desc": "A differenza dei pesi liberi, l'elastico aumenta la tensione alla fine del movimento, esattamente dove l'impatto è massimo.",
-        "2_title": "Memoria Muscolare",
-        "2_desc": "Correggi la tua postura naturalmente. Se la tua guardia scende, la tensione te lo ricorda istantaneamente.",
-        "3_title": "Leggero & Durevole",
-        "3_desc": "Polimero di qualità aerospaziale. Indistruttibile, pesa meno di 200g e sta in tasca."
-      }
-    },
-    "showcase": {
-      "title": "Progettato per le Prestazioni",
-      "features": {
-        "1_title": "MOVIMENTO NATURALE",
-        "1_desc": "Un design studiato per l'allineamento diretto tra spalle e braccia. La traiettoria del colpo resta vera. Sensazioni di combattimento realistiche.",
-        "2_title": "TRASFERIMENTO DI POTENZA SUPERIORE",
-        "2_desc": "Attivazione simultanea di spalle, pettorali e dorsali. Trasmissione di forza più diretta ai pugni. Perdita di energia minima. Ogni colpo diventa più esplosivo.",
-        "3_title": "CORE PIÙ FORTE E STABILE",
-        "3_desc": "Nessuna trazione verso il basso come nelle imbragature alla vita. Coinvolgimento naturale e attivo del core. Postura migliore durante le combinazioni.",
-        "4_title": "ZERO INTERFERENZA CON ANCHE E GAMBE",
-        "4_desc": "Libertà di movimento totale. Perfetto per pivot, schivate e gioco di gambe. Ideale per sacco, colpitori e sparring.",
-        "5_title": "PIÙ SICURO PER LO SPARRING CONTROLLATO",
-        "5_desc": "Resistenza centrata sulla parte superiore del corpo. Squilibrio ridotto. L'imbragatura resta stabile anche in movimento.",
-        "6_title": "ALLENATI OVUNQUE",
-        "6_desc": "STRONGSIDE™ → resistenza naturale, prestazioni reali\nCon guanti da boxe o MMA\nAllenamento al sacco\nColpitori"
-      }
-    },
-    "product3d": {
-      "subtitle": "Design Ergonomico",
-      "titleStart": "Presa",
-      "titleEnd": "Assoluta",
-      "desc": "Impugnatura testurizzata progettata per espellere il sudore. Controllo totale, anche alla massima intensità.",
-      "btn": "Esplora 3D",
-      "instructions": {
-        "rotate": "Clic SX: Ruota",
-        "zoom": "Rotella: Zoom"
-      }
-    },
-    "training": {
-      "subtitle": "In Azione",
-      "titleStart": "Padroneggia il",
-      "titleEnd": "Movimento",
-      "sportsTagline": "MMA. Boxe. Muay Thai. Karate. Tutti d'accordo: cambia tutto.",
-      "cards": {
-        "card_1": "Live stronger.",
-        "card_2": "Power in every punch.",
-        "card_3": "Train. Fight. Repeat.",
-        "card_4": "Endure. Overcome. Conquer.",
-        "card_5": "No pain, more gain.",
-        "card_6": "Push limits, break barriers.",
-        "card_7": "Dominate your day.",
-        "card_8": "Focus. Hit. Win.",
-        "card_9": "Sweat today, conquer tomorrow.",
-        "card_10": "Strength isn't given, it's earned.",
-        "card_11": "Rise. Fight. Repeat.",
-        "card_12": "Fearless, relentless, unstoppable.",
-        "card_13": "Hit hard, stay strong."
-      },
-      "ui": {
-        "playing": "Riproduzione",
-        "preview": "Anteprima",
-        "vol": "VOL"
-      },
-      "cta": {
-        "title": "Soddisfatto della demo?",
-        "subtitle": "Non perdere l'occasione di trasformare il tuo allenamento. Unisciti all'élite adesso.",
-        "button": "ORDINA IL MIO ORA"
-      },
-      "modes": {
-        "1_title": "SACCO DA BOXE",
-        "1_desc": "Scatena la tua potenza sul sacco con lo STRONGSIDE Boxing Harness Pro. La resistenza progressiva trasforma ogni colpo in un pugno devastante.",
-        "2_title": "COLPITORI",
-        "2_desc": "Allenati con un partner e i suoi colpitori più efficacemente grazie allo STRONGSIDE Boxing Harness Pro. Combina con le Extra Performance 34kg resistance bands per un'esplosività massima.",
-        "3_title": "SHADOW BOXING",
-        "3_desc": "Perfeziona la tua tecnica ovunque con lo STRONGSIDE Boxing Harness Pro. Aggiungi le Extra Performance 34kg resistance bands per un condizionamento intenso durante lo Shadow boxing."
-      }
-    },
-    "faq": {
-      "linkName": "FAQ",
-      "title": "Domande Frequenti",
-      "items": {
-        "1_q": "Posso usarlo con i guanti?",
-        "1_a": "Sì, completamente compatibile con guanti da boxe e MMA.",
-        "2_q": "È adatto per sacco e colpitori?",
-        "2_a": "Sì, progettato per sacco pesante, colpitori e allenamento con partner.",
-        "3_q": "Posso fare sparring?",
-        "3_a": "Sì, in sparring controllato. Il sistema rimane stabile e sicuro.",
-        "4_q": "È adatto ai principianti?",
-        "4_a": "Sì, la resistenza è progressiva e controllata.",
-        "5_q": "Posso usarlo a casa?",
-        "5_a": "Sì, nessuna palestra o attrezzatura pesante necessaria.",
-        "6_q": "Si adatta a tutte le corporature?",
-        "6_a": "Sì, l'imbracatura è completamente regolabile.",
-        "7_q": "È resistente?",
-        "7_a": "Testato per allenamenti intensivi."
-      }
-    },
-    "shop": {
-      "back": "Indietro",
-      "myCart": "Carrello",
-      "title": "Il Negozio",
-      "heroTitle": "Negozio Ufficiale",
-      "heroSubtitle": "Attrezzatura ad alte prestazioni per atleti d'élite",
-      "soldOut": "Esaurito",
-      "addToCart": "Aggiungi al Carrello",
-      "buyNow": "Acquista Ora",
-      "empty": "Nessun prodotto trovato.",
-      "checkStatus": "Verifica che i tuoi prodotti siano in stato ATTIVO su Shopify.",
-      "add": "Aggiungi",
-      "clickToZoom": "Clicca per ingrandire",
-      "unavailable": "Non disponibile",
-      "loading": "Caricamento...",
-      "readComments": "Leggi",
-      "commentsWord": "recensioni",
-      "beFirstReview": "Sii il primo a lasciare una recensione!",
-      "reviews": "Recensioni",
-      "selectOption": "Scegli un'opzione",
-      "fastShipping": "Spedizione Veloce",
-      "guarantee": "Garanzia",
-      "securePayment": "Pagamento sicuro",
-      "secure100": "Pagamento 100% sicuro",
-      "showDetails": "Vedi descrizione",
-      "hideDetails": "Nascondi descrizione",
-      "color": "Colore",
-      "resistance": "Livello di resistenza",
-      "packContent": "Contenuto del pack",
-      "packContentList_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>1x Imbragatura Regolabile (60-77cm)</li><li>2x Bande Corte 16kg (36cm)</li><li>2x Bande Lunghe 18kg (48cm)</li><li>2x Cinturini da Polso (32.5cm)</li><li>2x Maniglie (12cm)</li><li>1x Borsa da Trasporto (30cm)</li></ul>",
-      "warranty": "Garanzia",
-      "shipping": "Spedizione e resi",
-      "descTitle": "Descrizione",
-      "whatsIncluded": "Contenuto del Pack",
-      "shippingTitle": "Spedizione e Resi",
-      "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Spedito entro 24H<br>Consegna Europa: 3-5 giorni lavorativi<br>Resi entro 15 giorni</p>",
-      "guaranteeTitle": "Garanzia",
-      "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ Garanzia soddisfatti o rimborsati 15 giorni</li><li>✅ Supporto clienti reattivo</li><li>✅ Pagamento sicuro</li></ul>",
-      "features": {
-        "subtitle": "Perché funziona",
-        "title": "Il Vantaggio Sleale",
-        "feature1Title": "Esplosività Massima",
-        "feature1Subtitle": "Moltiplica la tua potenza di colpo",
-        "feature1Desc": "La resistenza progressiva costringe i tuoi muscoli a lavorare più duramente ad ogni estensione, sviluppando una potenza devastante.",
-        "feature2Title": "Velocità Fulminea",
-        "feature2Subtitle": "Accelera i tuoi riflessi",
-        "feature2Desc": "Il ritorno elastico ti costringe ad essere più veloce, migliorando la velocità di colpo e i tempi di reazione.",
-        "feature3Title": "Core Totale",
-        "feature3Subtitle": "Stabilizzazione del core",
-        "feature3Desc": "Ogni movimento coinvolge il tuo core per mantenere l'equilibrio contro la tensione asimmetrica."
-      },
-      "whatYouGet": {
-        "title": "Cosa Ricevi",
-        "subtitle": "Tutto ciò di cui hai bisogno per colpi esplosivi",
-        "harness": "PRO HARNESS",
-        "harnessDesc": "Pelle premium e comfort",
-        "bands": "3 LIVELLI",
-        "bandsDesc": "15-75 LBS resistenza",
-        "bag": "BORSA VIAGGIO",
-        "bagDesc": "Compatta & resistente",
-        "guide": "GUIDA PDF",
-        "guideDesc": "Esercizi & routine",
-        "extra": "OPZIONE: + POTENZA",
-        "extraDesc": "Aggiungi fino a 34KG (75LBS) di resistenza - 41cm / 16.4in",
-        "tagline": "Amplifica ancora di più il tuo allenamento con le Extra Performance 34kg resistance bands.",
-        "item1": "STRONGSIDE Pro Boxing Harness",
-        "item1Desc": "H: 60cm/23.62in - C: 77cm/30.31in (Regolabile)",
-        "item2": "2x Resistenza 16KG",
-        "item2Desc": "16KG (35LB) - 36cm / 14.17in",
-        "item3": "2x Resistenza 18KG",
-        "item3Desc": "18KG (40LB) - 48cm / 18.9in",
-        "item4": "2 Cinturini da Polso",
-        "item4Desc": "32.5cm / 12.8in",
-        "item5": "Maniglie in Schiuma",
-        "item5Desc": "12cm / 4.72in",
-        "item6": "Borsa da Trasporto",
-        "item6Desc": "Altezza 30cm / 11.8in"
-      },
-      "cta": {
-        "smallSubtitle": "UNISCITI A NOI",
-        "title": "Pronto a Trasformare il Tuo Allenamento?",
-        "subtitle": "Unisciti a migliaia di atleti che hanno scelto l'eccellenza.",
-        "button": "Ordina Ora"
-      }
+      "feature1Title": "Esplosività Massima",
+      "feature1Subtitle": "Moltiplica la tua potenza di colpo",
+      "feature1Desc": "La resistenza progressiva costringe i tuoi muscoli a lavorare più duramente ad ogni estensione, sviluppando una potenza devastante.",
+      "feature2Title": "Velocità Fulminea",
+      "feature2Subtitle": "Accelera i tuoi riflessi",
+      "feature2Desc": "Il ritorno elastico ti costringe ad essere più veloce, migliorando la velocità di colpo e i tempi di reazione.",
+      "feature3Title": "Core Totale",
+      "feature3Subtitle": "Stabilizzazione del core",
+      "feature3Desc": "Ogni movimento coinvolge il tuo core per mantenere l'equilibrio contro la tensione asimmetrica."
     },
     "whatYouGet": {
       "title": "Cosa Ricevi",
       "subtitle": "Tutto ciò di cui hai bisogno per colpi esplosivi",
       "harness": "PRO HARNESS",
-      "harnessDesc": "Pelle premium e comfort",
+      "harnessDesc": "Pelle premium & comfort",
       "bands": "3 LIVELLI",
       "bandsDesc": "15-75 LBS resistenza",
       "bag": "BORSA VIAGGIO",
@@ -756,7 +575,7 @@
       "guideDesc": "Esercizi & routine",
       "extra": "OPZIONE: + POTENZA",
       "extraDesc": "Aggiungi fino a 34KG (75LBS) di resistenza - 41cm / 16.4in",
-      "tagline": "Amplifica ancora di più il tuo allenamento con le Extra Performance 34kg resistance bands.",
+      "tagline": "Amplifica il tuo allenamento con le Extra Performance 34kg resistance bands.",
       "item1": "STRONGSIDE Pro Boxing Harness",
       "item1Desc": "H: 60cm/23.62in - C: 77cm/30.31in (Regolabile)",
       "item2": "2x Resistenza 16KG",
@@ -776,6 +595,31 @@
       "subtitle": "Unisciti a migliaia di atleti che hanno scelto l'eccellenza.",
       "button": "Ordina Ora"
     },
+    "shop": {
+      "back": "Indietro",
+      "myCart": "Carrello",
+      "title": "Il Negozio",
+      "addToCart": "Aggiungi al Carrello",
+      "buyNow": "Acquista Ora",
+      "fastShipping": "Spedizione Veloce",
+      "warranty": "Garanzia",
+      "securePayment": "Pagamento sicuro",
+      "readComments": "Leggi",
+      "commentsWord": "recensioni",
+      "selectOption": "Scegli un'opzione",
+      "packContent": "Contenuto del pacco",
+      "packContentList_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>1x Imbracatura Regolabile (60-77cm)</li><li>2x Bande Corte 16kg (36cm)</li><li>2x Bande Lunghe 18kg (48cm)</li><li>2x Cinturini da Polso (32.5cm)</li><li>2x Maniglie (12cm)</li><li>1x Borsa da Trasporto (30cm)</li></ul>",
+      "shippingTitle": "Spedizione & Resi",
+      "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Spedito entro 24H<br>Consegna Europa: 3-5 giorni lavorativi<br>Resi entro 15 giorni</p>",
+      "guaranteeTitle": "Garanzia",
+      "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ Garanzia soddisfatti o rimborsati 15 giorni</li><li>✅ Supporto clienti reattivo</li><li>✅ Pagamento sicuro</li></ul>",
+      "showDetails": "Vedi descrizione",
+      "hideDetails": "Nascondi descrizione",
+      "color": "Colore",
+      "resistance": "Livello di resistenza",
+      "descTitle": "Descrizione",
+      "whatsIncluded": "Contenuto del Pack"
+    },
     "footer": {
       "rights": "Tutti i diritti riservati.",
       "brandDesc": "L'attrezzatura di riferimento per gli atleti da combattimento che esigono l'eccellenza.",
@@ -787,21 +631,21 @@
       "securePayment": "Pagamento sicuro tramite"
     },
     "videos": {
-      "title": "VIDEO",
-      "list": {
-        "1_title": "Upper Body Power",
-        "2_title": "Shadow Boxing Flow",
-        "3_title": "Core Stability",
-        "4_title": "Explosive Hooks",
-        "5_title": "Defensive Drills",
-        "6_title": "Bag Work Intensity",
-        "7_title": "Footwork Agility",
-        "8_title": "Endurance Round",
-        "9_title": "Speed Training",
-        "10_title": "Full Body Torque",
-        "11_title": "Resistance Training",
-        "12_title": "Knockout Power",
-        "13_title": "Cool Down Stretch"
+      "title": "Video di Allenamento",
+      "videoTitles": {
+        "card_1": "Live stronger.",
+        "card_2": "Power in every punch.",
+        "card_3": "Train. Fight. Repeat.",
+        "card_4": "Endure. Overcome. Conquer.",
+        "card_5": "No pain, more gain.",
+        "card_6": "Push limits, break barriers.",
+        "card_7": "Dominate your day.",
+        "card_8": "Focus. Hit. Win.",
+        "card_9": "Sweat today, conquer tomorrow.",
+        "card_10": "Strength isn't given, it's earned.",
+        "card_11": "Rise. Fight. Repeat.",
+        "card_12": "Fearless, relentless, unstoppable.",
+        "card_13": "Hit hard, stay strong."
       }
     },
     "reviews": {
@@ -818,15 +662,14 @@
       "reviewBody": "La tua recensione dettagliata",
       "namePlaceholder": "Mario Rossi",
       "emailPlaceholder": "mario@email.com",
-      "titlePlaceholder": "Prodotto eccellente!",
+      "titlePlaceholder": "Ottimo prodotto!",
       "bodyPlaceholder": "Descrivi la tua esperienza con questo prodotto...",
       "submitReview": "Invia la mia recensione",
       "cancel": "Annulla",
       "loadMore": "Vedi altre recensioni",
       "remaining": "rimanenti",
-      "noReviews": "Nessuna recensione per il momento.",
+      "noReviews": "Nessuna recensione ancora.",
       "beFirst": "Sii il primo a lasciare una recensione!",
-      "verified": "Acquisto verificato",
       "errorLoading": "Impossibile caricare le recensioni al momento.",
       "errorSubmit": "Si è verificato un errore. Riprova.",
       "today": "Oggi",
@@ -844,7 +687,47 @@
       "add_to_cart": "Aggiungi al Carrello",
       "buy_now": "Acquista Ora",
       "secure_payment": "Pagamento sicuro",
-      "product_not_found": "Prodotto non trovato. Seleziona un prodotto nell'editor."
+      "product_not_found": "Prodotto non trovato."
+    },
+    "header": {
+      "equipment": "Attrezzatura",
+      "reinforcements": "Rinforzi",
+      "training": "Allenamento",
+      "faq": "FAQ",
+      "account": "Il Mio Account"
+    },
+    "training": {
+      "subtitle": "Uno Strumento, Infinite Possibilità",
+      "titleStart": "Usa STRONGSIDE",
+      "titleEnd": "Ovunque",
+      "modes": {
+        "1_title": "SACCO DA BOXE",
+        "1_desc": "Scatena la tua potenza sul sacco con lo STRONGSIDE Boxing Harness Pro. La resistenza progressiva trasforma ogni colpo in un pugno devastante.",
+        "2_title": "COLPITORI",
+        "2_desc": "Allenati più efficacemente con un partner e i colpitori. Combina con le Extra Performance 34kg bands per la massima esplosività.",
+        "3_title": "SHADOW BOXING",
+        "3_desc": "Perfeziona la tua tecnica ovunque. Aggiungi le Extra Performance 34kg bands per un condizionamento intenso durante lo shadow boxing."
+      }
+    },
+    "faq": {
+      "linkName": "FAQ",
+      "title": "Domande Frequenti",
+      "items": {
+        "1_q": "Posso usarlo con i guanti?",
+        "1_a": "Sì, completamente compatibile con guanti da boxe e MMA.",
+        "2_q": "È adatto per sacco e colpitori?",
+        "2_a": "Sì, progettato per sacco pesante, colpitori e allenamento con partner.",
+        "3_q": "Posso fare sparring?",
+        "3_a": "Sì, in sparring controllato. Il sistema rimane stabile.",
+        "4_q": "È adatto ai principianti?",
+        "4_a": "Sì, la resistenza è progressiva e controllata.",
+        "5_q": "Posso usarlo a casa?",
+        "5_a": "Sì, nessuna palestra o attrezzatura pesante necessaria.",
+        "6_q": "Si adatta a tutte le corporature?",
+        "6_a": "Sì, l'imbracatura è completamente regolabile.",
+        "7_q": "È resistente?",
+        "7_a": "Testato per allenamenti intensivi."
+      }
     }
   }
 }
