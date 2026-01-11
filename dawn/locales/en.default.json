@@ -1,20 +1,20 @@
 {
   "general": {
     "password_page": {
-      "login_form_heading": "Enter store using password:",
-      "login_password_button": "Enter using password",
-      "login_form_password_label": "Password",
-      "login_form_password_placeholder": "Your password",
-      "login_form_error": "Wrong password!",
-      "login_form_submit": "Enter",
-      "admin_link_html": "Are you the store owner? <a href=\"/admin\" class=\"link underlined-link\">Log in here</a>",
-      "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
+      "login_form_heading": "Shop mit Passwort betreten:",
+      "login_password_button": "Mit Passwort betreten",
+      "login_form_password_label": "Passwort",
+      "login_form_password_placeholder": "Dein Passwort",
+      "login_form_error": "Falsches Passwort!",
+      "login_form_submit": "Eingeben",
+      "admin_link_html": "Bist du der Shop-Inhaber? <a href=\"/admin\" class=\"link underlined-link\">Hier einloggen</a>",
+      "powered_by_shopify_html": "Dieser Shop wird unterstützt von {{ shopify }}"
     },
     "social": {
       "alt_text": {
-        "share_on_facebook": "Share on Facebook",
-        "share_on_twitter": "Share on X",
-        "share_on_pinterest": "Pin on Pinterest"
+        "share_on_facebook": "Auf Facebook teilen",
+        "share_on_twitter": "Auf X teilen",
+        "share_on_pinterest": "Auf Pinterest pinnen"
       },
       "links": {
         "twitter": "X (Twitter)",
@@ -28,779 +28,693 @@
         "tiktok": "TikTok"
       }
     },
-    "continue_shopping": "Continue shopping",
+    "continue_shopping": "Weiter shoppen",
     "pagination": {
-      "label": "Pagination",
-      "page": "Page {{ number }}",
-      "next": "Next page",
-      "previous": "Previous page"
+      "label": "Seitennummerierung",
+      "page": "Seite {{ number }}",
+      "next": "Nächste Seite",
+      "previous": "Vorherige Seite"
     },
     "search": {
-      "search": "Search",
-      "reset": "Clear search term"
+      "search": "Suchen",
+      "reset": "Suchbegriff zurücksetzen"
     },
     "cart": {
-      "view": "View cart ({{ count }})",
-      "view_empty_cart": "View cart",
-      "item_added": "Item added to your cart"
+      "view": "Warenkorb ansehen ({{ count }})",
+      "item_added": "Artikel wurde in den Warenkorb gelegt",
+      "view_empty_cart": "Warenkorb ansehen"
     },
     "share": {
-      "close": "Close share",
-      "copy_to_clipboard": "Copy link",
+      "copy_to_clipboard": "Link kopieren",
       "share_url": "Link",
-      "success_message": "Link copied to clipboard"
+      "success_message": "Link in die Zwischenablage kopiert",
+      "close": "Teilen schließen"
     },
     "slider": {
-      "of": "of",
-      "next_slide": "Slide right",
-      "previous_slide": "Slide left",
+      "of": "von",
+      "next_slide": "Nach rechts schieben",
+      "previous_slide": "Nach links schieben",
       "name": "Slider"
     }
   },
   "newsletter": {
-    "label": "Email",
-    "success": "Thanks for subscribing",
-    "button_label": "Subscribe"
+    "label": "E-Mail",
+    "success": "Danke für deine Anmeldung",
+    "button_label": "Abonnieren"
   },
   "accessibility": {
-    "skip_to_text": "Skip to content",
-    "skip_to_product_info": "Skip to product information",
-    "close": "Close",
-    "unit_price_separator": "per",
-    "vendor": "Vendor:",
-    "error": "Error",
-    "refresh_page": "Choosing a selection results in a full page refresh.",
+    "skip_to_text": "Direkt zum Inhalt",
+    "close": "Schließen",
+    "unit_price_separator": "pro",
+    "vendor": "Anbieter:",
+    "error": "Fehler",
+    "refresh_page": "Wenn du dich für eine Auswahl entscheidest, wird die Seite komplett aktualisiert.",
     "link_messages": {
-      "new_window": "Opens in a new window.",
-      "external": "Opens external website."
+      "new_window": "Wird in einem neuen Fenster geöffnet.",
+      "external": "Öffnet externe Webseite."
     },
-    "loading": "Loading...",
-    "total_reviews": "total reviews",
-    "star_reviews_info": "{{ rating_value }} out of {{ rating_max }} stars",
-    "collapsible_content_title": "Collapsible content",
-    "complementary_products": "Complementary products"
+    "loading": "Wird geladen ...",
+    "skip_to_product_info": "Zu Produktinformationen springen",
+    "total_reviews": "Bewertungen insgesamt",
+    "star_reviews_info": "{{ rating_value }} von {{ rating_max }} Sternen",
+    "collapsible_content_title": "Einklappbarer Inhalt",
+    "complementary_products": "Ergänzende Produkte"
   },
   "blogs": {
     "article": {
       "blog": "Blog",
-      "read_more_title": "Read more: {{ title }}",
+      "read_more_title": "Weiterlesen: {{ title }}",
       "comments": {
-        "one": "{{ count }} comment",
-        "other": "{{ count }} comments"
+        "one": "{{ count }} Kommentar",
+        "other": "{{ count }} Kommentare"
       },
-      "moderated": "Please note, comments need to be approved before they are published.",
-      "comment_form_title": "Leave a comment",
+      "moderated": "Bitte beachte, dass Kommentare vor der Veröffentlichung freigegeben werden müssen.",
+      "comment_form_title": "Hinterlasse einen Kommentar",
       "name": "Name",
-      "email": "Email",
-      "message": "Comment",
-      "post": "Post comment",
-      "back_to_blog": "Back to blog",
-      "share": "Share this article",
-      "success": "Your comment was posted successfully! Thank you!",
-      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated."
+      "email": "E-Mail",
+      "message": "Kommentar",
+      "post": "Kommentar posten",
+      "back_to_blog": "Zurück zum Blog",
+      "share": "Diesen Artikel teilen",
+      "success": "Dein Kommentar wurde erfolgreich gepostet! Vielen Dank!",
+      "success_moderated": "Dein Kommentar wurde erfolgreich gepostet. Da unser Blog moderiert wird, werden wir ihn erst kurze Zeit später veröffentlichen."
     }
   },
   "onboarding": {
-    "product_title": "Example product title",
-    "collection_title": "Your collection's name"
+    "product_title": "Beispiel für Produkttitel",
+    "collection_title": "Name deiner Kollektion"
   },
   "products": {
     "product": {
-      "add_to_cart": "Add to cart",
-      "choose_options": "Choose options",
-      "choose_product_options": "Choose options for {{ product_name }}",
+      "add_to_cart": "In den Warenkorb legen",
       "description": "Description",
-      "inventory_in_stock": "In stock",
-      "inventory_in_stock_show_count": "{{ quantity }} in stock",
-      "inventory_low_stock": "Low stock",
-      "inventory_low_stock_show_count": "Low stock: {{ quantity }} left",
-      "inventory_out_of_stock": "Out of stock",
-      "inventory_out_of_stock_continue_selling": "In stock",
-      "sku": "SKU",
       "on_sale": "Sale",
-      "product_variants": "Product variants",
-      "media": {
-        "gallery_viewer": "Gallery Viewer",
-        "load_image": "Load image {{ index }} in gallery view",
-        "load_model": "Load 3D Model {{ index }} in gallery view",
-        "load_video": "Play video {{ index }} in gallery view",
-        "image_available": "Image {{ index }} is now available in gallery view",
-        "open_media": "Open media {{ index }} in modal",
-        "play_model": "Play 3D Viewer",
-        "play_video": "Play video"
-      },
-      "nested_label": "{{ title }} for {{ parent_title }}",
       "quantity": {
-        "label": "Quantity",
-        "input_label": "Quantity for {{ product }}",
-        "increase": "Increase quantity for {{ product }}",
-        "decrease": "Decrease quantity for {{ product }}",
-        "minimum_of": "Minimum of {{ quantity }}",
-        "maximum_of": "Maximum of {{ quantity }}",
-        "multiples_of": "Increments of {{ quantity }}",
-        "min_of": "Min {{ quantity }}",
-        "max_of": "Max {{ quantity }}",
-        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> in cart",
-        "in_cart_aria_label": "Quantity ({{ quantity }} in cart)",
-        "note": "View quantity rules"
-      },
-      "volume_pricing": {
-        "title": "Volume Pricing",
-        "note": "Volume pricing available",
-        "minimum": "{{ quantity }}+",
-        "price_at_each_html": "at {{ price }}/ea",
-        "price_range": "{{ minimum }} - {{ maximum }}"
-      },
-      "pickup_availability": {
-        "view_store_info": "View store information",
-        "check_other_stores": "Check availability at other stores",
-        "pick_up_available": "Pickup available",
-        "pick_up_available_at_html": "Pickup available at <span class=\"color-foreground\">{{ location_name }}</span>",
-        "pick_up_unavailable_at_html": "Pickup currently unavailable at <span class=\"color-foreground\">{{ location_name }}</span>",
-        "unavailable": "Couldn't load pickup availability",
-        "refresh": "Refresh"
+        "label": "Anzahl",
+        "input_label": "Anzahl von {{ product }}",
+        "increase": "Erhöhe die Menge für {{ product }}",
+        "decrease": "Verringere die Menge für {{ product }}",
+        "minimum_of": "Mindestens {{ quantity }}",
+        "maximum_of": "Maximal {{ quantity }}",
+        "multiples_of": "In {{ quantity }}er Schritten",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> im Warenkorb",
+        "note": "Mengenregeln anzeigen",
+        "min_of": "Mindestens {{ quantity }}",
+        "max_of": "Höchstens {{ quantity }}",
+        "in_cart_aria_label": "Menge ({{ quantity }} im Warenkorb)"
       },
       "price": {
-        "from_price_html": "From {{ price }}",
-        "regular_price": "Regular price",
-        "sale_price": "Sale price",
-        "unit_price": "Unit price"
+        "from_price_html": "Von {{ price }}",
+        "regular_price": "Normaler Preis",
+        "sale_price": "Verkaufspreis",
+        "unit_price": "Grundpreis"
       },
-      "share": "Share this product",
-      "sold_out": "Sold out",
-      "unavailable": "Unavailable",
-      "vendor": "Vendor",
-      "value_unavailable": "{{ option_value }} - Unavailable",
-      "variant_sold_out_or_unavailable": "Variant sold out or unavailable",
-      "video_exit_message": "{{ title }} opens full screen video in same window.",
-      "view_full_details": "View full details",
-      "xr_button": "View in your space",
-      "xr_button_label": "View in your space, loads item in augmented reality window",
-      "taxes_included": "Taxes included.",
-      "duties_included": "Duties included.",
-      "duties_and_taxes_included": "Duties and taxes included.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
+      "share": "Dieses Produkt teilen",
+      "sold_out": "Ausverkauft",
+      "unavailable": "Nicht verfügbar",
+      "vendor": "Anbieter",
+      "video_exit_message": "{{ title }} öffnet das Video auf derselben Seite im Vollbildmodus.",
+      "xr_button": "In deinem Bereich ansehen",
+      "xr_button_label": "\"Ansicht in deinem Raum\" lädt den Artikel in ein Augmented-Reality-Fenster",
+      "pickup_availability": {
+        "view_store_info": "Shop-Informationen anzeigen",
+        "check_other_stores": "Verfügbarkeit in anderen Shops überprüfen",
+        "pick_up_available": "Abholung verfügbar",
+        "pick_up_available_at_html": "Abholung bei <span class=\"color-foreground\">{{ location_name }}</span> verfügbar",
+        "pick_up_unavailable_at_html": "Abholung bei <span class=\"color-foreground\">{{ location_name }}</span> derzeit nicht verfügbar",
+        "unavailable": "Verfügbarkeit für Abholungen konnte nicht geladen werden",
+        "refresh": "Aktualisieren"
+      },
+      "media": {
+        "open_media": "Medien {{ index }} in Modal öffnen",
+        "play_model": "3D-Viewer abspielen",
+        "play_video": "Video abspielen",
+        "gallery_viewer": "Galerie-Viewer",
+        "load_image": "Bild {{ index }} in Galerieansicht laden",
+        "load_model": "3D-Modell {{ index }} in Galerieansicht laden",
+        "load_video": "Video {{ index }} in Galerieansicht abspielen",
+        "image_available": "Bild {{ index }} ist nun in der Galerieansicht verfügbar"
+      },
+      "nested_label": "{{ title }} für {{ parent_title }}",
+      "view_full_details": "Vollständige Details anzeigen",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Versand</a> wird beim Checkout berechnet",
+      "choose_options": "Optionen auswählen",
+      "choose_product_options": "Optionen für {{ product_name }} auswählen",
+      "value_unavailable": "{{ option_value }} – nicht verfügbar",
+      "variant_sold_out_or_unavailable": "Variante ausverkauft oder nicht verfügbar",
+      "inventory_in_stock": "Auf Lager",
+      "inventory_in_stock_show_count": "{{ quantity }} auf Lager",
+      "inventory_low_stock": "Niedriger Lagerbestand",
+      "inventory_low_stock_show_count": "Niedriger Lagerbestand: {{ quantity }} verbleibend",
+      "inventory_out_of_stock": "Nicht vorrätig",
+      "inventory_out_of_stock_continue_selling": "Auf Lager",
+      "sku": "SKU",
+      "volume_pricing": {
+        "title": "Volumenabhängige Preisgestaltung",
+        "note": "Volumenabhängige Preisgestaltung verfügbar",
+        "minimum": "{{ quantity }}+",
+        "price_range": "{{ minimum }}–{{ maximum }}",
+        "price_at_each_html": "bei {{ price }}/Stück"
+      },
+      "product_variants": "Produktvarianten",
+      "taxes_included": "Inkl. Steuern.",
+      "duties_included": "Inkl. Zollgebühren.",
+      "duties_and_taxes_included": "Inkl. Zollgebühren und Steuern."
     },
     "modal": {
-      "label": "Media gallery"
+      "label": "Medien-Galerie"
     },
     "facets": {
-      "filter_and_operator_subtitle": "Match all",
-      "apply": "Apply",
-      "clear": "Clear",
-      "clear_all": "Remove all",
-      "from": "From",
-      "filter_and_sort": "Filter and sort",
+      "apply": "Anwenden",
+      "clear": "Löschen",
+      "clear_all": "Alle entfernen",
+      "from": "Von",
+      "filter_and_sort": "Filtern und sortieren",
       "filter_by_label": "Filter:",
       "filter_button": "Filter",
       "filters_selected": {
-        "one": "{{ count }} selected",
-        "other": "{{ count }} selected"
+        "one": "{{ count }} ausgewählt",
+        "other": "{{ count }} ausgewählt"
       },
-      "filter_selected_accessibility": "{{ type }} ({{ count }} filters selected)",
-      "show_more": "Show more",
-      "show_less": "Show less",
-      "max_price": "The highest price is {{ price }}",
+      "max_price": "Der höchste Preis ist {{ price }}",
       "product_count": {
-        "one": "{{ product_count }} of {{ count }} product",
-        "other": "{{ product_count }} of {{ count }} products"
+        "one": "{{ product_count }} von {{ count }} Produkt",
+        "other": "{{ product_count }} von {{ count }} Produkten"
       },
       "product_count_simple": {
-        "one": "{{ count }} product",
-        "other": "{{ count }} products"
+        "one": "{{ count }} Produkt",
+        "other": "{{ count }} Produkte"
       },
-      "reset": "Reset",
-      "sort_button": "Sort",
-      "sort_by_label": "Sort by:",
-      "to": "To",
-      "clear_filter": "Remove filter"
+      "reset": "Zurücksetzen",
+      "sort_button": "Sortieren",
+      "sort_by_label": "Sortieren nach:",
+      "to": "Bis",
+      "clear_filter": "Filter entfernen",
+      "filter_selected_accessibility": "{{ type }} ({{ count }} Filter ausgewählt)",
+      "show_more": "Mehr anzeigen",
+      "show_less": "Weniger anzeigen",
+      "filter_and_operator_subtitle": "Allen entsprechen"
     }
   },
   "templates": {
     "search": {
-      "no_results": "No results found for “{{ terms }}”. Check the spelling or use a different word or phrase.",
-      "page": "Page",
-      "products": "Products",
+      "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfe die Schreibweise oder versuche es mit einer anderen Suchanfrage.",
+      "results_with_count": {
+        "one": "{{ count }} Ergebnis",
+        "other": "{{ count }} Ergebnisse"
+      },
+      "title": "Suchergebnisse",
+      "page": "Seite",
+      "products": "Produkte",
+      "search_for": "Nach \"{{ terms }}\" suchen",
+      "results_with_count_and_term": {
+        "one": "{{ count }} Ergebnis für \"{{ terms }}\" gefunden",
+        "other": "{{ count }} Ergebnisse für \"{{ terms }}\" gefunden"
+      },
       "results_pages_with_count": {
-        "one": "{{ count }} page",
-        "other": "{{ count }} pages"
+        "one": "{{ count }} Seite",
+        "other": "{{ count }} Seiten"
       },
       "results_suggestions_with_count": {
-        "one": "{{ count }} suggestion",
-        "other": "{{ count }} suggestions"
+        "one": "{{ count }} Vorschlag",
+        "other": "{{ count }} Vorschläge"
       },
       "results_products_with_count": {
-        "one": "{{ count }} product",
-        "other": "{{ count }} products"
+        "one": "{{ count }} Produkt",
+        "other": "{{ count }} Produkte"
       },
-      "results_with_count": {
-        "one": "{{ count }} result",
-        "other": "{{ count }} results"
-      },
-      "results_with_count_and_term": {
-        "one": "{{ count }} result found for “{{ terms }}”",
-        "other": "{{ count }} results found for “{{ terms }}”"
-      },
-      "title": "Search results",
-      "search_for": "Search for “{{ terms }}”",
-      "suggestions": "Suggestions",
-      "pages": "Pages"
+      "suggestions": "Vorschläge",
+      "pages": "Seiten"
     },
     "cart": {
-      "cart": "Cart"
+      "cart": "Warenkorb"
     },
     "contact": {
       "form": {
-        "title": "Contact form",
         "name": "Name",
-        "email": "Email",
-        "phone": "Phone number",
-        "comment": "Comment",
-        "send": "Send",
-        "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-        "error_heading": "Please adjust the following:"
+        "email": "E-Mail",
+        "phone": "Telefonnummer",
+        "comment": "Kommentar",
+        "send": "Senden",
+        "post_success": "Danke, dass du uns kontaktiert hast. Wir werden uns so schnell wie möglich bei dir melden.",
+        "error_heading": "Bitte passe Folgendes an:",
+        "title": "Kontaktformular"
       }
     },
     "404": {
-      "title": "Page not found",
+      "title": "Seite nicht gefunden",
       "subtext": "404"
     }
   },
   "sections": {
-    "announcements": {
-      "previous_announcement": "Previous announcement",
-      "next_announcement": "Next announcement",
-      "carousel": "Carousel",
-      "announcement": "Announcement",
-      "announcement_bar": "Announcement bar"
-    },
     "header": {
-      "announcement": "Announcement",
-      "menu": "Menu",
+      "announcement": "Ankündigung",
+      "menu": "Menü",
       "cart_count": {
-        "one": "{{ count }} item",
-        "other": "{{ count }} items"
+        "one": "{{ count }} Artikel",
+        "other": "{{ count }} Artikel"
       }
     },
     "cart": {
-      "title": "Your cart",
-      "caption": "Cart items",
-      "remove_title": "Remove {{ title }}",
-      "estimated_total": "Estimated total",
-      "new_estimated_total": "New estimated total",
-      "note": "Order special instructions",
-      "checkout": "Check out",
-      "empty": "Your cart is empty",
-      "cart_error": "There was an error while updating your cart. Please try again.",
-      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
-      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Duties and taxes included. Discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
-      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Duties and taxes included. Discounts and shipping calculated at checkout.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Taxes included. Discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
-      "taxes_included_shipping_at_checkout_without_policy": "Taxes included. Discounts and shipping calculated at checkout.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Duties included. Taxes, discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Duties included. Taxes, discounts and shipping calculated at checkout.",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Taxes, discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Taxes, discounts and shipping calculated at checkout.",
+      "title": "Dein Warenkorb",
+      "caption": "Artikel im Warenkorb",
+      "remove_title": "{{ title }} entfernen",
+      "note": "Spezielle Bestellanweisungen",
+      "checkout": "Auschecken",
+      "empty": "Dein Warenkorb ist leer",
+      "cart_error": "Beim Aktualisieren deines Warenkorbs ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+      "cart_quantity_error_html": "Du kannst deinem Warenkorb nur {{ quantity }} Stück dieses Artikels hinzufügen.",
       "headings": {
-        "product": "Product",
-        "price": "Price",
-        "total": "Total",
-        "quantity": "Quantity",
-        "image": "Product image"
+        "product": "Produkt",
+        "price": "Preis",
+        "total": "Gesamtsumme",
+        "quantity": "Anzahl",
+        "image": "Produktbild"
       },
-      "update": "Update",
+      "update": "Aktualisieren",
       "login": {
-        "title": "Have an account?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> to check out faster."
-      }
+        "title": "Hast du ein Konto?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Logge dich ein</a>, damit es beim Checkout schneller geht."
+      },
+      "estimated_total": "Geschätzte Gesamtkosten",
+      "new_estimated_total": "Neuer geschätzter Gesamtbetrag",
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren und Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
+      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Inkl. Zollgebühren und Steuern. Rabatte und Versand werden beim Checkout berechnet.",
+      "taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
+      "taxes_included_shipping_at_checkout_without_policy": "Inkl. Steuern. Rabatte und Versand werden beim Checkout berechnet.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren. Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inkl. Zollgebühren. Steuern, Rabatte und Versand werden beim Checkout berechnet.",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Steuern, Rabatte und Versand werden beim Checkout berechnet."
     },
     "footer": {
-      "payment": "Payment methods"
+      "payment": "Zahlungsmethoden"
     },
     "featured_blog": {
-      "view_all": "View all",
-      "onboarding_title": "Blog post",
-      "onboarding_content": "Give your customers a summary of your blog post"
+      "view_all": "Alle anzeigen",
+      "onboarding_title": "Blog-Beitrag",
+      "onboarding_content": "Verschaffe deinen Kunden eine Übersicht über deinen Blog-Beitrag"
     },
     "featured_collection": {
-      "view_all": "View all",
-      "view_all_label": "View all products in the {{ collection_name }} collection"
+      "view_all": "Alle anzeigen",
+      "view_all_label": "Alle Produkte in der Kollektion {{ collection_name }} anzeigen"
     },
     "collection_list": {
-      "view_all": "View all"
+      "view_all": "Alle anzeigen"
     },
     "collection_template": {
-      "empty": "No products found",
-      "title": "Collection",
-      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>"
+      "title": "Kategorie",
+      "empty": "Keine Produkte gefunden",
+      "use_fewer_filters_html": "Verwende weniger Filter oder <a class=\"{{ class }}\" href=\"{{ link }}\">entferne alle</a>"
     },
     "video": {
-      "load_video": "Load video: {{ description }}"
+      "load_video": "Video laden: {{ description }}"
     },
     "slideshow": {
-      "load_slide": "Load slide",
-      "previous_slideshow": "Previous slide",
-      "next_slideshow": "Next slide",
-      "pause_slideshow": "Pause slideshow",
-      "play_slideshow": "Play slideshow",
-      "carousel": "Carousel",
-      "slide": "Slide"
+      "load_slide": "Folie laden",
+      "previous_slideshow": "Vorherige Folie",
+      "next_slideshow": "Nächste Folie",
+      "pause_slideshow": "Slideshow pausieren",
+      "play_slideshow": "Slideshow abspielen",
+      "carousel": "Karussell",
+      "slide": "Folie"
     },
     "page": {
-      "title": "Page title"
+      "title": "Seitentitel"
+    },
+    "announcements": {
+      "previous_announcement": "Vorherige Ankündigung",
+      "next_announcement": "Nächste Ankündigung",
+      "carousel": "Karussell",
+      "announcement": "Ankündigung",
+      "announcement_bar": "Ankündigungsleiste"
     },
     "quick_order_list": {
-      "product_total": "Product subtotal",
-      "view_cart": "View cart",
-      "each": "{{ money }}/ea",
-      "product": "Product",
-      "variant": "Variant",
-      "variant_total": "Variant total",
+      "product_total": "Produktzwischensumme",
+      "view_cart": "Warenkorb ansehen",
+      "each": "{{ money }}/Stück",
+      "product": "Produkt",
+      "variant": "Variante",
+      "variant_total": "Varianten insgesamt",
       "items_added": {
-        "one": "{{ quantity }} item added",
-        "other": "{{ quantity }} items added"
+        "one": "{{ quantity }} Artikel hinzugefügt",
+        "other": "{{ quantity }} Artikel hinzugefügt"
       },
       "items_removed": {
-        "one": "{{ quantity }} item removed",
-        "other": "{{ quantity }} items removed"
+        "one": "{{ quantity }} Artikel entfernt",
+        "other": "{{ quantity }} Artikel entfernt"
       },
-      "product_variants": "Product variants",
-      "total_items": "Total items",
-      "remove_all_single_item_confirmation": "Remove 1 item from your cart?",
-      "remove_all_items_confirmation": "Remove all {{ quantity }} items from your cart?",
-      "remove_all": "Remove all",
+      "product_variants": "Produktvarianten",
+      "total_items": "Artikel gesamt",
+      "remove_all_items_confirmation": "Alle {{ quantity }} Artikel aus deinem Warenkorb entfernen?",
+      "remove_all": "Alle entfernen",
       "cancel": "Cancel",
-      "min_error": "This item has a minimum of {{ min }}",
-      "max_error": "This item has a maximum of {{ max }}",
-      "step_error": "You can only add this item in increments of {{ step }}"
+      "remove_all_single_item_confirmation": "1 Artikel aus dem Warenkorb entfernen?",
+      "min_error": "Dieser Artikel hat ein Minimum von {{ min }}",
+      "max_error": "Dieser Artikel hat ein Maximum von {{ max }}",
+      "step_error": "Du kannst diesen Artikel nur in Abstufungen von {{ step }} hinzufügen."
     }
   },
   "localization": {
-    "country_label": "Country/region",
-    "language_label": "Language",
-    "update_language": "Update language",
-    "update_country": "Update country/region",
-    "search": "Search",
-    "popular_countries_regions": "Popular countries/regions",
-    "country_results_count": "{{ count }} countries/regions found"
+    "country_label": "Land/Region",
+    "language_label": "Sprache",
+    "update_language": "Sprache aktualisieren",
+    "update_country": "Land/Region aktualisieren",
+    "search": "Suchen",
+    "popular_countries_regions": "Beliebte Länder/Regionen",
+    "country_results_count": "{{ count }} Länder/Regionen gefunden"
   },
   "customer": {
     "account": {
-      "title": "Account",
-      "details": "Account details",
-      "view_addresses": "View addresses",
-      "return": "Return to Account details"
+      "title": "Konto",
+      "details": "Kontodetails",
+      "view_addresses": "Adressen anzeigen",
+      "return": "Zurück zu Kontodetails"
     },
-    "account_fallback": "Account",
+    "account_fallback": "Konto",
     "activate_account": {
-      "title": "Activate account",
-      "subtext": "Create your password to activate your account.",
-      "password": "Password",
-      "password_confirm": "Confirm password",
-      "submit": "Activate account",
-      "cancel": "Decline invitation"
+      "title": "Konto aktivieren",
+      "subtext": "Erstelle ein Passwort, um dein Konto zu aktiveren.",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Konto aktivieren",
+      "cancel": "Einladung ablehnen"
     },
     "addresses": {
-      "title": "Addresses",
-      "default": "Default",
-      "add_new": "Add a new address",
-      "edit_address": "Edit address",
-      "first_name": "First name",
-      "last_name": "Last name",
-      "company": "Company",
-      "address1": "Address 1",
-      "address2": "Address 2",
-      "city": "City",
-      "country": "Country/region",
-      "province": "Province",
-      "zip": "Postal/ZIP code",
-      "phone": "Phone",
-      "set_default": "Set as default address",
-      "add": "Add address",
-      "update": "Update address",
+      "title": "Adressen",
+      "default": "Standard",
+      "add_new": "Neue Adresse hinzufügen",
+      "edit_address": "Adresse bearbeiten",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "company": "Unternehmen",
+      "address1": "Adresse 1",
+      "address2": "Adresse 2",
+      "city": "Ort",
+      "country": "Land/Region",
+      "province": "Bundesland/Provinz",
+      "zip": "PLZ",
+      "phone": "Telefonnummer",
+      "set_default": "Als Standard-Adresse festlegen",
+      "add": "Adresse hinzufügen",
+      "update": "Adresse aktualisieren",
       "cancel": "Cancel",
-      "edit": "Edit",
-      "delete": "Delete",
-      "delete_confirm": "Are you sure you wish to delete this address?"
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "delete_confirm": "Bist du sicher, dass du diese Adresse löschen möchtest?"
     },
-    "log_in": "Log in",
-    "log_out": "Log out",
+    "log_in": "Einloggen",
+    "log_out": "Abmelden",
     "login_page": {
       "cancel": "Cancel",
-      "create_account": "Create account",
-      "email": "Email",
-      "forgot_password": "Forgot your password?",
-      "guest_continue": "Continue",
-      "guest_title": "Continue as a guest",
-      "password": "Password",
+      "create_account": "Konto erstellen",
+      "email": "E-Mail",
+      "forgot_password": "Hast du dein Passwort vergessen?",
+      "guest_continue": "Fortfahren",
+      "guest_title": "Als Gast fortsetzen",
+      "password": "Passwort",
       "title": "Login",
-      "sign_in": "Sign in",
-      "submit": "Submit",
-      "alternate_provider_separator": "or"
-    },
-    "order": {
-      "title": "Order {{ name }}",
-      "date_html": "Placed on {{ date }}",
-      "cancelled_html": "Order Cancelled on {{ date }}",
-      "cancelled_reason": "Reason: {{ reason }}",
-      "billing_address": "Billing Address",
-      "payment_status": "Payment Status",
-      "shipping_address": "Shipping Address",
-      "fulfillment_status": "Fulfillment Status",
-      "discount": "Discount",
-      "shipping": "Shipping",
-      "tax": "Tax",
-      "product": "Product",
-      "sku": "SKU",
-      "price": "Price",
-      "quantity": "Quantity",
-      "total": "Total",
-      "total_refunded": "Refunded",
-      "fulfilled_at_html": "Fulfilled {{ date }}",
-      "track_shipment": "Track shipment",
-      "tracking_url": "Tracking link",
-      "tracking_company": "Carrier",
-      "tracking_number": "Tracking number",
-      "subtotal": "Subtotal",
-      "total_duties": "Duties"
+      "sign_in": "Anmelden",
+      "submit": "Senden",
+      "alternate_provider_separator": "oder"
     },
     "orders": {
-      "title": "Order history",
-      "order_number": "Order",
-      "order_number_link": "Order number {{ number }}",
-      "date": "Date",
-      "payment_status": "Payment status",
-      "fulfillment_status": "Fulfillment status",
-      "total": "Total",
-      "none": "You haven't placed any orders yet."
+      "title": "Bestellhistorie",
+      "order_number": "Bestellung",
+      "order_number_link": "Bestellnummer {{ number }}",
+      "date": "Datum",
+      "payment_status": "Zahlungsstatus",
+      "fulfillment_status": "Fulfillmentstatus",
+      "total": "Gesamtsumme",
+      "none": "Du hast noch keine Bestellungen aufgegeben."
     },
     "recover_password": {
-      "title": "Reset your password",
-      "subtext": "We will send you an email to reset your password",
-      "success": "We've sent you an email with a link to update your password."
+      "title": "Setze dein Passwort zurück",
+      "subtext": "Wir werden dir eine E-Mail zum Zurücksetzen deines Passworts schicken",
+      "success": "Wir haben dir eine E-Mail mit einem Link zum Aktualisieren deines Passworts geschickt."
     },
     "register": {
-      "title": "Create account",
-      "first_name": "First name",
-      "last_name": "Last name",
-      "email": "Email",
-      "password": "Password",
-      "submit": "Create"
+      "title": "Konto erstellen",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "Erstellen"
     },
     "reset_password": {
-      "title": "Reset account password",
-      "subtext": "Enter a new password",
-      "password": "Password",
-      "password_confirm": "Confirm password",
-      "submit": "Reset password"
+      "title": "Passwort für Konto zurücksetzen",
+      "subtext": "Neues Passwort eingeben",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Passwort zurücksetzen"
+    },
+    "order": {
+      "title": "Bestellung {{ name }}",
+      "date_html": "Aufgegeben am {{ date }}",
+      "cancelled_html": "Bestellung storniert am {{ date }}",
+      "cancelled_reason": "Grund: {{ reason }}",
+      "billing_address": "Rechnungsadresse",
+      "payment_status": "Zahlungsstatus",
+      "shipping_address": "Lieferadresse",
+      "fulfillment_status": "Fulfillmentstatus",
+      "discount": "Rabatt",
+      "shipping": "Versand",
+      "tax": "Steuer",
+      "product": "Produkt",
+      "sku": "SKU",
+      "price": "Preis",
+      "quantity": "Menge",
+      "total": "Gesamtsumme",
+      "fulfilled_at_html": "Ausgeführt am {{ date }}",
+      "track_shipment": "Sendung nachverfolgen",
+      "tracking_url": "Tracking-Link",
+      "tracking_company": "Versanddienstleister",
+      "tracking_number": "Trackingnummer",
+      "subtotal": "Zwischensumme",
+      "total_duties": "Zollgebühren",
+      "total_refunded": "Zurückerstattet"
     }
   },
   "gift_cards": {
     "issued": {
-      "how_to_use_gift_card": "Use the gift card code online or QR code in-store",
-      "title": "Here's your {{ value }} gift card balance for {{ shop }}!",
-      "subtext": "Your gift card",
-      "gift_card_code": "Gift card code",
-      "shop_link": "Visit online store",
-      "add_to_apple_wallet": "Add to Apple Wallet",
-      "qr_image_alt": "QR code — scan to redeem gift card",
-      "copy_code": "Copy gift card code",
-      "expiration_date": "Expires {{ expires_on }}",
-      "copy_code_success": "Code copied successfully",
-      "expired": "Expired"
+      "title": "Hier ist dein {{ value }}-Gutschein für {{ shop }}!",
+      "subtext": "Dein Gutschein",
+      "gift_card_code": "Gutscheincode",
+      "shop_link": "Onlineshop besuchen",
+      "add_to_apple_wallet": "Zu Apple Wallet hinzufügen",
+      "qr_image_alt": "QR-Code – Scannen, um Gutschein einzulösen",
+      "copy_code": "Geschenkgutscheincode kopieren",
+      "expired": "Abgelaufen",
+      "copy_code_success": "Code erfolgreich kopiert",
+      "how_to_use_gift_card": "Verwende diesen Geschenkgutscheincode online oder verwende den QR-Code im Shop",
+      "expiration_date": "Gültig bis {{ expires_on }}"
     }
   },
   "recipient": {
     "form": {
-      "checkbox": "I want to send this as a gift",
-      "expanded": "Gift card recipient form expanded",
-      "collapsed": "Gift card recipient form collapsed",
-      "email_label": "Recipient email",
-      "email_label_optional_for_no_js_behavior": "Recipient email (optional)",
-      "email": "Email",
-      "name_label": "Recipient name (optional)",
+      "checkbox": "Ich möchte dies als Geschenk senden",
+      "email_label": "Empfänger E-Mail",
+      "email": "E-Mail",
+      "name_label": "Name des Empfängers (optional)",
       "name": "Name",
-      "message_label": "Message (optional)",
-      "message": "Message",
-      "max_characters": "{{ max_chars }} characters max",
-      "send_on": "YYYY-MM-DD",
-      "send_on_label": "Send on (optional)"
+      "message_label": "Nachricht (optional)",
+      "message": "Nachricht",
+      "max_characters": "Maximal {{ max_chars }} Zeichen",
+      "email_label_optional_for_no_js_behavior": "E-Mail-Adresse des Empfängers (optional)",
+      "send_on": "JJJJ-MM-TT",
+      "send_on_label": "Senden am (optional)",
+      "expanded": "Formular für den Empfänger des Gutscheins erweitert",
+      "collapsed": "Formular für den Empfänger des Gutscheins minimiert"
     }
   },
   "strongside": {
-    "header": {
-      "equipment": "Equipment",
-      "reinforcements": "Reinforcements",
-      "concept": "Concept",
-      "training": "Training",
-      "buy": "BUY NOW",
-      "reviews": "Reviews",
-      "faq": "FAQ",
-      "account": "My Account"
-    },
     "hero": {
       "subtitle": "Progressive Resistance System",
       "line1": "Strike",
       "line2": "Faster.",
       "line3": "Stronger.",
       "line4": "Longer.",
-      "description": "Turn thin air into your opponent. Strongside Technologies gear adds fluid resistance to every movement for devastating explosiveness.",
+      "description": "Turn thin air into your opponent. Strongside Technologies adds fluid resistance to every movement for devastating explosiveness.",
       "cta": "Shop"
     },
-    "ui": {
-      "playing": "Playing",
-      "paused": "Paused",
-      "vol": "VOL"
+    "features": {
+      "subtitle": "Why it works",
+      "title": "The Unfair Advantage",
+      "feature1Title": "Maximum Explosiveness",
+      "feature1Subtitle": "Multiply your striking power",
+      "feature1Desc": "Progressive resistance forces your muscles to work harder with each extension, developing devastating striking power.",
+      "feature2Title": "Lightning Speed",
+      "feature2Subtitle": "Accelerate your reflexes",
+      "feature2Desc": "The elastic return forces you to be faster, improving your strike speed and reaction times.",
+      "feature3Title": "Core Stability",
+      "feature3Subtitle": "Core stabilization",
+      "feature3Desc": "Every movement engages your core to maintain balance against asymmetric tension."
+    },
+    "whatYouGet": {
+      "title": "What You Get",
+      "subtitle": "Everything you need for explosive strikes",
+      "harness": "PRO HARNESS",
+      "harnessDesc": "Premium leather & comfort",
+      "bands": "3 LEVELS",
+      "bandsDesc": "15-75 LBS resistance",
+      "bag": "TRAVEL BAG",
+      "bagDesc": "Compact & durable",
+      "guide": "PDF GUIDE",
+      "guideDesc": "Exercises & routine",
+      "extra": "OPTION: + POWER",
+      "extraDesc": "Add up to 34KG (75LBS) resistance - 41cm / 16.4in",
+      "tagline": "Amplify your training with the Extra Performance 34kg resistance bands.",
+      "item1": "STRONGSIDE Pro Boxing Harness",
+      "item1Desc": "H: 60cm/23.62in - C: 77cm/30.31in (Adjustable)",
+      "item2": "2x Resistance 16KG",
+      "item2Desc": "16KG (35LB) - 36cm / 14.17in",
+      "item3": "2x Resistance 18KG",
+      "item3Desc": "18KG (40LB) - 48cm / 18.9in",
+      "item4": "2 Wrist Straps",
+      "item4Desc": "32.5cm / 12.8in",
+      "item5": "Foam Handles",
+      "item5Desc": "12cm / 4.72in",
+      "item6": "Transport Bag",
+      "item6Desc": "Height 30cm / 11.8in"
     },
     "cta": {
-      "title": "Satisfied with the demo?",
-      "subtitle": "Don't miss your chance to transform your training. Join the elite now.",
-      "button": "ORDER MINE NOW"
+      "smallSubtitle": "JOIN US",
+      "title": "Ready to Transform Your Training?",
+      "subtitle": "Join thousands of athletes who have chosen excellence.",
+      "button": "Order Now"
     },
-    "features": {
-      "title": "The Unfair Advantage",
-      "subtitle": "Why pros use it",
-      "cards": {
-        "1_title": "Fluid Resistance",
-        "1_desc": "Unlike free weights, the band increases tension at the end of the motion, exactly where impact peaks.",
-        "2_title": "Muscle Memory",
-        "2_desc": "Correct your form naturally. If your guard drops, the tension reminds you instantly.",
-        "3_title": "Light & Durable",
-        "3_desc": "Aerospace-grade polymer. Indestructible, weighs less than 200g and fits in your pocket."
+    "shop": {
+      "back": "Back",
+      "myCart": "My Cart",
+      "title": "The Shop",
+      "addToCart": "Add to Cart",
+      "buyNow": "Buy Now",
+      "fastShipping": "Fast Shipping",
+      "warranty": "Warranty",
+      "securePayment": "Secure payment",
+      "readComments": "Read",
+      "commentsWord": "reviews",
+      "selectOption": "Select an option",
+      "packContent": "Pack content",
+      "packContentList_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>1x Adjustable Harness (60-77cm)</li><li>2x Short Bands 16kg (36cm)</li><li>2x Long Bands 18kg (48cm)</li><li>2x Wrist Straps (32.5cm)</li><li>2x Handles (12cm)</li><li>1x Transport Bag (30cm)</li></ul>",
+      "shippingTitle": "Shipping & Returns",
+      "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Shipped within 24H<br>Europe delivery: 3-5 business days<br>Returns within 15 days</p>",
+      "guaranteeTitle": "Guarantee",
+      "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ 15-day money-back guarantee</li><li>✅ Responsive customer support</li><li>✅ Secure payment</li></ul>",
+      "showDetails": "View description",
+      "hideDetails": "Hide description",
+      "color": "Color",
+      "resistance": "Resistance level",
+      "descTitle": "Description",
+      "whatsIncluded": "Pack Content"
+    },
+    "footer": {
+      "rights": "All rights reserved.",
+      "brandDesc": "The benchmark equipment for combat athletes who demand excellence.",
+      "links": {
+        "legal": "Legal",
+        "cgv": "T&C",
+        "contact": "Contact"
+      },
+      "securePayment": "Secure payment via"
+    },
+    "videos": {
+      "title": "Training Videos",
+      "videoTitles": {
+        "card_1": "Live stronger.",
+        "card_2": "Power in every punch.",
+        "card_3": "Train. Fight. Repeat.",
+        "card_4": "Endure. Overcome. Conquer.",
+        "card_5": "No pain, more gain.",
+        "card_6": "Push limits, break barriers.",
+        "card_7": "Dominate your day.",
+        "card_8": "Focus. Hit. Win.",
+        "card_9": "Sweat today, conquer tomorrow.",
+        "card_10": "Strength isn't given, it's earned.",
+        "card_11": "Rise. Fight. Repeat.",
+        "card_12": "Fearless, relentless, unstoppable.",
+        "card_13": "Hit hard, stay strong."
       }
     },
-    "showcase": {
-      "title": "Engineered for Performance",
-      "features": {
-        "1_title": "NATURAL MOVEMENT",
-        "1_desc": "A design studied to fit the direct alignment between shoulders and arms. Punch trajectory stays true. Real fight-like sensations.",
-        "2_title": "SUPERIOR POWER TRANSFER",
-        "2_desc": "Simultaneous activation of shoulders, chest & lats. More direct force transmission to the fists. Minimal energy loss. Every punch becomes more explosive.",
-        "3_title": "STRONGER, MORE STABLE CORE",
-        "3_desc": "No downward pull like waist-based harnesses. Natural, active core engagement. Better posture during combinations.",
-        "4_title": "ZERO INTERFERENCE WITH HIPS & LEGS",
-        "4_desc": "Full freedom of movement. Perfect for pivots, slips & footwork. Ideal for bag work, pads and sparring. Stay mobile, fluid and precise.",
-        "5_title": "SAFER FOR CONTROLLED SPARRING",
-        "5_desc": "Resistance centered on the upper body. Reduced imbalance. Harness stays stable even while moving.",
-        "6_title": "TRAIN ANYWHERE",
-        "6_desc": "STRONGSIDE™ → natural resistance, real performance\nWith boxing or MMA gloves\nHeavy bag training\nPads / mitt work\nControlled sparring\nShadowboxing"
-      }
+    "reviews": {
+      "subtitle": "What Our Customers Say",
+      "title": "Customer Reviews",
+      "reviewsCount": "verified reviews",
+      "writeReview": "Write a Review",
+      "thankYou": "Thank you for your review!",
+      "formTitle": "Share Your Experience",
+      "yourRating": "Your Rating",
+      "yourName": "Your Name",
+      "yourEmail": "Your Email",
+      "reviewTitle": "Review Title",
+      "reviewBody": "Your Detailed Review",
+      "namePlaceholder": "John Doe",
+      "emailPlaceholder": "john@email.com",
+      "titlePlaceholder": "Great product!",
+      "bodyPlaceholder": "Describe your experience with this product...",
+      "submitReview": "Submit My Review",
+      "cancel": "Cancel",
+      "loadMore": "See More Reviews",
+      "remaining": "remaining",
+      "noReviews": "No reviews yet.",
+      "beFirst": "Be the first to leave a review!",
+      "errorLoading": "Unable to load reviews at the moment.",
+      "errorSubmit": "An error occurred. Please try again.",
+      "today": "Today",
+      "yesterday": "Yesterday"
     },
-    "product3d": {
-      "subtitle": "Ergonomic Design",
-      "titleStart": "Absolute",
-      "titleEnd": "Grip",
-      "desc": "Textured grip designed to wick away sweat. Total control, even at full intensity.",
-      "btn": "Explore 3D",
-      "instructions": {
-        "rotate": "Left Click: Rotate",
-        "zoom": "Scroll: Zoom"
-      }
+    "accessories": {
+      "subtitle": "ACCESSORIES",
+      "title": "ADD MORE RESISTANCE",
+      "description": "Amplify your training with the Extra Performance 34kg resistance bands",
+      "view_desc": "VIEW DESCRIPTION",
+      "hide_desc": "HIDE DESCRIPTION",
+      "sku": "SKU:",
+      "type": "Type:",
+      "weight": "Weight:",
+      "add_to_cart": "Add to Cart",
+      "buy_now": "Buy Now",
+      "secure_payment": "Secure payment",
+      "product_not_found": "Product not found."
+    },
+    "header": {
+      "equipment": "Equipment",
+      "reinforcements": "Reinforcements",
+      "training": "Training",
+      "faq": "FAQ",
+      "account": "My Account"
     },
     "training": {
-      "subtitle": "In Action",
-      "titleStart": "Master the",
-      "titleEnd": "Movement",
-      "sportsTagline": "MMA. Boxing. Muay Thai. Karate. They all agree: it changes everything.",
+      "subtitle": "One Tool, Infinite Possibilities",
+      "titleStart": "Use STRONGSIDE",
+      "titleEnd": "Anywhere",
       "modes": {
-        "1_title": "HEAVY BAG",
-        "1_desc": "Unleash your power on the bag with the STRONGSIDE Boxing Harness Pro. Progressive resistance turns every strike into a devastating blow.",
-        "2_title": "MITT WORK",
-        "2_desc": "Train with a partner more effectively. Combine with Extra Performance 34kg resistance bands for maximum explosiveness.",
+        "1_title": "BAG TRAINING",
+        "1_desc": "Unleash your power on the bag with the STRONGSIDE Boxing Harness Pro. Progressive resistance transforms every punch into a devastating hit.",
+        "2_title": "PAD WORK",
+        "2_desc": "Train more effectively with a partner and pads. Combine with the Extra Performance 34kg bands for maximum explosiveness.",
         "3_title": "SHADOW BOXING",
-        "3_desc": "Perfect your technique anywhere. Add Extra Performance 34kg resistance bands for intense conditioning during shadow boxing."
-      },
-      "ui": {
-        "playing": "Playing",
-        "preview": "Preview",
-        "vol": "VOL"
-      },
-      "faq": {
-        "linkName": "FAQ",
-        "title": "Frequently Asked Questions",
-        "items": {
-          "1_q": "Can I use it with gloves?",
-          "1_a": "Yes, fully compatible with boxing and MMA gloves.",
-          "2_q": "Is it suitable for bag and pad work?",
-          "2_a": "Yes, designed for heavy bag, pads and partner training.",
-          "3_q": "Can I spar with it?",
-          "3_a": "Yes, in controlled sparring. The system stays stable and secure.",
-          "4_q": "Is it suitable for beginners?",
-          "4_a": "Yes, the resistance is progressive and controlled.",
-          "5_q": "Can I use it at home?",
-          "5_a": "Yes, no gym or heavy equipment needed.",
-          "6_q": "Does it fit all body types?",
-          "6_a": "Yes, the harness is fully adjustable.",
-          "7_q": "Is it durable?",
-          "7_a": "Tested for intensive training."
-        }
-      },
-      "returnToMain": "Back to Main",
-      "shop": {
-        "back": "Back",
-        "myCart": "My Cart",
-        "title": "The Shop",
-        "heroTitle": "Official Store",
-        "heroSubtitle": "Performance Gear for Elite Athletes",
-        "soldOut": "Sold Out",
-        "addToCart": "Add to Cart",
-        "buyNow": "Buy Now",
-        "empty": "No products found.",
-        "checkStatus": "Check that your products are ACTIVE on Shopify.",
-        "add": "Add",
-        "clickToZoom": "Click to zoom",
-        "unavailable": "Unavailable",
-        "loading": "Loading...",
-        "readComments": "Read",
-        "commentsWord": "reviews",
-        "beFirstReview": "Be the first to leave a review!",
-        "reviews": "Reviews",
-        "selectOption": "Select an option",
-        "fastShipping": "Fast Shipping",
-        "guarantee": "Guarantee",
-        "securePayment": "Secure payment",
-        "secure100": "100% Secure Payment",
-        "showDetails": "View description",
-        "hideDetails": "Hide description",
-        "color": "Color",
-        "resistance": "Resistance level",
-        "packContent": "What's Included",
-        "packContentList_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>1x Adjustable Harness (60-77cm)</li><li>2x Short Bands 16kg (36cm)</li><li>2x Long Bands 18kg (48cm)</li><li>2x Wrist Straps (32.5cm)</li><li>2x Handles (12cm)</li><li>1x Carry Bag (30cm)</li></ul>",
-        "warranty": "Warranty",
-        "shipping": "Shipping & Returns",
-        "descTitle": "Description",
-        "whatsIncluded": "What's Included",
-        "shippingTitle": "Shipping & Returns",
-        "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Dispatched within 24H<br>Europe delivery: 3 to 5 business days<br>Returns within 15 days</p>",
-        "guaranteeTitle": "Warranty",
-        "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ 15-day money-back guarantee</li><li>✅ Responsive customer support</li><li>✅ Secure payment</li></ul>",
-        "features": {
-          "subtitle": "Why it works",
-          "title": "The Unfair Advantage",
-          "feature1Title": "Maximum Explosiveness",
-          "feature1Subtitle": "Multiply your striking power",
-          "feature1Desc": "Progressive resistance forces your muscles to work harder with each extension, developing devastating striking power.",
-          "feature2Title": "Lightning Speed",
-          "feature2Subtitle": "Accelerate your reflexes",
-          "feature2Desc": "The elastic return forces you to be faster, improving your strike speed and reaction times.",
-          "feature3Title": "Core Engagement",
-          "feature3Subtitle": "Core stabilization",
-          "feature3Desc": "Every movement engages your core to maintain balance against asymmetric tension."
-        },
-        "whatYouGet": {
-          "title": "What You Get",
-          "subtitle": "Everything you need for explosive strikes",
-          "harness": "PRO HARNESS",
-          "harnessDesc": "Premium leather & comfort",
-          "bands": "3 LEVELS",
-          "bandsDesc": "15-75 LBS resistance",
-          "bag": "TRAVEL BAG",
-          "bagDesc": "Compact & durable",
-          "guide": "PDF GUIDE",
-          "guideDesc": "Exercises & routine",
-          "extra": "OPTION: + POWER",
-          "extraDesc": "Add up to 34KG (75LBS) resistance - 41cm / 16.4in",
-          "tagline": "Amplify your training even more with the Extra Performance 34kg resistance bands.",
-          "item1": "STRONGSIDE Pro Boxing Harness",
-          "item1Desc": "H: 60cm/23.62in - C: 77cm/30.31in (Adjustable)",
-          "item2": "2x Resistance 16KG",
-          "item2Desc": "16KG (35LB) - 36cm / 14.17in",
-          "item3": "2x Resistance 18KG",
-          "item3Desc": "18KG (40LB) - 48cm / 18.9in",
-          "item4": "2 Wrist Straps",
-          "item4Desc": "32.5cm / 12.8in",
-          "item5": "Foam Handles",
-          "item5Desc": "12cm / 4.72in",
-          "item6": "Transport Bag",
-          "item6Desc": "Height 30cm / 11.8in"
-        },
-        "cta": {
-          "smallSubtitle": "JOIN US",
-          "title": "Ready to Transform Your Training?",
-          "subtitle": "Join thousands of athletes who have chosen excellence.",
-          "button": "Order Now"
-        }
-      },
-      "footer": {
-        "rights": "All rights reserved.",
-        "brandDesc": "The benchmark equipment for combat athletes who demand excellence.",
-        "links": {
-          "legal": "Legal",
-          "cgv": "T&C",
-          "contact": "Contact"
-        },
-        "securePayment": "Secure payment via"
-      },
-      "videos": {
-        "title": "Training Videos",
-        "list": {
-          "1_title": "Live stronger.",
-          "2_title": "Power in every punch.",
-          "3_title": "Train. Fight. Repeat.",
-          "4_title": "Endure. Overcome. Conquer.",
-          "5_title": "No pain, more gain.",
-          "6_title": "Push limits, break barriers.",
-          "7_title": "Dominate your day.",
-          "8_title": "Focus. Hit. Win.",
-          "9_title": "Sweat today, conquer tomorrow.",
-          "10_title": "Strength isn't given, it's earned.",
-          "11_title": "Rise. Fight. Repeat.",
-          "12_title": "Fearless, relentless, unstoppable.",
-          "13_title": "Hit hard, stay strong."
-        }
-      },
-      "reviews": {
-        "subtitle": "What Our Customers Say",
-        "title": "Customer Reviews",
-        "reviewsCount": "verified reviews",
-        "writeReview": "Write a Review",
-        "thankYou": "Thank you for your review!",
-        "formTitle": "Share Your Experience",
-        "yourRating": "Your Rating",
-        "yourName": "Your Name",
-        "yourEmail": "Your Email",
-        "reviewTitle": "Review Title",
-        "reviewBody": "Your Detailed Review",
-        "namePlaceholder": "John Doe",
-        "emailPlaceholder": "john@email.com",
-        "titlePlaceholder": "Great product!",
-        "bodyPlaceholder": "Describe your experience with this product...",
-        "submitReview": "Submit My Review",
-        "cancel": "Cancel",
-        "loadMore": "See More Reviews",
-        "remaining": "remaining",
-        "noReviews": "No reviews yet.",
-        "beFirst": "Be the first to leave a review!",
-        "errorLoading": "Unable to load reviews at the moment.",
-        "errorSubmit": "An error occurred. Please try again.",
-        "today": "Today",
-        "yesterday": "Yesterday"
-      },
-      "accessories": {
-        "subtitle": "Accessories",
-        "title": "Add More Resistance",
-        "description": "Amplify your training with the Extra Performance 34kg resistance bands.",
-        "view_desc": "View description",
-        "hide_desc": "Hide description",
-        "add_to_cart": "Add to Cart",
-        "buy_now": "Buy Now",
-        "secure_payment": "Secure payment",
-        "sku": "SKU:",
-        "type": "Type:",
-        "weight": "Weight:",
-        "product_not_found": "Product not found. Please select a product in the editor."
-      },
-      "legal": {
-        "title": "Legal Notice",
-        "back": "Back"
-      },
-      "cgv": {
-        "title": "Terms and Conditions of Sale",
-        "back": "Back"
-      },
-      "contact": {
-        "title": "Contact Us",
-        "back": "Back"
+        "3_desc": "Perfect your technique anywhere. Add the Extra Performance 34kg bands for intense conditioning during shadow boxing."
+      }
+    },
+    "faq": {
+      "linkName": "FAQ",
+      "title": "Frequently Asked Questions",
+      "items": {
+        "1_q": "Can I use it with gloves?",
+        "1_a": "Yes, fully compatible with boxing and MMA gloves.",
+        "2_q": "Is it suitable for bag and pad work?",
+        "2_a": "Yes, designed for heavy bag, pads and partner training.",
+        "3_q": "Can I spar with it?",
+        "3_a": "Yes, in controlled sparring. The system stays stable.",
+        "4_q": "Is it suitable for beginners?",
+        "4_a": "Yes, the resistance is progressive and controlled.",
+        "5_q": "Can I use it at home?",
+        "5_a": "Yes, no gym or heavy equipment needed.",
+        "6_q": "Does it fit all body types?",
+        "6_a": "Yes, the harness is fully adjustable.",
+        "7_q": "Is it durable?",
+        "7_a": "Tested for intensive training."
       }
     }
   }
