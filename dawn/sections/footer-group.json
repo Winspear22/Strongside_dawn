@@ -2,52 +2,25 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "footer": {
-      "type": "footer",
-      "blocks": {
-        "footer-0": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Navigation",
-            "menu": "footer"
-          }
-        },
-        "footer-1": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Informations",
-            "menu": "footer"
-          }
-        },
-        "footer-2": {
-          "type": "text",
-          "settings": {
-            "heading": "STRONGSIDE Technologies",
-            "subtext": "<p>Équipement d'entraînement professionnel conçu pour les combattants exigeants.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "footer-0",
-        "footer-1",
-        "footer-2"
-      ],
+    "strongside-footer": {
+      "type": "strongside-footer",
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Rejoins la communauté STRONGSIDE",
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 48,
-        "padding_bottom": 36
+        "description": "Équipement de boxe nouvelle génération pour des performances maximales.",
+        "link_1_text": "Mentions légales",
+        "link_1_url": "/policies/legal-notice",
+        "link_2_text": "CGV",
+        "link_2_url": "/policies/terms-of-service",
+        "link_3_text": "Contact",
+        "link_3_url": "/pages/contact",
+        "tiktok_url": "https://www.tiktok.com/@strongside.tech",
+        "youtube_url": "https://www.youtube.com/@strongsidetech",
+        "instagram_url": "https://www.instagram.com/strongside_technologies",
+        "payment_label": "Paiement sécurisé via",
+        "copyright_text": "Tous droits réservés."
       }
     }
   },
   "order": [
-    "footer"
+    "strongside-footer"
   ]
 }
