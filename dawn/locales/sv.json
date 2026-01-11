@@ -28,7 +28,7 @@
         "tiktok": "TikTok"
       }
     },
-    "continue_shopping": "Weiter shoppen",
+    "continue_shopping": "Fortsätt handla",
     "pagination": {
       "label": "Seitennummerierung",
       "page": "Seite {{ number }}",
@@ -276,28 +276,28 @@
       }
     },
     "cart": {
-      "title": "Dein Warenkorb",
-      "caption": "Artikel im Warenkorb",
-      "remove_title": "{{ title }} entfernen",
-      "note": "Spezielle Bestellanweisungen",
-      "checkout": "Auschecken",
-      "empty": "Dein Warenkorb ist leer",
+      "title": "Din varukorg",
+      "caption": "Artiklar i varukorgen",
+      "remove_title": "Ta bort {{ title }}",
+      "note": "Speciella orderinstruktioner",
+      "checkout": "Gå till kassan",
+      "empty": "Din varukorg är tom",
       "cart_error": "Beim Aktualisieren deines Warenkorbs ist ein Fehler aufgetreten. Bitte versuche es erneut.",
       "cart_quantity_error_html": "Du kannst deinem Warenkorb nur {{ quantity }} Stück dieses Artikels hinzufügen.",
       "headings": {
         "product": "Produkt",
-        "price": "Preis",
-        "total": "Gesamtsumme",
-        "quantity": "Anzahl",
+        "price": "Pris",
+        "total": "Totalt",
+        "quantity": "Antal",
         "image": "Produktbild"
       },
-      "update": "Aktualisieren",
+      "update": "Uppdatera",
       "login": {
         "title": "Hast du ein Konto?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Logge dich ein</a>, damit es beim Checkout schneller geht."
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Logga in</a> för snabbare utcheckning."
       },
-      "estimated_total": "Geschätzte Gesamtkosten",
-      "new_estimated_total": "Neuer geschätzter Gesamtbetrag",
+      "estimated_total": "Beräknad totalsumma",
+      "new_estimated_total": "Ny beräknad totalsumma",
       "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren und Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
       "duties_and_taxes_included_shipping_at_checkout_without_policy": "Inkl. Zollgebühren und Steuern. Rabatte und Versand werden beim Checkout berechnet.",
       "taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
@@ -445,7 +445,7 @@
       "date": "Datum",
       "payment_status": "Zahlungsstatus",
       "fulfillment_status": "Fulfillmentstatus",
-      "total": "Gesamtsumme",
+      "total": "Totalt",
       "none": "Du hast noch keine Bestellungen aufgegeben."
     },
     "recover_password": {
@@ -482,9 +482,9 @@
       "tax": "Steuer",
       "product": "Produkt",
       "sku": "SKU",
-      "price": "Preis",
+      "price": "Pris",
       "quantity": "Menge",
-      "total": "Gesamtsumme",
+      "total": "Totalt",
       "fulfilled_at_html": "Ausgeführt am {{ date }}",
       "track_shipment": "Sendung nachverfolgen",
       "tracking_url": "Tracking-Link",
@@ -634,6 +634,11 @@
         "card_11": "Rise. Fight. Repeat.",
         "card_12": "Fearless, relentless, unstoppable.",
         "card_13": "Hit hard, stay strong."
+      },
+      "cta": {
+        "title": "Nöjd med demonstrationen?",
+        "subtitle": "Missa inte chansen att förändra din träning. Gå med i eliten nu.",
+        "button": "BESTÄLL MIN"
       }
     },
     "reviews": {

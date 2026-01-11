@@ -28,7 +28,7 @@
         "tiktok": "TikTok"
       }
     },
-    "continue_shopping": "Weiter shoppen",
+    "continue_shopping": "Continue shopping",
     "pagination": {
       "label": "Seitennummerierung",
       "page": "Seite {{ number }}",
@@ -276,28 +276,28 @@
       }
     },
     "cart": {
-      "title": "Dein Warenkorb",
-      "caption": "Artikel im Warenkorb",
-      "remove_title": "{{ title }} entfernen",
-      "note": "Spezielle Bestellanweisungen",
-      "checkout": "Auschecken",
-      "empty": "Dein Warenkorb ist leer",
+      "title": "Your cart",
+      "caption": "Cart items",
+      "remove_title": "Remove {{ title }}",
+      "note": "Order special instructions",
+      "checkout": "Check out",
+      "empty": "Your cart is empty",
       "cart_error": "Beim Aktualisieren deines Warenkorbs ist ein Fehler aufgetreten. Bitte versuche es erneut.",
       "cart_quantity_error_html": "Du kannst deinem Warenkorb nur {{ quantity }} Stück dieses Artikels hinzufügen.",
       "headings": {
-        "product": "Produkt",
-        "price": "Preis",
-        "total": "Gesamtsumme",
-        "quantity": "Anzahl",
-        "image": "Produktbild"
+        "product": "Product",
+        "price": "Price",
+        "total": "Total",
+        "quantity": "Quantity",
+        "image": "Product image"
       },
-      "update": "Aktualisieren",
+      "update": "Update",
       "login": {
         "title": "Hast du ein Konto?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Logge dich ein</a>, damit es beim Checkout schneller geht."
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> for faster checkout."
       },
-      "estimated_total": "Geschätzte Gesamtkosten",
-      "new_estimated_total": "Neuer geschätzter Gesamtbetrag",
+      "estimated_total": "Estimated total",
+      "new_estimated_total": "New estimated total",
       "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren und Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
       "duties_and_taxes_included_shipping_at_checkout_without_policy": "Inkl. Zollgebühren und Steuern. Rabatte und Versand werden beim Checkout berechnet.",
       "taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
@@ -353,7 +353,7 @@
       "product_total": "Produktzwischensumme",
       "view_cart": "Warenkorb ansehen",
       "each": "{{ money }}/Stück",
-      "product": "Produkt",
+      "product": "Product",
       "variant": "Variante",
       "variant_total": "Varianten insgesamt",
       "items_added": {
@@ -445,7 +445,7 @@
       "date": "Datum",
       "payment_status": "Zahlungsstatus",
       "fulfillment_status": "Fulfillmentstatus",
-      "total": "Gesamtsumme",
+      "total": "Total",
       "none": "Du hast noch keine Bestellungen aufgegeben."
     },
     "recover_password": {
@@ -480,11 +480,11 @@
       "discount": "Rabatt",
       "shipping": "Versand",
       "tax": "Steuer",
-      "product": "Produkt",
+      "product": "Product",
       "sku": "SKU",
-      "price": "Preis",
+      "price": "Price",
       "quantity": "Menge",
-      "total": "Gesamtsumme",
+      "total": "Total",
       "fulfilled_at_html": "Ausgeführt am {{ date }}",
       "track_shipment": "Sendung nachverfolgen",
       "tracking_url": "Tracking-Link",
@@ -634,6 +634,11 @@
         "card_11": "Rise. Fight. Repeat.",
         "card_12": "Fearless, relentless, unstoppable.",
         "card_13": "Hit hard, stay strong."
+      },
+      "cta": {
+        "title": "Satisfied with the demonstration?",
+        "subtitle": "Don't miss your chance to transform your training. Join the elite now.",
+        "button": "ORDER MINE"
       }
     },
     "reviews": {
