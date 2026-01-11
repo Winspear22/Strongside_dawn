@@ -19,32 +19,41 @@
 /* Header */
 .ss-faq-header {
 	text-align: center !important;
-	margin-bottom: 2rem !important;
+	margin-bottom: 3rem !important;
 }
 
 .ss-faq-subtitle {
 	display: block !important;
-	font-size: 0.75rem !important;
+	font-family: 'Inter', system-ui, sans-serif !important;
+	font-size: 0.875rem !important;
 	font-weight: 600 !important;
 	letter-spacing: 0.15em !important;
 	text-transform: uppercase !important;
 	color: #ff2222 !important;
-	margin-bottom: 0.5rem !important;
+	margin-bottom: 1rem !important;
 }
 
 .ss-faq-title {
-	font-size: 2.5rem !important;
+	font-family: 'Inter', system-ui, sans-serif !important;
+	font-size: 3.375rem !important;
 	font-weight: 900 !important;
-	color: white !important;
-	text-transform: uppercase !important;
 	font-style: italic !important;
+	text-transform: uppercase !important;
+	letter-spacing: -0.05em !important;
+	color: white !important;
 	margin: 0 !important;
-	letter-spacing: -0.02em !important;
+	line-height: 1 !important;
 }
 
 @media (max-width: 768px) {
 	.ss-faq-title {
 		font-size: 2rem !important;
+	}
+}
+
+@media (min-width: 1024px) {
+	.ss-faq-title {
+		font-size: 5rem !important;
 	}
 }
 
