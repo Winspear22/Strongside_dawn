@@ -1,0 +1,154 @@
+/* ============================================
+   STRONGSIDE FAQ SECTION
+   Exact replica of React FAQ.jsx styling
+   ============================================ */
+
+.ss-faq-section {
+	padding: 5rem 0 !important;
+	background-color: #0a0a0a !important;
+	position: relative !important;
+	z-index: 20 !important;
+}
+
+.ss-faq-container {
+	max-width: 48rem !important;
+	margin: 0 auto !important;
+	padding: 0 1.5rem !important;
+}
+
+/* Header */
+.ss-faq-header {
+	text-align: center !important;
+	margin-bottom: 2rem !important;
+}
+
+.ss-faq-subtitle {
+	display: block !important;
+	font-size: 0.75rem !important;
+	font-weight: 600 !important;
+	letter-spacing: 0.15em !important;
+	text-transform: uppercase !important;
+	color: #ff2222 !important;
+	margin-bottom: 0.5rem !important;
+}
+
+.ss-faq-title {
+	font-size: 2.5rem !important;
+	font-weight: 900 !important;
+	color: white !important;
+	text-transform: uppercase !important;
+	font-style: italic !important;
+	margin: 0 !important;
+	letter-spacing: -0.02em !important;
+}
+
+@media (max-width: 768px) {
+	.ss-faq-title {
+		font-size: 2rem !important;
+	}
+}
+
+/* FAQ Card Container - The dark gray box */
+.ss-faq-list {
+	background-color: #1a1a1a !important;
+	border-radius: 0.75rem !important;
+	padding: 1rem 2rem !important;
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+/* FAQ Item */
+.ss-faq-item {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.ss-faq-item:last-child {
+	border-bottom: none !important;
+}
+
+/* Question Button */
+.ss-faq-question {
+	width: 100% !important;
+	padding: 1.5rem 0 !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	text-align: left !important;
+	background: none !important;
+	border: none !important;
+	cursor: pointer !important;
+	transition: all 0.3s ease !important;
+}
+
+.ss-faq-question:hover .ss-faq-question-text {
+	color: #ff2222 !important;
+}
+
+.ss-faq-question-text {
+	font-size: 1rem !important;
+	font-weight: 500 !important;
+	color: white !important;
+	transition: color 0.3s ease !important;
+	line-height: 1.5 !important;
+}
+
+/* Icon - Circle with + */
+.ss-faq-icon {
+	flex-shrink: 0 !important;
+	width: 2rem !important;
+	height: 2rem !important;
+	margin-left: 1rem !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	border-radius: 50% !important;
+	border: 1px solid rgba(255, 255, 255, 0.2) !important;
+	color: white !important;
+	background: transparent !important;
+	transition: all 0.3s ease !important;
+}
+
+.ss-faq-question:hover .ss-faq-icon {
+	border-color: #ff2222 !important;
+}
+
+.ss-faq-item.is-open .ss-faq-icon {
+	background-color: #ff2222 !important;
+	border-color: #ff2222 !important;
+	transform: rotate(45deg) !important;
+}
+
+.ss-faq-icon svg {
+	width: 0.875rem !important;
+	height: 0.875rem !important;
+}
+
+/* Answer */
+.ss-faq-answer {
+	height: 0 !important;
+	overflow: hidden !important;
+	transition: height 0.3s ease !important;
+}
+
+.ss-faq-answer-content {
+	padding-bottom: 1.5rem !important;
+	padding-right: 3rem !important;
+	color: #9ca3af !important;
+	line-height: 1.75 !important;
+	font-size: 0.9375rem !important;
+}
+
+.ss-faq-answer-content p {
+	margin: 0 0 1rem 0 !important;
+}
+
+.ss-faq-answer-content p:last-child {
+	margin-bottom: 0 !important;
+}
+
+/* Empty State */
+.ss-faq-empty {
+	text-align: center !important;
+	padding: 2rem !important;
+	color: #6b7280 !important;
+}

@@ -1,0 +1,181 @@
+{% comment %}
+  Strongside FAQ Section
+  - Accordion style matching the React FAQ.jsx component
+  - Dark background, animated expand/collapse
+{% endcomment %}
+
+{{ 'section-strongside-faq.css' | asset_url | stylesheet_tag }}
+
+<section class="ss-faq-section">
+  <div class="ss-faq-container">
+    {%- if section.settings.title != blank -%}
+      <div class="ss-faq-header">
+        {%- if section.settings.subtitle != blank -%}
+          <span class="ss-faq-subtitle">{{ section.settings.subtitle }}</span>
+        {%- endif -%}
+        <h2 class="ss-faq-title">{{ section.settings.title }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="ss-faq-list">
+      {%- for block in section.blocks -%}
+        <div class="ss-faq-item" {{ block.shopify_attributes }}>
+          <button class="ss-faq-question" aria-expanded="false" data-faq-toggle>
+            <span class="ss-faq-question-text">{{ block.settings.question }}</span>
+            <span class="ss-faq-icon">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 4v16m8-8H4" />
+              </svg>
+            </span>
+          </button>
+          <div class="ss-faq-answer" aria-hidden="true">
+            <div class="ss-faq-answer-content">
+              {{ block.settings.answer }}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+
+      {%- if section.blocks.size == 0 -%}
+        <div class="ss-faq-empty">
+          <p>Ajoutez des questions via l'éditeur de thème.</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const faqSection = document.querySelector('.ss-faq-section');
+    if (!faqSection) return;
+
+    const toggles = faqSection.querySelectorAll('[data-faq-toggle]');
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener('click', function () {
+        const item = this.closest('.ss-faq-item');
+        const answer = item.querySelector('.ss-faq-answer');
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all other items (accordion behavior)
+        // Comment out these 3 lines if you want multiple open at once
+        // document.querySelectorAll('.ss-faq-item.is-open').forEach(openItem => {
+        //   if (openItem !== item) closeItem(openItem);
+        // });
+
+        if (isOpen) {
+          closeItem(item);
+        } else {
+          openItem(item);
+        }
+      });
+    });
+
+    function openItem(item) {
+      const answer = item.querySelector('.ss-faq-answer');
+      const content = answer.querySelector('.ss-faq-answer-content');
+      const toggle = item.querySelector('[data-faq-toggle]');
+
+      item.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      answer.setAttribute('aria-hidden', 'false');
+      answer.style.height = content.offsetHeight + 'px';
+    }
+
+    function closeItem(item) {
+      const answer = item.querySelector('.ss-faq-answer');
+      const toggle = item.querySelector('[data-faq-toggle]');
+
+      item.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      answer.setAttribute('aria-hidden', 'true');
+      answer.style.height = '0';
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Strongside",
+  "tag": "section",
+  "class": "section-strongside-faq",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "VOUS AVEZ DES QUESTIONS ?"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Questions Fréquentes"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#0a0a0a"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "Question FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Quelle est votre question ?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Réponse",
+          "default": "<p>Voici la réponse à cette question.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Strongside",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Comment fonctionne le Strongside ?",
+            "answer": "<p>Le Strongside est un système d'entraînement intelligent qui s'adapte à votre niveau et vos objectifs.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Quels sont les délais de livraison ?",
+            "answer": "<p>La livraison prend généralement 3-5 jours ouvrés en France métropolitaine.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Y a-t-il une garantie ?",
+            "answer": "<p>Oui, tous nos produits sont garantis 2 ans contre les défauts de fabrication.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

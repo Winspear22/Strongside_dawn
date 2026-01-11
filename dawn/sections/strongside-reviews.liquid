@@ -54,9 +54,12 @@
   }
 
   /* CONTAINER */
+  /* Container widening (approx +20% from 110rem) */
   .ss-reviews-container {
-    max-width: 56rem; /* max-w-4xl */
-    margin: 0 auto;
+      width: 100%;
+      max-width: 130rem; /* WIDENED to ~2100px */
+      margin: 0 auto;
+      padding: 0 2rem;
   }
 
   /* HEADER */
@@ -96,15 +99,156 @@
     padding: 1.5rem;
   }
 
-  /* Force dark mode styles on common review widgets if possible */
-  .ss-reviews-widget-wrapper .jdgm-rev-widg {
+  /* NUCLEAR OPTION: html body + ID specificity */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg {
+    color: white !important;
+    font-family: inherit !important;
+  }
+
+  /* REVIEW TITLES */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg__title {
+    color: white !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+  }
+
+  /* REVIEW BODY TEXT (The invisible part) */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg__body,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__content,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__body p {
+    color: #e5e7eb !important; /* Light Gray for readability */
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* OVERRIDE JUDGE.ME DEFAULT GREEN COLORS */
+  /* Stars */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star {
+    color: #ffd700 !important;
+  }
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--on {
+    color: #ffd700 !important;
+  }
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--off {
+    color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* Buttons (Write Review) */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-write-rev-link,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-form-submit-btn {
+    background-color: #ff2222 !important;
+    border-color: #ff2222 !important;
+    color: white !important;
+    border-radius: 9999px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    padding: 0.75rem 2rem !important;
+    display: inline-block !important;
+  }
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-write-rev-link:hover,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-form-submit-btn:hover {
+    background-color: #d90000 !important;
+  }
+
+  /* Verified Badge */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__icon:after {
+    background-color: #ff2222 !important;
+  }
+
+  /* Form Inputs */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper input,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper textarea {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     color: white !important;
   }
-  .ss-reviews-widget-wrapper .jdgm-rev-widg__title {
+
+  /* Pagination */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-paginate__page {
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-paginate__page.jdgm-curt {
+    color: #ff2222 !important;
+    border-color: #ff2222 !important;
+  }
+
+  /* REVIEW METADATA (Name, Date) */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__reviewer-name-wrapper,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__timestamp {
+    color: #9ca3af !important; /* Gray-400 */
+  }
+
+  /* ============================================
+     SOLUTION FINALE : CACHER LE TRI, CENTRER ÉCRIRE
+     ============================================ */
+
+  /* CACHER le dropdown de tri - cause tous les problèmes */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-sort-dropdown,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-sort-dropdown-wrapper,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper select.jdgm-sort-dropdown {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* TOUT LE HEADER centré */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-header,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-subtab,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-actions {
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+    float: none !important;
+    clear: both !important;
+  }
+
+  /* Summary centrée */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-summary {
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Bouton ÉCRIRE - on enlève TOUT float et on le met inline-block */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-write-rev-link {
+    display: inline-block !important;
+    float: none !important;
+    position: static !important;
+    /* PAS de margin auto car c'est inline-block, le parent fait le centrage */
+  }
+
+  /* NUCLEAR: Hide arrows */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-subtab:after,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-sort-dropdown:after,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-subtab:before,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-sort-dropdown:before {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* DROPDOWN OPTIONS (The white box)
+     Note: Styling <option> is limited by browsers, but we try standard overrides */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-sort-dropdown option {
+    background-color: #171717 !important;
     color: white !important;
   }
-  .ss-reviews-widget-wrapper .jdgm-rev-widg__body {
-    color: #d1d5db !important;
+
+  /* Hide the old CSS arrow if Judge.me inserts one separately */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-sort-dropdown-arrow {
+    display: none !important;
+  }
+
+  /* Clear floats to prevent layout breakage */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-header:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 </style>
 
@@ -128,3 +272,132 @@
     {%- endif -%}
   </div>
 </div>
+
+<script>
+  window.addEventListener('load', function () {
+    // ============================================
+    // JAVASCRIPT DOM REORGANIZATION FOR BUTTONS
+    // CSS alone fails because Judge.me loads async
+    // ============================================
+
+    function reorganizeButtons() {
+      const header = document.querySelector('.ss-reviews-widget-wrapper .jdgm-header');
+      if (!header) return false;
+
+      const writeBtn = header.querySelector('.jdgm-write-rev-link');
+      const sortDropdown = header.querySelector('.jdgm-sort-dropdown');
+
+      if (!writeBtn || !sortDropdown) return false;
+
+      // Check if already reorganized
+      if (header.querySelector('.ss-button-row')) return true;
+
+      // Create a new flex container for the buttons
+      const buttonRow = document.createElement('div');
+      buttonRow.className = 'ss-button-row';
+      buttonRow.style.cssText = `
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 20px !important;
+        padding: 0 10px !important;
+      `;
+
+      // Clone and style the sort dropdown wrapper
+      const sortWrapper = sortDropdown.parentElement || sortDropdown;
+      const sortClone = sortWrapper.cloneNode(true);
+      sortClone.style.cssText = `
+        order: 1 !important;
+        margin-right: auto !important;
+      `;
+
+      // Clone and style the write button
+      const writeClone = writeBtn.cloneNode(true);
+      writeClone.style.cssText = `
+        order: 2 !important;
+        margin-left: auto !important;
+      `;
+
+      // Add to the new row
+      buttonRow.appendChild(sortClone);
+      buttonRow.appendChild(writeClone);
+
+      // Hide originals
+      if (sortWrapper !== sortDropdown) sortWrapper.style.display = 'none';
+      sortDropdown.style.display = 'none';
+      writeBtn.style.display = 'none';
+
+      // Add the new row to the header
+      header.appendChild(buttonRow);
+
+      console.log('[Strongside] Buttons reorganized successfully!');
+      return true;
+    }
+
+    // Try multiple times as Judge.me loads async
+    let attempts = 0;
+    const maxAttempts = 20;
+    const reorganizeInterval = setInterval(function () {
+      attempts++;
+      if (reorganizeButtons() || attempts >= maxAttempts) {
+        clearInterval(reorganizeInterval);
+      }
+    }, 500);
+
+    // ============================================
+    // NUCLEAR CSS INJECTION
+    // ============================================
+    setTimeout(function () {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .jdgm-star { color: #ffd700 !important; }
+        .jdgm-write-rev-link, .jdgm-form-submit-btn { background-color: #ff2222 !important; border-color: #ff2222 !important; }
+        .jdgm-rev__icon:after { background-color: #ff2222 !important; }
+        .jdgm-rev-widg__title { color: white !important; font-size: 1.1rem !important; }
+        .jdgm-rev-widg__body, .jdgm-rev__content, .jdgm-rev__body p { color: #e5e7eb !important; }
+        .jdgm-rev__reviewer-name-wrapper, .jdgm-rev__timestamp { color: #9ca3af !important; }
+        
+        /* Style the new button row */
+        .ss-button-row .jdgm-sort-dropdown {
+          color: white !important;
+          background-color: rgba(255, 255, 255, 0.1) !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          border-radius: 6px !important;
+          min-width: 220px !important;
+          height: 40px !important;
+          padding: 0 15px !important;
+          appearance: none !important;
+          cursor: pointer !important;
+        }
+      `;
+      document.body.appendChild(style);
+    }, 1000);
+
+    // ============================================
+    // CLEANUP DROPDOWN (Remove Photos/Videos options)
+    // ============================================
+    const cleanupInterval = setInterval(function () {
+      const dropdowns = document.querySelectorAll('.jdgm-sort-dropdown');
+      dropdowns.forEach((dropdown) => {
+        const options = dropdown.querySelectorAll('option');
+        options.forEach((opt) => {
+          // Normalize text to remove accents (e.g. "Vidéos" -> "Videos")
+          const txt = opt.innerText
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '');
+          const val = opt.value.toLowerCase();
+
+          // Remove options mentioning photos, videos, or media
+          if (txt.includes('photo') || txt.includes('video') || txt.includes('picture') || val.includes('media')) {
+            opt.remove();
+          }
+        });
+      });
+    }, 500);
+
+    // Stop the interval after 10 seconds to save performance
+    setTimeout(() => clearInterval(cleanupInterval), 10000);
+  });
+</script>
