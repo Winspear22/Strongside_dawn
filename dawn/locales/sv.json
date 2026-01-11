@@ -636,7 +636,7 @@
         "card_13": "Hit hard, stay strong."
       },
       "cta": {
-        "title": "Nöjd med demonstrationen?",
+        "title": "Träningsvideor",
         "subtitle": "Missa inte chansen att förändra din träning. Gå med i eliten nu.",
         "button": "BESTÄLL MIN"
       }
@@ -693,6 +693,11 @@
       "subtitle": "Ett Verktyg, Oändliga Möjligheter",
       "titleStart": "Använd STRONGSIDE",
       "titleEnd": "Överallt",
+      "cta": {
+        "title": "Träningsvideor",
+        "subtitle": "Missa inte chansen att förändra din träning. Gå med i eliten nu.",
+        "button": "BESTÄLL MIN"
+      },
       "modes": {
         "1_title": "SÄCKTRÄNING",
         "1_desc": "Släpp lös din kraft på säcken med STRONGSIDE Boxing Harness Pro. Progressivt motstånd förvandlar varje slag till en förödande träff.",

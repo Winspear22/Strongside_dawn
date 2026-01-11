@@ -636,7 +636,7 @@
         "card_13": "Hit hard, stay strong."
       },
       "cta": {
-        "title": "¿Satisfecho con la demostración?",
+        "title": "Videos de entrenamiento",
         "subtitle": "No pierdas la oportunidad de transformar tu entrenamiento. Únete a la élite ahora.",
         "button": "PEDIR EL MÍO"
       }
@@ -693,6 +693,11 @@
       "subtitle": "Una Herramienta, Posibilidades Infinitas",
       "titleStart": "Usa STRONGSIDE",
       "titleEnd": "En Cualquier Lugar",
+      "cta": {
+        "title": "Videos de Entrenamiento",
+        "subtitle": "No pierdas la oportunidad de transformar tu entrenamiento. Únete a la élite ahora.",
+        "button": "PEDIR EL MÍO"
+      },
       "modes": {
         "1_title": "SACO DE BOXEO",
         "1_desc": "Libera tu potencia en el saco con el STRONGSIDE Boxing Harness Pro. La resistencia progresiva transforma cada golpe en un impacto devastador.",
