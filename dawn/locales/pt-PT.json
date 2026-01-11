@@ -1,20 +1,20 @@
 {
   "general": {
     "password_page": {
-      "login_form_heading": "Entre na loja usando a palavra-passe:",
-      "login_password_button": "Entre usando a palavra-passe",
-      "login_form_password_label": "Palavra-passe",
-      "login_form_password_placeholder": "A sua palavra-passe",
-      "login_form_error": "Palavra-passe errada!",
-      "login_form_submit": "Entrar",
-      "admin_link_html": "É o proprietário da loja? <a href=\"/admin\" class=\"link underlined-link\">Inicie a sessão aqui</a>",
-      "powered_by_shopify_html": "Esta loja irá contar com tecnologia {{ shopify }}"
+      "login_form_heading": "Shop mit Passwort betreten:",
+      "login_password_button": "Mit Passwort betreten",
+      "login_form_password_label": "Passwort",
+      "login_form_password_placeholder": "Dein Passwort",
+      "login_form_error": "Falsches Passwort!",
+      "login_form_submit": "Eingeben",
+      "admin_link_html": "Bist du der Shop-Inhaber? <a href=\"/admin\" class=\"link underlined-link\">Hier einloggen</a>",
+      "powered_by_shopify_html": "Dieser Shop wird unterstützt von {{ shopify }}"
     },
     "social": {
       "alt_text": {
-        "share_on_facebook": "Partilhar no Facebook",
-        "share_on_twitter": "Partilhar no X",
-        "share_on_pinterest": "Marcar com um pin no Pinterest"
+        "share_on_facebook": "Auf Facebook teilen",
+        "share_on_twitter": "Auf X teilen",
+        "share_on_pinterest": "Auf Pinterest pinnen"
       },
       "links": {
         "twitter": "X (Twitter)",
@@ -28,515 +28,694 @@
         "tiktok": "TikTok"
       }
     },
-    "continue_shopping": "Continuar a comprar",
+    "continue_shopping": "Weiter shoppen",
     "pagination": {
-      "label": "Paginação",
-      "page": "Página {{ number }}",
-      "next": "Página seguinte",
-      "previous": "Página anterior"
+      "label": "Seitennummerierung",
+      "page": "Seite {{ number }}",
+      "next": "Nächste Seite",
+      "previous": "Vorherige Seite"
     },
     "search": {
-      "search": "Pesquisar",
-      "reset": "Limpar termo de pesquisa"
+      "search": "Suchen",
+      "reset": "Suchbegriff zurücksetzen"
     },
     "cart": {
-      "view": "Ver carrinho ({{ count }})",
-      "item_added": "Item adicionado ao seu carrinho",
-      "view_empty_cart": "Ver carrinho"
+      "view": "Warenkorb ansehen ({{ count }})",
+      "item_added": "Artikel wurde in den Warenkorb gelegt",
+      "view_empty_cart": "Warenkorb ansehen"
     },
     "share": {
-      "copy_to_clipboard": "Copiar ligação",
-      "share_url": "Ligação",
-      "success_message": "Ligação copiada para a área de transferência",
-      "close": "Fechar partilha"
+      "copy_to_clipboard": "Link kopieren",
+      "share_url": "Link",
+      "success_message": "Link in die Zwischenablage kopiert",
+      "close": "Teilen schließen"
     },
     "slider": {
-      "of": "de",
-      "next_slide": "Deslizar para a direita",
-      "previous_slide": "Deslizar para a esquerda",
+      "of": "von",
+      "next_slide": "Nach rechts schieben",
+      "previous_slide": "Nach links schieben",
       "name": "Slider"
     }
   },
   "newsletter": {
-    "label": "E-mail",
-    "success": "Obrigado pela sua subscrição",
-    "button_label": "Subscrever"
+    "label": "E-Mail",
+    "success": "Danke für deine Anmeldung",
+    "button_label": "Abonnieren"
   },
   "accessibility": {
-    "skip_to_text": "Saltar para o conteúdo",
-    "close": "Encerrar",
-    "unit_price_separator": "por",
-    "vendor": "Fornecedor:",
-    "error": "Erro",
-    "refresh_page": "Escolher uma seleção resulta numa atualização de página completa.",
+    "skip_to_text": "Direkt zum Inhalt",
+    "close": "Schließen",
+    "unit_price_separator": "pro",
+    "vendor": "Anbieter:",
+    "error": "Fehler",
+    "refresh_page": "Wenn du dich für eine Auswahl entscheidest, wird die Seite komplett aktualisiert.",
     "link_messages": {
-      "new_window": "Abre numa nova janela.",
-      "external": "Abre website externo."
+      "new_window": "Wird in einem neuen Fenster geöffnet.",
+      "external": "Öffnet externe Webseite."
     },
-    "loading": "A carregar...",
-    "skip_to_product_info": "Saltar para a informação do produto",
-    "total_reviews": "análises totais",
-    "star_reviews_info": "{{ rating_value }} de {{ rating_max }} estrelas",
-    "collapsible_content_title": "Conteúdo recolhível",
-    "complementary_products": "Produtos complementares"
+    "loading": "Wird geladen ...",
+    "skip_to_product_info": "Zu Produktinformationen springen",
+    "total_reviews": "Bewertungen insgesamt",
+    "star_reviews_info": "{{ rating_value }} von {{ rating_max }} Sternen",
+    "collapsible_content_title": "Einklappbarer Inhalt",
+    "complementary_products": "Ergänzende Produkte"
   },
   "blogs": {
     "article": {
-      "blog": "Blogue",
-      "read_more_title": "Ler mais: {{ title }}",
+      "blog": "Blog",
+      "read_more_title": "Weiterlesen: {{ title }}",
       "comments": {
-        "one": "{{ count }} comentário",
-        "other": "{{ count }} comentários",
-        "many": "{{ count }} comentários"
+        "one": "{{ count }} Kommentar",
+        "other": "{{ count }} Kommentare"
       },
-      "moderated": "Tenha em atenção que os comentários necessitam de ser aprovados antes de serem publicados.",
-      "comment_form_title": "Deixe um comentário",
-      "name": "Nome",
-      "email": "E-mail",
-      "message": "Comentário",
-      "post": "Publicar comentário",
-      "back_to_blog": "Voltar para o blogue",
-      "share": "Partilhar este artigo",
-      "success": "O seu comentário foi publicado com sucesso! Obrigado!",
-      "success_moderated": "O seu comentário foi publicado com sucesso. Será publicado em alguns instantes, já que o nosso blogue é moderado."
+      "moderated": "Bitte beachte, dass Kommentare vor der Veröffentlichung freigegeben werden müssen.",
+      "comment_form_title": "Hinterlasse einen Kommentar",
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Kommentar",
+      "post": "Kommentar posten",
+      "back_to_blog": "Zurück zum Blog",
+      "share": "Diesen Artikel teilen",
+      "success": "Dein Kommentar wurde erfolgreich gepostet! Vielen Dank!",
+      "success_moderated": "Dein Kommentar wurde erfolgreich gepostet. Da unser Blog moderiert wird, werden wir ihn erst kurze Zeit später veröffentlichen."
     }
   },
   "onboarding": {
-    "product_title": "Exemplo de título do produto",
-    "collection_title": "O nome da sua coleção"
+    "product_title": "Beispiel für Produkttitel",
+    "collection_title": "Name deiner Kollektion"
   },
   "products": {
     "product": {
-      "add_to_cart": "Adicionar ao carrinho",
-      "description": "Descrição",
-      "on_sale": "Em promoção",
-      "product_variants": "Variantes de produtos",
+      "add_to_cart": "In den Warenkorb legen",
+      "description": "Beschreibung",
+      "on_sale": "Sale",
       "quantity": {
-        "label": "Quantidade",
-        "input_label": "Quantidade de {{ product }}",
-        "increase": "Aumentar a quantidade de {{ product }}",
-        "decrease": "Diminuir a quantidade de {{ product }}",
-        "minimum_of": "Mínimo de {{ quantity }}",
-        "maximum_of": "Máximo de {{ quantity }}",
-        "multiples_of": "Incrementos de {{ quantity }}",
-        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> no carrinho",
-        "note": "Ver regras de quantidade",
-        "min_of": "Mín. de {{ quantity }}",
-        "max_of": "Máx. de {{ quantity }}",
-        "in_cart_aria_label": "Quantidade ({{ quantity }} no carrinho)"
+        "label": "Anzahl",
+        "input_label": "Anzahl von {{ product }}",
+        "increase": "Erhöhe die Menge für {{ product }}",
+        "decrease": "Verringere die Menge für {{ product }}",
+        "minimum_of": "Mindestens {{ quantity }}",
+        "maximum_of": "Maximal {{ quantity }}",
+        "multiples_of": "In {{ quantity }}er Schritten",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> im Warenkorb",
+        "note": "Mengenregeln anzeigen",
+        "min_of": "Mindestens {{ quantity }}",
+        "max_of": "Höchstens {{ quantity }}",
+        "in_cart_aria_label": "Menge ({{ quantity }} im Warenkorb)"
       },
       "price": {
-        "from_price_html": "A partir de {{ price }}",
-        "regular_price": "Preço normal",
-        "sale_price": "Preço de saldo",
-        "unit_price": "Preço unitário"
+        "from_price_html": "Von {{ price }}",
+        "regular_price": "Normaler Preis",
+        "sale_price": "Verkaufspreis",
+        "unit_price": "Grundpreis"
       },
-      "share": "Partilhar este produto",
-      "sold_out": "Esgotado",
-      "unavailable": "Indisponível",
-      "vendor": "Fornecedor",
-      "video_exit_message": "{{ title }} abre um vídeo em ecrã completo na mesma janela.",
-      "xr_button": "Ver no seu espaço",
-      "xr_button_label": "Ver no seu espaço, carrega item na janela de realidade aumentada",
+      "share": "Dieses Produkt teilen",
+      "sold_out": "Ausverkauft",
+      "unavailable": "Nicht verfügbar",
+      "vendor": "Anbieter",
+      "video_exit_message": "{{ title }} öffnet das Video auf derselben Seite im Vollbildmodus.",
+      "xr_button": "In deinem Bereich ansehen",
+      "xr_button_label": "\"Ansicht in deinem Raum\" lädt den Artikel in ein Augmented-Reality-Fenster",
       "pickup_availability": {
-        "view_store_info": "Ver informações da loja",
-        "check_other_stores": "Verificar a disponibilidade noutras lojas",
-        "pick_up_available": "Recolha disponível",
-        "pick_up_available_at_html": "Recolha disponível em <span class=\"color-foreground\">{{ location_name }}</span>",
-        "pick_up_unavailable_at_html": "Recolha atualmente indisponível em <span class=\"color-foreground\">{{ location_name }}</span>",
-        "unavailable": "Não foi possível carregar a disponibilidade de recolha",
-        "refresh": "Atualizar"
+        "view_store_info": "Shop-Informationen anzeigen",
+        "check_other_stores": "Verfügbarkeit in anderen Shops überprüfen",
+        "pick_up_available": "Abholung verfügbar",
+        "pick_up_available_at_html": "Abholung bei <span class=\"color-foreground\">{{ location_name }}</span> verfügbar",
+        "pick_up_unavailable_at_html": "Abholung bei <span class=\"color-foreground\">{{ location_name }}</span> derzeit nicht verfügbar",
+        "unavailable": "Verfügbarkeit für Abholungen konnte nicht geladen werden",
+        "refresh": "Aktualisieren"
       },
       "media": {
-        "open_media": "Abrir conteúdo multimédia {{ index }} em modal",
-        "play_model": "Ativar Visualizador 3D",
-        "play_video": "Reproduzir o vídeo",
-        "gallery_viewer": "Visualizador de Galeria",
-        "load_image": "Carregar imagem {{ index }} na vista de galeria",
-        "load_model": "Carregar Modelo 3D {{ index }} na vista de galeria",
-        "load_video": "Reproduzir vídeo {{ index }} na vista de galeria",
-        "image_available": "A imagem {{ index }} está agora disponível na vista de galeria"
+        "open_media": "Medien {{ index }} in Modal öffnen",
+        "play_model": "3D-Viewer abspielen",
+        "play_video": "Video abspielen",
+        "gallery_viewer": "Galerie-Viewer",
+        "load_image": "Bild {{ index }} in Galerieansicht laden",
+        "load_model": "3D-Modell {{ index }} in Galerieansicht laden",
+        "load_video": "Video {{ index }} in Galerieansicht abspielen",
+        "image_available": "Bild {{ index }} ist nun in der Galerieansicht verfügbar"
       },
-      "nested_label": "{{ title }} para {{ parent_title }}",
-      "view_full_details": "Ver detalhes completos",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Envio</a> calculado na finalização da compra.",
-      "choose_options": "Escolher opções",
-      "choose_product_options": "Escolha opções para {{ product_name }}",
-      "value_unavailable": "{{ option_value }} - Indisponível",
-      "variant_sold_out_or_unavailable": "Variante esgotada ou indisponível",
-      "inventory_in_stock": "Em stock",
-      "inventory_in_stock_show_count": "{{ quantity }} em stock",
-      "inventory_low_stock": "Stock reduzido",
-      "inventory_low_stock_show_count": "Stock reduzido: {{ quantity }} restantes",
-      "inventory_out_of_stock": "Esgotado",
-      "inventory_out_of_stock_continue_selling": "Em stock",
+      "nested_label": "{{ title }} für {{ parent_title }}",
+      "view_full_details": "Vollständige Details anzeigen",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Versand</a> wird beim Checkout berechnet",
+      "choose_options": "Optionen auswählen",
+      "choose_product_options": "Optionen für {{ product_name }} auswählen",
+      "value_unavailable": "{{ option_value }} – nicht verfügbar",
+      "variant_sold_out_or_unavailable": "Variante ausverkauft oder nicht verfügbar",
+      "inventory_in_stock": "Auf Lager",
+      "inventory_in_stock_show_count": "{{ quantity }} auf Lager",
+      "inventory_low_stock": "Niedriger Lagerbestand",
+      "inventory_low_stock_show_count": "Niedriger Lagerbestand: {{ quantity }} verbleibend",
+      "inventory_out_of_stock": "Nicht vorrätig",
+      "inventory_out_of_stock_continue_selling": "Auf Lager",
       "sku": "SKU",
       "volume_pricing": {
-        "title": "Preços por volume",
-        "note": "Preços por volume disponível",
-        "minimum": "{{ quantity }} ou mais",
-        "price_range": "{{ minimum }} - {{ maximum }}",
-        "price_at_each_html": "a {{ price }}/cada"
+        "title": "Volumenabhängige Preisgestaltung",
+        "note": "Volumenabhängige Preisgestaltung verfügbar",
+        "minimum": "{{ quantity }}+",
+        "price_range": "{{ minimum }}–{{ maximum }}",
+        "price_at_each_html": "bei {{ price }}/Stück"
       },
-      "taxes_included": "Impostos incluídos.",
-      "duties_included": "Encargos incluídos.",
-      "duties_and_taxes_included": "Encargos e impostos incluídos."
+      "product_variants": "Produktvarianten",
+      "taxes_included": "Inkl. Steuern.",
+      "duties_included": "Inkl. Zollgebühren.",
+      "duties_and_taxes_included": "Inkl. Zollgebühren und Steuern."
     },
     "modal": {
-      "label": "Galeria de conteúdo multimédia"
+      "label": "Medien-Galerie"
     },
     "facets": {
-      "apply": "Aplicar",
-      "clear": "Limpar",
-      "clear_all": "Remover tudo",
-      "from": "De",
-      "filter_and_sort": "Filtrar e ordenar",
-      "filter_by_label": "Filtrar:",
-      "filter_button": "Filtro",
+      "apply": "Anwenden",
+      "clear": "Löschen",
+      "clear_all": "Alle entfernen",
+      "from": "Von",
+      "filter_and_sort": "Filtern und sortieren",
+      "filter_by_label": "Filter:",
+      "filter_button": "Filter",
       "filters_selected": {
-        "one": "{{ count }} selecionada",
-        "other": "{{ count }} selecionada",
-        "many": "{{ count }} selecionada"
+        "one": "{{ count }} ausgewählt",
+        "other": "{{ count }} ausgewählt"
       },
-      "max_price": "O preço mais alto é {{ price }}",
+      "max_price": "Der höchste Preis ist {{ price }}",
       "product_count": {
-        "one": "{{ product_count }} de {{ count }} produto",
-        "other": "{{ product_count }} de {{ count }} produtos",
-        "many": "{{ product_count }} de {{ count }} produtos"
+        "one": "{{ product_count }} von {{ count }} Produkt",
+        "other": "{{ product_count }} von {{ count }} Produkten"
       },
       "product_count_simple": {
-        "one": "{{ count }} produto",
-        "other": "{{ count }} produtos",
-        "many": "{{ count }} produtos"
+        "one": "{{ count }} Produkt",
+        "other": "{{ count }} Produkte"
       },
-      "reset": "Repor",
-      "sort_button": "Ordenar",
-      "sort_by_label": "Ordenar por:",
-      "to": "Para",
-      "clear_filter": "Remover filtro",
-      "filter_selected_accessibility": "{{ type }} ({{ count }} filtros selecionados)",
-      "show_more": "Mostrar mais",
-      "show_less": "Mostrar menos",
-      "filter_and_operator_subtitle": "Corresponder todos"
+      "reset": "Zurücksetzen",
+      "sort_button": "Sortieren",
+      "sort_by_label": "Sortieren nach:",
+      "to": "Bis",
+      "clear_filter": "Filter entfernen",
+      "filter_selected_accessibility": "{{ type }} ({{ count }} Filter ausgewählt)",
+      "show_more": "Mehr anzeigen",
+      "show_less": "Weniger anzeigen",
+      "filter_and_operator_subtitle": "Allen entsprechen"
     }
   },
   "templates": {
     "search": {
-      "no_results": "Não foram encontrados resultados para \"{{ terms }}\". Verifique a ortografia ou utilize uma palavra ou frase diferente.",
-      "page": "Página",
+      "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfe die Schreibweise oder versuche es mit einer anderen Suchanfrage.",
       "results_with_count": {
-        "one": "{{ count }} resultado",
-        "other": "{{ count }} resultados",
-        "many": "{{ count }} resultados"
+        "one": "{{ count }} Ergebnis",
+        "other": "{{ count }} Ergebnisse"
       },
-      "title": "Resultados da pesquisa",
-      "products": "Produtos",
-      "search_for": "Procurar por \"{{ terms }}\"",
+      "title": "Suchergebnisse",
+      "page": "Seite",
+      "products": "Produkte",
+      "search_for": "Nach \"{{ terms }}\" suchen",
       "results_with_count_and_term": {
-        "one": "{{ count }} resultado encontrado para “{{ terms }}”",
-        "other": "{{ count }} resultado encontrado para “{{ terms }}”",
-        "many": "{{ count }} resultado encontrado para “{{ terms }}”"
+        "one": "{{ count }} Ergebnis für \"{{ terms }}\" gefunden",
+        "other": "{{ count }} Ergebnisse für \"{{ terms }}\" gefunden"
       },
       "results_pages_with_count": {
-        "one": "{{ count }} página",
-        "other": "{{ count }} páginas",
-        "many": "{{ count }} páginas"
+        "one": "{{ count }} Seite",
+        "other": "{{ count }} Seiten"
       },
       "results_suggestions_with_count": {
-        "one": "{{ count }} sugestão",
-        "other": "{{ count }} sugestões",
-        "many": "{{ count }} sugestões"
+        "one": "{{ count }} Vorschlag",
+        "other": "{{ count }} Vorschläge"
       },
       "results_products_with_count": {
-        "one": "{{ count }} produto",
-        "other": "{{ count }} produtos",
-        "many": "{{ count }} produtos"
+        "one": "{{ count }} Produkt",
+        "other": "{{ count }} Produkte"
       },
-      "suggestions": "Sugestões",
-      "pages": "Páginas"
+      "suggestions": "Vorschläge",
+      "pages": "Seiten"
     },
     "cart": {
-      "cart": "Carrinho"
+      "cart": "Warenkorb"
     },
     "contact": {
       "form": {
-        "name": "Nome",
-        "email": "E-mail",
-        "phone": "Número de telefone",
-        "comment": "Comentário",
-        "send": "Enviar",
-        "post_success": "Obrigado por entrar em contacto connosco. Responder-lhe-emos logo que possível.",
-        "error_heading": "Ajuste o seguinte:",
-        "title": "Formulário de contacto"
+        "name": "Name",
+        "email": "E-Mail",
+        "phone": "Telefonnummer",
+        "comment": "Kommentar",
+        "send": "Senden",
+        "post_success": "Danke, dass du uns kontaktiert hast. Wir werden uns so schnell wie möglich bei dir melden.",
+        "error_heading": "Bitte passe Folgendes an:",
+        "title": "Kontaktformular"
       }
     },
     "404": {
-      "title": "Página não encontrada",
+      "title": "Seite nicht gefunden",
       "subtext": "404"
     }
   },
   "sections": {
     "header": {
-      "announcement": "Comunicado",
-      "menu": "Menu",
+      "announcement": "Ankündigung",
+      "menu": "Menü",
       "cart_count": {
-        "one": "{{ count }} item",
-        "other": "{{ count }} itens",
-        "many": "{{ count }} itens"
+        "one": "{{ count }} Artikel",
+        "other": "{{ count }} Artikel"
       }
     },
     "cart": {
-      "title": "O seu carrinho",
-      "caption": "Itens do carrinho",
-      "remove_title": "Eliminar {{ title }}",
-      "note": "Instruções especiais da encomenda",
-      "checkout": "Finalizar a compra",
-      "empty": "O seu carrinho está vazio",
-      "cart_error": "Ocorreu um erro ao atualizar o seu carrinho. Tente novamente.",
-      "cart_quantity_error_html": "É possível adicionar apenas {{ quantity }} unidade(s) deste item ao carrinho.",
+      "title": "Dein Warenkorb",
+      "caption": "Artikel im Warenkorb",
+      "remove_title": "{{ title }} entfernen",
+      "note": "Spezielle Bestellanweisungen",
+      "checkout": "Auschecken",
+      "empty": "Dein Warenkorb ist leer",
+      "cart_error": "Beim Aktualisieren deines Warenkorbs ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+      "cart_quantity_error_html": "Du kannst deinem Warenkorb nur {{ quantity }} Stück dieses Artikels hinzufügen.",
       "headings": {
-        "product": "Produto",
-        "price": "Preço",
-        "total": "Total",
-        "quantity": "Quantidade",
-        "image": "Imagem de produto"
+        "product": "Produkt",
+        "price": "Preis",
+        "total": "Gesamtsumme",
+        "quantity": "Anzahl",
+        "image": "Produktbild"
       },
-      "update": "Atualizar",
+      "update": "Aktualisieren",
       "login": {
-        "title": "Tem uma conta?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Inicie sessão</a> para finalizar a compra mais rápido."
+        "title": "Hast du ein Konto?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Logge dich ein</a>, damit es beim Checkout schneller geht."
       },
-      "estimated_total": "Total estimado",
-      "new_estimated_total": "Novo total estimado",
-      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Encargos e impostos incluídos. Descontos e <a href=\"{{ link }}\">envio</a> calculados na finalização da compra.",
-      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Encargos e impostos incluídos. Descontos e envio calculados na finalização da compra.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Impostos incluídos. Descontos e <a href=\"{{ link }}\">envio</a> calculados na finalização da compra.",
-      "taxes_included_shipping_at_checkout_without_policy": "Impostos incluídos. Descontos e envio calculados na finalização da compra.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Encargos incluídos. Impostos, descontos e <a href=\"{{ link }}\">envio</a> calculados na finalização da compra.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Encargos incluídos. Impostos, descontos e envio calculados na finalização da compra.",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Impostos, descontos e <a href=\"{{ link }}\">envio</a> calculados na finalização da compra.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Impostos, descontos e envio calculados na finalização da compra."
+      "estimated_total": "Geschätzte Gesamtkosten",
+      "new_estimated_total": "Neuer geschätzter Gesamtbetrag",
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren und Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
+      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Inkl. Zollgebühren und Steuern. Rabatte und Versand werden beim Checkout berechnet.",
+      "taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
+      "taxes_included_shipping_at_checkout_without_policy": "Inkl. Steuern. Rabatte und Versand werden beim Checkout berechnet.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren. Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inkl. Zollgebühren. Steuern, Rabatte und Versand werden beim Checkout berechnet.",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Steuern, Rabatte und Versand werden beim Checkout berechnet."
     },
     "footer": {
-      "payment": "Métodos de pagamento"
+      "payment": "Zahlungsmethoden"
     },
     "featured_blog": {
-      "view_all": "Ver tudo",
-      "onboarding_title": "Publicação no blogue",
-      "onboarding_content": "Apresente aos clientes um resumo da publicação no blogue"
+      "view_all": "Alle anzeigen",
+      "onboarding_title": "Blog-Beitrag",
+      "onboarding_content": "Verschaffe deinen Kunden eine Übersicht über deinen Blog-Beitrag"
     },
     "featured_collection": {
-      "view_all": "Ver tudo",
-      "view_all_label": "Ver todos os produtos da coleção {{ collection_name }}"
+      "view_all": "Alle anzeigen",
+      "view_all_label": "Alle Produkte in der Kollektion {{ collection_name }} anzeigen"
     },
     "collection_list": {
-      "view_all": "Ver tudo"
+      "view_all": "Alle anzeigen"
     },
     "collection_template": {
-      "title": "Coleção",
-      "empty": "Nenhum produto encontrado",
-      "use_fewer_filters_html": "Utilizar menos filtros ou <a class=\"{{ class }}\" href=\"{{ link }}\">remover tudo</a>"
+      "title": "Kategorie",
+      "empty": "Keine Produkte gefunden",
+      "use_fewer_filters_html": "Verwende weniger Filter oder <a class=\"{{ class }}\" href=\"{{ link }}\">entferne alle</a>"
     },
     "video": {
-      "load_video": "Carregar vídeo: {{ description }}"
+      "load_video": "Video laden: {{ description }}"
     },
     "slideshow": {
-      "load_slide": "Carregar slide",
-      "previous_slideshow": "Diapositivo anterior",
-      "next_slideshow": "Diapositivo seguinte",
-      "pause_slideshow": "Pausa na apresentação de diapositivos",
-      "play_slideshow": "Reproduzir apresentação de diapositivos",
-      "carousel": "Carrossel",
-      "slide": "Diapositivo"
+      "load_slide": "Folie laden",
+      "previous_slideshow": "Vorherige Folie",
+      "next_slideshow": "Nächste Folie",
+      "pause_slideshow": "Slideshow pausieren",
+      "play_slideshow": "Slideshow abspielen",
+      "carousel": "Karussell",
+      "slide": "Folie"
     },
     "page": {
-      "title": "Título da página"
+      "title": "Seitentitel"
     },
     "announcements": {
-      "previous_announcement": "Comunicado anterior",
-      "next_announcement": "Comunicado seguinte",
-      "carousel": "Carrossel",
-      "announcement": "Comunicado",
-      "announcement_bar": "Barra de comunicado"
+      "previous_announcement": "Vorherige Ankündigung",
+      "next_announcement": "Nächste Ankündigung",
+      "carousel": "Karussell",
+      "announcement": "Ankündigung",
+      "announcement_bar": "Ankündigungsleiste"
     },
     "quick_order_list": {
-      "product_total": "Subtotal dos produtos",
-      "view_cart": "Ver carrinho",
-      "each": "{{ money }}/cada",
-      "product": "Produto",
+      "product_total": "Produktzwischensumme",
+      "view_cart": "Warenkorb ansehen",
+      "each": "{{ money }}/Stück",
+      "product": "Produkt",
       "variant": "Variante",
-      "variant_total": "Variante total",
+      "variant_total": "Varianten insgesamt",
       "items_added": {
-        "one": "{{ quantity }} item adicionado",
-        "other": "{{ quantity }} itens adicionados",
-        "many": "{{ quantity }} itens adicionados"
+        "one": "{{ quantity }} Artikel hinzugefügt",
+        "other": "{{ quantity }} Artikel hinzugefügt"
       },
       "items_removed": {
-        "one": "{{ quantity }} item removido",
-        "other": "{{ quantity }} itens removidos",
-        "many": "{{ quantity }} itens removidos"
+        "one": "{{ quantity }} Artikel entfernt",
+        "other": "{{ quantity }} Artikel entfernt"
       },
-      "product_variants": "Variantes de produtos",
-      "total_items": "Total de itens",
-      "remove_all_items_confirmation": "Remover todos os {{ quantity }} itens do seu carrinho?",
-      "remove_all": "Remover tudo",
-      "cancel": "Cancelar",
-      "remove_all_single_item_confirmation": "Remover 1 item do seu carrinho?",
-      "min_error": "Este item tem um mínimo de {{ min }}",
-      "max_error": "Este item tem um máximo de {{ max }}",
-      "step_error": "Só pode adicionar este item em incrementos de {{ step }}"
+      "product_variants": "Produktvarianten",
+      "total_items": "Artikel gesamt",
+      "remove_all_items_confirmation": "Alle {{ quantity }} Artikel aus deinem Warenkorb entfernen?",
+      "remove_all": "Alle entfernen",
+      "cancel": "Abbrechen",
+      "remove_all_single_item_confirmation": "1 Artikel aus dem Warenkorb entfernen?",
+      "min_error": "Dieser Artikel hat ein Minimum von {{ min }}",
+      "max_error": "Dieser Artikel hat ein Maximum von {{ max }}",
+      "step_error": "Du kannst diesen Artikel nur in Abstufungen von {{ step }} hinzufügen."
     }
   },
   "localization": {
-    "country_label": "País/região",
-    "language_label": "Idioma",
-    "update_language": "Atualizar idioma",
-    "update_country": "Atualizar país/região",
-    "search": "Pesquisar",
-    "popular_countries_regions": "Países/regiões populares",
-    "country_results_count": "{{ count }} países/regiões encontrados"
+    "country_label": "Land/Region",
+    "language_label": "Sprache",
+    "update_language": "Sprache aktualisieren",
+    "update_country": "Land/Region aktualisieren",
+    "search": "Suchen",
+    "popular_countries_regions": "Beliebte Länder/Regionen",
+    "country_results_count": "{{ count }} Länder/Regionen gefunden"
   },
   "customer": {
     "account": {
-      "title": "Conta",
-      "details": "Detalhes da conta",
-      "view_addresses": "Ver endereços",
-      "return": "Regressar aos detalhes da conta"
+      "title": "Konto",
+      "details": "Kontodetails",
+      "view_addresses": "Adressen anzeigen",
+      "return": "Zurück zu Kontodetails"
     },
-    "account_fallback": "Conta",
+    "account_fallback": "Konto",
     "activate_account": {
-      "title": "Ativar conta",
-      "subtext": "Crie a sua palavra-passe para ativar a sua conta.",
-      "password": "Palavra-passe",
-      "password_confirm": "Confirmar palavra-passe",
-      "submit": "Ativar conta",
-      "cancel": "Recusar convite"
+      "title": "Konto aktivieren",
+      "subtext": "Erstelle ein Passwort, um dein Konto zu aktiveren.",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Konto aktivieren",
+      "cancel": "Einladung ablehnen"
     },
     "addresses": {
-      "title": "Endereços",
-      "default": "Predefinição",
-      "add_new": "Adicionar um novo endereço",
-      "edit_address": "Editar endereço",
-      "first_name": "Nome próprio",
-      "last_name": "Apelido",
-      "company": "Empresa",
-      "address1": "Endereço1",
-      "address2": "Endereço 2",
-      "city": "Localidade",
-      "country": "País/região",
-      "province": "Província",
-      "zip": "Código postal",
-      "phone": "Telefone",
-      "set_default": "Selecionar como endereço predefinido",
-      "add": "Adicionar endereço",
-      "update": "Atualizar endereço",
-      "cancel": "Cancelar",
-      "edit": "Editar",
-      "delete": "Eliminar",
-      "delete_confirm": "Tem a certeza que deseja eliminar este endereço?"
+      "title": "Adressen",
+      "default": "Standard",
+      "add_new": "Neue Adresse hinzufügen",
+      "edit_address": "Adresse bearbeiten",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "company": "Unternehmen",
+      "address1": "Adresse 1",
+      "address2": "Adresse 2",
+      "city": "Ort",
+      "country": "Land/Region",
+      "province": "Bundesland/Provinz",
+      "zip": "PLZ",
+      "phone": "Telefonnummer",
+      "set_default": "Als Standard-Adresse festlegen",
+      "add": "Adresse hinzufügen",
+      "update": "Adresse aktualisieren",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "delete_confirm": "Bist du sicher, dass du diese Adresse löschen möchtest?"
     },
-    "log_in": "Iniciar sessão",
-    "log_out": "Terminar sessão",
+    "log_in": "Einloggen",
+    "log_out": "Abmelden",
     "login_page": {
-      "cancel": "Cancelar",
-      "create_account": "Criar conta",
-      "email": "E-mail",
-      "forgot_password": "Esqueceu-se da sua palavra-passe?",
-      "guest_continue": "Continuar",
-      "guest_title": "Continuar como visitante",
-      "password": "Palavra-passe",
-      "title": "Iniciar sessão",
-      "sign_in": "Iniciar sessão",
-      "submit": "Submeter",
-      "alternate_provider_separator": "ou"
-    },
-    "order": {
-      "title": "Encomenda {{ name }}",
-      "date_html": "Efetuado a {{ date }}",
-      "cancelled_html": "Encomenda cancelada em {{ date }}",
-      "cancelled_reason": "Motivo: {{ reason }}",
-      "billing_address": "Endereço de faturação",
-      "payment_status": "Estado do pagamento",
-      "shipping_address": "Endereço de envio",
-      "fulfillment_status": "Estado de processamento",
-      "discount": "Desconto",
-      "shipping": "Envio",
-      "tax": "Taxa",
-      "product": "Produto",
-      "sku": "SKU",
-      "price": "Preço",
-      "quantity": "Quantidade",
-      "total": "Total",
-      "fulfilled_at_html": "Concluído em {{ date }}",
-      "track_shipment": "Rastrear encomenda",
-      "tracking_url": "Ligação de rastreio",
-      "tracking_company": "Transportadora",
-      "tracking_number": "Número de rastreio",
-      "subtotal": "Subtotal",
-      "total_duties": "Encargos",
-      "total_refunded": "Reembolsado"
+      "cancel": "Abbrechen",
+      "create_account": "Konto erstellen",
+      "email": "E-Mail",
+      "forgot_password": "Hast du dein Passwort vergessen?",
+      "guest_continue": "Fortfahren",
+      "guest_title": "Als Gast fortsetzen",
+      "password": "Passwort",
+      "title": "Login",
+      "sign_in": "Anmelden",
+      "submit": "Senden",
+      "alternate_provider_separator": "oder"
     },
     "orders": {
-      "title": "Histórico de encomendas",
-      "order_number": "Encomenda",
-      "order_number_link": "Número da encomenda {{ number }}",
-      "date": "Data",
-      "payment_status": "Estado do pagamento",
-      "fulfillment_status": "Estado de processamento",
-      "total": "Total",
-      "none": "Ainda não efetuou nenhuma encomenda."
+      "title": "Bestellhistorie",
+      "order_number": "Bestellung",
+      "order_number_link": "Bestellnummer {{ number }}",
+      "date": "Datum",
+      "payment_status": "Zahlungsstatus",
+      "fulfillment_status": "Fulfillmentstatus",
+      "total": "Gesamtsumme",
+      "none": "Du hast noch keine Bestellungen aufgegeben."
     },
     "recover_password": {
-      "title": "Repor palavra-passe",
-      "subtext": "Vamos enviar-lhe um e-mail para repor a sua palavra-passe",
-      "success": "Enviámos-lhe um e-mail com uma ligação para atualizar a sua palavra-passe."
+      "title": "Setze dein Passwort zurück",
+      "subtext": "Wir werden dir eine E-Mail zum Zurücksetzen deines Passworts schicken",
+      "success": "Wir haben dir eine E-Mail mit einem Link zum Aktualisieren deines Passworts geschickt."
     },
     "register": {
-      "title": "Criar conta",
-      "first_name": "Nome próprio",
-      "last_name": "Apelido",
-      "email": "E-mail",
-      "password": "Palavra-passe",
-      "submit": "Criar"
+      "title": "Konto erstellen",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "Erstellen"
     },
     "reset_password": {
-      "title": "Repor palavra-passe da conta",
-      "subtext": "Insira uma nova palavra-passe",
-      "password": "Palavra-passe",
-      "password_confirm": "Confirmar palavra-passe",
-      "submit": "Repor palavra-passe"
+      "title": "Passwort für Konto zurücksetzen",
+      "subtext": "Neues Passwort eingeben",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Passwort zurücksetzen"
+    },
+    "order": {
+      "title": "Bestellung {{ name }}",
+      "date_html": "Aufgegeben am {{ date }}",
+      "cancelled_html": "Bestellung storniert am {{ date }}",
+      "cancelled_reason": "Grund: {{ reason }}",
+      "billing_address": "Rechnungsadresse",
+      "payment_status": "Zahlungsstatus",
+      "shipping_address": "Lieferadresse",
+      "fulfillment_status": "Fulfillmentstatus",
+      "discount": "Rabatt",
+      "shipping": "Versand",
+      "tax": "Steuer",
+      "product": "Produkt",
+      "sku": "SKU",
+      "price": "Preis",
+      "quantity": "Menge",
+      "total": "Gesamtsumme",
+      "fulfilled_at_html": "Ausgeführt am {{ date }}",
+      "track_shipment": "Sendung nachverfolgen",
+      "tracking_url": "Tracking-Link",
+      "tracking_company": "Versanddienstleister",
+      "tracking_number": "Trackingnummer",
+      "subtotal": "Zwischensumme",
+      "total_duties": "Zollgebühren",
+      "total_refunded": "Zurückerstattet"
     }
   },
   "gift_cards": {
     "issued": {
-      "title": "Aqui está o seu saldo do cartão de oferta de {{ value }} para {{ shop }}!",
-      "subtext": "O seu cartão de oferta",
-      "gift_card_code": "Código do cartão de oferta",
-      "shop_link": "Visite a loja online",
-      "add_to_apple_wallet": "Adicionar a Apple Wallet",
-      "qr_image_alt": "Código QR - digitalizar para resgatar cartão de oferta",
-      "copy_code": "Copiar código de cartão-de oferta",
-      "expired": "Expirado",
-      "copy_code_success": "Código copiado com sucesso",
-      "how_to_use_gift_card": "Utilize o código do cartão de oferta online ou o código QR na loja",
-      "expiration_date": "Expira em {{ expires_on }}"
+      "title": "Hier ist dein {{ value }}-Gutschein für {{ shop }}!",
+      "subtext": "Dein Gutschein",
+      "gift_card_code": "Gutscheincode",
+      "shop_link": "Onlineshop besuchen",
+      "add_to_apple_wallet": "Zu Apple Wallet hinzufügen",
+      "qr_image_alt": "QR-Code – Scannen, um Gutschein einzulösen",
+      "copy_code": "Geschenkgutscheincode kopieren",
+      "expired": "Abgelaufen",
+      "copy_code_success": "Code erfolgreich kopiert",
+      "how_to_use_gift_card": "Verwende diesen Geschenkgutscheincode online oder verwende den QR-Code im Shop",
+      "expiration_date": "Gültig bis {{ expires_on }}"
     }
   },
   "recipient": {
     "form": {
-      "checkbox": "Quero enviar isto como um presente",
-      "email_label": "E-mail do destinatário",
-      "email": "E-mail",
-      "name_label": "Nome do destinatário (opcional)",
-      "name": "Nome",
-      "message_label": "Mensagem (opcional)",
-      "message": "Mensagem",
-      "max_characters": "Máximo de {{ max_chars }} caracteres",
-      "email_label_optional_for_no_js_behavior": "E-mail do destinatário (opcional)",
-      "send_on": "AAAA-MM-DD",
-      "send_on_label": "Enviar a (opcional)",
-      "expanded": "Formulário de destinatário do cartão de oferta expandido",
-      "collapsed": "Formulário de destinatário do cartão de oferta fechado"
+      "checkbox": "Ich möchte dies als Geschenk senden",
+      "email_label": "Empfänger E-Mail",
+      "email": "E-Mail",
+      "name_label": "Name des Empfängers (optional)",
+      "name": "Name",
+      "message_label": "Nachricht (optional)",
+      "message": "Nachricht",
+      "max_characters": "Maximal {{ max_chars }} Zeichen",
+      "email_label_optional_for_no_js_behavior": "E-Mail-Adresse des Empfängers (optional)",
+      "send_on": "JJJJ-MM-TT",
+      "send_on_label": "Senden am (optional)",
+      "expanded": "Formular für den Empfänger des Gutscheins erweitert",
+      "collapsed": "Formular für den Empfänger des Gutscheins minimiert"
+    }
+  },
+  "strongside": {
+    "hero": {
+      "subtitle": "Sistema de Resistência Progressiva",
+      "line1": "Bate",
+      "line2": "Mais Rápido.",
+      "line3": "Mais Forte.",
+      "line4": "Mais Tempo.",
+      "description": "Transforma o ar no teu adversário. Strongside Technologies adiciona resistência fluida a cada movimento para uma explosividade devastadora.",
+      "cta": "Loja"
+    },
+    "features": {
+      "subtitle": "Porque funciona",
+      "title": "A Vantagem Injusta",
+      "feature1Title": "Explosividade Máxima",
+      "feature1Subtitle": "Multiplica a tua potência de golpe",
+      "feature1Desc": "A resistência progressiva obriga os teus músculos a trabalharem mais em cada extensão, desenvolvendo uma potência de golpe devastadora.",
+      "feature2Title": "Velocidade Relâmpago",
+      "feature2Subtitle": "Acelera os teus reflexos",
+      "feature2Desc": "O recuo elástico obriga-te a ser mais rápido, melhorando a tua velocidade de golpe e tempos de reação.",
+      "feature3Title": "Estabilidade do Core",
+      "feature3Subtitle": "Estabilização do núcleo",
+      "feature3Desc": "Cada movimento ativa o teu core para manter o equilíbrio contra a tensão assimétrica."
+    },
+    "whatYouGet": {
+      "title": "O Que Recebes",
+      "subtitle": "Tudo o que precisas para golpes explosivos",
+      "harness": "ARNÊS PRO",
+      "harnessDesc": "Couro premium e conforto",
+      "bands": "3 NÍVEIS",
+      "bandsDesc": "15-75 LBS de resistência",
+      "bag": "SACO DE VIAGEM",
+      "bagDesc": "Compacto e durável",
+      "guide": "GUIA PDF",
+      "guideDesc": "Exercícios e rotina",
+      "extra": "OPÇÃO: + POTÊNCIA",
+      "extraDesc": "Adiciona até 34KG (75LBS) de resistência - 41cm / 16.4in",
+      "tagline": "Potencia o teu treino ainda mais com as bandas de resistência Extra Performance 34kg.",
+      "item1": "STRONGSIDE Pro Boxing Harness",
+      "item1Desc": "A: 60cm/23.62in - C: 77cm/30.31in (Ajustável)",
+      "item2": "2x Resistência 16KG",
+      "item2Desc": "16KG (35LB) - 36cm / 14.17in",
+      "item3": "2x Resistência 18KG",
+      "item3Desc": "18KG (40LB) - 48cm / 18.9in",
+      "item4": "2 Correias de Pulso",
+      "item4Desc": "32.5cm / 12.8in",
+      "item5": "Pegas de Espuma",
+      "item5Desc": "12cm / 4.72in",
+      "item6": "Saco de Transporte",
+      "item6Desc": "Altura 30cm / 11.8in"
+    },
+    "cta": {
+      "smallSubtitle": "JUNTA-TE",
+      "title": "Pronto para Transformar o Teu Treino?",
+      "subtitle": "Junta-te a milhares de atletas que escolheram a excelência.",
+      "button": "Encomendar Agora"
+    },
+    "shop": {
+      "back": "Voltar",
+      "myCart": "O Meu Carrinho",
+      "title": "A Loja",
+      "addToCart": "Adicionar ao Carrinho",
+      "buyNow": "Comprar Agora",
+      "fastShipping": "Envio Rápido",
+      "warranty": "Garantia",
+      "securePayment": "Pagamento seguro",
+      "readComments": "Ler",
+      "commentsWord": "avaliações",
+      "selectOption": "Seleciona uma opção",
+      "packContent": "Conteúdo do Pack",
+      "packContentList_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>1x Arnês Ajustável (60-77cm)</li><li>2x Bandas Curtas 16kg (36cm)</li><li>2x Bandas Longas 18kg (48cm)</li><li>2x Correias de Pulso (32.5cm)</li><li>2x Pegas (12cm)</li><li>1x Saco de Transporte (30cm)</li></ul>",
+      "shippingTitle": "Envio e Devoluções",
+      "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Enviado em 24h<br>Entrega Europa: 3-5 dias úteis<br>Devolução em 15 dias</p>",
+      "guaranteeTitle": "Garantia",
+      "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ Garantia de devolução de 15 dias</li><li>✅ Apoio ao cliente reativo</li><li>✅ Pagamento seguro</li></ul>",
+      "showDetails": "Ver descrição",
+      "hideDetails": "Ocultar descrição",
+      "color": "Cor",
+      "resistance": "Nível de resistência",
+      "descTitle": "Descrição",
+      "whatsIncluded": "Conteúdo do Pack"
+    },
+    "footer": {
+      "rights": "Todos os direitos reservados.",
+      "brandDesc": "O equipamento de referência para atletas de combate que exigem excelência.",
+      "links": {
+        "legal": "Legal",
+        "cgv": "Termos",
+        "contact": "Contacto"
+      },
+      "securePayment": "Pagamento seguro via"
+    },
+    "videos": {
+      "title": "Vídeos de Treino",
+      "videoTitles": {
+        "card_1": "Live stronger.",
+        "card_2": "Power in every punch.",
+        "card_3": "Train. Fight. Repeat.",
+        "card_4": "Endure. Overcome. Conquer.",
+        "card_5": "No pain, more gain.",
+        "card_6": "Push limits, break barriers.",
+        "card_7": "Dominate your day.",
+        "card_8": "Focus. Hit. Win.",
+        "card_9": "Sweat today, conquer tomorrow.",
+        "card_10": "Strength isn't given, it's earned.",
+        "card_11": "Rise. Fight. Repeat.",
+        "card_12": "Fearless, relentless, unstoppable.",
+        "card_13": "Hit hard, stay strong."
+      }
+    },
+    "reviews": {
+      "subtitle": "O Que Dizem os Nossos Clientes",
+      "title": "Avaliações de Clientes",
+      "reviewsCount": "avaliações verificadas",
+      "writeReview": "Escrever uma Avaliação",
+      "thankYou": "Obrigado pela tua avaliação!",
+      "formTitle": "Partilha a Tua Experiência",
+      "yourRating": "A Tua Avaliação",
+      "yourName": "O Teu Nome",
+      "yourEmail": "O Teu Email",
+      "reviewTitle": "Título da Avaliação",
+      "reviewBody": "A Tua Avaliação Detalhada",
+      "namePlaceholder": "João Silva",
+      "emailPlaceholder": "joao@email.com",
+      "titlePlaceholder": "Produto fantástico!",
+      "bodyPlaceholder": "Descreve a tua experiência com este produto...",
+      "submitReview": "Enviar a Minha Avaliação",
+      "cancel": "Cancelar",
+      "loadMore": "Mais Avaliações",
+      "remaining": "restantes",
+      "noReviews": "Ainda não há avaliações.",
+      "beFirst": "Sê o primeiro a deixar uma avaliação!",
+      "errorLoading": "Não é possível carregar avaliações neste momento.",
+      "errorSubmit": "Ocorreu um erro. Tenta novamente.",
+      "today": "Hoje",
+      "yesterday": "Ontem"
+    },
+    "accessories": {
+      "subtitle": "ACESSÓRIOS",
+      "title": "ADICIONA MAIS RESISTÊNCIA",
+      "description": "Potencia o teu treino com as bandas de resistência Extra Performance 34kg",
+      "view_desc": "VER DESCRIÇÃO",
+      "hide_desc": "OCULTAR DESCRIÇÃO",
+      "sku": "SKU:",
+      "type": "Tipo:",
+      "weight": "Peso:",
+      "add_to_cart": "Adicionar ao Carrinho",
+      "buy_now": "Comprar Agora",
+      "secure_payment": "Pagamento seguro",
+      "product_not_found": "Produto não encontrado."
+    },
+    "header": {
+      "equipment": "Equipamento",
+      "reinforcements": "Reforços",
+      "training": "Treino",
+      "faq": "FAQ",
+      "account": "A Minha Conta"
+    },
+    "training": {
+      "subtitle": "Uma Ferramenta, Possibilidades Infinitas",
+      "titleStart": "Usa STRONGSIDE",
+      "titleEnd": "Em Qualquer Lugar",
+      "modes": {
+        "1_title": "SACO DE BOXE",
+        "1_desc": "Liberta a tua potência no saco com o STRONGSIDE Boxing Harness Pro. A resistência progressiva transforma cada golpe num impacto devastador.",
+        "2_title": "TRABALHO DE PADS",
+        "2_desc": "Treina de forma mais eficaz com um parceiro e pads. Combina com as bandas Extra Performance 34kg para máxima explosividade.",
+        "3_title": "SHADOW BOXING",
+        "3_desc": "Aperfeiçoa a tua técnica em qualquer lugar. Adiciona as bandas Extra Performance 34kg para condicionamento intenso durante o shadow boxing."
+      }
+    },
+    "faq": {
+      "linkName": "FAQ",
+      "title": "Perguntas Frequentes",
+      "items": {
+        "1_q": "Posso usá-lo com luvas?",
+        "1_a": "Sim, totalmente compatível com luvas de boxe e MMA.",
+        "2_q": "É adequado para saco e pads?",
+        "2_a": "Sim, concebido para saco de boxe, pads e treino com parceiro.",
+        "3_q": "Posso fazer sparring com ele?",
+        "3_a": "Sim, em sparring controlado. O sistema permanece estável.",
+        "4_q": "É adequado para iniciantes?",
+        "4_a": "Sim, a resistência é progressiva e controlada.",
+        "5_q": "Posso usá-lo em casa?",
+        "5_a": "Sim, não é necessário ginásio nem equipamento pesado.",
+        "6_q": "Adapta-se a todos os tipos de corpo?",
+        "6_a": "Sim, o arnês é totalmente ajustável.",
+        "7_q": "É durável?",
+        "7_a": "Testado para treino intensivo."
+      }
     }
   }
 }
