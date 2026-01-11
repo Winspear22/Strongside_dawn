@@ -57,7 +57,7 @@
   }
 
   .ss-footer-logo {
-    font-size: 2.25rem !important;
+    font-size: 3.15rem !important;
     font-weight: 900 !important;
     letter-spacing: -0.05em !important;
     color: white !important;
@@ -183,9 +183,20 @@
     gap: 1.5rem !important;
   }
 
-  .ss-footer-payment-icons svg {
-    height: 3rem !important;
+  .ss-footer-payment-img {
+    height: 5.5rem !important;
     width: auto !important;
+    object-fit: contain !important;
+    opacity: 0.6 !important;
+    transition: opacity 0.3s ease !important;
+  }
+
+  .ss-footer-payment-img:hover {
+    opacity: 1 !important;
+  }
+
+  .ss-footer-payment-img-small {
+    height: 4.1rem !important;
   }
 
   /* Copyright */
@@ -272,7 +283,9 @@
     <div class="ss-footer-payment">
       <span class="ss-footer-payment-label">{{ section.settings.payment_label }}</span>
       <div class="ss-footer-payment-icons">
-        {{ shop.enabled_payment_types | payment_type_svg_tag }}
+        <img src="{{ 'visa mastercard.webp' | asset_url }}" alt="Visa Mastercard" class="ss-footer-payment-img">
+        <img src="{{ 'paypal logo.webp' | asset_url }}" alt="PayPal" class="ss-footer-payment-img">
+        <img src="{{ 'cb logo.webp' | asset_url }}" alt="CB" class="ss-footer-payment-img ss-footer-payment-img-small">
       </div>
     </div>
 

@@ -1,0 +1,140 @@
+{% comment %}
+  Strongside CTA Section
+  - Call to action avec titre stylé comme les autres sections
+{% endcomment %}
+
+<style>
+  .ss-cta-section {
+    padding: 5rem 0 !important;
+    background-color: #0a0a0a !important;
+    position: relative !important;
+    z-index: 20 !important;
+  }
+
+  .ss-cta-container {
+    max-width: 80rem !important;
+    margin: 0 auto !important;
+    padding: 0 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .ss-cta-subtitle {
+    display: block !important;
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    color: #ff2222 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .ss-cta-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 3.375rem !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.05em !important;
+    color: white !important;
+    margin: 0 0 1.5rem 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  @media (min-width: 1024px) {
+    .ss-cta-title {
+      font-size: 5rem !important;
+    }
+  }
+
+  .ss-cta-text {
+    font-size: 1.75rem !important;
+    color: #9ca3af !important;
+    max-width: 50rem !important;
+    margin: 0 auto 3rem auto !important;
+    line-height: 1.6 !important;
+  }
+
+  .ss-cta-button {
+    display: inline-block !important;
+    background-color: #ff2222 !important;
+    color: white !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 2rem 5rem !important;
+    border-radius: 1rem !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .ss-cta-button:hover {
+    background-color: #cc1111 !important;
+    transform: translateY(-2px) !important;
+  }
+</style>
+
+<section class="ss-cta-section">
+  <div class="ss-cta-container">
+    {%- if section.settings.subtitle != blank -%}
+      <span class="ss-cta-subtitle">{{ section.settings.subtitle }}</span>
+    {%- endif -%}
+
+    <h2 class="ss-cta-title">{{ section.settings.title }}</h2>
+
+    {%- if section.settings.text != blank -%}
+      <p class="ss-cta-text">{{ section.settings.text }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link }}" class="ss-cta-button">
+        {{ section.settings.button_label }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA Strongside",
+  "tag": "section",
+  "class": "section-strongside-cta",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "REJOINS-NOUS"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Prêt à Transformer Ton Entraînement ?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte",
+      "default": "Rejoins des milliers d'athlètes qui ont choisi l'excellence."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Commander Maintenant"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Strongside"
+    }
+  ]
+}
+{% endschema %}

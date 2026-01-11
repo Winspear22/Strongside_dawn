@@ -265,45 +265,13 @@
       }
     },
     "cta": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Prêt à Transformer Ton Entraînement ?",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Rejoins des milliers d'athlètes qui ont choisi l'excellence.</p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Commander Maintenant",
-            "button_link": "#strongside-hero",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+      "type": "strongside-cta",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "subtitle": "REJOIGNEZ-NOUS",
+        "title": "Prêt à Transformer Votre Entraînement ?",
+        "text": "Rejoignez des milliers d'athlètes qui ont choisi l'excellence.",
+        "button_label": "Commander Maintenant",
+        "button_link": "#strongside-hero"
       }
     }
   },
