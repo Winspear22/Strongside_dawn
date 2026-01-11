@@ -526,5 +526,196 @@
       "expanded": "Formular für den Empfänger des Gutscheins erweitert",
       "collapsed": "Formular für den Empfänger des Gutscheins minimiert"
     }
+  },
+  "strongside": {
+    "hero": {
+      "subtitle": "Progressives Widerstandssystem",
+      "line1": "Schlage",
+      "line2": "Schneller.",
+      "line3": "Stärker.",
+      "line4": "Länger.",
+      "description": "Verwandle die Luft in deinen Gegner. Strongside Technologies fügt jeder Bewegung flüssigen Widerstand hinzu für verheerende Explosivität.",
+      "cta": "Shop"
+    },
+    "features": {
+      "subtitle": "Warum es funktioniert",
+      "title": "Der unfaire Vorteil",
+      "feature1Title": "Maximale Explosivität",
+      "feature1Subtitle": "Vervielfachen Sie Ihre Schlagkraft",
+      "feature1Desc": "Progressiver Widerstand zwingt Ihre Muskeln, bei jeder Extension härter zu arbeiten und entwickelt verheerende Schlagkraft.",
+      "feature2Title": "Blitzschnelligkeit",
+      "feature2Subtitle": "Beschleunigen Sie Ihre Reflexe",
+      "feature2Desc": "Der elastische Rückzug zwingt Sie, schneller zu sein und verbessert Ihre Schlaggeschwindigkeit und Reaktionszeiten.",
+      "feature3Title": "Rumpfstabilität",
+      "feature3Subtitle": "Core-Stabilisierung",
+      "feature3Desc": "Jede Bewegung aktiviert Ihren Rumpf, um das Gleichgewicht gegen asymmetrische Spannung zu halten."
+    },
+    "whatYouGet": {
+      "title": "Was Sie erhalten",
+      "subtitle": "Alles, was Sie für explosive Schläge brauchen",
+      "harness": "PRO HARNESS",
+      "harnessDesc": "Premium-Leder & Komfort",
+      "bands": "3 STUFEN",
+      "bandsDesc": "15-75 LBS Widerstand",
+      "bag": "REISETASCHE",
+      "bagDesc": "Kompakt & langlebig",
+      "guide": "PDF-ANLEITUNG",
+      "guideDesc": "Übungen & Routine",
+      "extra": "OPTION: + KRAFT",
+      "extraDesc": "Fügen Sie bis zu 34KG (75LBS) Widerstand hinzu - 41cm / 16.4in",
+      "tagline": "Verstärke dein Training noch mehr mit den Extra Performance 34kg resistance bands.",
+      "item1": "STRONGSIDE Pro Boxing Harness",
+      "item1Desc": "H: 60cm/23.62in - U: 77cm/30.31in (Verstellbar)",
+      "item2": "2x Widerstand 16KG",
+      "item2Desc": "16KG (35LB) - 36cm / 14.17in",
+      "item3": "2x Widerstand 18KG",
+      "item3Desc": "18KG (40LB) - 48cm / 18.9in",
+      "item4": "2 Handgelenkriemen",
+      "item4Desc": "32.5cm / 12.8in",
+      "item5": "Schaumstoffgriffe",
+      "item5Desc": "12cm / 4.72in",
+      "item6": "Transporttasche",
+      "item6Desc": "Höhe 30cm / 11.8in"
+    },
+    "cta": {
+      "smallSubtitle": "MACH MIT",
+      "title": "Bereit, Ihr Training zu transformieren?",
+      "subtitle": "Schließen Sie sich Tausenden von Athleten an, die Exzellenz gewählt haben.",
+      "button": "Jetzt bestellen"
+    },
+    "shop": {
+      "back": "Zurück",
+      "myCart": "Warenkorb",
+      "title": "Der Shop",
+      "addToCart": "In den Warenkorb",
+      "buyNow": "Jetzt Kaufen",
+      "fastShipping": "Schneller Versand",
+      "warranty": "Garantie",
+      "securePayment": "Sichere Zahlung",
+      "readComments": "Lese",
+      "commentsWord": "Bewertungen",
+      "selectOption": "Option wählen",
+      "packContent": "Paketinhalt",
+      "packContentList_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>1x Verstellbares Geschirr (60-77cm)</li><li>2x Kurze Bänder 16kg (36cm)</li><li>2x Lange Bänder 18kg (48cm)</li><li>2x Handgelenkriemen (32.5cm)</li><li>2x Griffe (12cm)</li><li>1x Transporttasche (30cm)</li></ul>",
+      "shippingTitle": "Versand & Rücksendungen",
+      "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Versand innerhalb 24h<br>Lieferung Europa: 3 bis 5 Werktage<br>Rückgabe innerhalb 15 Tagen</p>",
+      "guaranteeTitle": "Garantie",
+      "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ 15 Tage Geld-zurück-Garantie</li><li>✅ Reaktionsschneller Kundensupport</li><li>✅ Sichere Zahlung</li></ul>",
+      "showDetails": "Beschreibung anzeigen",
+      "hideDetails": "Beschreibung ausblenden",
+      "color": "Farbe",
+      "resistance": "Widerstandsgrad",
+      "descTitle": "Beschreibung",
+      "whatsIncluded": "Paketinhalt"
+    },
+    "footer": {
+      "rights": "Alle Rechte vorbehalten.",
+      "brandDesc": "Die Referenzausrüstung für Kampfsportler, die Exzellenz verlangen.",
+      "links": {
+        "legal": "Impressum",
+        "cgv": "AGB",
+        "contact": "Kontakt"
+      },
+      "securePayment": "Sichere Zahlung über"
+    },
+    "videos": {
+      "title": "Trainingsvideos",
+      "videoTitles": {
+        "card_1": "Live stronger.",
+        "card_2": "Power in every punch.",
+        "card_3": "Train. Fight. Repeat.",
+        "card_4": "Endure. Overcome. Conquer.",
+        "card_5": "No pain, more gain.",
+        "card_6": "Push limits, break barriers.",
+        "card_7": "Dominate your day.",
+        "card_8": "Focus. Hit. Win.",
+        "card_9": "Sweat today, conquer tomorrow.",
+        "card_10": "Strength isn't given, it's earned.",
+        "card_11": "Rise. Fight. Repeat.",
+        "card_12": "Fearless, relentless, unstoppable.",
+        "card_13": "Hit hard, stay strong."
+      }
+    },
+    "reviews": {
+      "subtitle": "Was unsere Kunden sagen",
+      "title": "Kundenbewertungen",
+      "reviewsCount": "verifizierte Bewertungen",
+      "writeReview": "Bewertung schreiben",
+      "thankYou": "Danke für Ihre Bewertung!",
+      "formTitle": "Teilen Sie Ihre Erfahrung",
+      "yourRating": "Ihre Bewertung",
+      "yourName": "Ihr Name",
+      "yourEmail": "Ihre E-Mail",
+      "reviewTitle": "Bewertungstitel",
+      "reviewBody": "Ihre detaillierte Bewertung",
+      "namePlaceholder": "Max Mustermann",
+      "emailPlaceholder": "max@email.com",
+      "titlePlaceholder": "Tolles Produkt!",
+      "bodyPlaceholder": "Beschreiben Sie Ihre Erfahrung mit diesem Produkt...",
+      "submitReview": "Bewertung abschicken",
+      "cancel": "Abbrechen",
+      "loadMore": "Mehr Bewertungen",
+      "remaining": "verbleibend",
+      "noReviews": "Noch keine Bewertungen.",
+      "beFirst": "Seien Sie der Erste, der eine Bewertung abgibt!",
+      "errorLoading": "Bewertungen können derzeit nicht geladen werden.",
+      "errorSubmit": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "today": "Heute",
+      "yesterday": "Gestern"
+    },
+    "accessories": {
+      "subtitle": "ZUBEHÖR",
+      "title": "FÜGE MEHR WIDERSTAND HINZU",
+      "description": "Verstärke dein Training mit den Extra Performance 34kg resistance bands",
+      "view_desc": "BESCHREIBUNG ANZEIGEN",
+      "hide_desc": "BESCHREIBUNG AUSBLENDEN",
+      "sku": "SKU:",
+      "type": "Typ:",
+      "weight": "Gewicht:",
+      "add_to_cart": "In den Warenkorb",
+      "buy_now": "Jetzt Kaufen",
+      "secure_payment": "Sichere Zahlung",
+      "product_not_found": "Produkt nicht gefunden."
+    },
+    "header": {
+      "equipment": "Ausrüstung",
+      "reinforcements": "Verstärkung",
+      "training": "Training",
+      "faq": "FAQ",
+      "account": "Mein Konto"
+    },
+    "training": {
+      "subtitle": "Ein Werkzeug, Unendliche Möglichkeiten",
+      "titleStart": "Nutze STRONGSIDE",
+      "titleEnd": "Überall",
+      "modes": {
+        "1_title": "SACKTRAINING",
+        "1_desc": "Entfessle deine Kraft am Sack mit dem STRONGSIDE Boxing Harness Pro. Der progressive Widerstand verwandelt jeden Schlag in einen vernichtenden Treffer.",
+        "2_title": "PRATZENARBEIT",
+        "2_desc": "Trainiere effektiver mit einem Partner und Pratzen. Kombiniere es mit den Extra Performance 34kg Bändern für maximale Explosivität.",
+        "3_title": "SCHATTENBOXEN",
+        "3_desc": "Perfektioniere deine Technik überall. Füge die Extra Performance 34kg Bänder für intensives Conditioning beim Schattenboxen hinzu."
+      }
+    },
+    "faq": {
+      "linkName": "FAQ",
+      "title": "Häufig gestellte Fragen",
+      "items": {
+        "1_q": "Kann ich es mit Handschuhen verwenden?",
+        "1_a": "Ja, voll kompatibel mit Box- und MMA-Handschuhen.",
+        "2_q": "Ist es für Boxsack und Pratzen geeignet?",
+        "2_a": "Ja, entwickelt für Boxsack, Pratzen und Partnertraining.",
+        "3_q": "Kann ich damit Sparring machen?",
+        "3_a": "Ja, beim kontrollierten Sparring. Das System bleibt stabil.",
+        "4_q": "Ist es für Anfänger geeignet?",
+        "4_a": "Ja, der Widerstand ist progressiv und kontrolliert.",
+        "5_q": "Kann ich es zu Hause verwenden?",
+        "5_a": "Ja, kein Fitnessstudio oder schweres Gerät nötig.",
+        "6_q": "Passt es für alle Körpertypen?",
+        "6_a": "Ja, das Geschirr ist voll verstellbar.",
+        "7_q": "Ist es langlebig?",
+        "7_a": "Getestet für intensives Training."
+      }
+    }
   }
 }

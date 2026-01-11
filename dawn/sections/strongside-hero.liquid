@@ -16,27 +16,8 @@
 {%- endif -%}
 
 {%- comment -%} Fallback to specific handle or first product if still not found {%- endcomment -%}
-{%- if product == blank -%}
-  {%- assign product = all_products['strongside-pro-boxing-harness'] -%}
-  {%- if product == blank -%}
-     {%- assign product = collections['all'].products.first -%}
-  {%- endif -%}
-{%- endif -%}
 
-{%- comment -%} Find Essentials Product (Bands) {%- endcomment -%}
-{%- assign essentials_keyword = 'bands' -%}
-{%- assign essentials_product = blank -%}
-{%- for p in collections.all.products -%}
-  {%- assign title_down = p.title | downcase -%}
-  {%- if title_down contains 'bands' or title_down contains 'bandes' or title_down contains 'resistance' -%}
-    {%- assign essentials_product = p -%}
-    {%- break -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- assign pro_product = product -%}  -->
-
-
-<script src="{{ 'strongside-product.js' | asset_url }}" defer="defer"></script>
+-->
 
 <style>
   /* 
@@ -58,7 +39,7 @@
   .strongside-hero-container {
     display: flex; /* Active le mode Flexbox pour aligner les enfants */
     flex-direction: column; /* MOBILE D'ABORD : Les éléments s'empilent verticalement */
-    padding-top: 5.10rem !important; /* EMPÊCHE la navbar de cacher le contenu (Gap correction) */
+    padding-top: 5.1rem !important; /* EMPÊCHE la navbar de cacher le contenu (Gap correction) */
   }
 
   /* MODIFICATION LAYOUT PR PC (Media Query) */
@@ -319,7 +300,8 @@
   #strongside-hero-wrapper .strongside-btn-buy,
   #strongside-hero-wrapper .strongside-trust-item,
   #strongside-hero-wrapper .strongside-accordion-btn {
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+      Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
     /* Force la police "Système" (comme React) partout en écrasant 'Inter' */
   }
 
@@ -375,23 +357,23 @@
 
   /* HOVER BOUTON */
   #strongside-hero-wrapper .strongside-desc-toggle:hover {
-     background-color: #262626; /* Eclaircit au survol */
+    background-color: #262626; /* Eclaircit au survol */
   }
-  
+
   /* TEXTE DU BOUTON */
   #strongside-hero-wrapper .strongside-desc-toggle span {
-     font-size: 1.2rem; /* Ajusté (-10%) */
-     line-height: 1.5rem;
-     font-weight: 700; /* Gras */
-     text-transform: uppercase; /* MAJUSCULES */
-     letter-spacing: 0.05em; /* Espacement */
-     color: white; 
+    font-size: 1.2rem; /* Ajusté (-10%) */
+    line-height: 1.5rem;
+    font-weight: 700; /* Gras */
+    text-transform: uppercase; /* MAJUSCULES */
+    letter-spacing: 0.05em; /* Espacement */
+    color: white;
   }
 
   /* FLECHE DU BOUTON */
   #strongside-hero-wrapper #desc-arrow {
     width: 1.6rem; /* Ajusté (-10%) */
-    height: 1.6rem; 
+    height: 1.6rem;
     transition: transform 0.3s;
     display: flex;
     align-items: center;
@@ -460,7 +442,7 @@
   #strongside-hero-wrapper .strongside-reviews-badge:hover {
     background: rgba(255, 255, 255, 0.1); /* Eclaircit le fond au survol */
   }
-  
+
   /* ETOILES JAUNES */
   #strongside-hero-wrapper .strongside-stars {
     color: #facc15; /* Jaune/Or */
@@ -516,12 +498,12 @@
     gap: 1.2rem; /* Espace entre boutons */
     margin-bottom: 2.4rem; /* Marge dessous */
   }
-  
+
   /* ACTIONS SUR PC */
   @media (min-width: 1024px) {
     #strongside-hero-wrapper .strongside-actions {
-       gap: 1.6rem; /* Augmente l'espace */
-       margin-bottom: 4rem; /* Augmente la marge globale */
+      gap: 1.6rem; /* Augmente l'espace */
+      margin-bottom: 4rem; /* Augmente la marge globale */
     }
   }
 
@@ -532,7 +514,7 @@
     width: 100%; /* Pleine largeur */
     padding: 2rem; /* Gros padding */
     background-color: white !important; /* Fond Blanc forcé */
-    color: black !important; /* Texte Noir forcé */           
+    color: black !important; /* Texte Noir forcé */
     font-size: 2rem !important; /* Gros texte */
     font-weight: 900 !important; /* Très Gras */
     text-transform: uppercase; /* MAJUSCULES */
@@ -559,7 +541,7 @@
     width: 100%; /* Pleine largeur */
     padding: 1.6rem; /* Padding un peu plus petit que l'autre */
     background-color: #10b981 !important; /* Vert Emeraude forcé */
-    color: white !important; /* Texte Blanc */         
+    color: white !important; /* Texte Blanc */
     font-size: 1.8rem !important; /* Taille texte */
     font-weight: 900 !important; /* Très gras */
     text-transform: uppercase; /* MAJUSCULES */
@@ -577,7 +559,7 @@
 
   /* HOVER ACHAT IMMEDIAT */
   #strongside-hero-wrapper .strongside-btn-buy:hover {
-     background-color: #059669 !important; /* Vert plus foncé */
+    background-color: #059669 !important; /* Vert plus foncé */
   }
 
   /* 
@@ -586,7 +568,7 @@
   #strongside-hero-wrapper .strongside-trust-text {
     /* Obsolète ou hérité, c'est .strongside-trust-item qui prime */
     font-weight: 400 !important;
-    font-size: 1rem; 
+    font-size: 1rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
@@ -622,13 +604,13 @@
     font-weight: 600; /* Gras */
     transition: color 0.2s; /* Animation couleur */
   }
-  
+
   /* PREMIER ELEMENT CONFIANCE (LIVRAISON) - Règle supprimée pour uniformité */
 
   /* MEDIAS QUERIES CONFIANCE (PC) */
   @media (min-width: 1024px) {
     #strongside-hero-wrapper .strongside-trust-text-container {
-       gap: 2rem; /* Augmente l'espace entre items sur PC */
+      gap: 2rem; /* Augmente l'espace entre items sur PC */
     }
     #strongside-hero-wrapper .strongside-trust-item {
       font-size: 1.5rem !important; /* Réaffirme la taille sur PC pour éviter écrasement */
@@ -661,7 +643,7 @@
 
   /* HOVER LOGO PAIEMENT */
   #strongside-hero-wrapper .strongside-trust-logo-img:hover {
-     opacity: 1; /* Devient opaque au survol */
+    opacity: 1; /* Devient opaque au survol */
   }
 
   /* 
@@ -719,16 +701,17 @@
 
 <div class="strongside-hero" id="strongside-hero-wrapper">
   <div class="strongside-hero-container">
-    
     <!-- LEFT COLUMN -->
     <div class="strongside-gallery-col">
       <div class="strongside-gallery-sticky">
         <div class="strongside-gallery-grid">
-          
           <!-- Desktop Thumbs -->
           <div class="strongside-thumbs-desktop">
             {% for media in product.media %}
-              <button class="strongside-thumb-btn {% if forloop.first %}is-active{% endif %}" onclick="changeHeroImage(this, '{{ media | image_url: width: 1200 }}')">
+              <button
+                class="strongside-thumb-btn {% if forloop.first %}is-active{% endif %}"
+                onclick="changeHeroImage(this, '{{ media | image_url: width: 1200 }}')"
+              >
                 <img src="{{ media | image_url: width: 200 }}" class="w-full h-full object-cover">
               </button>
             {% endfor %}
@@ -736,21 +719,35 @@
 
           <!-- Main Image -->
           <div class="strongside-main-image-container" id="hero-main-image-container">
-            <img id="hero-main-image" src="{{ product.featured_media | image_url: width: 1200 }}" class="strongside-main-image">
+            <img
+              id="hero-main-image"
+              src="{{ product.featured_media | image_url: width: 1200 }}"
+              class="strongside-main-image"
+              width="1200"
+              height="800"
+            >
             <div class="strongside-zoom-hint">
-              <span class="strongside-zoom-label">🔍 Cliquer pour agrandir</span>
+              <span class="strongside-zoom-label">{{ 'strongside.shop.clickToZoom' | t }}</span>
             </div>
           </div>
-
         </div>
 
         <!-- Mobile Thumbs -->
         <div class="strongside-thumbs-mobile">
-           {% for media in product.media %}
-              <button class="strongside-thumb-btn {% if forloop.first %}is-active{% endif %}" style="width:3rem;height:3rem;" onclick="changeHeroImage(this, '{{ media | image_url: width: 1200 }}')">
-                <img src="{{ media | image_url: width: 200 }}" class="w-full h-full object-cover">
-              </button>
-            {% endfor %}
+          {% for media in product.media %}
+            <button
+              class="strongside-thumb-btn {% if forloop.first %}is-active{% endif %}"
+              style="width:3rem;height:3rem;"
+              onclick="changeHeroImage(this, '{{ media | image_url: width: 1200 }}')"
+            >
+              <img
+                src="{{ media | image_url: width: 200 }}"
+                class="w-full h-full object-cover"
+                width="200"
+                height="200"
+              >
+            </button>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -758,7 +755,6 @@
     <!-- RIGHT COLUMN -->
     <div class="strongside-info-col">
       <div class="strongside-info-sticky">
-        
         <!-- REMOVED: Pro/Essentials Tabs -->
 
         <!-- Title -->
@@ -766,85 +762,168 @@
 
         <!-- Description Toggle -->
         <button class="strongside-desc-toggle" onclick="toggleDescription()">
-          <span>Voir la description</span>
-           <div id="desc-arrow">
-             <svg width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-             </svg>
-           </div>
+          <span>{{ 'strongside.shop.showDetails' | t }}</span>
+          <div id="desc-arrow">
+            <svg width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
         </button>
-        
-        <div id="desc-content" class="strongside-desc-content" style="overflow:hidden;max-height:0;transition:max-height 0.3s ease-out; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased;">
+
+        <div
+          id="desc-content"
+          class="strongside-desc-content"
+          style="overflow:hidden;max-height:0;transition:max-height 0.3s ease-out; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased;"
+        >
           <div class="prose prose-invert strongside-desc-body">
-             <style>
-               /* React Mobile: text-sm (14px) */
-                /* Force font size larger to 1.2rem (approx 19px) to be clearly visible */
-                .strongside-desc-body { font-size: 1.25rem !important; line-height: 1.6; color: #d1d5db; padding-top: 1rem; }
-               .strongside-desc-body h3 { font-size: 1.125rem; font-weight: 800; text-transform: uppercase; color: white; margin-top: 1.5rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; line-height:1.4; }
-               .strongside-desc-body h4 { font-size: 1rem; font-weight: 700; color: white; margin-top: 1rem; margin-bottom: 0.5rem; line-height:1.4; }
-               .strongside-desc-body p { margin-bottom: 1em; }
-               .strongside-desc-body ul { list-style: disc; margin-left: 1.2rem; margin-bottom: 1em; color: #9ca3af; }
-               .strongside-desc-body li { margin-bottom: 0.25em; }
-               .strongside-desc-body strong { color: white; font-weight: 700; }
-               .strongside-desc-body em { color: #d1d5db; font-style: italic; }
+            <style>
+              /* React Mobile: text-sm (14px) */
+              /* Force font size larger to 1.2rem (approx 19px) to be clearly visible */
+              .strongside-desc-body {
+                font-size: 1.25rem !important;
+                line-height: 1.6;
+                color: #d1d5db;
+                padding-top: 1rem;
+              }
+              .strongside-desc-body h3 {
+                font-size: 1.125rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: white;
+                margin-top: 1.5rem;
+                margin-bottom: 0.5rem;
+                letter-spacing: 0.05em;
+                line-height: 1.4;
+              }
+              .strongside-desc-body h4 {
+                font-size: 1rem;
+                font-weight: 700;
+                color: white;
+                margin-top: 1rem;
+                margin-bottom: 0.5rem;
+                line-height: 1.4;
+              }
+              .strongside-desc-body p {
+                margin-bottom: 1em;
+              }
+              .strongside-desc-body ul {
+                list-style: disc;
+                margin-left: 1.2rem;
+                margin-bottom: 1em;
+                color: #9ca3af;
+              }
+              .strongside-desc-body li {
+                margin-bottom: 0.25em;
+              }
+              .strongside-desc-body strong {
+                color: white;
+                font-weight: 700;
+              }
+              .strongside-desc-body em {
+                color: #d1d5db;
+                font-style: italic;
+              }
 
-               /* React Desktop: text-base (16px) */
-               @media (min-width: 1024px) {
-                 .strongside-desc-body { font-size: 1rem; line-height: 1.75; }
-                 .strongside-desc-body h3 { font-size: 1.25rem; }
-                 .strongside-desc-body h4 { font-size: 1.125rem; }
-               }
-             </style>
-             {% if product.description != blank %}
-               {{ product.description }}
-             {% else %}
-               <h3>Le système ultime de résistance</h3>
-               <p>Conçu pour sculpter votre puissance de frappe. <strong>MORE RESISTANCE MORE POWER.</strong></p>
-               <p>Conçu pour le Shadow Boxing, le travail au sac, les pads, les paos et le conditionnement physique global.</p>
-               
-               <p><em>Un équipement sports de combat unique, conçu et disponible exclusivement sur strongside.tech</em></p>
+              /* React Desktop: text-base (16px) */
+              @media (min-width: 1024px) {
+                .strongside-desc-body {
+                  font-size: 1rem;
+                  line-height: 1.75;
+                }
+                .strongside-desc-body h3 {
+                  font-size: 1.25rem;
+                }
+                .strongside-desc-body h4 {
+                  font-size: 1.125rem;
+                }
+              }
+            </style>
+            {% if product.description != blank %}
+              {{ product.description }}
+            {% else %}
+              <h3>{{ 'strongside.shop.features.title' | t }}</h3>
+              <p>Conçu pour sculpter votre puissance de frappe. <strong>MORE RESISTANCE MORE POWER.</strong></p>
+              <p>
+                Conçu pour le Shadow Boxing, le travail au sac, les pads, les paos et le conditionnement physique
+                global.
+              </p>
 
-               <h3>Ce qui est inclus dans la boîte :</h3>
-               <h4>1. STRONGSIDE Pro Boxing Harness (Ajustable)</h4>
-               <ul>
-                 <li>Conception ergonomique pour un maintien parfait sans gêner les mouvements.</li>
-                 <li>Matériaux haute résistance.</li>
-               </ul>
-             {% endif %}
+              <p>
+                <em>Un équipement sports de combat unique, conçu et disponible exclusivement sur strongside.tech</em>
+              </p>
+
+              <h3>{{ 'strongside.shop.whatYouGet.title' | t }} :</h3>
+              <h4>1. STRONGSIDE Pro Boxing Harness (Ajustable)</h4>
+              <ul>
+                <li>Conception ergonomique pour un maintien parfait sans gêner les mouvements.</li>
+                <li>Matériaux haute résistance.</li>
+              </ul>
+            {% endif %}
           </div>
         </div>
 
         <!-- Price -->
         <div class="strongside-price-container">
-           <span class="strongside-price-main">{{ product.price | money_without_trailing_zeros }}</span>
-           {% if product.compare_at_price > product.price %}
-             <span class="strongside-price-compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
-             <span class="strongside-discount-badge">-{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round }}%</span>
-           {% endif %}
+          <span class="strongside-price-main">{{ product.price | money_without_trailing_zeros }}</span>
+          {% if product.compare_at_price > product.price %}
+            <span class="strongside-price-compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+            <span class="strongside-discount-badge"
+              >-
+              {{-
+                product.compare_at_price
+                | minus: product.price
+                | times: 100.0
+                | divided_by: product.compare_at_price
+                | round
+              -}}
+              %</span
+            >
+          {% endif %}
         </div>
 
         <!-- Reviews Badge -->
-        <button class="strongside-reviews-badge" style="display:flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.05); padding:0.8rem 1.6rem; border-radius:9999px; border:1px solid rgba(255,255,255,0.1); cursor:pointer; margin-bottom:2.4rem; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
-           <div style="color:#facc15; display:flex; gap:2px;">
-             <!-- 5 Stars SVG -->
-             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-             <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-           </div>
-           <span style="font-size:1.4rem; color:#9ca3af; font-family:'Inter',sans-serif; margin-left:1rem;">Lire les 9 commentaires</span>
-           <svg width="20" height="20" fill="none" stroke="#9ca3af" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <button
+          class="strongside-reviews-badge"
+          style="display:flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.05); padding:0.8rem 1.6rem; border-radius:9999px; border:1px solid rgba(255,255,255,0.1); cursor:pointer; margin-bottom:2.4rem; transition:all 0.2s;"
+          onmouseover="this.style.background='rgba(255,255,255,0.1)'"
+          onmouseout="this.style.background='rgba(255,255,255,0.05)'"
+        >
+          <div style="color:#facc15; display:flex; gap:2px;">
+            <!-- 5 Stars SVG -->
+            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+          <span style="font-size:1.4rem; color:#9ca3af; font-family:'Inter',sans-serif; margin-left:1rem;">
+            {{- 'strongside.shop.readComments' | t }} 9 {{ 'strongside.shop.commentsWord' | t -}}
+          </span>
+          <svg width="20" height="20" fill="none" stroke="#9ca3af" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
         </button>
 
         <!-- Variants -->
         {% unless product.has_only_default_variant %}
           <div class="strongside-variants">
-            <label class="strongside-variant-label" style="font-size:1.2rem; font-family:'Inter', sans-serif;">Choisir une option</label>
+            <label class="strongside-variant-label" style="font-size:1.2rem; font-family:'Inter', sans-serif;">
+              {{- 'strongside.shop.selectOption' | t -}}
+            </label>
             <div class="flex flex-wrap gap-2">
               {% for variant in product.variants %}
-                <button 
-                  class="strongside-variant-btn {% if forloop.first %}is-selected{% endif %}" 
+                <button
+                  class="strongside-variant-btn {% if forloop.first %}is-selected{% endif %}"
                   data-variant-id="{{ variant.id }}"
                   onclick="selectVariant(this, '{{ variant.id }}', '{{ variant.price | money }}')"
                   style="border:1px solid {% if forloop.first %}white{% else %}rgba(255,255,255,0.2){% endif %}; background:{% if forloop.first %}white{% else %}transparent{% endif %}; color:{% if forloop.first %}black{% else %}#9ca3af{% endif %}; padding:1rem 2rem; font-size:1.2rem; font-family:'Inter',sans-serif;"
@@ -858,101 +937,197 @@
 
         <!-- Actions -->
         {% if product %}
-        {% form 'product', product %}
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          
-          <div class="strongside-actions">
-            <!-- ADD TO CART: Secondary (White) -->
-            <button type="submit" name="add" class="strongside-btn-add" style="background-color:white !important; color:black !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1.25rem;">
-               <svg style="width:32px;height:32px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-               Ajouter au Panier
-            </button>
-            
-            <!-- BUY NOW: Primary (Green) -->
-            <button type="submit" name="add" class="strongside-btn-buy" style="background-color:#10b981 !important; color:white !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1rem; box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);">
-               <svg style="width:28px;height:28px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-               Achat Immédiat
-            </button>
-          </div>
-        {% endform %}
+          {% form 'product', product %}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+            <div class="strongside-actions">
+              <!-- ADD TO CART: Secondary (White) -->
+              <button
+                type="submit"
+                name="add"
+                class="strongside-btn-add"
+                style="background-color:white !important; color:black !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1.25rem;"
+              >
+                <svg style="width:32px;height:32px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                {{ 'strongside.shop.addToCart' | t }}
+              </button>
+
+              <!-- BUY NOW: Primary (Green) -->
+              <button
+                type="submit"
+                name="add"
+                class="strongside-btn-buy"
+                style="background-color:#10b981 !important; color:white !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1rem; box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);"
+              >
+                <svg style="width:28px;height:28px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                {{ 'strongside.shop.buyNow' | t }}
+              </button>
+            </div>
+          {% endform %}
         {% else %}
-          <div style="padding: 2rem; border: 1px dashed red; color: red;">
-            PRODUIT NON TROUVÉ
-          </div>
+          <div style="padding: 2rem; border: 1px dashed red; color: red;">PRODUIT NON TROUVÉ</div>
         {% endif %}
 
         <!-- Trust Badges -->
         <div class="flex flex-col items-center justify-center gap-4 mt-6 mb-6">
-			<div class="strongside-trust-text-container">
-				<span class="strongside-trust-item">
-					<svg style="width:20px;height:20px;color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-					Livraison Rapide
-				</span>
-				<span class="strongside-trust-item">
-					<svg style="width:20px;height:20px;color:#9ca3af;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-					Garantie
-				</span>
-				<span class="strongside-trust-item">
-					<svg style="width:20px;height:20px;color:#9ca3af;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" /></svg>
-					Paiement sécurisé
-				</span>
-			</div>
-            <div class="strongside-trust-logos">
-               <img src="{{ 'visa mastercard.webp' | asset_url }}" alt="Visa Mastercard" class="strongside-trust-logo-img">
-               <img src="{{ 'paypal logo.webp' | asset_url }}" alt="PayPal" class="strongside-trust-logo-img">
-               <img src="{{ 'cb logo.webp' | asset_url }}" alt="CB" class="strongside-trust-logo-img">
-            </div>
+          <div class="strongside-trust-text-container">
+            <span class="strongside-trust-item">
+              <svg style="width:20px;height:20px;color:#10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {{ 'strongside.shop.fastShipping' | t }}
+            </span>
+            <span class="strongside-trust-item">
+              <svg style="width:20px;height:20px;color:#9ca3af;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              {{ 'strongside.shop.warranty' | t }}
+            </span>
+            <span class="strongside-trust-item">
+              <svg style="width:20px;height:20px;color:#9ca3af;" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+              </svg>
+              {{ 'strongside.shop.securePayment' | t }}
+            </span>
+          </div>
+          <div class="strongside-trust-logos">
+            <img
+              src="{{ 'visa mastercard.webp' | asset_url }}"
+              alt="Visa Mastercard"
+              class="strongside-trust-logo-img"
+              width="40"
+              height="25"
+            >
+            <img
+              src="{{ 'paypal logo.webp' | asset_url }}"
+              alt="PayPal"
+              class="strongside-trust-logo-img"
+              width="40"
+              height="25"
+            >
+            <img
+              src="{{ 'cb logo.webp' | asset_url }}"
+              alt="CB"
+              class="strongside-trust-logo-img"
+              width="40"
+              height="25"
+            >
+          </div>
         </div>
+      </div>
+
+      <!-- Accordions -->
+      <div class="border-t border-white/10 pt-4 mt-6">
+        <!-- Accordion 1: Pack Content -->
+        <div class="strongside-accordion">
+          <button class="strongside-accordion-btn" onclick="toggleAccordion(this)">
+            {{ 'strongside.shop.packContent' | t }}
+            <span class="plus-icon">+</span>
+          </button>
+          <div class="strongside-accordion-content">
+            {% if product.metafields.custom.contenu_du_pack != blank %}
+              {{ product.metafields.custom.contenu_du_pack | metafield_tag }}
+            {% else %}
+              {{ 'strongside.shop.packContentList_html' | t }}
+            {% endif %}
+          </div>
         </div>
 
-        <!-- Accordions -->
-        <div class="border-t border-white/10 pt-4 mt-6">
-           {% for block in section.blocks %}
-             {% if block.type == 'info_row' %}
-               <div class="strongside-accordion">
-                 <button class="strongside-accordion-btn" onclick="toggleAccordion(this)">
-                   {{ block.settings.title }}
-                   <span class="plus-icon">+</span>
-                 </button>
-                 <div class="strongside-accordion-content">
-                   {{ block.settings.content }}
-                 </div>
-               </div>
-             {% endif %}
-           {% endfor %}
+        <!-- Accordion 2: Shipping -->
+        <div class="strongside-accordion">
+          <button class="strongside-accordion-btn" onclick="toggleAccordion(this)">
+            {{ 'strongside.shop.shippingTitle' | t }}
+            <span class="plus-icon">+</span>
+          </button>
+          <div class="strongside-accordion-content">
+            {% if product.metafields.custom.livraison_et_retours != blank %}
+              {{ product.metafields.custom.livraison_et_retours | metafield_tag }}
+            {% else %}
+              {{ 'strongside.shop.shippingContent_html' | t }}
+            {% endif %}
+          </div>
         </div>
 
-        <!-- INTEGRATED VIDEO CAROUSEL -->
-        <div class="strongside-hero-videos" style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1);">
-           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-              <h3 style="font-size:1.25rem; font-weight:700; color:white; text-transform:uppercase; letter-spacing:0.1em; margin:0;">VIDÉOS D'ENTRAÎNEMENT</h3>
-              <div style="display:flex; gap:0.5rem;">
-                 <button id="hero-vid-prev" style="width:3.25rem;height:3.25rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                 </button>
-                 <button id="hero-vid-next" style="width:3.25rem;height:3.25rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                 </button>
-              </div>
-           </div>
-           
-           <div class="strongside-hero-carousel" style="overflow:hidden; margin-bottom:1rem;">
-              <div id="hero-video-track" style="display:flex; gap:1.05rem; transition:transform 0.3s ease-out;">
-                 <!-- JS Injected -->
-              </div>
-           </div>
-           
-           <div id="hero-video-dots" style="display:flex; justify-content:center; gap:0.3rem;"></div>
+        <!-- Accordion 3: Warranty -->
+        <div class="strongside-accordion">
+          <button class="strongside-accordion-btn" onclick="toggleAccordion(this)">
+            {{ 'strongside.shop.guaranteeTitle' | t }}
+            <span class="plus-icon">+</span>
+          </button>
+          <div class="strongside-accordion-content">
+            {% if product.metafields.custom.garantie != blank %}
+              {{ product.metafields.custom.garantie | metafield_tag }}
+            {% else %}
+              {{ 'strongside.shop.guaranteeContent_html' | t }}
+            {% endif %}
+          </div>
         </div>
+      </div>
 
-        <!-- Mobile Modal markup (Video) -->
-        <div id="hero-mobile-modal" class="strongside-mobile-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:black;">
-            <button id="hero-modal-close" style="position:absolute; top:7rem; left:1rem; z-index:50; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.5); color:white; border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; cursor:pointer;">
-               <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      <!-- INTEGRATED VIDEO CAROUSEL -->
+      <div
+        class="strongside-hero-videos"
+        style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1);"
+      >
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <h3 style="font-size:1.25rem; font-weight:700; color:white; text-transform:uppercase; letter-spacing:0.1em; margin:0;">
+            {{ 'strongside.training.cta.title' | t }}
+          </h3>
+          <div style="display:flex; gap:0.5rem;">
+            <button
+              id="hero-vid-prev"
+              style="width:3.25rem;height:3.25rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;"
+              onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+              onmouseout="this.style.background='rgba(255,255,255,0.1)'"
+            >
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
             </button>
-            <div id="hero-modal-scroller" style="width:100%; height:100%; overflow-y:scroll; scroll-snap-type:y mandatory; -ms-overflow-style:none; scrollbar-width:none;"></div>
+            <button
+              id="hero-vid-next"
+              style="width:3.25rem;height:3.25rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;"
+              onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+              onmouseout="this.style.background='rgba(255,255,255,0.1)'"
+            >
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
+        <div class="strongside-hero-carousel" style="overflow:hidden; margin-bottom:1rem;">
+          <div id="hero-video-track" style="display:flex; gap:1.05rem; transition:transform 0.3s ease-out;">
+            <!-- JS Injected -->
+          </div>
+        </div>
+
+        <div id="hero-video-dots" style="display:flex; justify-content:center; gap:0.3rem;"></div>
+      </div>
+
+      <!-- Mobile Modal markup (Video) -->
+      <div
+        id="hero-mobile-modal"
+        class="strongside-mobile-modal"
+        style="display:none; position:fixed; inset:0; z-index:9999; background:black;"
+      >
+        <button
+          id="hero-modal-close"
+          style="position:absolute; top:7rem; left:1rem; z-index:50; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.5); color:white; border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; cursor:pointer;"
+        >
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <div
+          id="hero-modal-scroller"
+          style="width:100%; height:100%; overflow-y:scroll; scroll-snap-type:y mandatory; -ms-overflow-style:none; scrollbar-width:none;"
+        ></div>
       </div>
     </div>
   </div>
@@ -960,29 +1135,29 @@
 
 <script>
   function changeHeroImage(btn, src) {
-     document.getElementById('hero-main-image').src = src;
-     document.querySelectorAll('.strongside-thumb-btn').forEach(b => b.classList.remove('is-active'));
-     btn.classList.add('is-active');
+    document.getElementById('hero-main-image').src = src;
+    document.querySelectorAll('.strongside-thumb-btn').forEach((b) => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
   }
 
   function toggleDescription() {
-     const desc = document.getElementById('desc-content');
-     const arrow = document.getElementById('desc-arrow');
-     desc.classList.toggle('is-open');
-     arrow.style.transform = desc.classList.contains('is-open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    const desc = document.getElementById('desc-content');
+    const arrow = document.getElementById('desc-arrow');
+    desc.classList.toggle('is-open');
+    arrow.style.transform = desc.classList.contains('is-open') ? 'rotate(180deg)' : 'rotate(0deg)';
   }
 
   function toggleDescription() {
-     const content = document.getElementById('desc-content');
-     const arrow = document.getElementById('desc-arrow');
-     
-     if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-        content.style.maxHeight = '0px';
-        arrow.style.transform = 'rotate(0deg)';
-     } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-        arrow.style.transform = 'rotate(180deg)';
-     }
+    const content = document.getElementById('desc-content');
+    const arrow = document.getElementById('desc-arrow');
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+      content.style.maxHeight = '0px';
+      arrow.style.transform = 'rotate(0deg)';
+    } else {
+      content.style.maxHeight = content.scrollHeight + 'px';
+      arrow.style.transform = 'rotate(180deg)';
+    }
   }
 
   function toggleAccordion(btn) {
@@ -991,7 +1166,7 @@
     const allBtns = document.querySelectorAll('.strongside-accordion-btn');
 
     // Close others
-    allContents.forEach(c => {
+    allContents.forEach((c) => {
       if (c !== content) {
         c.classList.remove('is-open');
         c.style.maxHeight = '0';
@@ -1001,17 +1176,17 @@
     // Toggle current
     content.classList.toggle('is-open');
     if (content.classList.contains('is-open')) {
-       content.style.maxHeight = content.scrollHeight + "px";
-       // Optional: Change + to - if needed
+      content.style.maxHeight = content.scrollHeight + 'px';
+      // Optional: Change + to - if needed
     } else {
-       content.style.maxHeight = '0';
+      content.style.maxHeight = '0';
     }
   }
 
   // Auto-select first variant on load if needed
   function selectVariant(btn, id, price) {
     // Styling
-    document.querySelectorAll('.strongside-variant-btn').forEach(b => {
+    document.querySelectorAll('.strongside-variant-btn').forEach((b) => {
       b.classList.remove('is-selected');
       b.style.background = 'transparent';
       b.style.color = '#9ca3af';
@@ -1025,29 +1200,29 @@
     // Logic
     // Find hidden input for form
     const input = document.querySelector('input[name="id"]');
-    if(input) input.value = id;
+    if (input) input.value = id;
 
     // Update Price
     const priceDisplay = document.querySelector('.strongside-price-main');
-    if(priceDisplay) priceDisplay.innerText = price;
+    if (priceDisplay) priceDisplay.innerText = price;
   }
 
   /* --- INTEGRATED VIDEO CAROUSEL LOGIC --- */
-  (function() {
+  (function () {
     const videos = [
-      { id: '1',  src: "{{ '1.mp4' | asset_url }}",  title: "Upper Body Power" },
-      { id: '2',  src: "{{ '2.mp4' | asset_url }}",  title: "Shadow Boxing Flow" },
-      { id: '3',  src: "{{ '3.mp4' | asset_url }}",  title: "Core Stability" },
-      { id: '4',  src: "{{ '4.mp4' | asset_url }}",  title: "Explosive Hooks" },
-      { id: '5',  src: "{{ '5.mp4' | asset_url }}",  title: "Defensive Drills" },
-      { id: '6',  src: "{{ '6.mp4' | asset_url }}",  title: "Bag Work Intensity" },
-      { id: '7',  src: "{{ '7.mp4' | asset_url }}",  title: "Footwork Agility" },
-      { id: '8',  src: "{{ '8.mp4' | asset_url }}",  title: "Endurance Round" },
-      { id: '9',  src: "{{ '9.mp4' | asset_url }}",  title: "Speed Training" },
-      { id: '10', src: "{{ '10.mp4' | asset_url }}", title: "Full Body Torque" },
-      { id: '11', src: "{{ '11.mp4' | asset_url }}", title: "Resistance Training" },
-      { id: '12', src: "{{ '12.mp4' | asset_url }}", title: "Knockout Power" },
-      { id: '13', src: "{{ '13.mp4' | asset_url }}", title: "Cool Down Stretch" }
+      { id: '1', src: "{{ '1.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_1' | t }}" },
+      { id: '2', src: "{{ '2.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_2' | t }}" },
+      { id: '3', src: "{{ '3.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_3' | t }}" },
+      { id: '4', src: "{{ '4.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_4' | t }}" },
+      { id: '5', src: "{{ '5.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_5' | t }}" },
+      { id: '6', src: "{{ '6.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_6' | t }}" },
+      { id: '7', src: "{{ '7.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_7' | t }}" },
+      { id: '8', src: "{{ '8.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_8' | t }}" },
+      { id: '9', src: "{{ '9.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_9' | t }}" },
+      { id: '10', src: "{{ '10.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_10' | t }}" },
+      { id: '11', src: "{{ '11.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_11' | t }}" },
+      { id: '12', src: "{{ '12.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_12' | t }}" },
+      { id: '13', src: "{{ '13.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_13' | t }}" },
     ];
 
     const track = document.getElementById('hero-video-track');
@@ -1060,19 +1235,20 @@
 
     let currentIndex = 0;
     const isMobile = window.innerWidth < 768;
-    const visibleCount = 3; 
+    const visibleCount = 3;
     const maxIndex = Math.max(0, videos.length - visibleCount);
 
     function init() {
-      if(!track) return;
-      
+      if (!track) return;
+
       // Create Carousel Cards
       track.innerHTML = '';
       videos.forEach((video, index) => {
         const card = document.createElement('div');
         // Card Styles matching Reference Image
-        card.style.cssText = "position:relative; flex-shrink:0; aspect-ratio:9/16; border-radius:1.5rem; overflow:hidden; cursor:pointer; background:#171717; width:calc(33.333% - 1.05rem); border:none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);";
-        
+        card.style.cssText =
+          'position:relative; flex-shrink:0; aspect-ratio:9/16; border-radius:1.5rem; overflow:hidden; cursor:pointer; background:#171717; width:calc(33.333% - 1.05rem); border:none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);';
+
         card.innerHTML = `
           <video src="${video.src}" loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;opacity:0.9;transition:transform 0.5s ease;pointer-events:none;" class="hero-video-el"></video>
           
@@ -1094,62 +1270,70 @@
              <svg style="width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
           </button>
         `;
-        
+
         // HOVER LOGIC
-        card.addEventListener('mouseenter', () => { 
-            if(window.innerWidth >= 768) { 
-                const v = card.querySelector('video');
-                const playIcon = card.querySelector('.hero-play-icon');
-                v.play().then(() => {
-                    playIcon.style.opacity = '0';
-                    v.style.transform = 'scale(1.05)';
-                    v.style.opacity = '1';
-                }).catch(()=>{}); 
-            } 
+        card.addEventListener('mouseenter', () => {
+          if (window.innerWidth >= 768) {
+            const v = card.querySelector('video');
+            const playIcon = card.querySelector('.hero-play-icon');
+            v.play()
+              .then(() => {
+                playIcon.style.opacity = '0';
+                v.style.transform = 'scale(1.05)';
+                v.style.opacity = '1';
+              })
+              .catch(() => {});
+          }
         });
 
-        card.addEventListener('mouseleave', () => { 
-            if(window.innerWidth >= 768) { 
-                const v = card.querySelector('video');
-                const playIcon = card.querySelector('.hero-play-icon');
-                v.pause(); 
-                v.currentTime = 0; 
-                playIcon.style.opacity = '1'; 
-                v.style.transform = 'scale(1)'; 
-                v.style.opacity = '0.9';
-            } 
+        card.addEventListener('mouseleave', () => {
+          if (window.innerWidth >= 768) {
+            const v = card.querySelector('video');
+            const playIcon = card.querySelector('.hero-play-icon');
+            v.pause();
+            v.currentTime = 0;
+            playIcon.style.opacity = '1';
+            v.style.transform = 'scale(1)';
+            v.style.opacity = '0.9';
+          }
         });
-        card.addEventListener('click', () => { if(window.innerWidth < 768) openModal(index); });
+        card.addEventListener('click', () => {
+          if (window.innerWidth < 768) openModal(index);
+        });
 
         const muteBtn = card.querySelector('.hero-card-mute');
         muteBtn.addEventListener('click', (e) => {
-           e.stopPropagation();
-           const v = card.querySelector('video');
-           v.muted = !v.muted;
-           muteBtn.style.background = v.muted ? 'rgba(0,0,0,0.5)' : 'white';
-           muteBtn.style.color = v.muted ? 'white' : 'black';
+          e.stopPropagation();
+          const v = card.querySelector('video');
+          v.muted = !v.muted;
+          muteBtn.style.background = v.muted ? 'rgba(0,0,0,0.5)' : 'white';
+          muteBtn.style.color = v.muted ? 'white' : 'black';
         });
 
         track.appendChild(card);
       });
-      
+
       // Pagination
       pagination.innerHTML = '';
-      for(let i=0; i<=maxIndex; i+=1) {
-         // if (i > 9) break; // Limit dots removed defined by Max Index
-         const dot = document.createElement('button');
-         dot.style.cssText = "width:0.4rem;height:0.4rem;border-radius:999px;background:rgba(255,255,255,0.2);border:none;cursor:pointer;transition:all 0.2s;";
-         dot.onclick = () => { currentIndex = i; updateCarousel(); };
-         pagination.appendChild(dot);
+      for (let i = 0; i <= maxIndex; i += 1) {
+        // if (i > 9) break; // Limit dots removed defined by Max Index
+        const dot = document.createElement('button');
+        dot.style.cssText =
+          'width:0.4rem;height:0.4rem;border-radius:999px;background:rgba(255,255,255,0.2);border:none;cursor:pointer;transition:all 0.2s;';
+        dot.onclick = () => {
+          currentIndex = i;
+          updateCarousel();
+        };
+        pagination.appendChild(dot);
       }
 
       // Mobile Modal Render
       scroller.innerHTML = '';
       videos.forEach((video, index) => {
-         const item = document.createElement('div');
-         item.style.cssText = "width:100%;height:100dvh;scroll-snap-align:center;position:relative;background:black;";
-         item.id = `hero-modal-video-${index}`;
-         item.innerHTML = `
+        const item = document.createElement('div');
+        item.style.cssText = 'width:100%;height:100dvh;scroll-snap-align:center;position:relative;background:black;';
+        item.id = `hero-modal-video-${index}`;
+        item.innerHTML = `
            <video src="${video.src}" loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>
            <div class="strongside-play-overlay" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none;"><div style="width:4rem;height:4rem;background:rgba(0,0,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
            <button class="hero-modal-mute" style="position:absolute;top:7rem;right:1rem;z-index:50;width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,0.4);color:white;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg></button>
@@ -1157,66 +1341,93 @@
              <div style="color:white;font-size:1.5rem;font-weight:900;font-style:italic;text-transform:uppercase;text-shadow:0 2px 4px rgba(0,0,0,0.8);">${video.title}</div>
            </div>
          `;
-         const vid = item.querySelector('video');
-         const overlay = item.querySelector('.strongside-play-overlay');
-         const mute = item.querySelector('.hero-modal-mute');
-         
-         item.addEventListener('click', () => { 
-            if(vid.paused){ vid.play(); overlay.style.display='none'; } else { vid.pause(); overlay.style.display='flex'; } 
-         });
-         mute.addEventListener('click', (e) => { e.stopPropagation(); vid.muted = !vid.muted; mute.style.background = vid.muted ? 'white' : 'rgba(0,0,0,0.4)'; mute.style.color = vid.muted ? 'black' : 'white'; });
+        const vid = item.querySelector('video');
+        const overlay = item.querySelector('.strongside-play-overlay');
+        const mute = item.querySelector('.hero-modal-mute');
 
-         scroller.appendChild(item);
+        item.addEventListener('click', () => {
+          if (vid.paused) {
+            vid.play();
+            overlay.style.display = 'none';
+          } else {
+            vid.pause();
+            overlay.style.display = 'flex';
+          }
+        });
+        mute.addEventListener('click', (e) => {
+          e.stopPropagation();
+          vid.muted = !vid.muted;
+          mute.style.background = vid.muted ? 'white' : 'rgba(0,0,0,0.4)';
+          mute.style.color = vid.muted ? 'black' : 'white';
+        });
+
+        scroller.appendChild(item);
       });
 
       // Observer
-      const observer = new IntersectionObserver(entries => {
-         entries.forEach(entry => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
             const vid = entry.target.querySelector('video');
-            if(entry.isIntersecting) { 
-                vid.currentTime=0; 
-                vid.play().catch(()=>{}); 
-            } else { 
-                vid.pause(); 
+            if (entry.isIntersecting) {
+              vid.currentTime = 0;
+              vid.play().catch(() => {});
+            } else {
+              vid.pause();
             }
-         });
-      }, {threshold:0.6});
-      document.querySelectorAll('#hero-modal-scroller > div').forEach(el=>observer.observe(el));
+          });
+        },
+        { threshold: 0.6 }
+      );
+      document.querySelectorAll('#hero-modal-scroller > div').forEach((el) => observer.observe(el));
 
       updateCarousel();
     }
 
     function updateCarousel() {
-       track.style.transform = `translateX(-${currentIndex * 33.3333}%)`;
-       
-       Array.from(pagination.children).forEach((dot,idx) => {
-          dot.style.background = idx===currentIndex ? '#ff2222' : 'rgba(255,255,255,0.2)';
-          dot.style.width = idx===currentIndex ? '1.2rem' : '0.4rem';
-       });
-       
-       if(btnPrev) btnPrev.style.opacity = currentIndex === 0 ? '0.3' : '1';
-       if(btnNext) btnNext.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+      track.style.transform = `translateX(-${currentIndex * 33.3333}%)`;
+
+      Array.from(pagination.children).forEach((dot, idx) => {
+        dot.style.background = idx === currentIndex ? '#ff2222' : 'rgba(255,255,255,0.2)';
+        dot.style.width = idx === currentIndex ? '1.2rem' : '0.4rem';
+      });
+
+      if (btnPrev) btnPrev.style.opacity = currentIndex === 0 ? '0.3' : '1';
+      if (btnNext) btnNext.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
     }
 
     function openModal(idx) {
-       modal.style.display = 'block';
-       document.body.style.overflow = 'hidden';
-       scroller.scrollTo({ top: idx * window.innerHeight, behavior: 'auto' });
-       const vid = document.getElementById(`hero-modal-video-${idx}`).querySelector('video');
-       vid.muted = false;
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      scroller.scrollTo({ top: idx * window.innerHeight, behavior: 'auto' });
+      const vid = document.getElementById(`hero-modal-video-${idx}`).querySelector('video');
+      vid.muted = false;
     }
-    
+
     function closeModal() {
-       modal.style.display = 'none';
-       document.body.style.overflow = '';
-       document.querySelectorAll('#hero-modal-scroller video').forEach(v=>v.pause());
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+      document.querySelectorAll('#hero-modal-scroller video').forEach((v) => v.pause());
     }
 
-    if(btnPrev) btnPrev.onclick = () => { if(currentIndex > 0) { currentIndex--; updateCarousel(); } };
-    if(btnNext) btnNext.onclick = () => { if(currentIndex < maxIndex) { currentIndex++; updateCarousel(); } };
-    if(closeBtn) closeBtn.onclick = closeModal;
+    if (btnPrev)
+      btnPrev.onclick = () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      };
+    if (btnNext)
+      btnNext.onclick = () => {
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          updateCarousel();
+        }
+      };
+    if (closeBtn) closeBtn.onclick = closeModal;
 
-    if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
+    if (document.readyState !== 'loading') init();
+    else document.addEventListener('DOMContentLoaded', init);
   })();
 </script>
 
@@ -1224,30 +1435,30 @@
 {
   "name": "Strongside Hero Replica",
   "settings": [
-     {
-        "type": "product",
-        "id": "product",
-        "label": "Product to display"
-     }
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product to display"
+    }
   ],
   "blocks": [
     {
-       "type": "info_row",
-       "name": "Accordion Row",
-       "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title",
-            "default": "Livraison & Retours"
-          },
-          {
-            "type": "richtext",
-            "id": "content",
-            "label": "Content",
-            "default": "<p>Content here...</p>"
-          }
-       ]
+      "type": "info_row",
+      "name": "Accordion Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Livraison & Retours"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Content here...</p>"
+        }
+      ]
     }
   ],
   "presets": [

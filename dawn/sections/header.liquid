@@ -264,20 +264,20 @@
     <!-- CENTER: DESKTOP MENU -->
     <nav class="strongside-desktop-menu">
       <!-- Hardcoded links to match React exactly, dynamic Shopify links can be added via settings if needed -->
-      <!-- Item 1: Équipement (Pill) -->
-      <a href="#product-section" class="strongside-nav-link is-pill">Équipement</a>
+      <!-- Item 1: Equipment (Pill) -->
+      <a href="#product-section" class="strongside-nav-link is-pill">{{ 'strongside.header.equipment' | t }}</a>
 
-      <!-- Item 2: Renforts -->
-      <a href="#elastics-section" class="strongside-nav-link">Renforts</a>
+      <!-- Item 2: Reinforcements -->
+      <a href="#elastics-section" class="strongside-nav-link">{{ 'strongside.header.reinforcements' | t }}</a>
 
-      <!-- Item 3: Entraînement -->
-      <a href="#training-videos" class="strongside-nav-link">Entraînement</a>
+      <!-- Item 3: Training -->
+      <a href="#training-videos" class="strongside-nav-link">{{ 'strongside.header.training' | t }}</a>
 
       <!-- Item 4: FAQ -->
-      <a href="#faq-section" class="strongside-nav-link">FAQ</a>
+      <a href="#faq-section" class="strongside-nav-link">{{ 'strongside.header.faq' | t }}</a>
 
-      <!-- MON ESPACE -->
-      <a href="{{ routes.account_url }}" class="strongside-account-btn">MON ESPACE</a>
+      <!-- ACCOUNT -->
+      <a href="{{ routes.account_url }}" class="strongside-account-btn">{{ 'strongside.header.account' | t }}</a>
 
       <div class="strongside-separator"></div>
 
@@ -444,16 +444,25 @@
   </button>
 
   <div class="strongside-mobile-content">
-    <a href="#product-section" class="strongside-mobile-link is-pill" onclick="toggleMobileMenu()">Équipement</a>
-    <a href="#elastics-section" class="strongside-mobile-link" onclick="toggleMobileMenu()">Renforts</a>
-    <a href="#training-videos" class="strongside-mobile-link" onclick="toggleMobileMenu()">Entraînement</a>
-    <a href="#faq-section" class="strongside-mobile-link" onclick="toggleMobileMenu()">FAQ</a>
+    <a href="#product-section" class="strongside-mobile-link is-pill" onclick="toggleMobileMenu()">
+      {{- 'strongside.header.equipment' | t -}}
+    </a>
+    <a href="#elastics-section" class="strongside-mobile-link" onclick="toggleMobileMenu()">
+      {{- 'strongside.header.reinforcements' | t -}}
+    </a>
+    <a href="#training-videos" class="strongside-mobile-link" onclick="toggleMobileMenu()">
+      {{- 'strongside.header.training' | t -}}
+    </a>
+    <a href="#faq-section" class="strongside-mobile-link" onclick="toggleMobileMenu()">
+      {{- 'strongside.header.faq' | t -}}
+    </a>
     <a
       href="{{ routes.account_url }}"
       class="strongside-mobile-link"
       style="color:#ff2222;border:1px solid rgba(255,34,34,0.5);border-radius:9999px;padding:0.5rem 1.5rem;font-size:1.25rem;"
-      >MON ESPACE</a
     >
+      {{- 'strongside.header.account' | t -}}
+    </a>
 
     <div style="width:50px;height:1px;background:rgba(255,255,255,0.1);margin:1rem 0;"></div>
 

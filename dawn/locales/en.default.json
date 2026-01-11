@@ -274,7 +274,6 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
@@ -526,6 +525,283 @@
       "max_characters": "{{ max_chars }} characters max",
       "send_on": "YYYY-MM-DD",
       "send_on_label": "Send on (optional)"
+    }
+  },
+  "strongside": {
+    "header": {
+      "equipment": "Equipment",
+      "reinforcements": "Reinforcements",
+      "concept": "Concept",
+      "training": "Training",
+      "buy": "BUY NOW",
+      "reviews": "Reviews",
+      "faq": "FAQ",
+      "account": "My Account"
+    },
+    "hero": {
+      "subtitle": "Progressive Resistance System",
+      "line1": "Strike",
+      "line2": "Faster.",
+      "line3": "Stronger.",
+      "line4": "Longer.",
+      "description": "Turn thin air into your opponent. Strongside Technologies gear adds fluid resistance to every movement for devastating explosiveness.",
+      "cta": "Shop"
+    },
+    "ui": {
+      "playing": "Playing",
+      "paused": "Paused",
+      "vol": "VOL"
+    },
+    "cta": {
+      "title": "Satisfied with the demo?",
+      "subtitle": "Don't miss your chance to transform your training. Join the elite now.",
+      "button": "ORDER MINE NOW"
+    },
+    "features": {
+      "title": "The Unfair Advantage",
+      "subtitle": "Why pros use it",
+      "cards": {
+        "1_title": "Fluid Resistance",
+        "1_desc": "Unlike free weights, the band increases tension at the end of the motion, exactly where impact peaks.",
+        "2_title": "Muscle Memory",
+        "2_desc": "Correct your form naturally. If your guard drops, the tension reminds you instantly.",
+        "3_title": "Light & Durable",
+        "3_desc": "Aerospace-grade polymer. Indestructible, weighs less than 200g and fits in your pocket."
+      }
+    },
+    "showcase": {
+      "title": "Engineered for Performance",
+      "features": {
+        "1_title": "NATURAL MOVEMENT",
+        "1_desc": "A design studied to fit the direct alignment between shoulders and arms. Punch trajectory stays true. Real fight-like sensations.",
+        "2_title": "SUPERIOR POWER TRANSFER",
+        "2_desc": "Simultaneous activation of shoulders, chest & lats. More direct force transmission to the fists. Minimal energy loss. Every punch becomes more explosive.",
+        "3_title": "STRONGER, MORE STABLE CORE",
+        "3_desc": "No downward pull like waist-based harnesses. Natural, active core engagement. Better posture during combinations.",
+        "4_title": "ZERO INTERFERENCE WITH HIPS & LEGS",
+        "4_desc": "Full freedom of movement. Perfect for pivots, slips & footwork. Ideal for bag work, pads and sparring. Stay mobile, fluid and precise.",
+        "5_title": "SAFER FOR CONTROLLED SPARRING",
+        "5_desc": "Resistance centered on the upper body. Reduced imbalance. Harness stays stable even while moving.",
+        "6_title": "TRAIN ANYWHERE",
+        "6_desc": "STRONGSIDE™ → natural resistance, real performance\nWith boxing or MMA gloves\nHeavy bag training\nPads / mitt work\nControlled sparring\nShadowboxing"
+      }
+    },
+    "product3d": {
+      "subtitle": "Ergonomic Design",
+      "titleStart": "Absolute",
+      "titleEnd": "Grip",
+      "desc": "Textured grip designed to wick away sweat. Total control, even at full intensity.",
+      "btn": "Explore 3D",
+      "instructions": {
+        "rotate": "Left Click: Rotate",
+        "zoom": "Scroll: Zoom"
+      }
+    },
+    "training": {
+      "subtitle": "In Action",
+      "titleStart": "Master the",
+      "titleEnd": "Movement",
+      "sportsTagline": "MMA. Boxing. Muay Thai. Karate. They all agree: it changes everything.",
+      "modes": {
+        "1_title": "HEAVY BAG",
+        "1_desc": "Unleash your power on the bag with the STRONGSIDE Boxing Harness Pro. Progressive resistance turns every strike into a devastating blow.",
+        "2_title": "MITT WORK",
+        "2_desc": "Train with a partner more effectively. Combine with Extra Performance 34kg resistance bands for maximum explosiveness.",
+        "3_title": "SHADOW BOXING",
+        "3_desc": "Perfect your technique anywhere. Add Extra Performance 34kg resistance bands for intense conditioning during shadow boxing."
+      },
+      "ui": {
+        "playing": "Playing",
+        "preview": "Preview",
+        "vol": "VOL"
+      },
+      "faq": {
+        "linkName": "FAQ",
+        "title": "Frequently Asked Questions",
+        "items": {
+          "1_q": "Can I use it with gloves?",
+          "1_a": "Yes, fully compatible with boxing and MMA gloves.",
+          "2_q": "Is it suitable for bag and pad work?",
+          "2_a": "Yes, designed for heavy bag, pads and partner training.",
+          "3_q": "Can I spar with it?",
+          "3_a": "Yes, in controlled sparring. The system stays stable and secure.",
+          "4_q": "Is it suitable for beginners?",
+          "4_a": "Yes, the resistance is progressive and controlled.",
+          "5_q": "Can I use it at home?",
+          "5_a": "Yes, no gym or heavy equipment needed.",
+          "6_q": "Does it fit all body types?",
+          "6_a": "Yes, the harness is fully adjustable.",
+          "7_q": "Is it durable?",
+          "7_a": "Tested for intensive training."
+        }
+      },
+      "returnToMain": "Back to Main",
+      "shop": {
+        "back": "Back",
+        "myCart": "My Cart",
+        "title": "The Shop",
+        "heroTitle": "Official Store",
+        "heroSubtitle": "Performance Gear for Elite Athletes",
+        "soldOut": "Sold Out",
+        "addToCart": "Add to Cart",
+        "buyNow": "Buy Now",
+        "empty": "No products found.",
+        "checkStatus": "Check that your products are ACTIVE on Shopify.",
+        "add": "Add",
+        "clickToZoom": "Click to zoom",
+        "unavailable": "Unavailable",
+        "loading": "Loading...",
+        "readComments": "Read",
+        "commentsWord": "reviews",
+        "beFirstReview": "Be the first to leave a review!",
+        "reviews": "Reviews",
+        "selectOption": "Select an option",
+        "fastShipping": "Fast Shipping",
+        "guarantee": "Guarantee",
+        "securePayment": "Secure payment",
+        "secure100": "100% Secure Payment",
+        "showDetails": "View description",
+        "hideDetails": "Hide description",
+        "color": "Color",
+        "resistance": "Resistance level",
+        "packContent": "What's Included",
+        "packContentList_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>1x Adjustable Harness (60-77cm)</li><li>2x Short Bands 16kg (36cm)</li><li>2x Long Bands 18kg (48cm)</li><li>2x Wrist Straps (32.5cm)</li><li>2x Handles (12cm)</li><li>1x Carry Bag (30cm)</li></ul>",
+        "warranty": "Warranty",
+        "shipping": "Shipping & Returns",
+        "descTitle": "Description",
+        "whatsIncluded": "What's Included",
+        "shippingTitle": "Shipping & Returns",
+        "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Dispatched within 24H<br>Europe delivery: 3 to 5 business days<br>Returns within 15 days</p>",
+        "guaranteeTitle": "Warranty",
+        "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ 15-day money-back guarantee</li><li>✅ Responsive customer support</li><li>✅ Secure payment</li></ul>",
+        "features": {
+          "subtitle": "Why it works",
+          "title": "The Unfair Advantage",
+          "feature1Title": "Maximum Explosiveness",
+          "feature1Subtitle": "Multiply your striking power",
+          "feature1Desc": "Progressive resistance forces your muscles to work harder with each extension, developing devastating striking power.",
+          "feature2Title": "Lightning Speed",
+          "feature2Subtitle": "Accelerate your reflexes",
+          "feature2Desc": "The elastic return forces you to be faster, improving your strike speed and reaction times.",
+          "feature3Title": "Core Engagement",
+          "feature3Subtitle": "Core stabilization",
+          "feature3Desc": "Every movement engages your core to maintain balance against asymmetric tension."
+        },
+        "whatYouGet": {
+          "title": "What You Get",
+          "subtitle": "Everything you need for explosive strikes",
+          "harness": "PRO HARNESS",
+          "harnessDesc": "Premium leather & comfort",
+          "bands": "3 LEVELS",
+          "bandsDesc": "15-75 LBS resistance",
+          "bag": "TRAVEL BAG",
+          "bagDesc": "Compact & durable",
+          "guide": "PDF GUIDE",
+          "guideDesc": "Exercises & routine",
+          "extra": "OPTION: + POWER",
+          "extraDesc": "Add up to 34KG (75LBS) resistance - 41cm / 16.4in",
+          "tagline": "Amplify your training even more with the Extra Performance 34kg resistance bands.",
+          "item1": "STRONGSIDE Pro Boxing Harness",
+          "item1Desc": "H: 60cm/23.62in - C: 77cm/30.31in (Adjustable)",
+          "item2": "2x Resistance 16KG",
+          "item2Desc": "16KG (35LB) - 36cm / 14.17in",
+          "item3": "2x Resistance 18KG",
+          "item3Desc": "18KG (40LB) - 48cm / 18.9in",
+          "item4": "2 Wrist Straps",
+          "item4Desc": "32.5cm / 12.8in",
+          "item5": "Foam Handles",
+          "item5Desc": "12cm / 4.72in",
+          "item6": "Transport Bag",
+          "item6Desc": "Height 30cm / 11.8in"
+        },
+        "cta": {
+          "smallSubtitle": "JOIN US",
+          "title": "Ready to Transform Your Training?",
+          "subtitle": "Join thousands of athletes who have chosen excellence.",
+          "button": "Order Now"
+        }
+      },
+      "footer": {
+        "rights": "All rights reserved.",
+        "brandDesc": "The benchmark equipment for combat athletes who demand excellence.",
+        "links": {
+          "legal": "Legal",
+          "cgv": "T&C",
+          "contact": "Contact"
+        },
+        "securePayment": "Secure payment via"
+      },
+      "videos": {
+        "title": "Training Videos",
+        "list": {
+          "1_title": "Live stronger.",
+          "2_title": "Power in every punch.",
+          "3_title": "Train. Fight. Repeat.",
+          "4_title": "Endure. Overcome. Conquer.",
+          "5_title": "No pain, more gain.",
+          "6_title": "Push limits, break barriers.",
+          "7_title": "Dominate your day.",
+          "8_title": "Focus. Hit. Win.",
+          "9_title": "Sweat today, conquer tomorrow.",
+          "10_title": "Strength isn't given, it's earned.",
+          "11_title": "Rise. Fight. Repeat.",
+          "12_title": "Fearless, relentless, unstoppable.",
+          "13_title": "Hit hard, stay strong."
+        }
+      },
+      "reviews": {
+        "subtitle": "What Our Customers Say",
+        "title": "Customer Reviews",
+        "reviewsCount": "verified reviews",
+        "writeReview": "Write a Review",
+        "thankYou": "Thank you for your review!",
+        "formTitle": "Share Your Experience",
+        "yourRating": "Your Rating",
+        "yourName": "Your Name",
+        "yourEmail": "Your Email",
+        "reviewTitle": "Review Title",
+        "reviewBody": "Your Detailed Review",
+        "namePlaceholder": "John Doe",
+        "emailPlaceholder": "john@email.com",
+        "titlePlaceholder": "Great product!",
+        "bodyPlaceholder": "Describe your experience with this product...",
+        "submitReview": "Submit My Review",
+        "cancel": "Cancel",
+        "loadMore": "See More Reviews",
+        "remaining": "remaining",
+        "noReviews": "No reviews yet.",
+        "beFirst": "Be the first to leave a review!",
+        "errorLoading": "Unable to load reviews at the moment.",
+        "errorSubmit": "An error occurred. Please try again.",
+        "today": "Today",
+        "yesterday": "Yesterday"
+      },
+      "accessories": {
+        "subtitle": "Accessories",
+        "title": "Add More Resistance",
+        "description": "Amplify your training with the Extra Performance 34kg resistance bands.",
+        "view_desc": "View description",
+        "hide_desc": "Hide description",
+        "add_to_cart": "Add to Cart",
+        "buy_now": "Buy Now",
+        "secure_payment": "Secure payment",
+        "sku": "SKU:",
+        "type": "Type:",
+        "weight": "Weight:",
+        "product_not_found": "Product not found. Please select a product in the editor."
+      },
+      "legal": {
+        "title": "Legal Notice",
+        "back": "Back"
+      },
+      "cgv": {
+        "title": "Terms and Conditions of Sale",
+        "back": "Back"
+      },
+      "contact": {
+        "title": "Contact Us",
+        "back": "Back"
+      }
     }
   }
 }

@@ -407,9 +407,9 @@
 
 <div class="strongside-accessories-section">
   <div class="ss-acc-header">
-    <span class="ss-acc-subtitle">{{ section.settings.subtitle }}</span>
-    <h2 class="ss-acc-title">{{ section.settings.title }}</h2>
-    <p class="ss-acc-desc">{{ section.settings.description }}</p>
+    <span class="ss-acc-subtitle">{{ 'strongside.accessories.subtitle' | t }}</span>
+    <h2 class="ss-acc-title">{{ 'strongside.accessories.title' | t }}</h2>
+    <p class="ss-acc-desc">{{ 'strongside.accessories.description' | t }}</p>
   </div>
 
   {% if product != blank %}
@@ -424,7 +424,12 @@
                 class="ss-acc-thumb-btn {% if forloop.first %}is-active{% endif %}"
                 onclick="changeAccessoryImage(this, '{{ media | image_url: width: 800 }}', {{ forloop.index0 }})"
               >
-                <img src="{{ media | image_url: width: 100 }}" class="ss-acc-thumb-img">
+                {{
+                  media
+                  | image_url: width: 200
+                  | image_tag: class: 'ss-acc-thumb-img', loading: 'lazy', alt: media.alt
+                  | default: product.title
+                }}
               </button>
             {% endfor %}
           </div>
@@ -432,7 +437,11 @@
 
         <!-- Main Image -->
         <div class="ss-acc-main-img-container" onclick="openAccessoryModal()">
-          <img id="ss-acc-main-img" src="{{ product.featured_media | image_url: width: 800 }}" class="ss-acc-main-img">
+          {{
+            product.featured_media
+            | image_url: width: 800
+            | image_tag: id: 'ss-acc-main-img', class: 'ss-acc-main-img', loading: 'eager', alt: product.title
+          }}
         </div>
       </div>
 
@@ -442,7 +451,7 @@
 
       <!-- DESCRIPTION TOGGLE -->
       <button class="ss-acc-desc-btn" onclick="toggleAccessoryDesc()">
-        <span class="ss-acc-desc-label" id="ss-acc-desc-label">VOIR LA DESCRIPTION</span>
+        <span class="ss-acc-desc-label" id="ss-acc-desc-label">{{ 'strongside.accessories.view_desc' | t }}</span>
         <svg
           id="ss-acc-desc-icon"
           width="16"
@@ -465,17 +474,17 @@
         <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.5rem;">
           {% if variant.sku != blank %}
             <div class="ss-acc-meta-row">
-              <span class="ss-acc-meta-label">SKU:</span>
+              <span class="ss-acc-meta-label">{{ 'strongside.accessories.sku' | t }}</span>
               <span class="ss-acc-meta-val">{{ variant.sku }}</span>
             </div>
           {% endif %}
           <div class="ss-acc-meta-row">
-            <span class="ss-acc-meta-label">Type:</span>
+            <span class="ss-acc-meta-label">{{ 'strongside.accessories.type' | t }}</span>
             <span class="ss-acc-meta-val">{{ product.type }}</span>
           </div>
           {% if variant.weight > 0 %}
             <div class="ss-acc-meta-row">
-              <span class="ss-acc-meta-label">Poids:</span>
+              <span class="ss-acc-meta-label">{{ 'strongside.accessories.weight' | t }}</span>
               <span class="ss-acc-meta-val">{{ variant.weight | weight_with_unit }}</span>
             </div>
           {% endif %}
@@ -490,7 +499,7 @@
         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
         </svg>
-        <span>Ajouter au Panier</span>
+        <span>{{ 'strongside.accessories.add_to_cart' | t }}</span>
       </button>
 
       <button
@@ -500,7 +509,7 @@
         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
-        <span>Achat Immédiat</span>
+        <span>{{ 'strongside.accessories.buy_now' | t }}</span>
       </button>
 
       <!-- TRUST -->
@@ -509,27 +518,40 @@
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
           </svg>
-          <span>Paiement sécurisé</span>
+          <span>{{ 'strongside.accessories.secure_payment' | t }}</span>
         </div>
         <div class="ss-acc-logos">
           <img
             src="{{ 'visa mastercard.webp' | asset_url }}"
             alt="Visa Mastercard"
             class="ss-acc-logo-img"
+            width="64"
+            height="40"
+            loading="lazy"
           >
           <img
             src="{{ 'paypal logo.webp' | asset_url }}"
             alt="PayPal"
             class="ss-acc-logo-img"
+            width="64"
+            height="40"
+            loading="lazy"
           >
-          <img src="{{ 'cb logo.webp' | asset_url }}" alt="CB" class="ss-acc-logo-img">
+          <img
+            src="{{ 'cb logo.webp' | asset_url }}"
+            alt="CB"
+            class="ss-acc-logo-img"
+            width="64"
+            height="40"
+            loading="lazy"
+          >
         </div>
         <!-- NOTE: Using standard CDN placeholders or text if images missing in assets -->
       </div>
     </div>
   {% else %}
     <p style="text-align:center; color:#9ca3af;">
-      Produit non trouvé. Veuillez sélectionner un produit dans l'éditeur.
+      {{ 'strongside.accessories.product_not_found' | t }}
     </p>
   {% endif %}
 </div>
@@ -537,7 +559,15 @@
 <!-- ZOOM MODAL -->
 <div id="ss-acc-modal" class="ss-acc-modal" onclick="closeAccessoryModal()">
   <button class="ss-acc-close-btn" onclick="closeAccessoryModal()">✕</button>
-  <img id="ss-acc-modal-img" src="" class="ss-acc-modal-img" onclick="event.stopPropagation()">
+  <img
+    id="ss-acc-modal-img"
+    src=""
+    class="ss-acc-modal-img"
+    onclick="event.stopPropagation()"
+    width="800"
+    height="800"
+    alt="Zoom"
+  >
 </div>
 
 <script>
@@ -561,10 +591,10 @@
 
     content.classList.toggle('is-open');
     if (content.classList.contains('is-open')) {
-      label.textContent = 'MASQUER LA DESCRIPTION';
+      label.textContent = "{{ 'strongside.accessories.hide_desc' | t }}";
       icon.style.transform = 'rotate(180deg)';
     } else {
-      label.textContent = 'VOIR LA DESCRIPTION';
+      label.textContent = "{{ 'strongside.accessories.view_desc' | t }}";
       icon.style.transform = 'rotate(0deg)';
     }
   }

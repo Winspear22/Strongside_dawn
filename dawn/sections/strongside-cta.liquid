@@ -77,21 +77,15 @@
 
 <section class="ss-cta-section">
   <div class="ss-cta-container">
-    {%- if section.settings.subtitle != blank -%}
-      <span class="ss-cta-subtitle">{{ section.settings.subtitle }}</span>
-    {%- endif -%}
+    <span class="ss-cta-subtitle">{{ 'strongside.cta.smallSubtitle' | t }}</span>
 
-    <h2 class="ss-cta-title">{{ section.settings.title }}</h2>
+    <h2 class="ss-cta-title">{{ 'strongside.cta.title' | t }}</h2>
 
-    {%- if section.settings.text != blank -%}
-      <p class="ss-cta-text">{{ section.settings.text }}</p>
-    {%- endif -%}
+    <p class="ss-cta-text">{{ 'strongside.cta.subtitle' | t }}</p>
 
-    {%- if section.settings.button_label != blank -%}
-      <a href="{{ section.settings.button_link }}" class="ss-cta-button">
-        {{ section.settings.button_label }}
-      </a>
-    {%- endif -%}
+    <a href="{{ section.settings.button_link }}" class="ss-cta-button">
+      {{ 'strongside.cta.button' | t }}
+    </a>
   </div>
 </section>
 

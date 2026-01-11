@@ -370,7 +370,7 @@
 <div class="strongside-videos-section" id="strongside-videos">
   <!-- HEAD OF SECTION -->
   <div class="strongside-videos-header">
-    <h3 class="strongside-videos-title">{{ section.settings.section_title }}</h3>
+    <h3 class="strongside-videos-title">{{ 'strongside.videos.title' | t }}</h3>
 
     <div class="strongside-videos-nav">
       <button class="strongside-nav-btn" id="btn-prev">
@@ -411,22 +411,15 @@
 
 <script>
   (function () {
-    // --- VIDEO DATA (Hardcoded from shopVideos.js) ---
-    // NOTE: Ensure '1.mp4' ... '13.mp4' are in Assets
+    // --- VIDEO DATA (Dynamic from Liquid I18n) ---
     const videos = [
-      { id: '1', src: "{{ '1.mp4' | asset_url }}", title: 'Upper Body Power' },
-      { id: '2', src: "{{ '2.mp4' | asset_url }}", title: 'Shadow Boxing Flow' },
-      { id: '3', src: "{{ '3.mp4' | asset_url }}", title: 'Core Stability' },
-      { id: '4', src: "{{ '4.mp4' | asset_url }}", title: 'Explosive Hooks' },
-      { id: '5', src: "{{ '5.mp4' | asset_url }}", title: 'Defensive Drills' },
-      { id: '6', src: "{{ '6.mp4' | asset_url }}", title: 'Bag Work Intensity' },
-      { id: '7', src: "{{ '7.mp4' | asset_url }}", title: 'Footwork Agility' },
-      { id: '8', src: "{{ '8.mp4' | asset_url }}", title: 'Endurance Round' },
-      { id: '9', src: "{{ '9.mp4' | asset_url }}", title: 'Speed Training' },
-      { id: '10', src: "{{ '10.mp4' | asset_url }}", title: 'Full Body Torque' },
-      { id: '11', src: "{{ '11.mp4' | asset_url }}", title: 'Resistance Training' },
-      { id: '12', src: "{{ '12.mp4' | asset_url }}", title: 'Knockout Power' },
-      { id: '13', src: "{{ '13.mp4' | asset_url }}", title: 'Cool Down Stretch' },
+      {% for i in (1..13) %}
+        {
+          id: '{{ i }}',
+          src: "{{ i | append: '.mp4' | asset_url }}",
+          title: "{{ 'strongside.videos.list.' | append: i | append: '_title' | t }}"
+        },
+      {% endfor %}
     ];
 
     // --- DOM ELEMENTS ---

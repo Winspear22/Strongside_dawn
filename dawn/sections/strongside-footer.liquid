@@ -218,21 +218,15 @@
       <div class="ss-footer-brand">
         <div class="ss-footer-logo">STRONGSIDE <span class="ss-footer-logo-accent">technologies</span></div>
         <p class="ss-footer-desc">
-          {{ section.settings.description }}
+          {{ 'strongside.footer.brandDesc' | t }}
         </p>
       </div>
 
       <!-- Column 2: Links -->
       <div class="ss-footer-links">
-        {%- if section.settings.link_1_text != blank -%}
-          <a href="{{ section.settings.link_1_url }}" class="ss-footer-link">{{ section.settings.link_1_text }}</a>
-        {%- endif -%}
-        {%- if section.settings.link_2_text != blank -%}
-          <a href="{{ section.settings.link_2_url }}" class="ss-footer-link">{{ section.settings.link_2_text }}</a>
-        {%- endif -%}
-        {%- if section.settings.link_3_text != blank -%}
-          <a href="{{ section.settings.link_3_url }}" class="ss-footer-link">{{ section.settings.link_3_text }}</a>
-        {%- endif -%}
+        <a href="/pages/legal" class="ss-footer-link">{{ 'strongside.footer.links.legal' | t }}</a>
+        <a href="/pages/terms" class="ss-footer-link">{{ 'strongside.footer.links.cgv' | t }}</a>
+        <a href="/pages/contact" class="ss-footer-link">{{ 'strongside.footer.links.contact' | t }}</a>
       </div>
 
       <!-- Column 3: Social -->
@@ -281,17 +275,35 @@
 
     <!-- Payment Badges -->
     <div class="ss-footer-payment">
-      <span class="ss-footer-payment-label">{{ section.settings.payment_label }}</span>
+      <span class="ss-footer-payment-label">{{ 'strongside.footer.securePayment' | t }}</span>
       <div class="ss-footer-payment-icons">
-        <img src="{{ 'visa mastercard.webp' | asset_url }}" alt="Visa Mastercard" class="ss-footer-payment-img">
-        <img src="{{ 'paypal logo.webp' | asset_url }}" alt="PayPal" class="ss-footer-payment-img">
-        <img src="{{ 'cb logo.webp' | asset_url }}" alt="CB" class="ss-footer-payment-img ss-footer-payment-img-small">
+        <img
+          src="{{ 'visa mastercard.webp' | asset_url }}"
+          alt="Visa Mastercard"
+          class="ss-footer-payment-img"
+          width="88"
+          height="55"
+        >
+        <img
+          src="{{ 'paypal logo.webp' | asset_url }}"
+          alt="PayPal"
+          class="ss-footer-payment-img"
+          width="88"
+          height="55"
+        >
+        <img
+          src="{{ 'cb logo.webp' | asset_url }}"
+          alt="CB"
+          class="ss-footer-payment-img ss-footer-payment-img-small"
+          width="66"
+          height="41"
+        >
       </div>
     </div>
 
     <!-- Copyright -->
     <div class="ss-footer-copyright">
-      © {{ 'now' | date: '%Y' }} Strongside Technologies Inc. {{ section.settings.copyright_text }}
+      © {{ 'now' | date: '%Y' }} Strongside Technologies Inc. {{ 'strongside.footer.rights' | t }}
     </div>
   </div>
 </footer>

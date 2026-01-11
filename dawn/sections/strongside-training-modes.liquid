@@ -93,13 +93,16 @@
   <div class="strongside-container">
     <!-- Header -->
     <div class="strongside-training-header ss-observe ss-fade-up">
-      <span class="strongside-subtitle">{{ section.settings.section_subtitle }}</span>
-      <h2 class="strongside-title">{{ section.settings.section_title }}</h2>
+      <span class="strongside-subtitle">{{ 'strongside.training.subtitle' | t }}</span>
+      <h2 class="strongside-title">
+        {{ 'strongside.training.titleStart' | t }}
+        {{ 'strongside.training.titleEnd' | t }}
+      </h2>
     </div>
 
-    <!-- Modes Loop -->
+    <!-- Modes Loop (Static 3 Items) -->
     <div class="strongside-modes-list">
-      {% for block in section.blocks %}
+      {% for i in (1..3) %}
         {% assign is_even = forloop.index | modulo: 2 %}
         {% if is_even == 0 %}
           {% assign row_class = 'is-reversed' %}
@@ -111,28 +114,25 @@
           {% assign text_anim = 'ss-slide-in-right' %}
         {% endif %}
 
+        {% assign trans_key_title = 'strongside.training.modes.' | append: i | append: '_title' %}
+        {% assign trans_key_desc = 'strongside.training.modes.' | append: i | append: '_desc' %}
+
         <div class="strongside-mode-row {{ row_class }}">
           <!-- Media Column -->
           <div class="strongside-mode-media ss-observe {{ media_anim }}" style="transition-delay: 200ms;">
             <div class="media-container">
-              {% if block.settings.video_filename != blank %}
-                <video autoplay loop muted playsinline class="media-content">
-                  <source src="{{ block.settings.video_filename | asset_url }}" type="video/mp4">
-                </video>
-              {% elsif block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'media-content', loading: 'lazy' }}
-              {% else %}
-                <div class="media-placeholder">No Media</div>
-              {% endif %}
+              <video autoplay loop muted playsinline class="media-content">
+                <source src="{{ i | append: '.mp4' | asset_url }}" type="video/mp4">
+              </video>
               <div class="media-overlay"></div>
             </div>
           </div>
 
           <!-- Text Column -->
           <div class="strongside-mode-text ss-observe {{ text_anim }}" style="transition-delay: 300ms;">
-            <span class="mode-number">{{ block.settings.number }}.</span>
-            <h3 class="mode-title">{{ block.settings.title }}</h3>
-            <p class="mode-desc">{{ block.settings.description }}</p>
+            <span class="mode-number">0{{ i }}.</span>
+            <h3 class="mode-title">{{ trans_key_title | t }}</h3>
+            <p class="mode-desc">{{ trans_key_desc | t }}</p>
           </div>
         </div>
       {% endfor %}

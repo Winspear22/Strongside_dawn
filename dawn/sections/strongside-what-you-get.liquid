@@ -340,8 +340,8 @@
 <div class="ss-wyg-container">
   <!-- TITLE -->
   <div class="ss-wyg-header">
-    <h2 class="ss-wyg-title">{{ section.settings.title }}</h2>
-    <p class="ss-wyg-subtitle">{{ section.settings.subtitle }}</p>
+    <h2 class="ss-wyg-title">{{ 'strongside.whatYouGet.title' | t }}</h2>
+    <p class="ss-wyg-subtitle">{{ 'strongside.whatYouGet.subtitle' | t }}</p>
   </div>
 
   <!-- GRID (STANDARD ITEMS) -->
@@ -353,19 +353,57 @@
           {% case block.settings.icon %}
             {% when 'belt' -%}
               {%- assign item_image = 'Mannequin_4k_background_sans_watermark.webp' | asset_url %}
+              <!-- Map to item1 (Harness) -->
+              {% assign title_key = 'strongside.whatYouGet.item1' %}
+              {% assign desc_key = 'strongside.whatYouGet.item1Desc' %}
             {% when 'short_bands' -%}
               {%- assign item_image = 'Elastique_02_4k_background_sans_watermark.webp' | asset_url %}
+              <!-- Map to item2 (16KG) -->
+              {% assign title_key = 'strongside.whatYouGet.item2' %}
+              {% assign desc_key = 'strongside.whatYouGet.item2Desc' %}
             {% when 'long_bands' -%}
               {%- assign item_image = 'Elastique_01_4k_background_sans_watermark.webp' | asset_url %}
+              <!-- Map to item3 (18KG) -->
+              {% assign title_key = 'strongside.whatYouGet.item3' %}
+              {% assign desc_key = 'strongside.whatYouGet.item3Desc' %}
             {% when 'wrist' -%}
               {%- assign item_image = 'Poignets_4k_background_sans_watermark.webp' | asset_url %}
+              <!-- Map to item4 (Wrist) -->
+              {% assign title_key = 'strongside.whatYouGet.item4' %}
+              {% assign desc_key = 'strongside.whatYouGet.item4Desc' %}
             {% when 'handle' -%}
               {%- assign item_image = 'handles_4k_background_sans_watermark.webp' | asset_url %}
+              <!-- Map to item5 (Handles) -->
+              {% assign title_key = 'strongside.whatYouGet.item5' %}
+              {% assign desc_key = 'strongside.whatYouGet.item5Desc' %}
             {% when 'bag' -%}
               {%- assign item_image = 'Sac_4k_background_sans_watermark.webp' | asset_url %}
+              <!-- Map to item6 (Bag) -->
+              {% assign title_key = 'strongside.whatYouGet.item6' %}
+              {% assign desc_key = 'strongside.whatYouGet.item6Desc' %}
+            {% else %}
+              <!-- Default fallback if custom icon or check -->
+              {% assign title_key = block.settings.title %}
+              {% assign desc_key = block.settings.desc %}
           {% endcase %}
         {% else %}
           {% assign item_image = item_image | image_url: width: 600 %}
+          {% comment %}
+            If user uploads custom image/block, we can't easily map to translation keys unless we inspect title.
+            For now, fallback to block settings content, OR try to map by index if strict parity is needed.
+            Given the preset structure, mapping by icon is the robust way for default items.
+          {% endcomment %}
+          {% assign title_key = block.settings.title %}
+          {% assign desc_key = block.settings.desc %}
+        {% endif %}
+
+        <!-- If title_key contains 'strongside.', translate it. Else use raw. -->
+        {% if title_key contains 'strongside.' %}
+          {% assign display_title = title_key | t %}
+          {% assign display_desc = desc_key | t %}
+        {% else %}
+          {% assign display_title = title_key %}
+          {% assign display_desc = desc_key %}
         {% endif %}
 
         <div
@@ -383,8 +421,8 @@
 
           <div class="ss-wyg-content">
             <!-- Icon removed to match React design -->
-            <h3 class="ss-wyg-item-title">{{ block.settings.title | newline_to_br }}</h3>
-            <p class="ss-wyg-item-desc">{{ block.settings.desc | newline_to_br }}</p>
+            <h3 class="ss-wyg-item-title">{{ display_title | newline_to_br }}</h3>
+            <p class="ss-wyg-item-desc">{{ display_desc | newline_to_br }}</p>
           </div>
         </div>
       {% endunless %}
@@ -392,7 +430,7 @@
   </div>
 
   <!-- TAGLINE -->
-  <p class="ss-wyg-tagline">{{ section.settings.tagline }}</p>
+  <p class="ss-wyg-tagline">{{ 'strongside.whatYouGet.tagline' | t }}</p>
 
   <!-- EXTRA ITEM -->
   <div class="ss-wyg-extra-wrapper">
@@ -417,8 +455,8 @@
 
           <div class="ss-wyg-content">
             <!-- Usually no icon for extra in React, but title is styled differently -->
-            <h3 class="ss-wyg-item-title">{{ block.settings.title | newline_to_br }}</h3>
-            <p class="ss-wyg-item-desc">{{ block.settings.desc | newline_to_br }}</p>
+            <h3 class="ss-wyg-item-title">{{ 'strongside.whatYouGet.extra' | t | newline_to_br }}</h3>
+            <p class="ss-wyg-item-desc">{{ 'strongside.whatYouGet.extraDesc' | t | newline_to_br }}</p>
           </div>
         </div>
       {% endif %}

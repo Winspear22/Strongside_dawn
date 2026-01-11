@@ -255,8 +255,8 @@
 <div class="ss-reviews-container">
   <!-- HEADER -->
   <div class="ss-reviews-header">
-    <span class="ss-reviews-subtitle">{{ section.settings.subtitle }}</span>
-    <h2 class="ss-reviews-title">{{ section.settings.title }}</h2>
+    <span class="ss-reviews-subtitle">{{ 'strongside.reviews.subtitle' | t }}</span>
+    <h2 class="ss-reviews-title">{{ 'strongside.reviews.title' | t }}</h2>
   </div>
 
   <!-- APP BLOCK WRAPPER -->
@@ -275,6 +275,86 @@
 
 <script>
   window.addEventListener('load', function () {
+    // ============================================
+    // TRANSLATION INJECTION
+    // ============================================
+    const translations = {
+      writeReview: "{{ 'strongside.reviews.writeReview' | t }}",
+      reviewsCount: "{{ 'strongside.reviews.reviewsCount' | t }}",
+      beFirst: "{{ 'strongside.reviews.beFirst' | t }}",
+      noReviews: "{{ 'strongside.reviews.noReviews' | t }}",
+      cancel: "{{ 'strongside.reviews.cancel' | t }}",
+      submit: "{{ 'strongside.reviews.submitReview' | t }}",
+    };
+
+    function translateWidget() {
+      // Translate "Write a Review" button
+      const writeBtns = document.querySelectorAll('.jdgm-write-rev-link');
+      writeBtns.forEach((btn) => {
+        // Only if text is English default or simply to force override
+        btn.innerText = translations.writeReview;
+      });
+
+      // Translate "Verified Reviews" (badge text often hard to reach, but let's try)
+      // Judge.me badge structure usually: .jdgm-prev-badge__text
+      const badgeTexts = document.querySelectorAll('.jdgm-prev-badge__text');
+      badgeTexts.forEach((txt) => {
+        if (txt.innerText.includes('reviews') || txt.innerText.includes('avis')) {
+          // Basic replacement logic, might be complex if dynamic count
+          // leaving as is for now unless user complains about specific badge text
+          // But user asked for "widget"
+        }
+      });
+
+      // Submit button in form
+      const submitBtns = document.querySelectorAll('.jdgm-form-submit-btn');
+      submitBtns.forEach((btn) => {
+        btn.value = translations.submit; // for input type=submit
+        btn.innerText = translations.submit; // for button
+      });
+
+      // Cancel button in form
+      const cancelBtns = document.querySelectorAll('.jdgm-cancel-rev-link');
+      cancelBtns.forEach((btn) => {
+        btn.innerText = translations.cancel;
+      });
+    }
+
+    // Use MutationObserver to detect when judge.me renders
+    const observer = new MutationObserver((mutations) => {
+      let shouldTranslate = false;
+      mutations.forEach((mutation) => {
+        if (mutation.addedNodes.length) {
+          shouldTranslate = true;
+        }
+      });
+      if (shouldTranslate) {
+        translateWidget();
+        // Also try button reorganization
+        if (typeof reorganizeButtons === 'function') reorganizeButtons();
+      }
+    });
+
+    const widgetContainer = document.querySelector('.ss-reviews-widget-wrapper');
+    if (widgetContainer) {
+      observer.observe(widgetContainer, { childList: true, subtree: true });
+      // Initial try
+      translateWidget();
+    } else {
+      // Fallback if wrapper not found immediately
+      const interval = setInterval(() => {
+        const wc = document.querySelector('.ss-reviews-widget-wrapper');
+        if (wc) {
+          observer.observe(wc, { childList: true, subtree: true });
+          translateWidget();
+          clearInterval(interval);
+        }
+      }, 500);
+    }
+
+    // Safety check with interval still, just in case DOM changes don't trigger what we expect
+    setInterval(translateWidget, 2000);
+
     // ============================================
     // JAVASCRIPT DOM REORGANIZATION FOR BUTTONS
     // CSS alone fails because Judge.me loads async
