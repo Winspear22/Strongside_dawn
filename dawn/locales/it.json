@@ -303,7 +303,7 @@
       },
       "update": "Aggiorna",
       "login": {
-        "title": "Vous possédez un compte ?",
+        "title": "Hai un account?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Accedi</a> per un checkout più veloce."
       },
       "estimated_total": "Totale stimato",

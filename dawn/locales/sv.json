@@ -293,19 +293,19 @@
       },
       "update": "Uppdatera",
       "login": {
-        "title": "Hast du ein Konto?",
+        "title": "Har du ett konto?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Logga in</a> för snabbare utcheckning."
       },
       "estimated_total": "Beräknad totalsumma",
       "new_estimated_total": "Ny beräknad totalsumma",
-      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren und Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Inkl. Zollgebühren und Steuern. Rabatte und Versand werden beim Checkout berechnet.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "taxes_included_shipping_at_checkout_without_policy": "Inkl. Steuern. Rabatte und Versand werden beim Checkout berechnet.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren. Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inkl. Zollgebühren. Steuern, Rabatte und Versand werden beim Checkout berechnet.",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Steuern, Rabatte und Versand werden beim Checkout berechnet."
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Tullar och skatter ingår. Rabatter och <a href=\"{{ link }}\">frakt</a> beräknas i kassan.",
+      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Tullar och skatter ingår. Rabatter och frakt beräknas i kassan.",
+      "taxes_included_shipping_at_checkout_with_policy_html": "Skatt ingår. Rabatter och <a href=\"{{ link }}\">frakt</a> beräknas i kassan.",
+      "taxes_included_shipping_at_checkout_without_policy": "Skatt ingår. Rabatter och frakt beräknas i kassan.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Tullar ingår. Skatter, rabatter och <a href=\"{{ link }}\">frakt</a> beräknas i kassan.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Tullar ingår. Skatter, rabatter och frakt beräknas i kassan.",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Skatter, rabatter och <a href=\"{{ link }}\">frakt</a> beräknas i kassan.",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Skatter, rabatter och frakt beräknas i kassan."
     },
     "footer": {
       "payment": "Zahlungsmethoden"

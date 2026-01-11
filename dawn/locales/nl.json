@@ -293,19 +293,19 @@
       },
       "update": "Bijwerken",
       "login": {
-        "title": "Hast du ein Konto?",
+        "title": "Heb je een account?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> voor sneller afrekenen."
       },
       "estimated_total": "Geschat totaal",
       "new_estimated_total": "Nieuw geschat totaal",
-      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren und Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Inkl. Zollgebühren und Steuern. Rabatte und Versand werden beim Checkout berechnet.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "taxes_included_shipping_at_checkout_without_policy": "Inkl. Steuern. Rabatte und Versand werden beim Checkout berechnet.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren. Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inkl. Zollgebühren. Steuern, Rabatte und Versand werden beim Checkout berechnet.",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Steuern, Rabatte und Versand werden beim Checkout berechnet."
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Inclusief invoerrechten en belastingen. Kortingen en <a href=\"{{ link }}\">verzendkosten</a> worden berekend bij het afrekenen.",
+      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Inclusief invoerrechten en belastingen. Kortingen en verzendkosten worden berekend bij het afrekenen.",
+      "taxes_included_shipping_at_checkout_with_policy_html": "Inclusief belastingen. Kortingen en <a href=\"{{ link }}\">verzendkosten</a> worden berekend bij het afrekenen.",
+      "taxes_included_shipping_at_checkout_without_policy": "Inclusief belastingen. Kortingen en verzendkosten worden berekend bij het afrekenen.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inclusief invoerrechten. Belastingen, kortingen en <a href=\"{{ link }}\">verzendkosten</a> worden berekend bij het afrekenen.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inclusief invoerrechten. Belastingen, kortingen en verzendkosten worden berekend bij het afrekenen.",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Belastingen, kortingen en <a href=\"{{ link }}\">verzendkosten</a> worden berekend bij het afrekenen.",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Belastingen, kortingen en verzendkosten worden berekend bij het afrekenen."
     },
     "footer": {
       "payment": "Zahlungsmethoden"

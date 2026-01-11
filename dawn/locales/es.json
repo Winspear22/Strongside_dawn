@@ -293,19 +293,19 @@
       },
       "update": "Actualizar",
       "login": {
-        "title": "Hast du ein Konto?",
+        "title": "¿Tienes una cuenta?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Inicia sesión</a> para un pago más rápido."
       },
       "estimated_total": "Total estimado",
       "new_estimated_total": "Nuevo total estimado",
-      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren und Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Inkl. Zollgebühren und Steuern. Rabatte und Versand werden beim Checkout berechnet.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Inkl. Steuern. Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "taxes_included_shipping_at_checkout_without_policy": "Inkl. Steuern. Rabatte und Versand werden beim Checkout berechnet.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren. Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inkl. Zollgebühren. Steuern, Rabatte und Versand werden beim Checkout berechnet.",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Steuern, Rabatte und Versand werden beim Checkout berechnet."
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Impuestos y aranceles incluidos. Los descuentos y los <a href=\"{{ link }}\">gastos de envío</a> se calculan en la pantalla de pago.",
+      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Impuestos y aranceles incluidos. Los descuentos y los gastos de envío se calculan en la pantalla de pago.",
+      "taxes_included_shipping_at_checkout_with_policy_html": "Impuestos incluidos. Los descuentos y los <a href=\"{{ link }}\">gastos de envío</a> se calculan en la pantalla de pago.",
+      "taxes_included_shipping_at_checkout_without_policy": "Impuestos incluidos. Los descuentos y los gastos de envío se calculan en la pantalla de pago.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Aranceles incluidos. Los impuestos, los descuentos y los <a href=\"{{ link }}\">gastos de envío</a> se calculan en la pantalla de pago.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Aranceles incluidos. Los impuestos, los descuentos y los gastos de envío se calculan en la pantalla de pago.",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Los impuestos, los descuentos y los <a href=\"{{ link }}\">gastos de envío</a> se calculan en la pantalla de pago.",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Los impuestos, los descuentos y los gastos de envío se calculan en la pantalla de pago."
     },
     "footer": {
       "payment": "Zahlungsmethoden"
