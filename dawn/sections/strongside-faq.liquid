@@ -4,7 +4,175 @@
   - Dark background, animated expand/collapse
 {% endcomment %}
 
-{{ 'section-strongside-faq.css' | asset_url | stylesheet_tag }}
+<style>
+  /* ============================================
+     STRONGSIDE FAQ SECTION - INLINE STYLES
+     ============================================ */
+
+  .ss-faq-section {
+    padding: 5rem 0 !important;
+    background-color: #0a0a0a !important;
+    position: relative !important;
+    z-index: 20 !important;
+  }
+
+  .ss-faq-container {
+    max-width: 120rem !important;
+    margin: 0 auto !important;
+    padding: 0 4rem !important;
+  }
+
+  /* Header */
+  .ss-faq-header {
+    text-align: center !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .ss-faq-subtitle {
+    display: block !important;
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    color: #ff2222 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .ss-faq-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 3.375rem !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.05em !important;
+    color: white !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+
+  @media (max-width: 768px) {
+    .ss-faq-title {
+      font-size: 2rem !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .ss-faq-title {
+      font-size: 5rem !important;
+    }
+  }
+
+  /* FAQ Card Container - The dark gray box */
+  .ss-faq-list {
+    background-color: #1a1a1a !important;
+    border-radius: 1.5rem !important;
+    padding: 2rem 4rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* FAQ Item */
+  .ss-faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .ss-faq-item:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Question Button */
+  .ss-faq-question {
+    width: 100% !important;
+    padding: 2.5rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .ss-faq-question:hover .ss-faq-question-text {
+    color: #ff2222 !important;
+  }
+
+  .ss-faq-question-text {
+    font-family: ui-sans-serif, system-ui, sans-serif !important;
+    font-size: 1.125rem !important;
+    font-weight: 500 !important;
+    color: white !important;
+    transition: color 0.3s ease !important;
+    line-height: 1.75rem !important;
+  }
+
+  /* Icon - Circle with + */
+  .ss-faq-icon {
+    flex-shrink: 0 !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    margin-left: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    background: transparent !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .ss-faq-question:hover .ss-faq-icon {
+    border-color: #ff2222 !important;
+  }
+
+  .ss-faq-item.is-open .ss-faq-icon {
+    background-color: #ff2222 !important;
+    border-color: #ff2222 !important;
+    transform: rotate(45deg) !important;
+  }
+
+  .ss-faq-icon svg {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+  }
+
+  /* Answer */
+  .ss-faq-answer {
+    height: 0;
+    overflow: hidden !important;
+    transition: height 0.3s ease !important;
+  }
+
+  .ss-faq-item.is-open .ss-faq-answer {
+    height: auto !important;
+  }
+
+  .ss-faq-answer-content {
+    padding-bottom: 2rem !important;
+    padding-right: 5rem !important;
+    color: #9ca3af !important;
+    line-height: 1.75 !important;
+    font-size: 1.25rem !important;
+  }
+
+  .ss-faq-answer-content p {
+    margin: 0 0 1rem 0 !important;
+  }
+
+  .ss-faq-answer-content p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Empty State */
+  .ss-faq-empty {
+    text-align: center !important;
+    padding: 2rem !important;
+    color: #6b7280 !important;
+  }
+</style>
 
 <section class="ss-faq-section">
   <div class="ss-faq-container">
@@ -55,53 +223,62 @@
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const faqSection = document.querySelector('.ss-faq-section');
-    if (!faqSection) return;
+  (function () {
+    function initFAQ() {
+      const faqSection = document.querySelector('.ss-faq-section');
+      if (!faqSection) return;
 
-    const toggles = faqSection.querySelectorAll('[data-faq-toggle]');
+      // Prevent double initialization
+      if (faqSection.dataset.initialized) return;
+      faqSection.dataset.initialized = 'true';
 
-    toggles.forEach((toggle) => {
-      toggle.addEventListener('click', function () {
-        const item = this.closest('.ss-faq-item');
-        const answer = item.querySelector('.ss-faq-answer');
-        const isOpen = item.classList.contains('is-open');
+      const toggles = faqSection.querySelectorAll('[data-faq-toggle]');
 
-        // Close all other items (accordion behavior)
-        // Comment out these 3 lines if you want multiple open at once
-        // document.querySelectorAll('.ss-faq-item.is-open').forEach(openItem => {
-        //   if (openItem !== item) closeItem(openItem);
-        // });
+      toggles.forEach((toggle) => {
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          const item = this.closest('.ss-faq-item');
+          if (!item) return;
 
-        if (isOpen) {
-          closeItem(item);
-        } else {
-          openItem(item);
-        }
+          const isOpen = item.classList.contains('is-open');
+
+          if (isOpen) {
+            closeItem(item);
+          } else {
+            openItem(item);
+          }
+        });
       });
-    });
 
-    function openItem(item) {
-      const answer = item.querySelector('.ss-faq-answer');
-      const content = answer.querySelector('.ss-faq-answer-content');
-      const toggle = item.querySelector('[data-faq-toggle]');
+      function openItem(item) {
+        const answer = item.querySelector('.ss-faq-answer');
+        const content = answer.querySelector('.ss-faq-answer-content');
+        const toggle = item.querySelector('[data-faq-toggle]');
 
-      item.classList.add('is-open');
-      toggle.setAttribute('aria-expanded', 'true');
-      answer.setAttribute('aria-hidden', 'false');
-      answer.style.height = content.offsetHeight + 'px';
+        item.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        answer.setAttribute('aria-hidden', 'false');
+        answer.style.height = content.offsetHeight + 'px';
+      }
+
+      function closeItem(item) {
+        const answer = item.querySelector('.ss-faq-answer');
+        const toggle = item.querySelector('[data-faq-toggle]');
+
+        item.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        answer.setAttribute('aria-hidden', 'true');
+        answer.style.height = '0';
+      }
     }
 
-    function closeItem(item) {
-      const answer = item.querySelector('.ss-faq-answer');
-      const toggle = item.querySelector('[data-faq-toggle]');
-
-      item.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      answer.setAttribute('aria-hidden', 'true');
-      answer.style.height = '0';
+    // Run immediately if DOM is ready, otherwise wait
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFAQ);
+    } else {
+      initFAQ();
     }
-  });
+  })();
 </script>
 
 {% schema %}
