@@ -265,10 +265,22 @@
     <nav class="strongside-desktop-menu">
       <!-- Hardcoded links to match React exactly, dynamic Shopify links can be added via settings if needed -->
       <!-- Item 1: Equipment (Pill) -->
-      <a href="#product-section" class="strongside-nav-link is-pill">{{ 'strongside.header.equipment' | t }}</a>
+      <a
+        href="javascript:void(0)"
+        class="strongside-nav-link is-pill"
+        onclick="window.scrollTo({top:0, behavior:'smooth'})"
+      >
+        {{- 'strongside.header.equipment' | t -}}
+      </a>
 
       <!-- Item 2: Reinforcements -->
-      <a href="#elastics-section" class="strongside-nav-link">{{ 'strongside.header.reinforcements' | t }}</a>
+      <a
+        href="javascript:void(0)"
+        class="strongside-nav-link"
+        onclick="const el = document.getElementById('elastics-section'); if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({top: top, behavior: 'smooth'}); }"
+      >
+        {{- 'strongside.header.reinforcements' | t -}}
+      </a>
 
       <!-- Item 3: Training -->
       <a href="#training-videos" class="strongside-nav-link">{{ 'strongside.header.training' | t }}</a>
@@ -444,10 +456,18 @@
   </button>
 
   <div class="strongside-mobile-content">
-    <a href="#product-section" class="strongside-mobile-link is-pill" onclick="toggleMobileMenu()">
+    <a
+      href="javascript:void(0)"
+      class="strongside-mobile-link is-pill"
+      onclick="toggleMobileMenu(); window.scrollTo({top:0, behavior:'smooth'});"
+    >
       {{- 'strongside.header.equipment' | t -}}
     </a>
-    <a href="#elastics-section" class="strongside-mobile-link" onclick="toggleMobileMenu()">
+    <a
+      href="javascript:void(0)"
+      class="strongside-mobile-link"
+      onclick="const el = document.getElementById('elastics-section'); if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
+    >
       {{- 'strongside.header.reinforcements' | t -}}
     </a>
     <a href="#training-videos" class="strongside-mobile-link" onclick="toggleMobileMenu()">
