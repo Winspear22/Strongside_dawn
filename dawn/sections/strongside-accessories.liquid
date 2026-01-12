@@ -422,7 +422,7 @@
             {% for media in product.media %}
               <button
                 class="ss-acc-thumb-btn {% if forloop.first %}is-active{% endif %}"
-                onclick="changeAccessoryImage(this, '{{ media | image_url: width: 800 }}', {{ forloop.index0 }})"
+                onclick="changeAccessoryImage('ss-acc-main-img-{{ section.id }}', this, '{{ media | image_url: width: 800 }}', {{ forloop.index0 }})"
               >
                 {{
                   media
@@ -436,11 +436,12 @@
         {% endif %}
 
         <!-- Main Image -->
+        {% capture image_id %}ss-acc-main-img-{{ section.id }}{% endcapture %}
         <div class="ss-acc-main-img-container" onclick="openAccessoryModal()">
           {{
             product.featured_media
             | image_url: width: 800
-            | image_tag: id: 'ss-acc-main-img', class: 'ss-acc-main-img', loading: 'eager', alt: product.title
+            | image_tag: id: image_id, class: 'ss-acc-main-img', loading: 'eager', alt: product.title
           }}
         </div>
       </div>
@@ -573,14 +574,22 @@
 <script>
   let currentAccessoryImage = '{{ product.featured_media | image_url: width: 1200 }}';
 
-  function changeAccessoryImage(btn, url, index) {
-    document.getElementById('ss-acc-main-img').src = url;
-    currentAccessoryImage = url;
+  function changeAccessoryImage(targetId, btn, url, index) {
+    // Find the main image container within this specific section instance
+    const sectionContainer = btn.closest('.ss-acc-card');
+    const mainImg = sectionContainer.querySelector('.ss-acc-main-img');
+
+    if (mainImg) {
+      mainImg.src = url;
+      // Also update the modal trigger source if needed
+      currentAccessoryImage = url;
+    }
 
     // Update Active Thumbs
-    document
-      .querySelectorAll('#shopify-section-{{ section.id }} .ss-acc-thumb-btn')
-      .forEach((b) => b.classList.remove('is-active'));
+    const thumbsContainer = btn.closest('.ss-acc-thumbs');
+    if (thumbsContainer) {
+      thumbsContainer.querySelectorAll('.ss-acc-thumb-btn').forEach((b) => b.classList.remove('is-active'));
+    }
     btn.classList.add('is-active');
   }
 
