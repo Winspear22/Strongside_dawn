@@ -601,6 +601,21 @@
       "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Enviado en 24h<br>Entrega Europa: 3-5 días laborables<br>Devolución en 15 días</p>",
       "guaranteeTitle": "Garantía",
       "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ Garantía de devolución de 15 días</li><li>✅ Atención al cliente receptiva</li><li>✅ Pago seguro</li></ul>",
+      "features": {
+        "title": "La Ventaja Injusta",
+        "subtitle": "Por qué funciona",
+        "cards": {
+          "1_title": "Resistencia Fluida",
+          "1_desc": "A diferencia de las pesas libres, la banda elástica aumenta la tensión al final del movimiento, donde el impacto es máximo.",
+          "2_title": "Memoria Muscular",
+          "2_desc": "Corrige tu postura de forma natural. Si tu guardia cae, la tensión te lo recuerda al instante.",
+          "3_title": "Ligero y Duradero",
+          "3_desc": "Polímero de grado aeroespacial. Indestructible, pesa menos de 200g y cabe en tu bolsillo."
+        }
+      },
+      "whatYouGet": {
+        "title": "Lo Que Recibes"
+      },
       "showDetails": "Ver descripción",
       "hideDetails": "Ocultar descripción",
       "color": "Color",
@@ -620,20 +635,20 @@
     },
     "videos": {
       "title": "Videos de Entrenamiento",
-      "videoTitles": {
-        "card_1": "Live stronger.",
-        "card_2": "Power in every punch.",
-        "card_3": "Train. Fight. Repeat.",
-        "card_4": "Endure. Overcome. Conquer.",
-        "card_5": "No pain, more gain.",
-        "card_6": "Push limits, break barriers.",
-        "card_7": "Dominate your day.",
-        "card_8": "Focus. Hit. Win.",
-        "card_9": "Sweat today, conquer tomorrow.",
-        "card_10": "Strength isn't given, it's earned.",
-        "card_11": "Rise. Fight. Repeat.",
-        "card_12": "Fearless, relentless, unstoppable.",
-        "card_13": "Hit hard, stay strong."
+      "list": {
+        "1_title": "Upper Body Power",
+        "2_title": "Shadow Boxing Flow",
+        "3_title": "Core Stability",
+        "4_title": "Explosive Hooks",
+        "5_title": "Defensive Drills",
+        "6_title": "Bag Work Intensity",
+        "7_title": "Footwork Agility",
+        "8_title": "Endurance Round",
+        "9_title": "Speed Training",
+        "10_title": "Full Body Torque",
+        "11_title": "Resistance Training",
+        "12_title": "Knockout Power",
+        "13_title": "Cool Down Stretch"
       },
       "cta": {
         "title": "Videos de entrenamiento",
@@ -694,6 +709,21 @@
       "subtitle": "Una Herramienta, Posibilidades Infinitas",
       "titleStart": "Usa STRONGSIDE",
       "titleEnd": "En Cualquier Lugar",
+      "cards": {
+        "card_1": "Live stronger.",
+        "card_2": "Power in every punch.",
+        "card_3": "Train. Fight. Repeat.",
+        "card_4": "Endure. Overcome. Conquer.",
+        "card_5": "No pain, more gain.",
+        "card_6": "Push limits, break barriers.",
+        "card_7": "Dominate your day.",
+        "card_8": "Focus. Hit. Win.",
+        "card_9": "Sweat today, conquer tomorrow.",
+        "card_10": "Strength isn't given, it's earned.",
+        "card_11": "Rise. Fight. Repeat.",
+        "card_12": "Fearless, relentless, unstoppable.",
+        "card_13": "Hit hard, stay strong."
+      },
       "cta": {
         "title": "Videos de Entrenamiento",
         "subtitle": "No pierdas la oportunidad de transformar tu entrenamiento. Únete a la élite ahora.",

@@ -601,6 +601,21 @@
       "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Versand innerhalb 24h<br>Lieferung Europa: 3 bis 5 Werktage<br>Rückgabe innerhalb 15 Tagen</p>",
       "guaranteeTitle": "Garantie",
       "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ 15 Tage Geld-zurück-Garantie</li><li>✅ Reaktionsschneller Kundensupport</li><li>✅ Sichere Zahlung</li></ul>",
+      "features": {
+        "title": "Der unfaire Vorteil",
+        "subtitle": "Warum es funktioniert",
+        "cards": {
+          "1_title": "Widerstand Fluide",
+          "1_desc": "Im Gegensatz zu freien Gewichten erhöht das Gummiband die Spannung am Ende der Bewegung, wo der Aufprall maximal ist.",
+          "2_title": "Muskelgedächtnis",
+          "2_desc": "Korrigieren Sie Ihre Haltung auf natürliche Weise. Wenn Ihre Deckung fällt, erinnert Sie die Spannung sofort daran.",
+          "3_title": "Leicht & Haltbar",
+          "3_desc": "Polymer in Luftfahrtqualität. Unzerstörbar, wiegt weniger als 200g und passt in Ihre Tasche."
+        }
+      },
+      "whatYouGet": {
+        "title": "Was Sie erhalten"
+      },
       "showDetails": "Beschreibung anzeigen",
       "hideDetails": "Beschreibung ausblenden",
       "color": "Farbe",
@@ -620,20 +635,20 @@
     },
     "videos": {
       "title": "Trainingsvideos",
-      "videoTitles": {
-        "card_1": "Live stronger.",
-        "card_2": "Power in every punch.",
-        "card_3": "Train. Fight. Repeat.",
-        "card_4": "Endure. Overcome. Conquer.",
-        "card_5": "No pain, more gain.",
-        "card_6": "Push limits, break barriers.",
-        "card_7": "Dominate your day.",
-        "card_8": "Focus. Hit. Win.",
-        "card_9": "Sweat today, conquer tomorrow.",
-        "card_10": "Strength isn't given, it's earned.",
-        "card_11": "Rise. Fight. Repeat.",
-        "card_12": "Fearless, relentless, unstoppable.",
-        "card_13": "Hit hard, stay strong."
+      "list": {
+        "1_title": "Upper Body Power",
+        "2_title": "Shadow Boxing Flow",
+        "3_title": "Core Stability",
+        "4_title": "Explosive Hooks",
+        "5_title": "Defensive Drills",
+        "6_title": "Bag Work Intensity",
+        "7_title": "Footwork Agility",
+        "8_title": "Endurance Round",
+        "9_title": "Speed Training",
+        "10_title": "Full Body Torque",
+        "11_title": "Resistance Training",
+        "12_title": "Knockout Power",
+        "13_title": "Cool Down Stretch"
       },
       "cta": {
         "title": "Trainingsvideos",
@@ -694,6 +709,21 @@
       "subtitle": "Ein Werkzeug, Unendliche Möglichkeiten",
       "titleStart": "Nutze STRONGSIDE",
       "titleEnd": "Überall",
+      "cards": {
+        "card_1": "Live stronger.",
+        "card_2": "Power in every punch.",
+        "card_3": "Train. Fight. Repeat.",
+        "card_4": "Endure. Overcome. Conquer.",
+        "card_5": "No pain, more gain.",
+        "card_6": "Push limits, break barriers.",
+        "card_7": "Dominate your day.",
+        "card_8": "Focus. Hit. Win.",
+        "card_9": "Sweat today, conquer tomorrow.",
+        "card_10": "Strength isn't given, it's earned.",
+        "card_11": "Rise. Fight. Repeat.",
+        "card_12": "Fearless, relentless, unstoppable.",
+        "card_13": "Hit hard, stay strong."
+      },
       "cta": {
         "title": "Trainingsvideos",
         "subtitle": "Verpassen Sie nicht Ihre Chance, Ihr Training zu transformieren. Schließen Sie sich jetzt der Elite an.",

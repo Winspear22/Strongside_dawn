@@ -601,6 +601,21 @@
       "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Verzonden binnen 24u<br>Levering Europa: 3-5 werkdagen<br>Retour binnen 15 dagen</p>",
       "guaranteeTitle": "Garantie",
       "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ 15 dagen geld-terug-garantie</li><li>✅ Responsieve klantenservice</li><li>✅ Veilige betaling</li></ul>",
+      "features": {
+        "title": "Het Oneerlijke Voordeel",
+        "subtitle": "Waarom het werkt",
+        "cards": {
+          "1_title": "Vloeiende Weerstand",
+          "1_desc": "In tegenstelling tot vrije gewichten verhoogt elastiek de spanning aan het einde van de beweging, waar de impact maximaal is.",
+          "2_title": "Spiergeheugen",
+          "2_desc": "Corrigeer je houding op natuurlijke wijze. Als je dekking zakt, herinnert de spanning je er direct aan.",
+          "3_title": "Licht & Duurzaam",
+          "3_desc": "Polymeer van ruimtevaartkwaliteit. Onverwoestbaar, weegt minder dan 200g en past in je zak."
+        }
+      },
+      "whatYouGet": {
+        "title": "Wat Je Krijgt"
+      },
       "showDetails": "Beschrijving bekijken",
       "hideDetails": "Beschrijving verbergen",
       "color": "Kleur",
@@ -620,20 +635,20 @@
     },
     "videos": {
       "title": "Trainingsvideo's",
-      "videoTitles": {
-        "card_1": "Live stronger.",
-        "card_2": "Power in every punch.",
-        "card_3": "Train. Fight. Repeat.",
-        "card_4": "Endure. Overcome. Conquer.",
-        "card_5": "No pain, more gain.",
-        "card_6": "Push limits, break barriers.",
-        "card_7": "Dominate your day.",
-        "card_8": "Focus. Hit. Win.",
-        "card_9": "Sweat today, conquer tomorrow.",
-        "card_10": "Strength isn't given, it's earned.",
-        "card_11": "Rise. Fight. Repeat.",
-        "card_12": "Fearless, relentless, unstoppable.",
-        "card_13": "Hit hard, stay strong."
+      "list": {
+        "1_title": "Upper Body Power",
+        "2_title": "Shadow Boxing Flow",
+        "3_title": "Core Stability",
+        "4_title": "Explosive Hooks",
+        "5_title": "Defensive Drills",
+        "6_title": "Bag Work Intensity",
+        "7_title": "Footwork Agility",
+        "8_title": "Endurance Round",
+        "9_title": "Speed Training",
+        "10_title": "Full Body Torque",
+        "11_title": "Resistance Training",
+        "12_title": "Knockout Power",
+        "13_title": "Cool Down Stretch"
       },
       "cta": {
         "title": "Trainingsvideo's",
@@ -694,6 +709,21 @@
       "subtitle": "Eén Tool, Oneindige Mogelijkheden",
       "titleStart": "Gebruik STRONGSIDE",
       "titleEnd": "Overal",
+      "cards": {
+        "card_1": "Live stronger.",
+        "card_2": "Power in every punch.",
+        "card_3": "Train. Fight. Repeat.",
+        "card_4": "Endure. Overcome. Conquer.",
+        "card_5": "No pain, more gain.",
+        "card_6": "Push limits, break barriers.",
+        "card_7": "Dominate your day.",
+        "card_8": "Focus. Hit. Win.",
+        "card_9": "Sweat today, conquer tomorrow.",
+        "card_10": "Strength isn't given, it's earned.",
+        "card_11": "Rise. Fight. Repeat.",
+        "card_12": "Fearless, relentless, unstoppable.",
+        "card_13": "Hit hard, stay strong."
+      },
       "cta": {
         "title": "Trainingsvideo's",
         "subtitle": "Mis je kans niet om je training te transformeren. Sluit je nu aan bij de elite.",

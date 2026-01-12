@@ -601,6 +601,21 @@
       "shippingContent_html": "<p style='margin:0; line-height:1.6;'>Skickas inom 24h<br>Leverans Europa: 3-5 arbetsdagar<br>Retur inom 15 dagar</p>",
       "guaranteeTitle": "Garanti",
       "guaranteeContent_html": "<ul style='list-style:none; padding:0; margin:0; line-height:1.6;'><li>✅ 15 dagars pengarna-tillbaka-garanti</li><li>✅ Responsiv kundsupport</li><li>✅ Säker betalning</li></ul>",
+      "features": {
+        "title": "Det Orättvisa Övertaget",
+        "subtitle": "Varför det fungerar",
+        "cards": {
+          "1_title": "Flytande Motstånd",
+          "1_desc": "Till skillnad från fria vikter ökar gummibandet spänningen i slutet av rörelsen, där kraften är som störst.",
+          "2_title": "Muskelminne",
+          "2_desc": "Korrigera din hållning naturligt. Om din gard faller, påminner spänningen dig omedelbart.",
+          "3_title": "Lätt & Hållbar",
+          "3_desc": "Polymer av rymdkvalitet. Oförstörbar, väger mindre än 200g och får plats i fickan."
+        }
+      },
+      "whatYouGet": {
+        "title": "Vad Du Får"
+      },
       "showDetails": "Visa beskrivning",
       "hideDetails": "Dölj beskrivning",
       "color": "Färg",
@@ -620,20 +635,20 @@
     },
     "videos": {
       "title": "Träningsvideor",
-      "videoTitles": {
-        "card_1": "Live stronger.",
-        "card_2": "Power in every punch.",
-        "card_3": "Train. Fight. Repeat.",
-        "card_4": "Endure. Overcome. Conquer.",
-        "card_5": "No pain, more gain.",
-        "card_6": "Push limits, break barriers.",
-        "card_7": "Dominate your day.",
-        "card_8": "Focus. Hit. Win.",
-        "card_9": "Sweat today, conquer tomorrow.",
-        "card_10": "Strength isn't given, it's earned.",
-        "card_11": "Rise. Fight. Repeat.",
-        "card_12": "Fearless, relentless, unstoppable.",
-        "card_13": "Hit hard, stay strong."
+      "list": {
+        "1_title": "Upper Body Power",
+        "2_title": "Shadow Boxing Flow",
+        "3_title": "Core Stability",
+        "4_title": "Explosive Hooks",
+        "5_title": "Defensive Drills",
+        "6_title": "Bag Work Intensity",
+        "7_title": "Footwork Agility",
+        "8_title": "Endurance Round",
+        "9_title": "Speed Training",
+        "10_title": "Full Body Torque",
+        "11_title": "Resistance Training",
+        "12_title": "Knockout Power",
+        "13_title": "Cool Down Stretch"
       },
       "cta": {
         "title": "Träningsvideor",
@@ -694,6 +709,21 @@
       "subtitle": "Ett Verktyg, Oändliga Möjligheter",
       "titleStart": "Använd STRONGSIDE",
       "titleEnd": "Överallt",
+      "cards": {
+        "card_1": "Live stronger.",
+        "card_2": "Power in every punch.",
+        "card_3": "Train. Fight. Repeat.",
+        "card_4": "Endure. Overcome. Conquer.",
+        "card_5": "No pain, more gain.",
+        "card_6": "Push limits, break barriers.",
+        "card_7": "Dominate your day.",
+        "card_8": "Focus. Hit. Win.",
+        "card_9": "Sweat today, conquer tomorrow.",
+        "card_10": "Strength isn't given, it's earned.",
+        "card_11": "Rise. Fight. Repeat.",
+        "card_12": "Fearless, relentless, unstoppable.",
+        "card_13": "Hit hard, stay strong."
+      },
       "cta": {
         "title": "Träningsvideor",
         "subtitle": "Missa inte chansen att förändra din träning. Gå med i eliten nu.",
