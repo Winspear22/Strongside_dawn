@@ -724,17 +724,15 @@
           </div>
 
           <!-- Main Image -->
-          <div class="strongside-main-image-container" id="hero-main-image-container">
+          <div class="strongside-main-image-container" id="hero-main-image-container" onclick="openHeroModal()">
             <img
               id="hero-main-image"
               src="{{ product.featured_media | image_url: width: 1200 }}"
               class="strongside-main-image"
               width="1200"
               height="800"
+              style="cursor:zoom-in;"
             >
-            <div class="strongside-zoom-hint">
-              <span class="strongside-zoom-label">{{ 'strongside.shop.clickToZoom' | t }}</span>
-            </div>
           </div>
         </div>
 
@@ -1139,11 +1137,52 @@
   </div>
 </div>
 
+<!-- HERO ZOOM MODAL (Added) -->
+<div
+  id="hero-image-modal"
+  class="strongside-mobile-modal"
+  onclick="closeHeroModal()"
+  style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.95); align-items:center; justify-content:center;"
+>
+  <button
+    onclick="closeHeroModal()"
+    style="position:absolute; top:2rem; right:2rem; background:transparent; border:none; color:white; font-size:3rem; cursor:pointer;"
+  >
+    &times;
+  </button>
+  <img
+    id="hero-modal-img"
+    src=""
+    style="max-width:95vw; max-height:95vh; object-fit:contain; border-radius:0.5rem;"
+    onclick="event.stopPropagation()"
+  >
+</div>
+
 <script>
   function changeHeroImage(btn, src) {
     document.getElementById('hero-main-image').src = src;
     document.querySelectorAll('.strongside-thumb-btn').forEach((b) => b.classList.remove('is-active'));
     btn.classList.add('is-active');
+  }
+
+  function openHeroModal() {
+    const mainImg = document.getElementById('hero-main-image');
+    const modalImg = document.getElementById('hero-modal-img');
+    const modal = document.getElementById('hero-image-modal');
+
+    if (mainImg && modalImg && modal) {
+      modalImg.src = mainImg.src;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeHeroModal() {
+    const modal = document.getElementById('hero-image-modal');
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
   }
 
   function toggleDescription() {
