@@ -612,12 +612,18 @@
 
     function updateThemeUI(dark) {
       if (dark) {
+        document.documentElement.classList.add('strongside-dark');
+        document.documentElement.classList.remove('strongside-light');
         body.classList.add('strongside-dark');
+        body.classList.remove('strongside-light');
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
         themeTextMobile.textContent = 'LIGHT MODE';
       } else {
+        document.documentElement.classList.remove('strongside-dark');
+        document.documentElement.classList.add('strongside-light');
         body.classList.remove('strongside-dark');
+        body.classList.add('strongside-light');
         sunIcon.style.display = 'none';
         moonIcon.style.display = 'block';
         themeTextMobile.textContent = 'DARK MODE';
