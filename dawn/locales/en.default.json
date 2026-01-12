@@ -606,7 +606,23 @@
       "color": "Color",
       "resistance": "Resistance level",
       "descTitle": "Description",
-      "whatsIncluded": "Pack Content"
+      "whatsIncluded": "Pack Content",
+      "clickToZoom": "Click to zoom",
+      "features": {
+        "title": "The Unfair Advantage",
+        "subtitle": "Why the pros use it",
+        "cards": {
+          "1_title": "Fluid Resistance",
+          "1_desc": "Unlike free weights, the elastic increases tension at the end of the movement, where impact is maximum.",
+          "2_title": "Muscle Memory",
+          "2_desc": "Correct your posture naturally. If your guard drops, the tension reminds you instantly.",
+          "3_title": "Light & Durable",
+          "3_desc": "Aerospace-grade polymer. Indestructible, weighs less than 200g and fits in your pocket."
+        }
+      },
+      "whatYouGet": {
+        "title": "What You Get"
+      }
     },
     "footer": {
       "rights": "All rights reserved.",
@@ -694,6 +710,22 @@
       "subtitle": "One Tool, Infinite Possibilities",
       "titleStart": "Use STRONGSIDE",
       "titleEnd": "Anywhere",
+      "sportsTagline": "MMA. Boxing. Muay Thai. Karate. All agree: it changes everything.",
+      "cards": {
+        "card_1": "Live stronger.",
+        "card_2": "Power in every punch.",
+        "card_3": "Train. Fight. Repeat.",
+        "card_4": "Endure. Overcome. Conquer.",
+        "card_5": "No pain, more gain.",
+        "card_6": "Push limits, break barriers.",
+        "card_7": "Dominate your day.",
+        "card_8": "Focus. Hit. Win.",
+        "card_9": "Sweat today, conquer tomorrow.",
+        "card_10": "Strength isn't given, it's earned.",
+        "card_11": "Rise. Fight. Repeat.",
+        "card_12": "Fearless, relentless, unstoppable.",
+        "card_13": "Hit hard, stay strong."
+      },
       "cta": {
         "title": "Training Videos",
         "subtitle": "Don't miss your chance to transform your training. Join the elite now.",

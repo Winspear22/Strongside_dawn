@@ -712,7 +712,13 @@
                 class="strongside-thumb-btn {% if forloop.first %}is-active{% endif %}"
                 onclick="changeHeroImage(this, '{{ media | image_url: width: 1200 }}')"
               >
-                <img src="{{ media | image_url: width: 200 }}" class="w-full h-full object-cover">
+                <img
+                  src="{{ media | image_url: width: 200 }}"
+                  width="200"
+                  height="{{ 200 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+                  alt="{{ media.alt | escape }}"
+                  class="w-full h-full object-cover"
+                >
               </button>
             {% endfor %}
           </div>
