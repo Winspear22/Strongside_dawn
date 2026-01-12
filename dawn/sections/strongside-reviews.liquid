@@ -252,7 +252,7 @@
   }
 </style>
 
-<div class="ss-reviews-container">
+<div class="ss-reviews-container" id="customer-reviews">
   <!-- HEADER -->
   <div class="ss-reviews-header">
     <span class="ss-reviews-subtitle">{{ 'strongside.reviews.subtitle' | t }}</span>
@@ -465,6 +465,18 @@
           padding: 0 15px !important;
           appearance: none !important;
           cursor: pointer !important;
+        }
+        .strongside-reviews-badge {
+          display:flex; 
+          align-items:center; 
+          gap:0.5rem; 
+          background:rgba(255,255,255,0.05); 
+          padding:0.8rem 1.6rem; 
+          border-radius:9999px; 
+          border:1px solid rgba(255,255,255,0.1); 
+          cursor:pointer; 
+          margin-bottom:2.4rem; 
+          transition:all 0.2s;
         }
       `;
       document.body.appendChild(style);

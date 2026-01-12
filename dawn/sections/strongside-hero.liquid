@@ -891,6 +891,7 @@
           style="display:flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.05); padding:0.8rem 1.6rem; border-radius:9999px; border:1px solid rgba(255,255,255,0.1); cursor:pointer; margin-bottom:2.4rem; transition:all 0.2s;"
           onmouseover="this.style.background='rgba(255,255,255,0.1)'"
           onmouseout="this.style.background='rgba(255,255,255,0.05)'"
+          onclick="const el = document.getElementById('customer-reviews'); if(el) el.scrollIntoView({behavior:'smooth'});"
         >
           <div style="color:#facc15; display:flex; gap:2px;">
             <!-- 5 Stars SVG -->
