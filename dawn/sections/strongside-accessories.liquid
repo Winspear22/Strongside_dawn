@@ -581,6 +581,8 @@
 
     if (mainImg) {
       mainImg.src = url;
+      // Remove srcset to ensure the browser uses the new src immediately
+      mainImg.removeAttribute('srcset');
       // Also update the modal trigger source if needed
       currentAccessoryImage = url;
     }
