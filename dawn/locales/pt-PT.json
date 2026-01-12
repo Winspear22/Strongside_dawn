@@ -666,7 +666,8 @@
       "errorLoading": "Não é possível carregar avaliações neste momento.",
       "errorSubmit": "Ocorreu um erro. Tenta novamente.",
       "today": "Hoje",
-      "yesterday": "Ontem"
+      "yesterday": "Ontem",
+      "reviewWord": "avaliações"
     },
     "accessories": {
       "subtitle": "ACESSÓRIOS",

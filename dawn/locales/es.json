@@ -666,7 +666,8 @@
       "errorLoading": "No se pueden cargar las reseñas en este momento.",
       "errorSubmit": "Ha ocurrido un error. Inténtalo de nuevo.",
       "today": "Hoy",
-      "yesterday": "Ayer"
+      "yesterday": "Ayer",
+      "reviewWord": "reseñas"
     },
     "accessories": {
       "subtitle": "ACCESORIOS",

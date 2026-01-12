@@ -666,7 +666,8 @@
       "errorLoading": "Bewertungen können derzeit nicht geladen werden.",
       "errorSubmit": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
       "today": "Heute",
-      "yesterday": "Gestern"
+      "yesterday": "Gestern",
+      "reviewWord": "Bewertungen"
     },
     "accessories": {
       "subtitle": "ZUBEHÖR",

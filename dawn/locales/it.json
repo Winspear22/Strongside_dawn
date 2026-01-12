@@ -678,7 +678,8 @@
       "errorLoading": "Impossibile caricare le recensioni al momento.",
       "errorSubmit": "Si è verificato un errore. Riprova.",
       "today": "Oggi",
-      "yesterday": "Ieri"
+      "yesterday": "Ieri",
+      "reviewWord": "recensioni"
     },
     "accessories": {
       "subtitle": "ACCESSORI",

@@ -792,7 +792,8 @@
       "errorLoading": "Impossible de charger les avis pour le moment.",
       "errorSubmit": "Une erreur est survenue. Veuillez réessayer.",
       "today": "Aujourd'hui",
-      "yesterday": "Hier"
+      "yesterday": "Hier",
+      "reviewWord": "avis"
     },
     "accessories": {
       "subtitle": "ACCESSOIRES",

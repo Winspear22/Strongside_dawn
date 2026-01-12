@@ -666,7 +666,8 @@
       "errorLoading": "Kan inte ladda recensioner just nu.",
       "errorSubmit": "Ett fel uppstod. Försök igen.",
       "today": "Idag",
-      "yesterday": "Igår"
+      "yesterday": "Igår",
+      "reviewWord": "recensioner"
     },
     "accessories": {
       "subtitle": "TILLBEHÖR",

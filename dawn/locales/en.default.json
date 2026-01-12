@@ -666,7 +666,8 @@
       "errorLoading": "Unable to load reviews at the moment.",
       "errorSubmit": "An error occurred. Please try again.",
       "today": "Today",
-      "yesterday": "Yesterday"
+      "yesterday": "Yesterday",
+      "reviewWord": "reviews"
     },
     "accessories": {
       "subtitle": "ACCESSORIES",

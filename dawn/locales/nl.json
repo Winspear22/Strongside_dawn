@@ -666,7 +666,8 @@
       "errorLoading": "Kan beoordelingen momenteel niet laden.",
       "errorSubmit": "Er is een fout opgetreden. Probeer het opnieuw.",
       "today": "Vandaag",
-      "yesterday": "Gisteren"
+      "yesterday": "Gisteren",
+      "reviewWord": "beoordelingen"
     },
     "accessories": {
       "subtitle": "ACCESSOIRES",

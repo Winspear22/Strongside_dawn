@@ -285,24 +285,40 @@
       noReviews: "{{ 'strongside.reviews.noReviews' | t }}",
       cancel: "{{ 'strongside.reviews.cancel' | t }}",
       submit: "{{ 'strongside.reviews.submitReview' | t }}",
+      title: "{{ 'strongside.reviews.title' | t }}",
+      reviewWord: "{{ 'strongside.reviews.reviewWord' | t | default: 'reviews' }}",
     };
 
     function translateWidget() {
       // Translate "Write a Review" button
       const writeBtns = document.querySelectorAll('.jdgm-write-rev-link');
       writeBtns.forEach((btn) => {
-        // Only if text is English default or simply to force override
         btn.innerText = translations.writeReview;
       });
 
-      // Translate "Verified Reviews" (badge text often hard to reach, but let's try)
-      // Judge.me badge structure usually: .jdgm-prev-badge__text
+      // Translate the widget header title (e.g., "Customer Reviews" -> "Avis Clients")
+      const headerTitles = document.querySelectorAll('.jdgm-rev-widg__title');
+      headerTitles.forEach((title) => {
+        title.innerText = translations.title;
+      });
+
+      // Translate review count text (e.g., "10 reviews" -> "10 avis")
+      const reviewCounts = document.querySelectorAll('.jdgm-rev-widg__summary-text');
+      reviewCounts.forEach((el) => {
+        // Extract the number and replace the word
+        const text = el.innerText;
+        const match = text.match(/(\d+)/);
+        if (match) {
+          el.innerText = match[1] + ' ' + translations.reviewWord;
+        }
+      });
+
+      // Also check for badge text
       const badgeTexts = document.querySelectorAll('.jdgm-prev-badge__text');
       badgeTexts.forEach((txt) => {
-        if (txt.innerText.includes('reviews') || txt.innerText.includes('avis')) {
-          // Basic replacement logic, might be complex if dynamic count
-          // leaving as is for now unless user complains about specific badge text
-          // But user asked for "widget"
+        const match = txt.innerText.match(/(\d+)/);
+        if (match) {
+          txt.innerText = match[1] + ' ' + translations.reviewWord;
         }
       });
 
