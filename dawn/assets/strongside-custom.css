@@ -1300,6 +1300,16 @@ body.strongside-light {
   --jm-review-widget-star-and-histogram-color: #FACC15 !important;
 }
 
+/* EXCEPTION: Section Subtitles must be RED - Strongside Brand Color */
+.strongside-light .ss-acc-subtitle,
+.strongside-light .ss-faq-subtitle,
+.strongside-light .ss-cta-subtitle,
+.strongside-light .ss-reviews-subtitle,
+.strongside-light .ss-wyg-subtitle,
+.strongside-light .ss-footer-logo-accent {
+  color: #ff2222 !important;
+}
+
 /* Header Adjustments */
 .strongside-light .strongside-header-wrapper.is-scrolled {
   background-color: rgba(255, 255, 255, 0.95) !important;
