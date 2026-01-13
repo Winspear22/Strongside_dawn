@@ -25,9 +25,9 @@
   /* SCOPED CSS to avoid theme conflicts */
   #shopify-section-{{ section.id }} .strongside-accessories-section {
     padding: 4rem 1.5rem;
-    background: linear-gradient(to bottom, #050505, rgba(23, 23, 23, 0.5)); /* From brand-black to neutral-900/50 */
-    border-top: 1px solid rgba(255, 255, 255, 0.05); /* border-white/5 */
-    color: white;
+    background: transparent; /* Inherits from wrapper */
+    border-top: 0;
+    color: rgb(var(--color-foreground));
     font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
   }
   @media (min-width: 1024px) {
@@ -55,7 +55,7 @@
     font-style: italic;
     text-transform: uppercase;
     letter-spacing: -0.05em;
-    color: white;
+    color: rgb(var(--color-foreground));
     line-height: 1;
     margin: 0 0 1rem 0;
   }
@@ -63,7 +63,7 @@
     #shopify-section-{{ section.id }} .ss-acc-title { font-size: 5rem; /* Reduced by 10% */ }
   }
   #shopify-section-{{ section.id }} .ss-acc-desc {
-    color: #9ca3af; /* gray-400 */
+    color: rgba(var(--color-foreground), 0.6);
     max-width: 36rem;
     margin: 0 auto;
   }
@@ -72,8 +72,8 @@
   #shopify-section-{{ section.id }} .ss-acc-card {
     max-width: 47.25rem; /* Reduced by 10% */
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.05); /* bg-white/5 */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* border-white/10 */
+    background-color: rgba(var(--color-foreground), 0.05); /* Adaptive bg */
+    border: 1px solid rgba(var(--color-foreground), 0.1); /* Adaptive border */
     border-radius: 1rem; /* rounded-2xl */
     padding: 1.5rem;
     transition: all 0.3s;
@@ -106,7 +106,7 @@
     height: 5rem;
     border-radius: 0.5rem;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(var(--color-foreground), 0.1);
     opacity: 0.7;
     cursor: pointer;
     background: transparent;
@@ -115,7 +115,7 @@
   }
   #shopify-section-{{ section.id }} .ss-acc-thumb-btn:hover {
     opacity: 1;
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(var(--color-foreground), 0.3);
   }
   #shopify-section-{{ section.id }} .ss-acc-thumb-btn.is-active {
     border-color: #ff2222;
@@ -131,7 +131,7 @@
   #shopify-section-{{ section.id }} .ss-acc-main-img-container {
     flex: 1;
     aspect-ratio: 1/1;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(var(--color-foreground), 0.05);
     border-radius: 0.75rem;
     overflow: hidden;
     cursor: zoom-in;
@@ -152,8 +152,8 @@
     text-transform: uppercase !important;
     letter-spacing: -0.05em !important; /* Adjusted to match hero */
     line-height: 1 !important;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
-    color: white;
+    text-shadow: none !important;
+    color: rgb(var(--color-foreground));
     margin: 0;
   }
   #shopify-section-{{ section.id }} .ss-acc-price {
@@ -165,25 +165,23 @@
   }
 
   /* DESCRIPTION TOGGLE */
-  /* DESCRIPTION TOGGLE */
   #shopify-section-{{ section.id }} .ss-acc-desc-btn {
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 0.5rem; /* Re-added margin */
     padding: 1.6rem; /* Kept scale */
-    background-color: #171717 !important; /* Neutral-900 */
-    border: 1px solid #262626 !important; /* Neutral-800 */
+    background-color: rgba(var(--color-foreground), 0.05) !important;
+    border: 1px solid rgba(var(--color-foreground), 0.1) !important;
     border-radius: 0.5rem !important; /* Rounded */
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     transition: background-color 0.2s;
-    color: white;
+    color: rgb(var(--color-foreground));
   }
   #shopify-section-{{ section.id }} .ss-acc-desc-btn:hover {
-    background-color: #262626 !important; /* Lighter on hover */
-    color: white; /* Keep white text */
+    background-color: rgba(var(--color-foreground), 0.1) !important;
   }
   #shopify-section-{{ section.id }} .ss-acc-desc-label {
     font-size: 1.2rem;
@@ -191,7 +189,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-family: 'Inter', system-ui, sans-serif;
-    color: white !important;
+    color: rgb(var(--color-foreground)) !important;
   }
   #shopify-section-{{ section.id }} .ss-acc-content {
     max-height: 0;
@@ -204,7 +202,7 @@
   }
   #shopify-section-{{ section.id }} .ss-acc-html {
     font-size: 1.15rem !important; /* Reduced by 20% from 1.4rem */
-    color: #d1d5db !important;
+    color: rgba(var(--color-foreground), 0.7) !important;
     line-height: 1.6 !important;
     margin-bottom: 1rem !important;
     padding-top: 1rem !important;
@@ -217,7 +215,7 @@
     font-size: 1.125rem !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
-    color: white !important;
+    color: rgb(var(--color-foreground)) !important;
     margin-top: 1.5rem !important;
     margin-bottom: 0.5rem !important;
     letter-spacing: 0.05em !important;
@@ -227,31 +225,31 @@
   #shopify-section-{{ section.id }} .ss-acc-html h4 {
     font-size: 1rem !important;
     font-weight: 700 !important;
-    color: white !important;
+    color: rgb(var(--color-foreground)) !important;
     margin-top: 1rem !important;
     margin-bottom: 0.5rem !important;
     line-height: 1.4 !important;
   }
   #shopify-section-{{ section.id }} .ss-acc-html p {
     margin-bottom: 1em !important;
-    color: #d1d5db !important;
+    color: rgba(var(--color-foreground), 0.7) !important;
   }
   #shopify-section-{{ section.id }} .ss-acc-html ul {
     list-style: disc !important;
     margin-left: 1.2rem !important;
     margin-bottom: 1em !important;
-    color: #9ca3af !important;
+    color: rgba(var(--color-foreground), 0.6) !important;
   }
   #shopify-section-{{ section.id }} .ss-acc-html li {
     margin-bottom: 0.25em !important;
-    color: #9ca3af !important;
+    color: rgba(var(--color-foreground), 0.6) !important;
   }
   #shopify-section-{{ section.id }} .ss-acc-html strong {
-    color: white !important;
+    color: rgb(var(--color-foreground)) !important;
     font-weight: 700 !important;
   }
   #shopify-section-{{ section.id }} .ss-acc-html em {
-    color: #d1d5db !important;
+    color: rgba(var(--color-foreground), 0.7) !important;
     font-style: italic !important;
   }
 
@@ -264,21 +262,21 @@
   #shopify-section-{{ section.id }} .ss-acc-meta-row {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.1);
     padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 1.15rem !important; /* Matches mobile html text */
   }
-  #shopify-section-{{ section.id }} .ss-acc-meta-label { color: #6b7280; font-weight: 500; }
-  #shopify-section-{{ section.id }} .ss-acc-meta-val { color: white; font-family: monospace; text-align: right; }
+  #shopify-section-{{ section.id }} .ss-acc-meta-label { color: rgba(var(--color-foreground), 0.6); font-weight: 500; }
+  #shopify-section-{{ section.id }} .ss-acc-meta-val { color: rgb(var(--color-foreground)); font-family: monospace; text-align: right; }
 
   /* ACTIONS */
   #shopify-section-{{ section.id }} .ss-acc-btn-add {
     width: 100%;
     margin-top: 2rem;
     padding: 1.6rem; /* Reduced by 10% */
-    background-color: white !important;
-    color: black !important;
+    background-color: rgb(var(--color-foreground)) !important;
+    color: rgb(var(--color-background)) !important;
     font-weight: 700;
     font-size: 1.35rem; /* Reduced by 10% */
     text-transform: uppercase;
@@ -294,15 +292,15 @@
     opacity: 1 !important; /* Force opacity */
     -webkit-font-smoothing: antialiased; /* Crisp text */
   }
-  /* Force all children to be black */
+  /* Force all children to be correct color */
   #shopify-section-{{ section.id }} .ss-acc-btn-add *,
   #shopify-section-{{ section.id }} .ss-acc-btn-add svg,
   #shopify-section-{{ section.id }} .ss-acc-btn-add span {
-    color: black !important;
-    stroke: black !important;
+    color: rgb(var(--color-background)) !important;
+    stroke: rgb(var(--color-background)) !important;
     opacity: 1 !important;
   }
-  #shopify-section-{{ section.id }} .ss-acc-btn-add:hover { background-color: #f3f4f6 !important; }
+  #shopify-section-{{ section.id }} .ss-acc-btn-add:hover { opacity: 0.9 !important; }
 
   #shopify-section-{{ section.id }} .ss-acc-btn-buy {
     width: 100%;
@@ -347,7 +345,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #6b7280;
+    color: rgba(var(--color-foreground), 0.6);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -403,27 +401,9 @@
     max-height: 80vh;
     border-radius: 0.5rem;
   }
-
-  /* LIGHT MODE OVERRIDE */
-  html.strongside-light .ss-acc-section {
-    background: linear-gradient(to bottom, #ffffff, #f3f4f6) !important;
-  }
-  html.strongside-light .ss-acc-title {
-    color: #111827 !important;
-  }
-  html.strongside-light .ss-acc-card {
-    background-color: #ffffff !important;
-    border: 1px solid #e5e7eb !important;
-  }
-  html.strongside-light .ss-acc-card-title {
-    color: #111827 !important;
-  }
-  html.strongside-light .ss-acc-card-desc {
-    color: #374151 !important;
-  }
 </style>
 
-<div class="strongside-accessories-section" id="elastics-section">
+<div class="strongside-accessories-section color-{{ section.settings.color_scheme }} gradient" id="elastics-section">
   <div class="ss-acc-header">
     <span class="ss-acc-subtitle">{{ 'strongside.accessories.subtitle' | t }}</span>
     <h2 class="ss-acc-title">{{ 'strongside.accessories.title' | t }}</h2>
@@ -679,6 +659,12 @@
       "id": "subtitle",
       "label": "Sous-titre",
       "default": "ACCESSOIRES"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
     },
     {
       "type": "text",
