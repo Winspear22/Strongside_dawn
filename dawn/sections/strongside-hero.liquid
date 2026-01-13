@@ -512,12 +512,8 @@
        If they are white PNGs, they will disappear on white background.
        We might need filter: invert(1) in light mode if they are white.
        Assuming they are colored or white. */
-    filter: brightness(0) invert(1); /* Force White by default (for dark mode) */
-  }
-
-  html.strongside-light #strongside-hero-wrapper .strongside-trust-logo-img {
-    filter: none; /* Show original colored logos in Light Mode */
-    opacity: 0.85; /* Slightly toned down */
+    /* Removing filters to show original colored logos in both modes */
+    filter: none;
   }
 
   #strongside-hero-wrapper .strongside-trust-logo-img:hover {
