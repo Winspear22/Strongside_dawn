@@ -321,22 +321,34 @@
     color: white !important;
   }
 
-  /* Account button stays red (both states) */
+  /* Account button stays red (ALL states) */
   .strongside-light .strongside-account-btn,
-  .strongside-light .strongside-header-wrapper.is-transparent .strongside-account-btn {
+  .strongside-light .strongside-header-wrapper.is-transparent .strongside-account-btn,
+  .strongside-light .strongside-header-wrapper.is-scrolled .strongside-account-btn {
     color: #ff2222 !important;
     border-color: rgba(255, 34, 34, 0.5) !important;
   }
 
-  /* Icons - dark in light mode (BOTH states) */
+  /* Icons - outline style in light mode (BOTH states) - NO FILL, just strokes */
   .strongside-light .strongside-icon-btn,
   .strongside-light .strongside-header-wrapper.is-transparent .strongside-icon-btn,
   .strongside-light .strongside-header-wrapper.is-scrolled .strongside-icon-btn {
     color: #111827 !important;
   }
 
+  .strongside-light .strongside-icon-btn svg,
+  .strongside-light .strongside-header-wrapper.is-transparent .strongside-icon-btn svg,
+  .strongside-light .strongside-header-wrapper.is-scrolled .strongside-icon-btn svg {
+    fill: none !important;
+    stroke: #111827 !important;
+  }
+
   .strongside-light .strongside-icon-btn:hover {
     color: #ff2222 !important;
+  }
+
+  .strongside-light .strongside-icon-btn:hover svg {
+    stroke: #ff2222 !important;
   }
 
   /* Hamburger - dark in light mode (BOTH states) */
@@ -543,7 +555,12 @@
     <!-- RIGHT: ICONS -->
     <div class="strongside-icons">
       <!-- Theme Toggle (Moved here) -->
-      <button id="theme-toggle" class="strongside-icon-btn" aria-label="Toggle Dark Mode" style="margin-right:1rem;">
+      <button
+        id="theme-toggle"
+        class="strongside-icon-btn"
+        aria-label="Toggle Dark Mode"
+        style="margin-right:1rem;display:flex;align-items:center;justify-content:center;"
+      >
         <!-- Sun Icon (for Dark Mode) -->
         <svg
           id="sun-icon"
