@@ -63,12 +63,12 @@
   }
 
   /* HEADER */
-  .ss-reviews-header {
+  #shopify-section-{{ section.id }} .ss-reviews-header {
     text-align: center;
     margin-bottom: 2.5rem;
   }
-  .ss-reviews-subtitle {
-    color: #ff2222; /* brand-accent */
+  #shopify-section-{{ section.id }} .ss-reviews-subtitle {
+    color: #ff2222 !important; /* brand-accent */
     font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -77,64 +77,65 @@
     margin-bottom: 0.5rem;
     font-family: ui-sans-serif, system-ui, sans-serif;
   }
-  .ss-reviews-title {
+  #shopify-section-{{ section.id }} .ss-reviews-title {
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 3rem;
     font-weight: 900;
     font-style: italic;
     text-transform: uppercase;
-    color: white;
+    color: white !important; /* Title on Dark Background stays White */
     line-height: 1;
     margin: 0;
   }
   @media (min-width: 768px) {
-    .ss-reviews-title { font-size: 4rem; }
+    #shopify-section-{{ section.id }} .ss-reviews-title { font-size: 4rem; }
   }
 
-  /* APP WIDGET OVERRIDES (To help it blend in) */
+  /* APP WIDGET WRAPPER - THE WHITE BLOCK */
   .ss-reviews-widget-wrapper {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-    padding: 1.5rem;
+    background-color: #ffffff !important; /* Force White Block */
+    border: 1px solid #ff2222 !important; /* Red Border */
+    border-radius: 2rem !important; /* Rounded Corners */
+    padding: 2.5rem;
+    box-shadow: 0 0 20px rgba(255, 34, 34, 0.25); /* Red Glow */
+    overflow: hidden; /* Clip inner content */
   }
 
   /* NUCLEAR OPTION: html body + ID specificity */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg {
-    color: white !important;
+    color: #111827 !important; /* Dark Text */
     font-family: inherit !important;
   }
 
   /* REVIEW TITLES */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg__title {
-    color: white !important;
+    color: #111827 !important; /* Dark Text */
     font-size: 1.1rem !important;
     font-weight: 700 !important;
   }
 
-  /* REVIEW BODY TEXT (The invisible part) */
+  /* REVIEW BODY TEXT */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg__body,
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__content,
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__body p {
-    color: #e5e7eb !important; /* Light Gray for readability */
+    color: #374151 !important; /* Dark Gray for readability on White */
     font-size: 1rem !important;
     line-height: 1.6 !important;
   }
 
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid #e5e7eb !important; /* Light Gray Separator */
   }
 
-  /* OVERRIDE JUDGE.ME DEFAULT GREEN COLORS */
-  /* Stars */
+  /* STYLING STARS */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star {
-    color: #ffd700 !important;
+    color: #fbbf24 !important; /* Amber-400 */
   }
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--on {
-    color: #ffd700 !important;
+    color: #fbbf24 !important;
   }
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--off {
-    color: rgba(255, 255, 255, 0.2) !important;
+    color: #e5e7eb !important; /* Gray-200 */
   }
 
   /* Buttons (Write Review) */
@@ -159,18 +160,18 @@
     background-color: #ff2222 !important;
   }
 
-  /* Form Inputs */
+  /* Form Inputs (On White Background) */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper input,
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper textarea {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: white !important;
+    background-color: #f9fafb !important; /* Light Gray BG */
+    border: 1px solid #d1d5db !important; /* Gray Border */
+    color: #111827 !important; /* Dark Text */
   }
 
   /* Pagination */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-paginate__page {
-    color: white !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #374151 !important;
+    border-color: #e5e7eb !important;
   }
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-paginate__page.jdgm-curt {
     color: #ff2222 !important;
@@ -180,7 +181,7 @@
   /* REVIEW METADATA (Name, Date) */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__reviewer-name-wrapper,
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__timestamp {
-    color: #9ca3af !important; /* Gray-400 */
+    color: #6b7280 !important; /* Gray-500 */
   }
 
   /* ============================================
@@ -235,8 +236,8 @@
   /* DROPDOWN OPTIONS (The white box)
      Note: Styling <option> is limited by browsers, but we try standard overrides */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-sort-dropdown option {
-    background-color: #171717 !important;
-    color: white !important;
+    background-color: white !important;
+    color: black !important;
   }
 
   /* Hide the old CSS arrow if Judge.me inserts one separately */
@@ -251,17 +252,12 @@
     clear: both;
   }
 
-  /* LIGHT MODE OVERRIDE */
+  /* LIGHT MODE OVERRIDE - NO CHANGE NEEDED AS CARD IS WHITE */
   html.strongside-light .ss-reviews-container {
-    background-color: #ffffff !important;
+    background-color: transparent !important;
   }
-  html.strongside-light .ss-reviews-title {
-    color: #111827 !important;
-  }
-  html.strongside-light .jdgm-rev-widg {
-    background-color: #f3f4f6 !important;
-    border: 1px solid #e5e7eb !important;
-  }
+  /* Removed title override to keep it white on the dark section background */
+  /* Wrapper stays white in both modes, but background changes */
 </style>
 
 <div class="ss-reviews-container" id="customer-reviews">
