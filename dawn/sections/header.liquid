@@ -267,6 +267,134 @@
   .strongside-mobile-close:hover {
     color: #ff2222;
   }
+
+  /* =====================================================
+     LIGHT MODE CONDITIONAL OVERRIDES
+     ===================================================== */
+
+  /* Header background in light mode - when scrolled */
+  .strongside-light .strongside-header-wrapper.is-scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  /* Header background in light mode - when transparent (on hero) */
+  .strongside-light .strongside-header-wrapper.is-transparent {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  /* Logo text - black in light mode (BOTH states) */
+  .strongside-light .strongside-logo,
+  .strongside-light .strongside-header-wrapper.is-transparent .strongside-logo,
+  .strongside-light .strongside-header-wrapper.is-scrolled .strongside-logo {
+    color: #111827 !important;
+  }
+
+  /* technologies text stays red */
+  .strongside-light .strongside-logo span {
+    color: #ff2222 !important;
+  }
+
+  /* Nav links - dark gray in light mode (BOTH states) */
+  .strongside-light .strongside-nav-link,
+  .strongside-light .strongside-header-wrapper.is-transparent .strongside-nav-link,
+  .strongside-light .strongside-header-wrapper.is-scrolled .strongside-nav-link {
+    color: #374151 !important;
+  }
+
+  .strongside-light .strongside-nav-link:hover {
+    color: #111827 !important;
+  }
+
+  /* Equipment pill - dark text on light red background */
+  .strongside-light .strongside-nav-link.is-pill {
+    color: #111827 !important;
+    background-color: rgba(255, 34, 34, 0.15) !important;
+    border: 1px solid rgba(255, 34, 34, 0.5) !important;
+  }
+
+  .strongside-light .strongside-nav-link.is-pill:hover {
+    background-color: #ff2222 !important;
+    color: white !important;
+  }
+
+  /* Account button stays red (both states) */
+  .strongside-light .strongside-account-btn,
+  .strongside-light .strongside-header-wrapper.is-transparent .strongside-account-btn {
+    color: #ff2222 !important;
+    border-color: rgba(255, 34, 34, 0.5) !important;
+  }
+
+  /* Icons - dark in light mode (BOTH states) */
+  .strongside-light .strongside-icon-btn,
+  .strongside-light .strongside-header-wrapper.is-transparent .strongside-icon-btn,
+  .strongside-light .strongside-header-wrapper.is-scrolled .strongside-icon-btn {
+    color: #111827 !important;
+  }
+
+  .strongside-light .strongside-icon-btn:hover {
+    color: #ff2222 !important;
+  }
+
+  /* Hamburger - dark in light mode (BOTH states) */
+  .strongside-light .strongside-hamburger,
+  .strongside-light .strongside-header-wrapper.is-transparent .strongside-hamburger,
+  .strongside-light .strongside-header-wrapper.is-scrolled .strongside-hamburger {
+    color: #111827 !important;
+  }
+
+  .strongside-light .strongside-hamburger:hover {
+    color: #ff2222 !important;
+  }
+
+  /* Mobile menu - light background in light mode */
+  .strongside-light .strongside-mobile-menu {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+  }
+
+  .strongside-light .strongside-mobile-link {
+    color: #111827 !important;
+  }
+
+  .strongside-light .strongside-mobile-link:hover {
+    color: #ff2222 !important;
+  }
+
+  .strongside-light .strongside-mobile-link.is-pill {
+    color: #ff2222 !important;
+  }
+
+  .strongside-light .strongside-mobile-close {
+    color: #111827 !important;
+  }
+
+  .strongside-light .strongside-mobile-close:hover {
+    color: #ff2222 !important;
+  }
+
+  /* Separator - darker in light mode */
+  .strongside-light .strongside-separator {
+    background-color: #d1d5db !important;
+  }
+
+  /* Language dropdown - white background */
+  .strongside-light .strongside-lang-list {
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .strongside-light .strongside-lang-item {
+    color: #111827 !important;
+  }
+
+  .strongside-light .strongside-lang-item:hover {
+    background-color: #f3f4f6 !important;
+    color: #ff2222 !important;
+  }
 </style>
 
 <div id="shopify-section-header" class="strongside-header-wrapper is-transparent">
@@ -344,7 +472,7 @@
                 role="list"
                 class="strongside-lang-list"
                 hidden
-                style="position:absolute;top:100%;right:0;background:#050505;border:1px solid #333;list-style:none;padding:0;margin:0;min-width:60px;z-index:99;"
+                style="position:absolute;top:100%;right:0;list-style:none;padding:0;margin:0;min-width:60px;z-index:99;border-radius:8px;overflow:hidden;"
               >
                 {%- for language in localization.available_languages -%}
                   <li class="localization-form__item" tabindex="-1">
@@ -357,7 +485,7 @@
                         aria-current="true"
                       {% endif %}
                       data-value="{{ language.iso_code }}"
-                      style="display:block;padding:8px 12px;color:white;text-decoration:none;font-size:12px;font-weight:bold;text-transform:uppercase;"
+                      style="display:block;padding:8px 12px;text-decoration:none;font-size:12px;font-weight:bold;text-transform:uppercase;"
                     >
                       {{ language.iso_code | upcase }}
                     </a>

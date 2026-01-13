@@ -1213,67 +1213,6 @@ body.strongside-dark {
     font-size: 3rem !important;
   }
 }
-/* =====================================================
-   LIGHT MODE OVERRIDES
-   (When .strongside-dark class is REMOVED from body)
-   ===================================================== */
-
-body:not(.strongside-dark) {
-  background-color: #ffffff !important;
-  color: #050505 !important;
-}
-
-body:not(.strongside-dark) .strongside-header-wrapper:not(.is-scrolled) .strongside-logo,
-body:not(.strongside-dark) .strongside-header-wrapper:not(.is-scrolled) .strongside-nav-link:not(.is-pill),
-body:not(.strongside-dark) .strongside-header-wrapper:not(.is-scrolled) .strongside-icon-btn {
-  color: #000000 !important;
-}
-
-body:not(.strongside-dark) .strongside-header-wrapper:not(.is-scrolled) .strongside-nav-link:hover {
-  color: #ff2222 !important;
-}
-
-body:not(.strongside-dark) .strongside-header-wrapper.is-scrolled {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-}
-
-body:not(.strongside-dark) .strongside-header-wrapper.is-scrolled .strongside-logo,
-body:not(.strongside-dark) .strongside-header-wrapper.is-scrolled .strongside-nav-link:not(.is-pill),
-body:not(.strongside-dark) .strongside-header-wrapper.is-scrolled .strongside-icon-btn {
-  color: #000000 !important;
-}
-
-/* Override cards and sections for light mode */
-body:not(.strongside-dark) .gradient {
-  background: white !important;
-}
-
-body:not(.strongside-dark) .card,
-body:not(.strongside-dark) .product {
-  background-color: #f3f4f6 !important; /* gray-100 */
-  border-color: #e5e7eb !important;
-  color: black !important;
-}
-
-body:not(.strongside-dark) .card__heading,
-body:not(.strongside-dark) .price-item {
-  color: black !important;
-}
-
-body:not(.strongside-dark) .title,
-body:not(.strongside-dark) h1,
-body:not(.strongside-dark) h2,
-body:not(.strongside-dark) h3,
-body:not(.strongside-dark) p {
-  color: black !important;
-}
-
-/* Invert icons in light mode */
-body:not(.strongside-dark) .icon {
-  fill: black !important;
-  color: black !important;
-}
 
 /* =====================================================
    LIGHT MODE OVERRIDES
@@ -1281,16 +1220,20 @@ body:not(.strongside-dark) .icon {
 
 /* Body Background & Text */
 body.strongside-light {
-  background-color: #f3f4f6 !important; /* Light Gray for less harshness */
-  color: #111827 !important; /* Gray 900 */
+  background-color: #f3f4f6 !important;
+  /* Light Gray for less harshness */
+  color: #111827 !important;
+  /* Gray 900 */
 }
 
 /* Override Dawn color variables */
 .strongside-light .color-scheme-1,
 .strongside-light .color-background-1,
 .strongside-light [class*="color-"] {
-  --color-background: 243, 244, 246; /* rgb(243,244,246) */
-  --color-foreground: 17, 24, 39;    /* rgb(17,24,39) */
+  --color-background: 243, 244, 246;
+  /* rgb(243,244,246) */
+  --color-foreground: 17, 24, 39;
+  /* rgb(17,24,39) */
   --gradient-background: #f3f4f6;
 }
 
@@ -1314,7 +1257,8 @@ body.strongside-light {
 .strongside-light p,
 .strongside-light span,
 .strongside-light li {
-  color: #374151 !important; /* Gray 700 */
+  color: #374151 !important;
+  /* Gray 700 */
 }
 
 /* Header Adjustments */
@@ -1325,7 +1269,7 @@ body.strongside-light {
 }
 
 .strongside-light .strongside-header-wrapper.is-transparent {
-    background: transparent !important;
+  background: transparent !important;
 }
 
 /* Header Links */
@@ -1333,10 +1277,13 @@ body.strongside-light {
 .strongside-light .strongside-account-btn {
   color: #111827 !important;
 }
-.strongside-light .strongside-header-wrapper.is-transparent .strongside-nav-link, 
+
+.strongside-light .strongside-header-wrapper.is-transparent .strongside-nav-link,
 .strongside-light .strongside-header-wrapper.is-transparent .strongside-account-btn {
-    color: #ffffff !important; /* Keep white on transparent hero */
+  color: #ffffff !important;
+  /* Keep white on transparent hero */
 }
+
 /* Exception: When scrolled, links must be dark. When transparent (on hero), links must typically be white (if hero is dark). 
    Assumption: Hero is always dark. */
 
@@ -1345,50 +1292,57 @@ body.strongside-light {
 .strongside-light .strongside-header-wrapper.is-scrolled .strongside-icon-btn,
 .strongside-light .strongside-header-wrapper.is-scrolled .strongside-hamburger,
 .strongside-light .strongside-header-wrapper.is-scrolled .strongside-logo {
-     color: #111827 !important;
+  color: #111827 !important;
 }
 
 .strongside-light .strongside-logo span {
-    color: #ff2222 !important; /* Keep brand accent */
+  color: #ff2222 !important;
+  /* Keep brand accent */
 }
 
 /* Product Cards */
 .strongside-light .strongside-video-card,
 .strongside-light .card {
-    background-color: #ffffff !important;
-    border-color: rgba(0,0,0,0.1) !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-.strongside-light .card__heading, 
+
+.strongside-light .card__heading,
 .strongside-light .card__heading a {
-    color: #111827 !important;
+  color: #111827 !important;
 }
+
 .strongside-light .price-item--regular {
-    color: #374151 !important;
+  color: #374151 !important;
 }
 
 /* Footer */
 .strongside-light .strongside-footer-section {
-    background-color: #ffffff !important;
-    border-top: 1px solid rgba(0,0,0,0.1) !important;
+  background-color: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
+
 .strongside-light .footer-block__heading,
 .strongside-light .footer-link {
-    color: #111827 !important;
+  color: #111827 !important;
 }
+
 .strongside-light .footer-text {
-    color: #4b5563 !important;
+  color: #4b5563 !important;
 }
 
 /* Mobile Menu */
 .strongside-light .strongside-mobile-menu {
-    background-color: rgba(255, 255, 255, 0.98) !important;
+  background-color: rgba(255, 255, 255, 0.98) !important;
 }
+
 .strongside-light .strongside-mobile-link {
-    color: #111827 !important;
+  color: #111827 !important;
 }
+
 .strongside-light .strongside-mobile-close {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* =====================================================
@@ -1398,7 +1352,7 @@ body.strongside-light {
 /* Global text colors in light mode */
 html.strongside-light,
 html.strongside-light body {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* All headings, paragraphs, spans, labels */
@@ -1417,7 +1371,7 @@ html.strongside-light .rte,
 html.strongside-light .h1,
 html.strongside-light .h2,
 html.strongside-light .h3 {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* Hero Section Specific */
@@ -1430,20 +1384,20 @@ html.strongside-light .strongside-accordion-title,
 html.strongside-light .strongside-accordion-content,
 html.strongside-light .strongside-trust-item,
 html.strongside-light .strongside-reviews-link {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* Accordion Button */
 html.strongside-light .strongside-accordion-btn {
-    background-color: #e5e7eb !important;
-    color: #111827 !important;
+  background-color: #e5e7eb !important;
+  color: #111827 !important;
 }
 
 /* Gray text to dark gray */
 html.strongside-light .text-gray-400,
 html.strongside-light .text-gray-500,
 html.strongside-light [class*="text-gray"] {
-    color: #374151 !important;
+  color: #374151 !important;
 }
 
 /* Subtitles (red accent - keep as is for brand) */
@@ -1453,7 +1407,7 @@ html.strongside-light [class*="text-gray"] {
 html.strongside-light .mode-number,
 html.strongside-light .mode-title,
 html.strongside-light .mode-desc {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* Accessories section */
@@ -1462,7 +1416,7 @@ html.strongside-light .ss-acc-title,
 html.strongside-light .ss-acc-card-title,
 html.strongside-light .ss-acc-card-desc,
 html.strongside-light .ss-acc-card-price {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* What You Get section */
@@ -1470,14 +1424,14 @@ html.strongside-light .ss-wyg-subtitle,
 html.strongside-light .ss-wyg-title,
 html.strongside-light .ss-wyg-card-title,
 html.strongside-light .ss-wyg-card-desc {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* CTA section */
 html.strongside-light .ss-cta-subtitle,
 html.strongside-light .ss-cta-title,
 html.strongside-light .ss-cta-text {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* FAQ section */
@@ -1485,30 +1439,30 @@ html.strongside-light .ss-faq-subtitle,
 html.strongside-light .ss-faq-title,
 html.strongside-light .ss-faq-question,
 html.strongside-light .ss-faq-answer {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* Reviews section */
 html.strongside-light .ss-reviews-subtitle,
 html.strongside-light .ss-reviews-title {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* EXCEPTION: Video Carousel Titles - KEEP WHITE */
 html.strongside-light .strongside-card-title,
 html.strongside-light .strongside-videos-section .strongside-card-title {
-    color: white !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Videos section title (not the card titles) */
 html.strongside-light .strongside-videos-title {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* Links that should be dark */
 html.strongside-light a:not([class*="social"]):not(.strongside-card-title) {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* Keep accent colors */
@@ -1518,7 +1472,7 @@ html.strongside-light .strongside-subtitle,
 html.strongside-light .ss-acc-subtitle,
 html.strongside-light .ss-wyg-subtitle,
 html.strongside-light .ss-reviews-subtitle {
-    color: #ff2222 !important;
+  color: #ff2222 !important;
 }
 
 /* =====================================================
@@ -1527,24 +1481,24 @@ html.strongside-light .ss-reviews-subtitle {
 
 /* Logo "STRONGSIDE" text - make black, keep "technologies" red */
 html.strongside-light .strongside-logo {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* Navigation links (RENFORTS, ENTRAINEMENT, FAQ) */
 html.strongside-light .strongside-nav-link {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* Account button */
 html.strongside-light .strongside-account-btn {
-    color: #111827 !important;
-    border-color: #111827 !important;
+  color: #111827 !important;
+  border-color: #111827 !important;
 }
 
 /* Language selector */
 html.strongside-light .strongside-lang-btn,
 html.strongside-light .strongside-lang-current {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* Icons (cart, phone, etc) */
@@ -1552,74 +1506,90 @@ html.strongside-light .strongside-icon-btn,
 html.strongside-light .strongside-icon-btn svg,
 html.strongside-light .strongside-cart-icon,
 html.strongside-light .header__icon {
-    color: #111827 !important;
-    fill: #111827 !important;
+  color: #111827 !important;
+  fill: #111827 !important;
 }
 
 /* Hamburger menu icon */
 html.strongside-light .strongside-hamburger,
 html.strongside-light .strongside-hamburger svg {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
-/* Equipment pill button - keep red background */
+/* Equipment pill button - red background with BLACK text in light mode (for contrast) */
 html.strongside-light .strongside-nav-link.is-pill {
-    color: white !important;
-    background-color: rgba(255, 34, 34, 0.2) !important;
-    border-color: rgba(255, 34, 34, 0.5) !important;
+  color: #111827 !important;
+  background-color: rgba(255, 34, 34, 0.15) !important;
+  border-color: rgba(255, 34, 34, 0.5) !important;
+}
+
+html.strongside-light .strongside-nav-link.is-pill:hover {
+  background-color: #ff2222 !important;
+  color: white !important;
+}
+
+/* =====================================================
+   DARK MODE - Language Dropdown Base Styles
+   ===================================================== */
+
+.strongside-dark .strongside-lang-list,
+.strongside-dark #HeaderLanguageListDesktop,
+.strongside-dark #HeaderLanguageListMobile {
+  background-color: #050505 !important;
+  border: 1px solid #333 !important;
+}
+
+.strongside-dark .strongside-lang-item,
+.strongside-dark .localization-form__item a {
+  color: white !important;
+}
+
+.strongside-dark .strongside-lang-item:hover,
+.strongside-dark .localization-form__item a:hover {
+  background-color: rgba(255, 34, 34, 0.2) !important;
+  color: #ff2222 !important;
 }
 
 /* Language dropdown */
 html.strongside-light .strongside-lang-dropdown {
-    background-color: #ffffff !important;
-    border-color: #e5e7eb !important;
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
 }
+
 html.strongside-light .strongside-lang-dropdown button {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 /* =====================================================
    LIGHT MODE - HEADER FIXES
    ===================================================== */
 
-/* Equipment button - keep red background, white text */
-html.strongside-light .strongside-nav-link.is-pill {
-    background-color: rgba(255, 34, 34, 0.2) !important;
-    border: 1px solid rgba(255, 34, 34, 0.5) !important;
-    color: #ff2222 !important;
-}
-
-/* Mon Espace button */
-html.strongside-light .strongside-account-btn {
-    color: #ff2222 !important;
-    border-color: rgba(255, 34, 34, 0.5) !important;
-}
-
 /* Language dropdown - WHITE background */
 html.strongside-light .strongside-lang-list,
 html.strongside-light #HeaderLanguageListDesktop,
 html.strongside-light #HeaderLanguageListMobile {
-    background-color: #ffffff !important;
-    border: 1px solid #e5e7eb !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  background-color: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Language dropdown items */
 html.strongside-light .strongside-lang-item,
 html.strongside-light .localization-form__item a {
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 html.strongside-light .strongside-lang-item:hover,
 html.strongside-light .localization-form__item a:hover {
-    background-color: #f3f4f6 !important;
-    color: #ff2222 !important;
+  background-color: #f3f4f6 !important;
+  color: #ff2222 !important;
 }
 
 /* Mobile language buttons */
 html.strongside-light .strongside-mobile-lang-btn {
-    color: #6b7280 !important;
+  color: #6b7280 !important;
 }
+
 html.strongside-light .strongside-mobile-lang-btn[aria-current="true"] {
-    color: #ff2222 !important;
+  color: #ff2222 !important;
 }
