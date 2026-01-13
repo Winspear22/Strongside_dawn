@@ -134,11 +134,6 @@
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__timestamp {
     color: #9ca3af !important; /* Gray-400 */
   }
-  /* Stars */
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star { color: #ffd700 !important; }
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--on { color: #ffd700 !important; }
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--off { color: rgba(255,255,255,0.2) !important; }
-
   /* Inputs (Dark Mode) */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper input,
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper textarea {
@@ -165,7 +160,8 @@
   }
 
   /* Light Mode Text Colors (Dark/Dark Gray) */
-  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg,
+  /* Light Mode Text Colors (Dark/Dark Gray) */
+  /* REMOVED generic .jdgm-rev-widg to prevent Star inheritance issues */
   html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg__title {
     color: #111827 !important; /* Dark Text */
   }
@@ -176,17 +172,40 @@
     color: #374151 !important; /* Dark Gray */
   }
 
-  /* Light Mode Stars Color */
-  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star,
-  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--on {
+  /* Light Mode Stars Color - EXCEPTION to inheritence */
+  html.strongside-light body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star,
+  html.strongside-light body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--on {
     color: #FACC15 !important;
     fill: #FACC15 !important;
     stroke: #FACC15 !important;
   }
 
+  /* Light Mode Stars - SPECIFIC HISTOGRAM FIX */
+  html.strongside-light body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-histogram .jdgm-star {
+    color: #FACC15 !important;
+    fill: #FACC15 !important;
+    stroke: #FACC15 !important;
+    -webkit-text-fill-color: #FACC15 !important;
+  }
+
+  /* Light Mode Stars - INDIVIDUAL REVIEWS FIX */
+  html.strongside-light body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev .jdgm-star,
+  html.strongside-light body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev .jdgm-star *,
+  html.strongside-light body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__stars .jdgm-star,
+  html.strongside-light body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__stars .jdgm-star *,
+  html.strongside-light body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jm-star-rating__font-icon {
+    color: #FACC15 !important;
+    fill: #FACC15 !important;
+    stroke: #FACC15 !important;
+    -webkit-text-fill-color: #FACC15 !important;
+    --jm-review-widget-star-and-histogram-color: #FACC15 !important;
+  }
+
   /* Light Mode Stars Off Color */
-  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--off {
+  html.strongside-light body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--off {
     color: #e5e7eb !important; /* Light Gray */
+    fill: #e5e7eb !important;
+    stroke: #e5e7eb !important;
   }
 
   /* Light Mode Metadata */
@@ -523,13 +542,37 @@
     setTimeout(function () {
       const style = document.createElement('style');
       style.innerHTML = `
+
         /* Default Dark Mode Stars */
         .jdgm-star { color: #ffd700 !important; }
         
-        /* Light Mode Stars Override */
-        html.strongside-light .jdgm-star { color: #FACC15 !important; }
-        html.strongside-light .jdgm-star.jdgm--on { color: #FACC15 !important; }
-        html.strongside-light .jdgm-star.jdgm--off { color: #e5e7eb !important; }
+        /* Light Mode Stars Override - COMPREHENSIVE FIX */
+        html.strongside-light body .jdgm-star,
+        html.strongside-light body .jdgm-star *,
+        html.strongside-light body .jdgm-star:before,
+        html.strongside-light body .jdgm-rev .jdgm-star,
+        html.strongside-light body .jdgm-rev .jdgm-star *,
+        html.strongside-light body .jdgm-rev__stars .jdgm-star,
+        html.strongside-light body .jdgm-rev__stars .jdgm-star *,
+        html.strongside-light body .jm-star-rating__font-icon,
+        html.strongside-light body .rating-star,
+        html.strongside-light body .rating-star:before { 
+            color: #FACC15 !important; 
+            fill: #FACC15 !important;
+            stroke: #FACC15 !important;
+            -webkit-text-fill-color: #FACC15 !important;
+            --jm-review-widget-star-and-histogram-color: #FACC15 !important;
+        }
+        
+        /* Off Stars */
+        html.strongside-light body .jdgm-star.jdgm--off,
+        html.strongside-light body .jdgm-star.jdgm--off *,
+        html.strongside-light body .jdgm-star.jdgm--off:before { 
+            color: #e5e7eb !important; 
+            fill: #e5e7eb !important;
+            stroke: #e5e7eb !important;
+            -webkit-text-fill-color: #e5e7eb !important;
+        }
 
         .jdgm-write-rev-link, .jdgm-form-submit-btn { background-color: #ff2222 !important; border-color: #ff2222 !important; }
         .jdgm-rev__icon:after { background-color: #ff2222 !important; }

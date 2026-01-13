@@ -1278,6 +1278,28 @@ body.strongside-light {
   /* Gray 700 */
 }
 
+/* EXCEPTION: Stars must be Yellow, not Gray */
+/* EXCEPTION: Stars must be Yellow, not Gray */
+.strongside-light .jdgm-star,
+.strongside-light .jdgm-star *,
+.strongside-light .jdgm-star:before,
+.strongside-light .jdgm-star:after,
+.strongside-light .jdgm-rev .jdgm-star,
+.strongside-light .jdgm-rev .jdgm-star *,
+.strongside-light .jdgm-rev__stars .jdgm-star,
+.strongside-light .jdgm-rev__stars .jdgm-star *,
+.strongside-light .jm-star-rating__font-icon,
+.strongside-light .rating-star,
+.strongside-light .rating-star::before,
+.strongside-light .rating-star::after {
+  color: #FACC15 !important;
+  fill: #FACC15 !important;
+  stroke: #FACC15 !important;
+  -webkit-text-fill-color: #FACC15 !important;
+  /* Force for component-rating.css */
+  --jm-review-widget-star-and-histogram-color: #FACC15 !important;
+}
+
 /* Header Adjustments */
 .strongside-light .strongside-header-wrapper.is-scrolled {
   background-color: rgba(255, 255, 255, 0.95) !important;
