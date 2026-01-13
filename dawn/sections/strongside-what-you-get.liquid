@@ -236,7 +236,7 @@
   /* CONTENT (ICONS + TEXT) */
   #shopify-section-{{ section.id }} .ss-wyg-content {
     position: relative;
-    z-index: 10;
+    z-index: 2; /* Lowered from 10 to avoid Navbar overlap */
     display: flex;
     flex-direction: column;
     align-items: center;
