@@ -21,6 +21,12 @@
       "id": "tagline",
       "label": "Bottom Tagline",
       "default": "Amplifiez encore plus votre entraînement avec les Extra Performance 34kg resistance bands."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
     }
   ],
   "blocks": [
@@ -97,9 +103,9 @@
 
 <style>
   #shopify-section-{{ section.id }} {
-    background: linear-gradient(to bottom, rgba(23, 23, 23, 0.5), #000000);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Background handled by wrapper class */
+    border-top: 0;
+    border-bottom: 0;
     padding: 4rem 1.5rem;
     overflow: hidden;
   }
@@ -108,44 +114,46 @@
     #shopify-section-{{ section.id }} { padding: 5rem 1.5rem; }
   }
 
-  .ss-wyg-container {
-    max-width: 200rem; /* Scaled 2.5x (was 80rem) */
-    margin: 0 auto;
+  /* SCOPED CSS to avoid specificity wars */
+  #shopify-section-{{ section.id }} .ss-wyg-container {
     padding: 0 1.5rem;
+    margin: 0 auto;
+    max-width: 200rem;
   }
 
   /* HEADER */
-  .ss-wyg-header {
+  #shopify-section-{{ section.id }} .ss-wyg-header {
     text-align: center;
     margin-bottom: 3rem;
   }
-  .ss-wyg-title {
+  #shopify-section-{{ section.id }} .ss-wyg-title {
     font-family: 'Inter', system-ui, sans-serif !important;
     font-size: 3.375rem !important; /* Match Accessories mobile */
     font-weight: 900 !important;
     font-style: italic !important;
     text-transform: uppercase !important;
     letter-spacing: -0.05em !important; /* Match Accessories */
-    color: white !important;
+    letter-spacing: -0.05em !important; /* Match Accessories */
+    color: rgb(var(--color-foreground)) !important;
     margin-bottom: 1rem !important;
     line-height: 1 !important;
   }
   @media (min-width: 1024px) {
-    .ss-wyg-title { font-size: 5rem !important; /* Match Accessories desktop */ }
+    #shopify-section-{{ section.id }} .ss-wyg-title { font-size: 5rem !important; /* Match Accessories desktop */ }
   }
-  .ss-wyg-subtitle {
-    color: #9ca3af !important; /* gray-400 */
+  #shopify-section-{{ section.id }} .ss-wyg-subtitle {
+    color: rgba(var(--color-foreground), 0.6) !important; /* gray-400 equivalent */
     font-size: 1.5rem !important; /* Exact match from screenshot */
     max-width: 50rem !important;
     margin: 0 auto !important;
     line-height: 1.4 !important;
   }
   @media (min-width: 1024px) {
-    .ss-wyg-subtitle { font-size: 1.875rem !important; /* ~1.25x scaling for desktop */ }
+    #shopify-section-{{ section.id }} .ss-wyg-subtitle { font-size: 1.875rem !important; /* ~1.25x scaling for desktop */ }
   }
 
   /* GRID */
-  .ss-wyg-grid {
+  #shopify-section-{{ section.id }} .ss-wyg-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3.75rem; /* Scaled 2.5x (was 1.5rem) */
@@ -153,14 +161,14 @@
     margin-bottom: 2.5rem;
   }
   @media (min-width: 768px) {
-    .ss-wyg-grid {
+    #shopify-section-{{ section.id }} .ss-wyg-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 5rem; /* Scaled 2.5x (was 2rem) */
     }
   }
 
   /* ITEM CARD */
-  .ss-wyg-card {
+  #shopify-section-{{ section.id }} .ss-wyg-card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -176,25 +184,25 @@
   }
 
   @media (min-width: 768px) {
-    .ss-wyg-card { padding: 15rem 1rem; } /* Scaled 2.5x (was 6rem) */
+    #shopify-section-{{ section.id }} .ss-wyg-card { padding: 15rem 1rem; } /* Scaled 2.5x (was 6rem) */
   }
 
   /* HOVER EFFECTS */
-  .ss-wyg-card:hover {
+  #shopify-section-{{ section.id }} .ss-wyg-card:hover {
     border-color: rgba(255, 34, 34, 0.5); /* Brand Accent */
   }
 
   /* EXTRA ITEM STYLING */
-  .ss-wyg-card.is-extra {
+  #shopify-section-{{ section.id }} .ss-wyg-card.is-extra {
     background-color: rgba(255, 34, 34, 0.05);
     border-color: rgba(255, 34, 34, 0.3);
   }
-  .ss-wyg-card.is-extra:hover {
+  #shopify-section-{{ section.id }} .ss-wyg-card.is-extra:hover {
     background-color: rgba(255, 34, 34, 0.1);
   }
 
   /* BACKGROUND IMAGE */
-  .ss-wyg-bg {
+  #shopify-section-{{ section.id }} .ss-wyg-bg {
     position: absolute;
     inset: 0 !important;
     background-size: cover !important;
@@ -205,11 +213,11 @@
     display: block !important;
     visibility: visible !important;
   }
-  .ss-wyg-card:hover .ss-wyg-bg {
+  #shopify-section-{{ section.id }} .ss-wyg-card:hover .ss-wyg-bg {
     transform: scale(1.1);
   }
   /* Overlay to darken bg image */
-  .ss-wyg-bg-overlay {
+  #shopify-section-{{ section.id }} .ss-wyg-bg-overlay {
     position: absolute;
     inset: 0 !important;
     background-color: rgba(0,0,0,0.6) !important; /* Match React bg-black/60 */
@@ -217,16 +225,16 @@
     transition: background-color 0.3s;
     pointer-events: none !important;
   }
-  .ss-wyg-card:hover .ss-wyg-bg-overlay {
+  #shopify-section-{{ section.id }} .ss-wyg-card:hover .ss-wyg-bg-overlay {
     background-color: rgba(0,0,0,0.5) !important;
   }
 
   /* Show BG if image exists - FORCE VISIBILITY REDUNDANT BUT SAFE */
-  .ss-wyg-card.has-image .ss-wyg-bg { opacity: 1 !important; }
+  #shopify-section-{{ section.id }} .ss-wyg-card.has-image .ss-wyg-bg { opacity: 1 !important; }
 
 
   /* CONTENT (ICONS + TEXT) */
-  .ss-wyg-content {
+  #shopify-section-{{ section.id }} .ss-wyg-content {
     position: relative;
     z-index: 10;
     display: flex;
@@ -247,29 +255,29 @@
     color: #ff2222;
   }
 
-  .ss-wyg-item-title {
+  #shopify-section-{{ section.id }} .ss-wyg-item-title {
     font-size: 2.5rem; /* Scaled 2.5x (was 1rem) */
     font-weight: 700;
-    color: white;
+    color: white !important; /* Always White for image cards */
     text-transform: uppercase;
     margin: 0;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
-  .ss-wyg-card.is-extra .ss-wyg-item-title {
-    color: #ff2222;
+  #shopify-section-{{ section.id }} .ss-wyg-card.is-extra .ss-wyg-item-title {
+    color: #ff2222 !important; /* Force Red */
     font-size: 2.8rem; /* Scaled 2.5x */
     letter-spacing: 0.025em;
     line-height: 1.2;
   }
 
-  .ss-wyg-item-desc {
+  #shopify-section-{{ section.id }} .ss-wyg-item-desc {
     font-size: 1.875rem; /* Scaled 2.5x (was 0.75rem) */
-    color: #6b7280; /* gray-500 */
+    color: rgba(255, 255, 255, 0.7) !important; /* Always Light Gray for image cards */
     margin: 0;
   }
   @media (min-width: 768px) {
-    .ss-wyg-item-desc { font-size: 2.2rem; /* Scaled 2.5x (was 0.875rem) */ }
+    #shopify-section-{{ section.id }} .ss-wyg-item-desc { font-size: 2.2rem; /* Scaled 2.5x (was 0.875rem) */ }
   }
 
   /* TAGLINE */
@@ -277,7 +285,7 @@
     text-align: center;
     margin-bottom: 2rem;
     font-size: 1.5rem; /* Increased from 1.25rem */
-    color: white; /* Changed from gray-300 to white */
+    color: rgb(var(--color-foreground)); /* Adapt to theme */
     font-weight: 500;
   }
   @media (min-width: 1024px) {
@@ -335,27 +343,9 @@
   }
   .ss-lightbox-close:hover { color: white; }
   .ss-lightbox-close svg { width: 2.5rem; height: 2.5rem; }
-
-  /* LIGHT MODE OVERRIDE */
-  html.strongside-light .ss-wyg-container {
-    background: linear-gradient(to bottom, #f3f4f6, #ffffff) !important;
-  }
-  html.strongside-light .ss-wyg-title {
-    color: #111827 !important;
-  }
-  html.strongside-light .ss-wyg-card {
-    background-color: #ffffff !important;
-    border: 1px solid #e5e7eb !important;
-  }
-  html.strongside-light .ss-wyg-card-title {
-    color: #111827 !important;
-  }
-  html.strongside-light .ss-wyg-card-desc {
-    color: #374151 !important;
-  }
 </style>
 
-<div class="ss-wyg-container">
+<div class="ss-wyg-container color-{{ section.settings.color_scheme }} gradient">
   <!-- TITLE -->
   <div class="ss-wyg-header">
     <h2 class="ss-wyg-title">{{ 'strongside.whatYouGet.title' | t }}</h2>
