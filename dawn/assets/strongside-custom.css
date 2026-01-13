@@ -1278,6 +1278,15 @@ body.strongside-light {
   /* Gray 700 */
 }
 
+/* Light Mode: Bold/Underline/Strong must be visible (Dark text) */
+.strongside-light strong,
+.strongside-light b,
+.strongside-light u,
+.strongside-light mark {
+  color: #111827 !important;
+  font-weight: 700;
+}
+
 /* EXCEPTION: Stars must be Yellow, not Gray */
 /* EXCEPTION: Stars must be Yellow, not Gray */
 .strongside-light .jdgm-star,
