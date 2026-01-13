@@ -3,6 +3,12 @@
   "name": "Strongside Training Modes",
   "settings": [
     {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
+    },
+    {
       "type": "text",
       "id": "section_subtitle",
       "label": "Section Subtitle",
@@ -89,7 +95,7 @@
 }
 {% endschema %}
 
-<div class="strongside-training-section" id="training-videos">
+<div class="strongside-training-section color-{{ section.settings.color_scheme }} gradient" id="training-videos">
   <div class="strongside-container">
     <!-- Header -->
     <div class="strongside-training-header ss-observe ss-fade-up">
@@ -161,8 +167,8 @@
   /* Scoped styles with high specificity to potential Dawn overrides */
   #shopify-section-{{ section.id }} .strongside-training-section {
     padding: 5rem 1.5rem;
-    background-color: #050505 !important; /* Force Black Background */
-    color: white !important;
+    background: transparent; /* Inherits from wrapper class */
+    color: rgb(var(--color-foreground));
     overflow-x: hidden; /* Prevent horizontal scroll from animations */
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
       Arial, sans-serif !important;
@@ -210,11 +216,10 @@
     font-style: italic !important;
     text-transform: uppercase !important;
     letter-spacing: -0.05em !important;
-    color: white !important;
+    color: rgb(var(--color-foreground)) !important;
     margin: 0;
     line-height: 0.9 !important;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4) !important;
-    /* border: 1px solid red !important; DEBUG - A supprimer si visible */
+    text-shadow: none !important;
   }
   @media (min-width: 1024px) {
     #shopify-section-{{ section.id }} .strongside-title {
@@ -267,7 +272,7 @@
     aspect-ratio: 4/3;
     border-radius: 1rem;
     overflow: hidden;
-    background-color: #171717 !important;
+    background-color: rgba(var(--color-foreground), 0.08) !important;
   }
   #shopify-section-{{ section.id }} .media-content {
     width: 100%;
@@ -277,6 +282,10 @@
   #shopify-section-{{ section.id }} .media-overlay {
     position: absolute;
     inset: 0;
+    /* Adaptive gradient: dark for dark mode, light for light mode?
+       Actually, video overlay usually needs to darken the video regardless of theme
+       if text is over it, but here text is separate.
+       This overlay might be aesthetic. Keeping it dark for now as videos are likely dark/contrasted. */
     background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent) !important;
     pointer-events: none;
   }
@@ -321,12 +330,12 @@
     font-style: italic !important;
     text-transform: uppercase !important;
     letter-spacing: -0.05em !important; /* Match Main Title */
-    color: white !important;
+    color: rgb(var(--color-foreground)) !important;
     margin: 0;
     line-height: 0.9 !important; /* Match Main Title */
     position: relative;
     z-index: 2; /* Approx overlay z-index */
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.4) !important;
+    text-shadow: none !important;
   }
   @media (min-width: 1024px) {
     #shopify-section-{{ section.id }} .mode-title {
@@ -335,7 +344,7 @@
   }
 
   #shopify-section-{{ section.id }} .mode-desc {
-    color: #9ca3af !important; /* Force Gray */
+    color: rgba(var(--color-foreground), 0.6) !important;
     font-size: 1.25rem !important; /* Increased from 1rem */
     line-height: 1.6 !important;
     max-width: 32rem; /* Increased max-width slightly to accommodate larger text */
@@ -382,19 +391,5 @@
   .ss-slide-in-right.is-visible {
     opacity: 1;
     transform: translateX(0);
-  }
-
-  /* LIGHT MODE OVERRIDE */
-  html.strongside-light .strongside-training-section {
-    background-color: #ffffff !important;
-  }
-  html.strongside-light .strongside-title {
-    color: #111827 !important;
-  }
-  html.strongside-light .mode-title {
-    color: #111827 !important;
-  }
-  html.strongside-light .mode-desc {
-    color: #374151 !important;
   }
 </style>

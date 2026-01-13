@@ -7,6 +7,12 @@
       "id": "section_title",
       "label": "Titre Section",
       "default": "VIDÉOS"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
     }
   ],
   "presets": [
@@ -29,7 +35,7 @@
   .strongside-videos-section {
     padding: 2rem 0;
     position: relative;
-    background-color: transparent;
+    background: transparent; /* Inherits from wrapper */
   }
 
   /* TITLE & NAV */
@@ -44,7 +50,7 @@
   .strongside-videos-title {
     font-size: 1.125rem; /* text-lg */
     font-weight: 700;
-    color: white;
+    color: rgb(var(--color-foreground));
     text-transform: uppercase;
     letter-spacing: 0.1em; /* tracking-widest */
   }
@@ -59,9 +65,9 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 9999px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(var(--color-foreground), 0.1);
     border: none;
-    color: white;
+    color: rgb(var(--color-foreground));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,7 +76,7 @@
   }
 
   .strongside-nav-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(var(--color-foreground), 0.2);
   }
 
   .strongside-nav-btn:disabled {
@@ -99,13 +105,9 @@
     border-radius: 0.75rem; /* rounded-xl */
     overflow: hidden;
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background-color: #171717; /* neutral-900 */
-    /* Width calculation logic will be handled via inline styles in loop or JS, 
-       but we can set defaults here. 
-       Mobile: 2 visible (~50%)
-       Desktop: 3 visible (~33%)
-    */
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    background-color: rgba(var(--color-foreground), 0.08);
+    /* Width logic remains same */
     width: calc(33.333% - 0.75rem); /* Default Desktop */
   }
 
@@ -149,7 +151,7 @@
     bottom: 1rem;
     left: 1rem;
     right: 1rem;
-    color: white;
+    color: white; /* Always White on dark overlay */
     font-weight: 900;
     font-size: 0.875rem; /* text-sm */
     text-transform: uppercase;
@@ -222,7 +224,7 @@
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 9999px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(var(--color-foreground), 0.3);
     border: none;
     cursor: pointer;
     transition: all 0.3s;
@@ -232,7 +234,7 @@
     background-color: #ff2222;
   }
   .strongside-dot:hover:not(.is-active) {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(var(--color-foreground), 0.5);
   }
 
   /* --- MOBILE MODAL (TIKTOK STYLE) --- */
@@ -240,7 +242,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background-color: black;
+    background-color: black; /* Always Black (Immersive) */
     display: none; /* Hidden by default */
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -365,21 +367,9 @@
     justify-content: center;
     color: white;
   }
-
-  /* LIGHT MODE OVERRIDE */
-  html.strongside-light .strongside-videos-section {
-    background-color: #ffffff !important;
-  }
-  html.strongside-light .strongside-videos-title {
-    color: #111827 !important;
-  }
-  html.strongside-light .strongside-video-card {
-    background-color: #f3f4f6 !important;
-    border: 1px solid #e5e7eb !important;
-  }
 </style>
 
-<div class="strongside-videos-section" id="strongside-videos">
+<div class="strongside-videos-section color-{{ section.settings.color_scheme }} gradient" id="strongside-videos">
   <!-- HEAD OF SECTION -->
   <div class="strongside-videos-header">
     <h3 class="strongside-videos-title">{{ 'strongside.videos.title' | t }}</h3>

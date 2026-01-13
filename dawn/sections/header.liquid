@@ -743,7 +743,7 @@
     }
   });
 
-  // ----- DARK MODE LOGIC -----
+  // ----- DARK MODE LOGIC (NATIVE SCHEME SWAP) -----
   document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const toggleBtn = document.getElementById('theme-toggle');
@@ -752,31 +752,89 @@
     const moonIcon = document.getElementById('moon-icon');
     const themeTextMobile = document.getElementById('theme-text-mobile');
 
+    // Define Dark Schemes relative to settings_data.json
+    // Schemes 1-4 are Dark. Scheme 6 is Light.
+    const LIGHT_SCHEME = 'color-scheme-6';
+    const DARK_SCHEMES = ['color-scheme-1', 'color-scheme-2', 'color-scheme-3', 'color-scheme-4'];
+
     // Check localStorage or default to dark
-    const isDark = localStorage.getItem('theme') !== 'light'; // Default dark if null
+    const isDark = localStorage.getItem('theme') !== 'light';
+
+    function applyLightSchemeToElement(el) {
+      if (el.classList.contains(LIGHT_SCHEME)) return;
+
+      // Check if it has any dark scheme
+      const currentScheme = DARK_SCHEMES.find((scheme) => el.classList.contains(scheme));
+      if (currentScheme) {
+        el.dataset.originalScheme = currentScheme;
+        el.classList.remove(currentScheme);
+        el.classList.add(LIGHT_SCHEME);
+      }
+    }
+
+    function removeLightSchemeFromElement(el) {
+      if (!el.classList.contains(LIGHT_SCHEME)) return;
+
+      const originalScheme = el.dataset.originalScheme || 'color-scheme-2'; // Default to scheme-2 if lost
+      el.classList.remove(LIGHT_SCHEME);
+      el.classList.add(originalScheme);
+    }
 
     function updateThemeUI(dark) {
+      const allElements = document.querySelectorAll('[class*="color-scheme-"]');
+
       if (dark) {
+        // Switch to DARK
         document.documentElement.classList.add('strongside-dark');
         document.documentElement.classList.remove('strongside-light');
         body.classList.add('strongside-dark');
         body.classList.remove('strongside-light');
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-        themeTextMobile.textContent = 'LIGHT MODE';
+
+        allElements.forEach((el) => removeLightSchemeFromElement(el));
+
+        if (sunIcon) sunIcon.style.display = 'block';
+        if (moonIcon) moonIcon.style.display = 'none';
+        if (themeTextMobile) themeTextMobile.textContent = 'LIGHT MODE';
       } else {
+        // Switch to LIGHT
         document.documentElement.classList.remove('strongside-dark');
         document.documentElement.classList.add('strongside-light');
         body.classList.remove('strongside-dark');
         body.classList.add('strongside-light');
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-        themeTextMobile.textContent = 'DARK MODE';
+
+        allElements.forEach((el) => applyLightSchemeToElement(el));
+
+        if (sunIcon) sunIcon.style.display = 'none';
+        if (moonIcon) moonIcon.style.display = 'block';
+        if (themeTextMobile) themeTextMobile.textContent = 'DARK MODE';
       }
     }
 
     // Initialize
+    // We need to wait a moment for Shopify sections to render purely to be safe,
+    // but running immediately is standard.
     updateThemeUI(isDark);
+
+    // Observer to handle dynamically injected elements (like Cart Drawer)
+    const observer = new MutationObserver((mutations) => {
+      if (localStorage.getItem('theme') === 'light') {
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === 1) {
+              // Element
+              if (node.matches && node.matches('[class*="color-scheme-"]')) {
+                applyLightSchemeToElement(node);
+              }
+              // Also check children
+              const children = node.querySelectorAll('[class*="color-scheme-"]');
+              children.forEach((child) => applyLightSchemeToElement(child));
+            }
+          });
+        });
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
 
     function toggleTheme() {
       const isCurrentlyDark = body.classList.contains('strongside-dark');
