@@ -1171,6 +1171,11 @@ body.strongside-dark {
   color: white;
 }
 
+html.strongside-light ::selection {
+  background-color: #ff2222;
+  color: white;
+}
+
 /* =====================================================
    RESPONSIVE ADJUSTMENTS
    ===================================================== */
