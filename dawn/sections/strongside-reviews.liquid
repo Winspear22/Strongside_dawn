@@ -83,7 +83,7 @@
     font-weight: 900;
     font-style: italic;
     text-transform: uppercase;
-    color: white !important; /* Title on Dark Background stays White */
+    color: white !important; /* Title always white on dark section background */
     line-height: 1;
     margin: 0;
   }
@@ -91,58 +91,133 @@
     #shopify-section-{{ section.id }} .ss-reviews-title { font-size: 4rem; }
   }
 
-  /* APP WIDGET WRAPPER - THE WHITE BLOCK */
+  /* ==================================================================
+     DEFAULT (DARK MODE) STYLES
+     Card blends into the dark theme, White Text, Glassy Look
+     ================================================================== */
+
+  /* APP WIDGET WRAPPER - DARK MODE SKELETON */
   .ss-reviews-widget-wrapper {
-    background-color: #ffffff !important; /* Force White Block */
-    border: 1px solid #ff2222 !important; /* Red Border */
-    border-radius: 2rem !important; /* Rounded Corners */
+    background-color: rgba(255, 255, 255, 0.05); /* Glassy Dark */
+    border: 1px solid rgba(255, 255, 255, 0.1);    /* Subtle Border */
+    border-radius: 2rem !important;
     padding: 2.5rem;
-    box-shadow: 0 0 20px rgba(255, 34, 34, 0.25); /* Red Glow */
-    overflow: hidden; /* Clip inner content */
+    overflow: hidden;
+    position: relative;
+    /* REDUCED Z-INDEX TO PREVENT NAVBAR OVERLAP */
+    z-index: 1;
   }
 
-  /* NUCLEAR OPTION: html body + ID specificity */
+  /* Dark Mode Text Colors (White/Gray) */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg {
-    color: #111827 !important; /* Dark Text */
+    color: white !important;
     font-family: inherit !important;
     user-select: text !important;
     -webkit-user-select: text !important;
+    /* Removed z-index to enforce stacking from wrapper */
     position: relative !important;
-    z-index: 10 !important;
   }
-
-  /* REVIEW TITLES */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg__title {
-    color: #111827 !important; /* Dark Text */
+    color: white !important;
     font-size: 1.1rem !important;
     font-weight: 700 !important;
   }
-
-  /* REVIEW BODY TEXT */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg__body,
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__content,
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__body p {
-    color: #374151 !important; /* Dark Gray for readability on White */
+    color: #e5e7eb !important; /* Gray-200 */
     font-size: 1rem !important;
     line-height: 1.6 !important;
   }
+  /* Metadata (Name/Date) */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__reviewer-name-wrapper,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__timestamp {
+    color: #9ca3af !important; /* Gray-400 */
+  }
+  /* Stars */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star { color: #ffd700 !important; }
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--on { color: #ffd700 !important; }
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--off { color: rgba(255,255,255,0.2) !important; }
 
+  /* Inputs (Dark Mode) */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper input,
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper textarea {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+  }
+
+  /* Pagination */
+  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-paginate__page {
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* ==================================================================
+     LIGHT MODE OVERRIDES - THE "WHITE CARD" DESIGN
+     Applied ONLY when html.strongside-light is present
+     ================================================================== */
+
+  html.strongside-light .ss-reviews-widget-wrapper {
+    background-color: #ffffff !important; /* Force White Block */
+    border: 1px solid #ff2222 !important; /* Red Border */
+    box-shadow: 0 0 20px rgba(255, 34, 34, 0.25); /* Red Glow */
+  }
+
+  /* Light Mode Text Colors (Dark/Dark Gray) */
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg,
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg__title {
+    color: #111827 !important; /* Dark Text */
+  }
+
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev-widg__body,
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__content,
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__body p {
+    color: #374151 !important; /* Dark Gray */
+  }
+
+  /* Light Mode Stars Color */
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star,
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--on {
+    color: #FACC15 !important; /* Update requested by User */
+  }
+
+  /* Light Mode Stars Off Color */
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--off {
+    color: #e5e7eb !important; /* Light Gray */
+  }
+
+  /* Light Mode Metadata */
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__reviewer-name-wrapper,
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__timestamp {
+    color: #6b7280 !important; /* Gray-500 */
+  }
+
+  /* Light Mode Inputs */
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper input,
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper textarea {
+    background-color: #f9fafb !important;
+    border-color: #d1d5db !important;
+    color: #111827 !important;
+  }
+
+  /* Light Mode Pagination */
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-paginate__page {
+    color: #374151 !important;
+    border-color: #e5e7eb !important;
+  }
+
+
+  /* Separator */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__header {
-    border-bottom: 1px solid #e5e7eb !important; /* Light Gray Separator */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  /* Separator Light Mode */
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__header {
+    border-bottom: 1px solid #e5e7eb !important;
   }
 
-  /* STYLING STARS */
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star {
-    color: #fbbf24 !important; /* Amber-400 */
-  }
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--on {
-    color: #fbbf24 !important;
-  }
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-star.jdgm--off {
-    color: #e5e7eb !important; /* Gray-200 */
-  }
-
-  /* Buttons (Write Review) */
+  /* Buttons (Common) */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-write-rev-link,
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-form-submit-btn {
     background-color: #ff2222 !important;
@@ -159,33 +234,15 @@
     background-color: #d90000 !important;
   }
 
-  /* Verified Badge */
+  /* Verified Badge (Common) */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__icon:after {
     background-color: #ff2222 !important;
   }
 
-  /* Form Inputs (On White Background) */
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper input,
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper textarea {
-    background-color: #f9fafb !important; /* Light Gray BG */
-    border: 1px solid #d1d5db !important; /* Gray Border */
-    color: #111827 !important; /* Dark Text */
-  }
-
-  /* Pagination */
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-paginate__page {
-    color: #374151 !important;
-    border-color: #e5e7eb !important;
-  }
+  /* Pagination Active (Common) */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-paginate__page.jdgm-curt {
     color: #ff2222 !important;
     border-color: #ff2222 !important;
-  }
-
-  /* REVIEW METADATA (Name, Date) */
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__reviewer-name-wrapper,
-  html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-rev__timestamp {
-    color: #6b7280 !important; /* Gray-500 */
   }
 
   /* ============================================
@@ -240,6 +297,12 @@
   /* DROPDOWN OPTIONS (The white box)
      Note: Styling <option> is limited by browsers, but we try standard overrides */
   html body #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-sort-dropdown option {
+    background-color: #171717 !important;
+    color: white !important;
+  }
+
+  /* Light Mode Options */
+  html.strongside-light #shopify-section-{{ section.id }} .ss-reviews-widget-wrapper .jdgm-sort-dropdown option {
     background-color: white !important;
     color: black !important;
   }
@@ -256,12 +319,11 @@
     clear: both;
   }
 
-  /* LIGHT MODE OVERRIDE - NO CHANGE NEEDED AS CARD IS WHITE */
+  /* LIGHT MODE OVERRIDE - SECTION BACKGROUND */
   html.strongside-light .ss-reviews-container {
     background-color: transparent !important;
   }
-  /* Removed title override to keep it white on the dark section background */
-  /* Wrapper stays white in both modes, but background changes */
+  /* No title override needed as section BG is dark in both modes, so title stays white. */
 </style>
 
 <div class="ss-reviews-container" id="customer-reviews">
@@ -459,7 +521,14 @@
     setTimeout(function () {
       const style = document.createElement('style');
       style.innerHTML = `
+        /* Default Dark Mode Stars */
         .jdgm-star { color: #ffd700 !important; }
+        
+        /* Light Mode Stars Override */
+        html.strongside-light .jdgm-star { color: #FACC15 !important; }
+        html.strongside-light .jdgm-star.jdgm--on { color: #FACC15 !important; }
+        html.strongside-light .jdgm-star.jdgm--off { color: #e5e7eb !important; }
+
         .jdgm-write-rev-link, .jdgm-form-submit-btn { background-color: #ff2222 !important; border-color: #ff2222 !important; }
         .jdgm-rev__icon:after { background-color: #ff2222 !important; }
         .jdgm-rev-widg__title { color: white !important; font-size: 1.1rem !important; }

@@ -145,6 +145,18 @@ body.strongside-dark {
    ===================================================== */
 
 /* Transparent header by default */
+/* FORCE Z-INDEX to ensure nothing overlaps the navbar */
+/* CRITICAL FIX: explicit fixed position to prevent scrolling away */
+.strongside-dark .section-header,
+.section-header,
+#shopify-section-header {
+  z-index: 10000 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+}
+
 .strongside-dark .section-header {
   background-color: transparent !important;
   transition: background-color var(--strongside-transition-normal),
