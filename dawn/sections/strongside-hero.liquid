@@ -1036,7 +1036,14 @@
               onmouseover="this.style.background='#333333'; this.querySelector('svg').style.stroke='#ff2222';"
               onmouseout="this.style.background='#1a1a1a'; this.querySelector('svg').style.stroke='white';"
             >
-              <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24" style="stroke:white; transition:stroke 0.2s;">
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="white"
+                viewBox="0 0 24 24"
+                style="stroke:white; transition:stroke 0.2s;"
+              >
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
               </svg>
             </button>
@@ -1046,7 +1053,14 @@
               onmouseover="this.style.background='#333333'; this.querySelector('svg').style.stroke='#ff2222';"
               onmouseout="this.style.background='#1a1a1a'; this.querySelector('svg').style.stroke='white';"
             >
-              <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24" style="stroke:white; transition:stroke 0.2s;">
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="white"
+                viewBox="0 0 24 24"
+                style="stroke:white; transition:stroke 0.2s;"
+              >
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </button>
@@ -1377,6 +1391,91 @@
       );
       document.querySelectorAll('#hero-modal-scroller > div').forEach((el) => observer.observe(el));
 
+      // --- FLUID TOUCH SWIPE SUPPORT (1:1 Tracking) ---
+      let isDragging = false;
+      let startPos = 0;
+      let currentTranslate = 0;
+      let animationID;
+      let startTime = 0;
+
+      // Disable transition during drag for responsiveness
+      function setCarouselTransition(enable) {
+        track.style.transition = enable ? 'transform 0.3s ease-out' : 'none';
+      }
+
+      function getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+      }
+
+      function touchStart(event) {
+        isDragging = true;
+        startPos = getPositionX(event);
+        startTime = new Date().getTime();
+        setCarouselTransition(false);
+        animationID = requestAnimationFrame(animation);
+      }
+
+      function touchMove(event) {
+        if (isDragging) {
+          const currentPosition = getPositionX(event);
+          const currentDiff = currentPosition - startPos;
+
+          // Calculate % diff based on container width
+          const containerWidth = track.parentElement.offsetWidth;
+          const diffPercent = (currentDiff / containerWidth) * 100;
+
+          // Current base translate
+          const baseTranslate = -currentIndex * 33.3333;
+          currentTranslate = baseTranslate + diffPercent;
+
+          // Elastic Bounds
+          const minTranslate = -maxIndex * 33.3333;
+          if (currentTranslate > 0) currentTranslate *= 0.3;
+          else if (currentTranslate < minTranslate) {
+            const over = minTranslate - currentTranslate;
+            currentTranslate = minTranslate - over * 0.3;
+          }
+        }
+      }
+
+      function touchEnd() {
+        isDragging = false;
+        cancelAnimationFrame(animationID);
+        setCarouselTransition(true);
+
+        const movedBy = currentTranslate - -currentIndex * 33.3333;
+        const endTime = new Date().getTime();
+        const duration = endTime - startTime;
+
+        // Thresholds
+        const threshold = 15; // Increased for stability
+        const velocity = Math.abs(movedBy) / duration;
+
+        if (movedBy < -threshold || (movedBy < 0 && velocity > 0.5)) {
+          if (currentIndex < maxIndex) currentIndex++;
+        } else if (movedBy > threshold || (movedBy > 0 && velocity > 0.5)) {
+          if (currentIndex > 0) currentIndex--;
+        }
+
+        updateCarousel();
+      }
+
+      function animation() {
+        track.style.transform = `translateX(${currentTranslate}%)`;
+        if (isDragging) requestAnimationFrame(animation);
+      }
+
+      track.addEventListener('touchstart', touchStart, { passive: true });
+      track.addEventListener('touchmove', touchMove, { passive: true });
+      track.addEventListener('touchend', touchEnd);
+      // Mouse support for dev
+      track.addEventListener('mousedown', touchStart);
+      track.addEventListener('mousemove', touchMove);
+      track.addEventListener('mouseup', touchEnd);
+      track.addEventListener('mouseleave', () => {
+        if (isDragging) touchEnd();
+      });
+
       updateCarousel();
     }
 
@@ -1421,42 +1520,6 @@
         }
       };
     if (closeBtn) closeBtn.onclick = closeModal;
-
-    /*
-    // --- TOUCH SWIPE SUPPORT ---
-    let touchStartX = 0;
-    let touchStartY = 0;
-
-    if (track) {
-      track.addEventListener('touchstart', (e) => {
-        if (e.touches.length > 0) {
-          touchStartX = e.touches[0].clientX;
-          touchStartY = e.touches[0].clientY;
-        }
-      }, { passive: true });
-
-      track.addEventListener('touchend', (e) => {
-        if (e.changedTouches.length > 0) {
-          const touchEndX = e.changedTouches[0].clientX;
-          const touchEndY = e.changedTouches[0].clientY;
-          
-          const diffX = touchStartX - touchEndX;
-          const diffY = touchStartY - touchEndY;
-
-          // Only trigger if horizontal movement is dominant and significant
-          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-            if (diffX > 0 && currentIndex < maxIndex) {
-              currentIndex++;
-              updateCarousel();
-            } else if (diffX < 0 && currentIndex > 0) {
-              currentIndex--;
-              updateCarousel();
-            }
-          }
-        }
-      }, { passive: true });
-    }
-    */
 
     if (document.readyState !== 'loading') init();
     else document.addEventListener('DOMContentLoaded', init);
