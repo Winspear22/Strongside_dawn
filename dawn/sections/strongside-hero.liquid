@@ -617,7 +617,7 @@
             {% for media in product.media %}
               <button
                 class="strongside-thumb-btn {% if forloop.first %}is-active{% endif %}"
-                onclick="changeHeroImage(this, '{{ media | image_url: width: 1200 }}')"
+                onclick="goToImageIndex({{ forloop.index0 }})"
               >
                 <img
                   src="{{ media | image_url: width: 200 }}"
@@ -630,16 +630,31 @@
             {% endfor %}
           </div>
 
-          <!-- Main Image -->
-          <div class="strongside-main-image-container" id="hero-main-image-container" onclick="openHeroModal()">
-            <img
-              id="hero-main-image"
-              src="{{ product.featured_media | image_url: width: 1200 }}"
-              class="strongside-main-image"
-              width="1200"
-              height="800"
-              style="cursor:zoom-in;"
+          <!-- Main Image Track -->
+          <div
+            class="strongside-main-image-container"
+            id="hero-main-image-container"
+            onclick="openHeroModalWithIndex()"
+            style="overflow:hidden;"
+          >
+            <div
+              id="hero-image-track"
+              style="display:flex; height:100%; transition:transform 0.3s ease-out; will-change:transform; backface-visibility:hidden; -webkit-backface-visibility:hidden;"
             >
+              {% for media in product.media %}
+                <div style="width:100%; height:100%; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+                  <img
+                    src="{{ media | image_url: width: 1200 }}"
+                    class="strongside-main-image"
+                    style="width:100%; height:100%; object-fit:contain;"
+                    draggable="false"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="sync"
+                  >
+                </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
 
@@ -649,7 +664,7 @@
             <button
               class="strongside-thumb-btn {% if forloop.first %}is-active{% endif %}"
               style="width:3rem;height:3rem;"
-              onclick="changeHeroImage(this, '{{ media | image_url: width: 1200 }}')"
+              onclick="goToImageIndex({{ forloop.index0 }})"
             >
               <img
                 src="{{ media | image_url: width: 200 }}"
@@ -1124,19 +1139,158 @@
 </div>
 
 <script>
-  function changeHeroImage(btn, src) {
-    document.getElementById('hero-main-image').src = src;
-    document.querySelectorAll('.strongside-thumb-btn').forEach((b) => b.classList.remove('is-active'));
-    btn.classList.add('is-active');
+  /* --- PRODUCT IMAGES DATA --- */
+  const heroImages = [
+    {% for media in product.media %}
+      "{{ media | image_url: width: 1200 }}",
+    {% endfor %}
+  ];
+  let currentImageIndex = 0;
+
+  // Track Logic
+  const imgTrack = document.getElementById('hero-image-track');
+
+  function goToImageIndex(index) {
+    if (index < 0 || index >= heroImages.length) return;
+    currentImageIndex = index;
+    
+    // Slide Track (GPU accelerated)
+    if (imgTrack) {
+        imgTrack.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+    }
+
+    // Update Thumbs (Highlight only, no scroll forcing unless mobile/necessary)
+    const len = heroImages.length;
+    document.querySelectorAll('.strongside-thumb-btn').forEach((b, i) => {
+        // Desktop thumbs (first set) and Mobile thumbs (second set)
+        // Map linearly: i % len matches current index
+        const isMatch = (i % len === index);
+        if (isMatch) b.classList.add('is-active');
+        else b.classList.remove('is-active');
+
+        // Scroll mobile thumb into view if active
+        if (isMatch && b.parentElement.classList.contains('strongside-thumbs-mobile')) {
+            b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+    });
   }
 
-  function openHeroModal() {
-    const mainImg = document.getElementById('hero-main-image');
+  // --- FLUID SWIPE (Main Image) - Clean Sync Version ---
+  (function() {
+      if(!imgTrack) return;
+      
+      let isDragging = false;
+      let startX = 0;
+      let startTime = 0;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+
+      function getClientX(e) {
+        if (e.touches && e.touches.length > 0) {
+          return e.touches[0].clientX;
+        }
+        if (e.clientX !== undefined) {
+          return e.clientX;
+        }
+        return null;
+      }
+
+      function touchStart(e) {
+          const x = getClientX(e);
+          if (x === null) return;
+          
+          isDragging = true;
+          startX = x;
+          startTime = Date.now();
+          prevTranslate = -currentImageIndex * 100;
+          
+          // Disable transition for 1:1 tracking
+          imgTrack.style.transition = 'none';
+      }
+
+      function touchMove(e) {
+          if (!isDragging) return;
+          
+          const currentX = getClientX(e);
+          if (currentX === null) return;
+          
+          const deltaX = currentX - startX;
+          const containerWidth = imgTrack.parentElement.offsetWidth;
+          if (containerWidth === 0) return; // Safety
+          
+          const deltaPercent = (deltaX / containerWidth) * 100;
+          
+          currentTranslate = prevTranslate + deltaPercent;
+          
+          // Soft resistance at boundaries
+          const maxTranslate = 0;
+          const minTranslate = -(heroImages.length - 1) * 100;
+          
+          if (currentTranslate > maxTranslate) {
+              currentTranslate = maxTranslate + (currentTranslate - maxTranslate) * 0.2;
+          } else if (currentTranslate < minTranslate) {
+              currentTranslate = minTranslate + (currentTranslate - minTranslate) * 0.2;
+          }
+          
+          // Update transform directly
+          imgTrack.style.transform = `translate3d(${currentTranslate}%, 0, 0)`;
+      }
+
+      function touchEnd() {
+          if (!isDragging) return;
+          isDragging = false;
+          
+          const movedPercent = currentTranslate - prevTranslate;
+          const timeTaken = Date.now() - startTime;
+          const velocity = Math.abs(movedPercent) / timeTaken;
+          
+          let newIndex = currentImageIndex;
+          
+          // Threshold: 25% OR velocity > 0.2
+          if (movedPercent < -25 || (movedPercent < 0 && velocity > 0.2)) {
+              newIndex++;
+          } else if (movedPercent > 25 || (movedPercent > 0 && velocity > 0.2)) {
+              newIndex--;
+          }
+          
+          newIndex = Math.max(0, Math.min(newIndex, heroImages.length - 1));
+          
+          // Enable transition for smooth snap
+          imgTrack.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+          
+          // Set final position
+          currentImageIndex = newIndex;
+          imgTrack.style.transform = `translate3d(-${currentImageIndex * 100}%, 0, 0)`;
+          
+          // Update thumbnails
+          const len = heroImages.length;
+          document.querySelectorAll('.strongside-thumb-btn').forEach((b, i) => {
+              const isMatch = (i % len === currentImageIndex);
+              if (isMatch) b.classList.add('is-active');
+              else b.classList.remove('is-active');
+              if (isMatch && b.parentElement.classList.contains('strongside-thumbs-mobile')) {
+                  b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+              }
+          });
+      }
+
+      // Attach listeners
+      const container = document.getElementById('hero-main-image-container');
+      if (container) {
+          container.addEventListener('touchstart', touchStart, { passive: true });
+          container.addEventListener('touchmove', touchMove, { passive: true });
+          container.addEventListener('touchend', touchEnd);
+          container.addEventListener('touchcancel', touchEnd);
+      }
+  })();
+
+  function openHeroModalWithIndex() {
+    const src = heroImages[currentImageIndex];
     const modalImg = document.getElementById('hero-modal-img');
     const modal = document.getElementById('hero-image-modal');
 
-    if (mainImg && modalImg && modal) {
-      modalImg.src = mainImg.src;
+    if (src && modalImg && modal) {
+      modalImg.src = src;
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
