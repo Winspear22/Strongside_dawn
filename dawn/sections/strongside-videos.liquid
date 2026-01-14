@@ -470,35 +470,90 @@
         }
       });
 
-      // --- TOUCH SWIPE SUPPORT ---
-      let touchStartX = 0;
-      let touchStartY = 0;
+      // --- FLUID TOUCH SWIPE (Sync Version) ---
+      let isDragging = false;
+      let startX = 0;
+      let startTime = 0;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
 
-      track.addEventListener('touchstart', (e) => {
-        if (e.touches.length > 0) {
-          touchStartX = e.touches[0].clientX;
-          touchStartY = e.touches[0].clientY;
+      function getClientX(e) {
+        if (e.touches && e.touches.length > 0) {
+          return e.touches[0].clientX;
         }
-      }, { passive: true });
+        return e.clientX !== undefined ? e.clientX : null;
+      }
 
-      track.addEventListener('touchend', (e) => {
-        if (e.changedTouches.length > 0) {
-          const touchEndX = e.changedTouches[0].clientX;
-          const touchEndY = e.changedTouches[0].clientY;
-          
-          const diffX = touchStartX - touchEndX;
-          const diffY = touchStartY - touchEndY;
+      function touchStart(e) {
+        const x = getClientX(e);
+        if (x === null) return;
+        
+        isDragging = true;
+        startX = x;
+        startTime = Date.now();
+        // Store current position (% based on index)
+        const step = isMobile ? 51 : 34;
+        prevTranslate = -currentIndex * step;
+        
+        track.style.transition = 'none';
+      }
 
-          // Only trigger if horizontal movement is dominant and significant
-          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-            if (diffX > 0) {
-              scroll(1); // Swipe Left -> Next
-            } else {
-              scroll(-1); // Swipe Right -> Prev
-            }
-          }
+      function touchMove(e) {
+        if (!isDragging) return;
+        
+        const currentX = getClientX(e);
+        if (currentX === null) return;
+        
+        const deltaX = currentX - startX;
+        const containerWidth = track.parentElement.offsetWidth;
+        if (containerWidth === 0) return;
+        
+        const deltaPercent = (deltaX / containerWidth) * 100;
+        currentTranslate = prevTranslate + deltaPercent;
+        
+        // Soft resistance at boundaries
+        const step = isMobile ? 51 : 34;
+        const maxTranslate = 0;
+        const minTranslate = -maxIndex * step;
+        
+        if (currentTranslate > maxTranslate) {
+            currentTranslate = maxTranslate + (currentTranslate - maxTranslate) * 0.2;
+        } else if (currentTranslate < minTranslate) {
+            currentTranslate = minTranslate + (currentTranslate - minTranslate) * 0.2;
         }
-      }, { passive: true });
+        
+        track.style.transform = `translateX(${currentTranslate}%)`;
+      }
+
+      function touchEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const step = isMobile ? 51 : 34;
+        const movedPercent = currentTranslate - prevTranslate;
+        const timeTaken = Date.now() - startTime;
+        const velocity = Math.abs(movedPercent) / timeTaken;
+        
+        let newIndex = currentIndex;
+        
+        // Threshold: 10% OR velocity > 0.15
+        if (movedPercent < -10 || (movedPercent < 0 && velocity > 0.15)) {
+            newIndex++;
+        } else if (movedPercent > 10 || (movedPercent > 0 && velocity > 0.15)) {
+            newIndex--;
+        }
+        
+        newIndex = Math.max(0, Math.min(newIndex, maxIndex));
+        
+        track.style.transition = 'transform 0.3s ease-out';
+        currentIndex = newIndex;
+        updateCarousel();
+      }
+
+      track.addEventListener('touchstart', touchStart, { passive: true });
+      track.addEventListener('touchmove', touchMove, { passive: true });
+      track.addEventListener('touchend', touchEnd);
+      track.addEventListener('touchcancel', touchEnd);
     }
 
     // --- DESKTOP RENDER ---

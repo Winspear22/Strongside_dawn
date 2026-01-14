@@ -427,7 +427,7 @@
             {% for media in product.media %}
               <button
                 class="ss-acc-thumb-btn {% if forloop.first %}is-active{% endif %}"
-                onclick="changeAccessoryImage('ss-acc-main-img-{{ section.id }}', this, '{{ media | image_url: width: 800 }}', {{ forloop.index0 }})"
+                onclick="goToAccImageIndex({{ forloop.index0 }})"
               >
                 {{
                   media
@@ -440,14 +440,33 @@
           </div>
         {% endif %}
 
-        <!-- Main Image -->
-        {% capture image_id %}ss-acc-main-img-{{ section.id }}{% endcapture %}
-        <div class="ss-acc-main-img-container" onclick="openAccessoryModal()">
-          {{
-            product.featured_media
-            | image_url: width: 800
-            | image_tag: id: image_id, class: 'ss-acc-main-img', loading: 'eager', alt: product.title
-          }}
+        <!-- Main Image Track -->
+        <div
+          class="ss-acc-main-img-container"
+          id="ss-acc-main-container-{{ section.id }}"
+          onclick="openAccessoryModalWithIndex()"
+          style="overflow:hidden;"
+        >
+          <div
+            id="ss-acc-image-track-{{ section.id }}"
+            style="display:flex; height:100%; transition:transform 0.3s ease-out; will-change:transform; backface-visibility:hidden;"
+          >
+            {% for media in product.media %}
+              <div style="width:100%; height:100%; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+                <img
+                  src="{{ media | image_url: width: 800 }}"
+                  class="ss-acc-main-img"
+                  style="width:100%; height:100%; object-fit:contain;"
+                  draggable="false"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="sync"
+                  width="800"
+                  height="800"
+                >
+              </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
 
@@ -611,35 +630,122 @@
 </div>
 
 <script>
-  let currentAccessoryImage = '{{ product.featured_media | image_url: width: 1200 }}';
+  /* --- ACCESSORY IMAGES DATA --- */
+  const accImages = [
+    {% for media in product.media %}
+      "{{ media | image_url: width: 1200 }}",
+    {% endfor %}
+  ];
+  let currentAccIndex = 0;
+  const accTrack = document.getElementById('ss-acc-image-track-{{ section.id }}');
+  const accContainer = document.getElementById('ss-acc-main-container-{{ section.id }}');
 
-  function changeAccessoryImage(targetId, btn, url, index) {
-    // Find the main image container within this specific section instance
-    const sectionContainer = btn.closest('.ss-acc-card');
-    const mainImg = sectionContainer.querySelector('.ss-acc-main-img');
-
-    if (mainImg) {
-      mainImg.src = url;
-      // Remove srcset to ensure the browser uses the new src immediately
-      mainImg.removeAttribute('srcset');
-      // Also update the modal trigger source if needed
-      currentAccessoryImage = url;
+  function goToAccImageIndex(index) {
+    if (index < 0 || index >= accImages.length) return;
+    currentAccIndex = index;
+    
+    if (accTrack) {
+        accTrack.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
     }
 
-    // Update Active Thumbs
-    const thumbsContainer = btn.closest('.ss-acc-thumbs');
-    if (thumbsContainer) {
-      thumbsContainer.querySelectorAll('.ss-acc-thumb-btn').forEach((b) => b.classList.remove('is-active'));
-    }
-    btn.classList.add('is-active');
+    // Update Thumbs
+    document.querySelectorAll('.ss-acc-thumb-btn').forEach((b, i) => {
+        if (i === index) b.classList.add('is-active');
+        else b.classList.remove('is-active');
+    });
   }
+
+  // --- FLUID SWIPE (Sync Version) ---
+  (function() {
+      if (!accTrack || !accContainer) return;
+      
+      let isDragging = false;
+      let startX = 0;
+      let startTime = 0;
+      let currentTranslate = 0;
+      let prevTranslate = 0;
+
+      function getClientX(e) {
+        if (e.touches && e.touches.length > 0) {
+          return e.touches[0].clientX;
+        }
+        return e.clientX !== undefined ? e.clientX : null;
+      }
+
+      function touchStart(e) {
+        const x = getClientX(e);
+        if (x === null) return;
+        
+        isDragging = true;
+        startX = x;
+        startTime = Date.now();
+        prevTranslate = -currentAccIndex * 100;
+        
+        accTrack.style.transition = 'none';
+      }
+
+      function touchMove(e) {
+        if (!isDragging) return;
+        
+        const currentX = getClientX(e);
+        if (currentX === null) return;
+        
+        const deltaX = currentX - startX;
+        const containerWidth = accContainer.offsetWidth;
+        if (containerWidth === 0) return;
+        
+        const deltaPercent = (deltaX / containerWidth) * 100;
+        currentTranslate = prevTranslate + deltaPercent;
+        
+        // Soft resistance at boundaries
+        const maxTranslate = 0;
+        const minTranslate = -(accImages.length - 1) * 100;
+        
+        if (currentTranslate > maxTranslate) {
+            currentTranslate = maxTranslate + (currentTranslate - maxTranslate) * 0.2;
+        } else if (currentTranslate < minTranslate) {
+            currentTranslate = minTranslate + (currentTranslate - minTranslate) * 0.2;
+        }
+        
+        accTrack.style.transform = `translate3d(${currentTranslate}%, 0, 0)`;
+      }
+
+      function touchEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const movedPercent = currentTranslate - prevTranslate;
+        const timeTaken = Date.now() - startTime;
+        const velocity = Math.abs(movedPercent) / timeTaken;
+        
+        let newIndex = currentAccIndex;
+        
+        // Threshold: 25% OR velocity > 0.2
+        if (movedPercent < -25 || (movedPercent < 0 && velocity > 0.2)) {
+            newIndex++;
+        } else if (movedPercent > 25 || (movedPercent > 0 && velocity > 0.2)) {
+            newIndex--;
+        }
+        
+        newIndex = Math.max(0, Math.min(newIndex, accImages.length - 1));
+        
+        accTrack.style.transition = 'transform 0.3s ease-out';
+        currentAccIndex = newIndex;
+        goToAccImageIndex(currentAccIndex);
+      }
+
+      accContainer.addEventListener('touchstart', touchStart, { passive: true });
+      accContainer.addEventListener('touchmove', touchMove, { passive: true });
+      accContainer.addEventListener('touchend', touchEnd);
+      accContainer.addEventListener('touchcancel', touchEnd);
+  })();
 
   function toggleAccessoryDesc(sectionId) {
     const content = document.getElementById('ss-acc-content-' + sectionId);
     const label = document.getElementById('ss-acc-desc-label-' + sectionId);
     const icon = document.getElementById('ss-acc-desc-icon-' + sectionId);
 
-    if (!content) return; // Safety check
+    if (!content) return;
 
     content.classList.toggle('is-open');
     if (content.classList.contains('is-open')) {
@@ -651,10 +757,14 @@
     }
   }
 
-  function openAccessoryModal() {
+  function openAccessoryModalWithIndex() {
+    const src = accImages[currentAccIndex];
     const modal = document.getElementById('ss-acc-modal');
-    modal.classList.add('is-visible');
-    document.getElementById('ss-acc-modal-img').src = currentAccessoryImage;
+    const modalImg = document.getElementById('ss-acc-modal-img');
+    if (src && modal && modalImg) {
+      modalImg.src = src;
+      modal.classList.add('is-visible');
+    }
   }
 
   function closeAccessoryModal() {
