@@ -784,8 +784,8 @@
     const LIGHT_SCHEME = 'color-scheme-6';
     const DARK_SCHEMES = ['color-scheme-1', 'color-scheme-2', 'color-scheme-3', 'color-scheme-4'];
 
-    // Check localStorage or default to dark
-    const isDark = localStorage.getItem('theme') !== 'light';
+    // Check localStorage - default to LIGHT (new visitors get light mode)
+    const isDark = localStorage.getItem('theme') === 'dark';
 
     function applyLightSchemeToElement(el) {
       if (el.classList.contains(LIGHT_SCHEME)) return;
@@ -844,7 +844,7 @@
 
     // Observer to handle dynamically injected elements (like Cart Drawer)
     const observer = new MutationObserver((mutations) => {
-      if (localStorage.getItem('theme') === 'light') {
+      if (localStorage.getItem('theme') !== 'dark') {
         mutations.forEach((mutation) => {
           mutation.addedNodes.forEach((node) => {
             if (node.nodeType === 1) {
