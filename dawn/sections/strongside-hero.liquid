@@ -17,8 +17,6 @@
 
 {%- comment -%} Fallback to specific handle or first product if still not found {%- endcomment -%}
 
--->
-
 <style>
   /* 
     CONTAINER GLOBAL
@@ -37,7 +35,7 @@
   .strongside-hero-container {
     display: flex;
     flex-direction: column;
-    padding-top: 5.1rem !important;
+    padding-top: 6.5rem !important; /* Increased from 5.1rem to clear header on mobile */
   }
 
   @media (min-width: 1024px) {
@@ -409,8 +407,8 @@
   #strongside-hero-wrapper .strongside-btn-add {
     width: 100%;
     padding: 2rem;
-    background-color: rgb(var(--color-foreground)) !important;
-    color: rgb(var(--color-background)) !important;
+    background-color: white !important; /* Always white */
+    color: black !important; /* Always black text */
     font-size: 2rem !important;
     font-weight: 900 !important;
     text-transform: uppercase;
@@ -422,7 +420,24 @@
     gap: 1.2rem;
     cursor: pointer;
     transition: all 0.2s;
-    border: 1px solid rgba(var(--color-foreground), 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Force child elements (SVG, Text) to be black */
+  #strongside-hero-wrapper .strongside-btn-add *,
+  #strongside-hero-wrapper .strongside-btn-add span {
+    color: black !important;
+  }
+
+  /* SVG Specific: Outline Style (Stroke only, No fill) */
+  #strongside-hero-wrapper .strongside-btn-add svg {
+    fill: none !important;
+    stroke: black !important;
+    stroke-width: 2px !important;
+  }
+  #strongside-hero-wrapper .strongside-btn-add svg path {
+    fill: none !important;
+    stroke: black !important;
   }
 
   #strongside-hero-wrapper .strongside-btn-add:hover {
@@ -561,6 +576,33 @@
   #strongside-hero-wrapper .strongside-accordion-content.is-open {
     max-height: 500px;
     padding-bottom: 1.25rem;
+  }
+
+  /* Hero Video Carousel Navigation Buttons */
+  .hero-nav-btn {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 9999px;
+    background-color: #1a1a1a !important; /* Always dark */
+    border: none;
+    color: #ffffff !important; /* Always white icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .hero-nav-btn svg {
+    stroke: #ffffff !important;
+  }
+
+  .hero-nav-btn:hover {
+    background-color: #333333 !important;
+  }
+
+  .hero-nav-btn:hover svg {
+    stroke: #ff2222 !important;
   }
 </style>
 
@@ -806,38 +848,78 @@
         {% endunless %}
 
         <!-- Actions -->
+        <!-- Actions with Native <product-form> for AJAX Drawer & Analytics -->
+        <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+        {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
         {% if product %}
-          {% form 'product', product %}
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-
-            <div class="strongside-actions">
-              <!-- ADD TO CART: Secondary (White) -->
-              <button
-                type="submit"
-                name="add"
-                class="strongside-btn-add"
-                style="background-color:white !important; color:black !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1.25rem;"
-              >
-                <svg style="width:32px;height:32px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-                {{ 'strongside.shop.addToCart' | t }}
-              </button>
-
-              <!-- BUY NOW: Primary (Green) -->
-              <button
-                type="submit"
-                name="add"
-                class="strongside-btn-buy"
-                style="background-color:#10b981 !important; color:white !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1rem; box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);"
-              >
-                <svg style="width:28px;height:28px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                {{ 'strongside.shop.buyNow' | t }}
-              </button>
+          <product-form class="product-form">
+            <div class="product-form__error-message-wrapper" role="alert" hidden>
+              <svg aria-hidden="true" focusable="false" class="icon icon-error" viewBox="0 0 13 13">
+                <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+                <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+                <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7"/>
+              </svg>
+              <span class="product-form__error-message"></span>
             </div>
-          {% endform %}
+
+            {% form 'product',
+              product,
+              id: product_form_id,
+              class: 'form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            %}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+              <div class="strongside-actions">
+                <!-- ADD TO CART: Secondary (White) -->
+                <button
+                  type="submit"
+                  name="add"
+                  class="strongside-btn-add"
+                  style="background-color:white !important; color:black !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1.25rem;"
+                >
+                  <span class="loading__spinner hidden">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                    </svg>
+                  </span>
+                  <span class="btn-text">
+                    <svg
+                      style="width:32px;height:32px;display:inline-block;vertical-align:middle;margin-right:0.5rem;"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    {{ 'strongside.shop.addToCart' | t }}
+                  </span>
+                </button>
+
+                <!-- BUY NOW: Primary (Green) - Still uses direct checkout usually, but kept in form -->
+                <button
+                  type="submit"
+                  name="add"
+                  class="strongside-btn-buy"
+                  style="background-color:#10b981 !important; color:white !important; border:none !important; width:100%; border-radius:9999px; font-weight:900; text-transform:uppercase; padding:1rem; box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);"
+                >
+                  <svg style="width:28px;height:28px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  {{ 'strongside.shop.buyNow' | t }}
+                </button>
+              </div>
+            {% endform %}
+          </product-form>
         {% else %}
           <div style="padding: 2rem; border: 1px dashed red; color: red;">PRODUIT NON TROUVÉ</div>
         {% endif %}
@@ -950,21 +1032,21 @@
           <div style="display:flex; gap:0.5rem;">
             <button
               id="hero-vid-prev"
-              style="width:3.25rem;height:3.25rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;"
-              onmouseover="this.style.background='rgba(255,255,255,0.2)'"
-              onmouseout="this.style.background='rgba(255,255,255,0.1)'"
+              style="width:3.25rem;height:3.25rem;border-radius:9999px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;"
+              onmouseover="this.style.background='#333333'; this.querySelector('svg').style.stroke='#ff2222';"
+              onmouseout="this.style.background='#1a1a1a'; this.querySelector('svg').style.stroke='white';"
             >
-              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24" style="stroke:white; transition:stroke 0.2s;">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
               </svg>
             </button>
             <button
               id="hero-vid-next"
-              style="width:3.25rem;height:3.25rem;border-radius:9999px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;"
-              onmouseover="this.style.background='rgba(255,255,255,0.2)'"
-              onmouseout="this.style.background='rgba(255,255,255,0.1)'"
+              style="width:3.25rem;height:3.25rem;border-radius:9999px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;"
+              onmouseover="this.style.background='#333333'; this.querySelector('svg').style.stroke='#ff2222';"
+              onmouseout="this.style.background='#1a1a1a'; this.querySelector('svg').style.stroke='white';"
             >
-              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24" style="stroke:white; transition:stroke 0.2s;">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </button>
@@ -1339,6 +1421,42 @@
         }
       };
     if (closeBtn) closeBtn.onclick = closeModal;
+
+    /*
+    // --- TOUCH SWIPE SUPPORT ---
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    if (track) {
+      track.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 0) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        if (e.changedTouches.length > 0) {
+          const touchEndX = e.changedTouches[0].clientX;
+          const touchEndY = e.changedTouches[0].clientY;
+          
+          const diffX = touchStartX - touchEndX;
+          const diffY = touchStartY - touchEndY;
+
+          // Only trigger if horizontal movement is dominant and significant
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+            if (diffX > 0 && currentIndex < maxIndex) {
+              currentIndex++;
+              updateCarousel();
+            } else if (diffX < 0 && currentIndex > 0) {
+              currentIndex--;
+              updateCarousel();
+            }
+          }
+        }
+      }, { passive: true });
+    }
+    */
 
     if (document.readyState !== 'loading') init();
     else document.addEventListener('DOMContentLoaded', init);

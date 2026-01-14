@@ -6,7 +6,7 @@
 <script src="{{ 'strongside-header.js' | asset_url }}" defer="defer"></script>
 
 <style>
-  /* Base reset for header - Scaled 1.6x from React original */
+  /* Base reset for header - Adjusted for Mobile */
   .strongside-header-wrapper {
     position: fixed;
     top: 0;
@@ -14,7 +14,7 @@
     right: 0;
     z-index: 9999;
     transition: all 0.3s ease;
-    padding: 2.4rem 2.4rem; /* React: p-6 (1.5rem) -> 2.4rem */
+    padding: 1rem 1.5rem; /* Reduced from 2.4rem 2.4rem for mobile */
     background-color: rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
@@ -30,8 +30,14 @@
   .strongside-header-wrapper.is-scrolled {
     background-color: rgba(5, 5, 5, 0.95) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.6rem 2.4rem !important; /* Shrink slightly */
+    padding: 0.8rem 1.5rem !important; /* Mobile shrunk state */
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .strongside-header-wrapper.is-scrolled {
+      padding: 1.6rem 4.8rem !important; /* Desktop shrunk state */
+    }
   }
 
   .strongside-header-wrapper.is-transparent {
@@ -43,14 +49,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 95%;
+    max-width: 95%; /* Keep width safe */
     margin: 0 auto;
     position: relative;
+    gap: 1rem; /* Add gap to prevent overlap */
   }
 
-  /* LOGO - Scaled 1.6x */
+  /* LOGO - Mobile Optimized */
   .strongside-logo {
-    font-size: 2.4rem; /* React: text-2xl (1.5rem) -> 2.4rem */
+    font-size: 1.5rem; /* Reduced from 2.4rem for mobile */
     font-weight: 900;
     letter-spacing: -0.05em;
     color: white;
@@ -60,7 +67,21 @@
     user-select: none;
     transition: color 0.3s;
     font-family: 'Inter', sans-serif !important;
-    margin-left: 15rem !important; /* Décalage FORCE vers la droite */
+    margin-left: 0 !important;
+    white-space: nowrap; /* Prevent wrap */
+    flex-shrink: 1; /* Allow shrink if needed */
+  }
+
+  @media (min-width: 768px) {
+    .strongside-logo {
+      font-size: 2.4rem; /* Restore Desktop Size */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .strongside-logo {
+      margin-left: 15rem !important;
+    }
   }
 
   .strongside-logo span {
@@ -141,8 +162,14 @@
   .strongside-icons {
     display: flex;
     align-items: center;
-    gap: 1.5rem; /* gap-6 */
+    gap: 0.8rem; /* Mobile: Reduced gap from 1.5rem */
     justify-content: flex-end;
+  }
+
+  @media (min-width: 768px) {
+    .strongside-icons {
+      gap: 1.5rem; /* Desktop: Restore gap */
+    }
   }
 
   .strongside-icon-btn {
@@ -200,7 +227,7 @@
   .strongside-mobile-menu {
     position: fixed;
     inset: 0;
-    z-index: 100; /* Top most */
+    z-index: 2147483647; /* MAX Z-INDEX to cover header (9999) */
     background-color: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(24px);
     display: flex;

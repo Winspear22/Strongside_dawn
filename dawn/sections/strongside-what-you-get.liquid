@@ -417,7 +417,7 @@
         <div
           class="ss-wyg-card {% if item_image != blank %}has-image{% endif %}"
           {{ block.shopify_attributes }}
-          onclick="{% if item_image != blank %}openWygLightbox('{{ item_image }}'){% endif %}"
+          onclick="{% if item_image != blank %}openWygLightbox('{{ item_image }}', '{{ section.id }}'){% endif %}"
         >
           {% if item_image != blank %}
             <div
@@ -454,7 +454,7 @@
         <div
           class="ss-wyg-card is-extra {% if item_image != blank %}has-image{% endif %}"
           {{ block.shopify_attributes }}
-          onclick="{% if item_image != blank %}openWygLightbox('{{ item_image }}'){% endif %}"
+          onclick="{% if item_image != blank %}openWygLightbox('{{ item_image }}', '{{ section.id }}'){% endif %}"
         >
           {% if item_image != blank %}
             <div class="ss-wyg-bg" style="background-image: url('{{ item_image }}');"></div>
@@ -473,19 +473,25 @@
 </div>
 
 <!-- LIGHTBOX -->
-<div id="ss-wyg-lightbox" class="ss-lightbox" onclick="closeWygLightbox()">
-  <button class="ss-lightbox-close" onclick="closeWygLightbox()">
+<div id="ss-wyg-lightbox-{{ section.id }}" class="ss-lightbox" onclick="closeWygLightbox('{{ section.id }}')">
+  <button class="ss-lightbox-close" onclick="closeWygLightbox('{{ section.id }}')">
     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
     </svg>
   </button>
-  <img id="ss-wyg-lightbox-img" class="ss-lightbox-img" src="" alt="Zoom" onclick="event.stopPropagation()">
+  <img
+    id="ss-wyg-lightbox-img-{{ section.id }}"
+    class="ss-lightbox-img"
+    src=""
+    alt="Zoom"
+    onclick="event.stopPropagation()"
+  >
 </div>
 
 <script>
-  function openWygLightbox(url) {
-    var lightbox = document.getElementById('ss-wyg-lightbox');
-    var img = document.getElementById('ss-wyg-lightbox-img');
+  function openWygLightbox(url, sectionId) {
+    var lightbox = document.getElementById('ss-wyg-lightbox-' + sectionId);
+    var img = document.getElementById('ss-wyg-lightbox-img-' + sectionId);
     if (lightbox && img) {
       img.src = url;
       lightbox.classList.add('is-open');
@@ -493,18 +499,21 @@
     }
   }
 
-  function closeWygLightbox() {
-    var lightbox = document.getElementById('ss-wyg-lightbox');
+  function closeWygLightbox(sectionId) {
+    var lightbox = document.getElementById('ss-wyg-lightbox-' + sectionId);
     if (lightbox) {
       lightbox.classList.remove('is-open');
       document.body.style.overflow = '';
     }
   }
 
-  // Close on Escape
+  // Close on Escape (Global listener, might close all open lightboxes which is acceptable behavior)
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
-      closeWygLightbox();
+      document.querySelectorAll('.ss-lightbox.is-open').forEach((el) => {
+        el.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
     }
   });
 </script>

@@ -275,14 +275,14 @@
     width: 100%;
     margin-top: 2rem;
     padding: 1.6rem; /* Reduced by 10% */
-    background-color: rgb(var(--color-foreground)) !important;
-    color: rgb(var(--color-background)) !important;
+    background-color: white !important; /* Always white */
+    color: black !important; /* Always black */
     font-weight: 700;
     font-size: 1.35rem; /* Reduced by 10% */
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border-radius: 9999px;
-    border: none;
+    border: 1px solid rgba(0,0,0,0.1);
     cursor: pointer;
     transition: all 0.2s;
     display: flex;
@@ -292,13 +292,20 @@
     opacity: 1 !important; /* Force opacity */
     -webkit-font-smoothing: antialiased; /* Crisp text */
   }
-  /* Force all children to be correct color */
+  /* Force child elements (SVG, Text) to be black */
   #shopify-section-{{ section.id }} .ss-acc-btn-add *,
-  #shopify-section-{{ section.id }} .ss-acc-btn-add svg,
   #shopify-section-{{ section.id }} .ss-acc-btn-add span {
-    color: rgb(var(--color-background)) !important;
-    stroke: rgb(var(--color-background)) !important;
-    opacity: 1 !important;
+    color: black !important;
+  }
+  /* SVG Outline */
+  #shopify-section-{{ section.id }} .ss-acc-btn-add svg {
+    fill: none !important;
+    stroke: black !important;
+    stroke-width: 2px !important;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-btn-add svg path {
+    fill: none !important;
+    stroke: black !important;
   }
   #shopify-section-{{ section.id }} .ss-acc-btn-add:hover { opacity: 0.9 !important; }
 
@@ -449,10 +456,12 @@
       <span class="ss-acc-price">{{ variant.price | money }}</span>
 
       <!-- DESCRIPTION TOGGLE -->
-      <button class="ss-acc-desc-btn" onclick="toggleAccessoryDesc()">
-        <span class="ss-acc-desc-label" id="ss-acc-desc-label">{{ 'strongside.accessories.view_desc' | t }}</span>
+      <button class="ss-acc-desc-btn" onclick="toggleAccessoryDesc('{{ section.id }}')">
+        <span class="ss-acc-desc-label" id="ss-acc-desc-label-{{ section.id }}">
+          {{- 'strongside.accessories.view_desc' | t -}}
+        </span>
         <svg
-          id="ss-acc-desc-icon"
+          id="ss-acc-desc-icon-{{ section.id }}"
           width="16"
           height="16"
           fill="none"
@@ -464,7 +473,7 @@
         </svg>
       </button>
 
-      <div id="ss-acc-content" class="ss-acc-content">
+      <div id="ss-acc-content-{{ section.id }}" class="ss-acc-content">
         <div class="ss-acc-html">
           {{ product.description }}
         </div>
@@ -490,26 +499,58 @@
         </div>
       </div>
 
-      <!-- ACTIONS -->
-      <button
-        class="ss-acc-btn-add"
-        onclick="addAccessoryToCart('{{ variant.id }}')"
-      >
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
-        <span>{{ 'strongside.accessories.add_to_cart' | t }}</span>
-      </button>
+      <!-- ACTIONS (Replaced custom onclick with native <product-form>) -->
+      {%- assign product_form_id = 'product-form-' | append: section.id | append: '-' | append: variant.id -%}
+      <product-form class="product-form">
+        <div class="product-form__error-message-wrapper" role="alert" hidden>
+          <span class="product-form__error-message"></span>
+        </div>
+        {% form 'product',
+          product,
+          id: product_form_id,
+          class: 'form',
+          novalidate: 'novalidate',
+          data-type: 'add-to-cart-form'
+        %}
+          <input type="hidden" name="id" value="{{ variant.id }}">
 
-      <button
-        class="ss-acc-btn-buy"
-        onclick="buyAccessoryNow('{{ variant.id }}')"
-      >
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-        <span>{{ 'strongside.accessories.buy_now' | t }}</span>
-      </button>
+          <div class="ss-acc-actions" style="display:flex; flex-direction:column; gap:0.5rem; margin-top:1rem;">
+            <button
+              type="submit"
+              name="add"
+              class="ss-acc-btn-add"
+            >
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <span>{{ 'strongside.accessories.add_to_cart' | t }}</span>
+              <div class="loading__spinner hidden">
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="spinner"
+                  viewBox="0 0 66 66"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </div>
+            </button>
+
+            <!-- BUY NOW (Direct Checkout Link) -->
+            <a
+              href="/cart/{{ variant.id }}:1"
+              class="ss-acc-btn-buy"
+              style="display:flex; align-items:center; justify-content:center; gap:0.5rem; text-decoration:none;"
+            >
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span>{{ 'strongside.accessories.buy_now' | t }}</span>
+            </a>
+          </div>
+        {% endform %}
+      </product-form>
 
       <!-- TRUST -->
       <div class="ss-acc-trust">
@@ -593,10 +634,12 @@
     btn.classList.add('is-active');
   }
 
-  function toggleAccessoryDesc() {
-    const content = document.getElementById('ss-acc-content');
-    const label = document.getElementById('ss-acc-desc-label');
-    const icon = document.getElementById('ss-acc-desc-icon');
+  function toggleAccessoryDesc(sectionId) {
+    const content = document.getElementById('ss-acc-content-' + sectionId);
+    const label = document.getElementById('ss-acc-desc-label-' + sectionId);
+    const icon = document.getElementById('ss-acc-desc-icon-' + sectionId);
+
+    if (!content) return; // Safety check
 
     content.classList.toggle('is-open');
     if (content.classList.contains('is-open')) {
@@ -618,35 +661,12 @@
     document.getElementById('ss-acc-modal').classList.remove('is-visible');
   }
 
-  function addAccessoryToCart(variantId) {
-    let formData = {
-      items: [
-        {
-          id: variantId,
-          quantity: 1,
-        },
-      ],
-    };
-    fetch(window.Shopify.routes.root + 'cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        // Refresh cart or open drawer (Dawn default behavior might need trigger)
-        window.location.href = '/cart'; // Simple redirect for now
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }
-
-  function buyAccessoryNow(variantId) {
-    window.location.href = '/cart/' + variantId + ':1';
-  }
+  /* REMOVED: Custom fetch functions (addAccessoryToCart, buyAccessoryNow) 
+     REASON: Replaced by native <product-form> for better Analytics & AJAX Drawer support */
 </script>
+
+<!-- Add product-form.js dependency manually if not loaded (safety check) -->
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {

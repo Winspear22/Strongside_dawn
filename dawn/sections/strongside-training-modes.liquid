@@ -123,13 +123,29 @@
         {% assign trans_key_title = 'strongside.training.modes.' | append: i | append: '_title' %}
         {% assign trans_key_desc = 'strongside.training.modes.' | append: i | append: '_desc' %}
 
+        {%- liquid
+          case i
+            when 1
+              assign image_filename = 'Sac-de-frappe.webp'
+            when 2
+              assign image_filename = 'Pattes-d_ours.webp'
+            when 3
+              assign image_filename = 'Shadow_boxing_1.webp'
+          endcase
+        -%}
+
         <div class="strongside-mode-row {{ row_class }}">
           <!-- Media Column -->
           <div class="strongside-mode-media ss-observe {{ media_anim }}" style="transition-delay: 200ms;">
             <div class="media-container">
-              <video autoplay loop muted playsinline class="media-content">
-                <source src="{{ i | append: '.mp4' | asset_url }}" type="video/mp4">
-              </video>
+              <img
+                src="{{ image_filename | asset_url }}"
+                alt="{{ trans_key_title | t }}"
+                class="media-content"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
               <div class="media-overlay"></div>
             </div>
           </div>
@@ -148,18 +164,22 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const sectionContainer = document.getElementById('shopify-section-{{ section.id }}');
+    if (!sectionContainer) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Stop observing once visible to save resources
           }
         });
       },
       { threshold: 0.15 }
-    ); // Trigger when 15% visible
+    );
 
-    document.querySelectorAll('.ss-observe').forEach((el) => observer.observe(el));
+    sectionContainer.querySelectorAll('.ss-observe').forEach((el) => observer.observe(el));
   });
 </script>
 

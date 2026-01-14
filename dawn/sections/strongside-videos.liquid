@@ -65,9 +65,9 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 9999px;
-    background-color: rgba(var(--color-foreground), 0.1);
+    background-color: #1a1a1a !important; /* Always dark grey/black */
     border: none;
-    color: rgb(var(--color-foreground));
+    color: #ffffff !important; /* Always white icon */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,8 +75,16 @@
     transition: background-color 0.2s;
   }
 
+  .strongside-nav-btn svg {
+    stroke: #ffffff !important; /* Force white SVG stroke */
+  }
+
   .strongside-nav-btn:hover {
-    background-color: rgba(var(--color-foreground), 0.2);
+    background-color: #333333 !important;
+  }
+
+  .strongside-nav-btn:hover svg {
+    stroke: #ff2222 !important; /* Red on hover */
   }
 
   .strongside-nav-btn:disabled {
@@ -461,6 +469,36 @@
           location.reload(); // Simple way to reset state on major breakpoint change
         }
       });
+
+      // --- TOUCH SWIPE SUPPORT ---
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      track.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 0) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        if (e.changedTouches.length > 0) {
+          const touchEndX = e.changedTouches[0].clientX;
+          const touchEndY = e.changedTouches[0].clientY;
+          
+          const diffX = touchStartX - touchEndX;
+          const diffY = touchStartY - touchEndY;
+
+          // Only trigger if horizontal movement is dominant and significant
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+              scroll(1); // Swipe Left -> Next
+            } else {
+              scroll(-1); // Swipe Right -> Prev
+            }
+          }
+        }
+      }, { passive: true });
     }
 
     // --- DESKTOP RENDER ---
