@@ -1175,6 +1175,11 @@
             b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
     });
+
+    // GA4 Tracking
+    if (window.SS_GA4) {
+      window.SS_GA4.trackGalleryImageChange('{{ product.title | escape }}', index, 'thumbnail');
+    }
   }
 
   // --- FLUID SWIPE (Main Image) - Clean Sync Version ---
@@ -1246,6 +1251,13 @@
           const timeTaken = Date.now() - startTime;
           const velocity = Math.abs(movedPercent) / timeTaken;
           
+          // If minimal movement (just a tap), don't change index, just snap back
+          if (Math.abs(movedPercent) < 5) {
+              imgTrack.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+              imgTrack.style.transform = `translate3d(-${currentImageIndex * 100}%, 0, 0)`;
+              return;
+          }
+          
           let newIndex = currentImageIndex;
           
           // Threshold: 25% OR velocity > 0.2
@@ -1287,14 +1299,59 @@
   })();
 
   function openHeroModalWithIndex() {
-    const src = heroImages[currentImageIndex];
-    const modalImg = document.getElementById('hero-modal-img');
-    const modal = document.getElementById('hero-image-modal');
+    // Ultimate robustness: Find which image is physically currently centered in the view
+    // AND sync the internal state to match it to prevent snap-back
+    const container = document.getElementById('hero-main-image-container');
+    const images = document.querySelectorAll('#hero-image-track .strongside-main-image');
+    
+    if (!container || images.length === 0) return;
 
-    if (src && modalImg && modal) {
-      modalImg.src = src;
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
+    const containerRect = container.getBoundingClientRect();
+    const center = containerRect.left + containerRect.width / 2;
+    
+    let bestImg = null;
+    let bestIndex = -1;
+    let minDist = Infinity;
+    
+    // Find the image closest to the center of the container
+    images.forEach((img, index) => {
+        const rect = img.getBoundingClientRect();
+        const imgCenter = rect.left + rect.width / 2;
+        const dist = Math.abs(center - imgCenter);
+        if (dist < minDist) {
+            minDist = dist;
+            bestImg = img;
+            bestIndex = index;
+        }
+    });
+
+    if (bestImg && bestIndex !== -1) {
+        // Force sync internal state if different
+        if (currentImageIndex !== bestIndex) {
+            currentImageIndex = bestIndex;
+            
+            // Sync Thumbnails
+            const len = heroImages.length;
+            document.querySelectorAll('.strongside-thumb-btn').forEach((b, i) => {
+                const isMatch = (i % len === currentImageIndex);
+                if (isMatch) b.classList.add('is-active');
+                else b.classList.remove('is-active');
+            });
+
+            // Ensure track is perfectly aligned (fix any float issues from swipe)
+            const imgTrack = document.getElementById('hero-image-track');
+            if(imgTrack) imgTrack.style.transform = `translate3d(-${currentImageIndex * 100}%, 0, 0)`;
+        }
+
+        const src = bestImg.src;
+        const modalImg = document.getElementById('hero-modal-img');
+        const modal = document.getElementById('hero-image-modal');
+
+        if (src && modalImg && modal) {
+          modalImg.src = src;
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
     }
   }
 

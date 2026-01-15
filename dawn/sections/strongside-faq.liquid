@@ -247,6 +247,13 @@
         toggle.setAttribute('aria-expanded', 'true');
         answer.setAttribute('aria-hidden', 'false');
         answer.style.height = content.offsetHeight + 'px';
+
+        // GA4 Tracking
+        const questionText = toggle.querySelector('span')?.textContent || 'FAQ Question';
+        const index = Array.from(item.closest('.ss-faq-grid').children).indexOf(item);
+        if (window.SS_GA4) {
+          window.SS_GA4.trackFaqQuestionOpened(questionText, index, 'faq_section');
+        }
       }
 
       function closeItem(item) {

@@ -1,0 +1,516 @@
+{% comment %}
+  GA4 Events Tracking - Adapted from React ga4.js
+  Include this snippet in theme.liquid (at end of body)
+  Usage: Call window.SS_GA4.trackXXX() from any section
+{% endcomment %}
+
+<script>
+  (function () {
+    'use strict';
+
+    // Helper: Send event to GA4
+    function trackEvent(eventName, params) {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', eventName, params || {});
+      }
+    }
+
+    // Helper: Detect mobile
+    function isMobile() {
+      return window.innerWidth < 768;
+    }
+
+    // ============================================
+    // GLOBAL TRACKING OBJECT
+    // ============================================
+    window.SS_GA4 = {
+      // ============================================
+      // E-COMMERCE EVENTS
+      // ============================================
+
+      /**
+       * Track when a product detail page is viewed
+       * EVENT NAME: "BOUTIQUE_Vue_Detail_Produit"
+       */
+      trackViewItem: function (product) {
+        trackEvent('BOUTIQUE_Vue_Detail_Produit', {
+          nom_produit: product.title,
+          variante: product.variant || 'Standard',
+          prix: product.price,
+          currency: 'EUR',
+          value: product.price,
+          items: [
+            {
+              item_id: product.id,
+              item_name: product.title,
+              item_variant: product.variant,
+              price: product.price,
+              currency: 'EUR',
+            },
+          ],
+        });
+      },
+
+      /**
+       * Track when a product is added to cart
+       * EVENT NAME: "PANIER_Ajout_Produit"
+       */
+      trackAddToCart: function (product, quantity) {
+        quantity = quantity || 1;
+        var totalPrice = product.price * quantity;
+
+        trackEvent('PANIER_Ajout_Produit', {
+          nom_produit: product.title,
+          variante: product.variant || 'Standard',
+          quantite: quantity,
+          prix_unitaire: product.price,
+          prix_total: totalPrice,
+          currency: 'EUR',
+          value: totalPrice,
+          items: [
+            {
+              item_id: product.id,
+              item_name: product.title,
+              item_variant: product.variant,
+              price: product.price,
+              currency: 'EUR',
+              quantity: quantity,
+            },
+          ],
+        });
+      },
+
+      /**
+       * Track when a product is removed from cart
+       * EVENT NAME: "PANIER_Suppression_Produit"
+       */
+      trackRemoveFromCart: function (item) {
+        trackEvent('PANIER_Suppression_Produit', {
+          nom_produit: item.title,
+          variante: item.variant || 'Standard',
+          quantite_supprimee: item.quantity,
+          prix_perdu: item.price * item.quantity,
+          currency: 'EUR',
+          value: item.price * item.quantity,
+          items: [
+            {
+              item_id: item.id,
+              item_name: item.title,
+              item_variant: item.variant,
+              price: item.price,
+              currency: 'EUR',
+              quantity: item.quantity,
+            },
+          ],
+        });
+      },
+
+      /**
+       * Track when the cart drawer is opened
+       * EVENT NAME: "PANIER_Ouverture"
+       */
+      trackViewCart: function (cart) {
+        if (!cart || !cart.items || !cart.items.length) return;
+
+        var items = cart.items.map(function (item) {
+          return {
+            item_id: item.id,
+            item_name: item.title,
+            item_variant: item.variant,
+            price: item.price,
+            currency: 'EUR',
+            quantity: item.quantity,
+          };
+        });
+
+        trackEvent('PANIER_Ouverture', {
+          nombre_articles: cart.item_count,
+          valeur_panier: cart.total_price / 100,
+          currency: 'EUR',
+          value: cart.total_price / 100,
+          items: items,
+        });
+      },
+
+      /**
+       * Track when checkout begins
+       * EVENT NAME: "CHECKOUT_Debut_Paiement"
+       */
+      trackBeginCheckout: function (cart) {
+        if (!cart || !cart.items || !cart.items.length) return;
+
+        var items = cart.items.map(function (item) {
+          return {
+            item_id: item.id,
+            item_name: item.title,
+            item_variant: item.variant,
+            price: item.price,
+            currency: 'EUR',
+            quantity: item.quantity,
+          };
+        });
+
+        trackEvent('CHECKOUT_Debut_Paiement', {
+          nombre_articles: cart.item_count,
+          valeur_commande: cart.total_price / 100,
+          currency: 'EUR',
+          value: cart.total_price / 100,
+          items: items,
+        });
+      },
+
+      // ============================================
+      // FAQ / ACCORDION EVENTS
+      // ============================================
+
+      /**
+       * Track FAQ question opened
+       * EVENT NAME: "FAQ_Question_Ouverte"
+       */
+      trackFaqQuestionOpened: function (question, index, source) {
+        trackEvent('FAQ_Question_Ouverte', {
+          texte_question: question.substring(0, 100),
+          numero_question: index + 1,
+          source_faq: source || 'unknown',
+        });
+      },
+
+      /**
+       * Track accordion open/close
+       * EVENT NAME: "ACCORDEON_Interaction"
+       */
+      trackAccordionToggle: function (title, isOpening, source) {
+        trackEvent('ACCORDEON_Interaction', {
+          titre_accordeon: title,
+          action: isOpening ? 'ouverture' : 'fermeture',
+          source_page: source || 'unknown',
+          appareil: isMobile() ? 'mobile' : 'desktop',
+        });
+      },
+
+      // ============================================
+      // VIDEO EVENTS
+      // ============================================
+
+      /**
+       * Track when a video starts playing
+       * EVENT NAME: "VIDEO_Lecture_Demarree"
+       */
+      trackVideoStart: function (videoTitle, duration, source) {
+        trackEvent('VIDEO_Lecture_Demarree', {
+          titre_video: videoTitle,
+          duree_totale_sec: Math.round(duration || 0),
+          source_video: source || 'unknown',
+        });
+      },
+
+      /**
+       * Track video progress milestones
+       * EVENT NAME: "VIDEO_Progression"
+       */
+      trackVideoProgress: function (videoTitle, percent, currentTime, duration, source) {
+        trackEvent('VIDEO_Progression', {
+          titre_video: videoTitle,
+          pourcentage_vu: percent,
+          temps_actuel_sec: Math.round(currentTime),
+          duree_totale_sec: Math.round(duration),
+          source_video: source || 'unknown',
+        });
+      },
+
+      /**
+       * Track when a video is completed
+       * EVENT NAME: "VIDEO_Terminee"
+       */
+      trackVideoComplete: function (videoTitle, duration, source) {
+        trackEvent('VIDEO_Terminee', {
+          titre_video: videoTitle,
+          duree_totale_sec: Math.round(duration || 0),
+          source_video: source || 'unknown',
+        });
+      },
+
+      /**
+       * Track when a video is paused
+       * EVENT NAME: "VIDEO_Pause"
+       */
+      trackVideoPause: function (videoTitle, currentTime, percentWatched, source) {
+        trackEvent('VIDEO_Pause', {
+          titre_video: videoTitle,
+          temps_pause_sec: Math.round(currentTime),
+          pourcentage_vu: Math.round(percentWatched),
+          source_video: source || 'unknown',
+        });
+      },
+
+      /**
+       * Track when a video is resumed
+       * EVENT NAME: "VIDEO_Reprise"
+       */
+      trackVideoResume: function (videoTitle, currentTime, source) {
+        trackEvent('VIDEO_Reprise', {
+          titre_video: videoTitle,
+          temps_reprise_sec: Math.round(currentTime),
+          source_video: source || 'unknown',
+        });
+      },
+
+      /**
+       * Track video hover
+       * EVENT NAME: "VIDEO_Survol"
+       */
+      trackVideoHover: function (videoTitle, source) {
+        trackEvent('VIDEO_Survol', {
+          titre_video: videoTitle,
+          source_video: source || 'unknown',
+          appareil: isMobile() ? 'mobile' : 'desktop',
+        });
+      },
+
+      /**
+       * Track video carousel navigation
+       * EVENT NAME: "VIDEO_Carousel_Navigation"
+       */
+      trackVideoCarouselNav: function (direction, currentIndex, source) {
+        trackEvent('VIDEO_Carousel_Navigation', {
+          direction: direction,
+          index_actuel: currentIndex,
+          source_video: source || 'unknown',
+          appareil: isMobile() ? 'mobile' : 'desktop',
+        });
+      },
+
+      // ============================================
+      // IMAGE GALLERY EVENTS
+      // ============================================
+
+      /**
+       * Track image gallery change
+       * EVENT NAME: "GALERIE_Changement_Image"
+       */
+      trackGalleryImageChange: function (productTitle, index, source) {
+        trackEvent('GALERIE_Changement_Image', {
+          nom_produit: productTitle,
+          index_image: index + 1,
+          source_changement: source || 'thumbnail',
+        });
+      },
+
+      // ============================================
+      // NAVIGATION & UI EVENTS
+      // ============================================
+
+      /**
+       * Track social media link clicks
+       * EVENT NAME: "SOCIAL_Clic_Reseau"
+       */
+      trackSocialClick: function (platform) {
+        trackEvent('SOCIAL_Clic_Reseau', {
+          reseau_social: platform,
+        });
+      },
+
+      /**
+       * Track language change
+       * EVENT NAME: "LANGUE_Changement"
+       */
+      trackLanguageChange: function (newLanguage, previousLanguage) {
+        var langNames = {
+          fr: 'Français',
+          en: 'English',
+          de: 'Deutsch',
+          it: 'Italiano',
+          nl: 'Nederlands',
+          sv: 'Svenska',
+          es: 'Español',
+        };
+        trackEvent('LANGUE_Changement', {
+          nouvelle_langue: langNames[newLanguage] || newLanguage,
+          code_langue: newLanguage,
+          langue_precedente: langNames[previousLanguage] || previousLanguage,
+        });
+      },
+
+      // ============================================
+      // SCROLL TRACKING
+      // ============================================
+
+      _scrollState: {
+        currentPage: null,
+        milestones: {},
+      },
+
+      /**
+       * Initialize scroll tracking for a page
+       */
+      initScrollTracking: function (pageName) {
+        var self = this;
+        this._scrollState.currentPage = pageName;
+        this._scrollState.milestones = {};
+
+        var throttled = false;
+        window.addEventListener('scroll', function () {
+          if (throttled) return;
+          throttled = true;
+          setTimeout(function () {
+            throttled = false;
+            self._checkScrollDepth(pageName);
+          }, 200);
+        });
+      },
+
+      _checkScrollDepth: function (pageName) {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrollPercent = Math.round((scrollTop / docHeight) * 100);
+
+        var milestones = [25, 50, 75, 90, 100];
+        for (var i = 0; i < milestones.length; i++) {
+          var milestone = milestones[i];
+          if (scrollPercent >= milestone && !this._scrollState.milestones[milestone]) {
+            this._scrollState.milestones[milestone] = true;
+            trackEvent('SCROLL_Profondeur', {
+              nom_page: pageName,
+              profondeur_pourcent: milestone,
+              profondeur_actuelle: scrollPercent,
+            });
+          }
+        }
+      },
+
+      // ============================================
+      // REVIEWS EVENTS
+      // ============================================
+
+      /**
+       * Track when reviews section is viewed
+       * EVENT NAME: "AVIS_Section_Vue"
+       */
+      trackReviewSectionView: function (productTitle) {
+        trackEvent('AVIS_Section_Vue', {
+          nom_produit: productTitle,
+          appareil: isMobile() ? 'mobile' : 'desktop',
+        });
+      },
+
+      /**
+       * Track review submission
+       * EVENT NAME: "AVIS_Soumis"
+       */
+      trackReviewSubmit: function (productTitle, rating) {
+        trackEvent('AVIS_Soumis', {
+          nom_produit: productTitle,
+          note_attribuee: rating,
+          appareil: isMobile() ? 'mobile' : 'desktop',
+        });
+      },
+    }; // End window.SS_GA4
+
+    // ============================================
+    // AUTO-INIT: Track page view on load
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function () {
+      var pageName = document.title || 'Page';
+
+      // Track page view
+      trackEvent('PAGE_VUE', {
+        page_name: pageName,
+        page_title: document.title,
+        page_url: window.location.href,
+      });
+
+      // Init scroll tracking
+      window.SS_GA4.initScrollTracking(pageName);
+
+      // ============================================
+      // AUTO E-COMMERCE TRACKING
+      // ============================================
+
+      // --- ADD TO CART TRACKING ---
+      // Listen for form submissions on add-to-cart forms
+      document.addEventListener('submit', function (e) {
+        var form = e.target;
+        if (form.matches('[data-type="add-to-cart-form"]') || form.action.includes('/cart/add')) {
+          var productTitle =
+            document.querySelector('h1.strongside-product-title')?.textContent ||
+            document.querySelector('.product__title h1')?.textContent ||
+            'Produit';
+          var priceEl = document.querySelector('.strongside-current-price, .price__container .price-item--regular');
+          var priceText = priceEl ? priceEl.textContent.replace(/[^0-9,.]/g, '').replace(',', '.') : '0';
+          var price = parseFloat(priceText) || 0;
+
+          window.SS_GA4.trackAddToCart(
+            {
+              id: form.querySelector('[name="id"]')?.value || 'unknown',
+              title: productTitle.trim(),
+              variant: 'Standard',
+              price: price,
+            },
+            1
+          );
+        }
+      });
+
+      // --- CART DRAWER OPEN TRACKING ---
+      // Watch for cart drawer becoming visible
+      var cartDrawer = document.querySelector('cart-drawer, #CartDrawer, .cart-drawer');
+      if (cartDrawer) {
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+              var isOpen =
+                cartDrawer.classList.contains('is-open') ||
+                cartDrawer.classList.contains('active') ||
+                cartDrawer.hasAttribute('open');
+              if (isOpen) {
+                // Fetch cart data and track
+                fetch('/cart.js')
+                  .then(function (res) {
+                    return res.json();
+                  })
+                  .then(function (cart) {
+                    window.SS_GA4.trackViewCart(cart);
+                  })
+                  .catch(function () {});
+              }
+            }
+          });
+        });
+        observer.observe(cartDrawer, { attributes: true });
+      }
+
+      // --- CHECKOUT BUTTON TRACKING ---
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest('[name="checkout"], .cart__checkout-button, [href*="/checkout"]');
+        if (btn) {
+          fetch('/cart.js')
+            .then(function (res) {
+              return res.json();
+            })
+            .then(function (cart) {
+              window.SS_GA4.trackBeginCheckout(cart);
+            })
+            .catch(function () {});
+        }
+      });
+
+      // --- SOCIAL LINK TRACKING ---
+      document
+        .querySelectorAll(
+          'a[href*="instagram"], a[href*="facebook"], a[href*="tiktok"], a[href*="youtube"], a[href*="twitter"], a[href*="linkedin"]'
+        )
+        .forEach(function (link) {
+          link.addEventListener('click', function () {
+            var platform = 'unknown';
+            if (link.href.includes('instagram')) platform = 'Instagram';
+            else if (link.href.includes('facebook')) platform = 'Facebook';
+            else if (link.href.includes('tiktok')) platform = 'TikTok';
+            else if (link.href.includes('youtube')) platform = 'YouTube';
+            else if (link.href.includes('twitter')) platform = 'Twitter';
+            else if (link.href.includes('linkedin')) platform = 'LinkedIn';
+            window.SS_GA4.trackSocialClick(platform);
+          });
+        });
+    });
+  })();
+</script>

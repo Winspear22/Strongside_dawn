@@ -758,12 +758,56 @@
   }
 
   function openAccessoryModalWithIndex() {
-    const src = accImages[currentAccIndex];
-    const modal = document.getElementById('ss-acc-modal');
-    const modalImg = document.getElementById('ss-acc-modal-img');
-    if (src && modal && modalImg) {
-      modalImg.src = src;
-      modal.classList.add('is-visible');
+    // Ultimate robustness: Find which image is physically currently centered in the view
+    // AND sync the internal state to match it to prevent snap-back
+    const container = document.getElementById('ss-acc-main-container-{{ section.id }}');
+    const images = document.querySelectorAll('#ss-acc-image-track-{{ section.id }} .ss-acc-main-img');
+    
+    if (!container || images.length === 0) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const center = containerRect.left + containerRect.width / 2;
+    
+    let bestImg = null;
+    let bestIndex = -1;
+    let minDist = Infinity;
+    
+    // Find the image closest to the center of the container
+    images.forEach((img, index) => {
+        const rect = img.getBoundingClientRect();
+        const imgCenter = rect.left + rect.width / 2;
+        const dist = Math.abs(center - imgCenter);
+        if (dist < minDist) {
+            minDist = dist;
+            bestImg = img;
+            bestIndex = index;
+        }
+    });
+
+    if (bestImg && bestIndex !== -1) {
+        // Force sync internal state if different
+        if (currentAccIndex !== bestIndex) {
+            currentAccIndex = bestIndex;
+            
+            // Sync Thumbnails
+            document.querySelectorAll('.ss-acc-thumb-btn').forEach((b, i) => {
+                if (i === currentAccIndex) b.classList.add('is-active');
+                else b.classList.remove('is-active');
+            });
+
+            // Ensure track is perfectly aligned
+            const accTrack = document.getElementById('ss-acc-image-track-{{ section.id }}');
+            if(accTrack) accTrack.style.transform = `translate3d(-${currentAccIndex * 100}%, 0, 0)`;
+        }
+
+        const src = bestImg.src;
+        const modal = document.getElementById('ss-acc-modal');
+        const modalImg = document.getElementById('ss-acc-modal-img');
+        
+        if (src && modal && modalImg) {
+          modalImg.src = src;
+          modal.classList.add('is-visible');
+        }
     }
   }
 

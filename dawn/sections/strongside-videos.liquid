@@ -584,6 +584,11 @@
             v.play().catch((e) => {
               /* Autoplay block handled silently */
             });
+
+            // GA4 Tracking
+            if (window.SS_GA4) {
+              window.SS_GA4.trackVideoHover(video.title, 'videos_section');
+            }
           }
         });
         card.addEventListener('mouseleave', () => {
@@ -636,6 +641,11 @@
       if (newIndex >= 0 && newIndex <= maxIndex) {
         currentIndex = newIndex;
         updateCarousel();
+
+        // GA4 Tracking
+        if (window.SS_GA4) {
+          window.SS_GA4.trackVideoCarouselNav(direction > 0 ? 'droite' : 'gauche', currentIndex, 'videos_section');
+        }
       }
     }
 
