@@ -760,136 +760,136 @@
     },
     "legal_pages": {
       "contact": {
-        "title": "Contact Us",
-        "back": "Back"
+        "title": "Contactos",
+        "back": "Voltar"
       },
       "cgv": {
-        "title": "Terms and Conditions of Sale",
-        "back": "Back",
-        "lastUpdate": "T&C updated on 12/16/2025",
+        "title": "Termos e Condições Gerais de Venda",
+        "back": "Voltar",
+        "lastUpdate": "TC atualizados em 16/12/2025",
         "sections": {
           "preliminary": {
-            "title": "Preliminary Article",
-            "text": "These terms and conditions of sale are entered into, on the one hand, by STRONGSIDE Technologies, operated by Adam Aloui, hereinafter referred to as 'the Seller', operating the website https://www.strongside.tech/, and, on the other hand, by any natural or legal person wishing to make a purchase through the website https://www.strongside.tech/, hereinafter referred to as 'the Buyer'."
+            "title": "Artigo Preliminar",
+            "text": "Estes termos e condições gerais de venda são acordados entre a STRONGSIDE Technologies, operada por Adam Aloui, doravante designada 'o Vendedor', e qualquer pessoa que deseje efetuar uma compra através do site https://www.strongside.tech/, doravante designada 'o Comprador'."
           },
           "object": {
-            "title": "Article 1. Purpose",
-            "text1": "The purpose of these general terms and conditions of sale is to define the contractual relationship between STRONGSIDE Technologies and the Buyer, as well as the conditions applicable to any purchase made through the website https://www.strongside.tech/.",
-            "text2": "The purchase of a product through this site implies unreserved acceptance by the Buyer of these general terms and conditions of sale, which they acknowledge having read prior to placing their order.",
-            "text3": "Before any transaction, the Buyer declares that they have full legal capacity to commit to these general terms and conditions of sale.",
-            "text4": "STRONGSIDE Technologies reserves the right to modify these general terms and conditions of sale at any time to comply with new regulations or to improve the use of its site. The applicable conditions will be those in force on the date of the order."
+            "title": "Artigo 1. Objeto",
+            "text1": "O objetivo destas condições gerais de venda é definir a relação contratual entre a STRONGSIDE Technologies e o Comprador, bem como as condições aplicáveis a qualquer compra efetuada através do site https://www.strongside.tech/.",
+            "text2": "A compra de um produto através deste site implica a aceitação sem reservas pelo Comprador destas condições gerais de venda, as quais reconhece ter lido antes de efetuar a sua encomenda.",
+            "text3": "Antes de qualquer transação, o Comprador declara ter plena capacidade legal para se vincular a estas condições gerais de venda.",
+            "text4": "A STRONGSIDE Technologies reserva-se o direito de modificar estas condições gerais de venda a qualquer momento para cumprir com novas regulamentações ou para melhorar a utilização do seu site. As condições aplicáveis serão as que estiverem em vigor na data da encomenda."
           },
           "products": {
-            "title": "Article 2. Products",
-            "text1": "The products offered are those listed on the website https://www.strongside.tech/, subject to availability. STRONGSIDE Technologies reserves the right to modify the product range at any time.",
-            "text2": "Each product is presented on the site with a description of its main technical characteristics. Photographs are as accurate as possible but do not bind the Seller."
+            "title": "Artigo 2. Produtos",
+            "text1": "Os produtos oferecidos são aqueles listados no site https://www.strongside.tech/, sujeitos à disponibilidade. A STRONGSIDE Technologies reserva-se o direito de modificar a gama de produtos a qualquer momento.",
+            "text2": "Cada produto é apresentado no site com uma descrição das suas principais características técnicas. As fotografias são o mais precisas possível, mas não vinculam o Vendedor."
           },
           "prices": {
-            "title": "Article 3. Prices",
-            "text1": "Prices shown on product pages are in euros (€), including all taxes (VAT) applicable on the order date.",
-            "text2": "STRONGSIDE Technologies reserves the right to modify its prices at any time, it being understood that the price displayed at the time of order will be the only one applicable to the Buyer.",
-            "text3": "Prices shown do not include delivery costs, which are charged separately based on the total order amount and destination."
+            "title": "Artigo 3. Preços",
+            "text1": "Os preços apresentados nas páginas dos produtos são em euros (€), incluindo todos os impostos (IVA) aplicáveis na data da encomenda.",
+            "text2": "A STRONGSIDE Technologies reserva-se o direito de modificar os seus preços a qualquer momento, entendendo-se que o preço apresentado no momento da encomenda será o único aplicável ao Comprador.",
+            "text3": "Os preços apresentados não incluem os custos de entrega, que são cobrados separadamente com base no valor total da encomenda e no destino."
           },
           "order": {
-            "title": "Article 4. Order and Payment",
-            "text1": "Before any order, the Buyer must create an account on the website https://www.strongside.tech/.",
-            "paymentMethods": "Accepted payment methods are:",
-            "method_card": "Credit card",
+            "title": "Artigo 4. Encomenda e Pagamento",
+            "text1": "Antes de qualquer encomenda, o Comprador deve criar uma conta no site https://www.strongside.tech/.",
+            "paymentMethods": "Os métodos de pagamento aceites são:",
+            "method_card": "Cartão de crédito",
             "method_paypal": "PayPal",
-            "method_transfer": "Bank transfer",
-            "method_other": "Any other payment method offered on the site at the time of order",
-            "text2": "Validation of the order implies full and complete acceptance of these general terms and conditions of sale.",
-            "text3": "An order confirmation will be sent by email to the Buyer."
+            "method_transfer": "Transferência bancária",
+            "method_other": "Qualquer outro método de pagamento oferecido no site no momento da encomenda",
+            "text2": "A validação da encomenda implica a aceitação plena e completa destas condições gerais de venda.",
+            "text3": "Uma confirmação de encomenda será enviada por email ao Comprador."
           },
           "ownership": {
-            "title": "Article 5. Retention of Title",
-            "text": "STRONGSIDE Technologies retains full ownership of the products sold until full payment of the price, including fees and taxes."
+            "title": "Artigo 5. Reserva de Propriedade",
+            "text": "A STRONGSIDE Technologies mantém a propriedade total dos produtos vendidos até ao pagamento integral do preço, incluindo taxas e impostos."
           },
           "returns": {
-            "title": "Article 6. Right of Withdrawal and Returns",
-            "text1": "In accordance with applicable legislation, the Buyer has fourteen (14) days from receipt of their order to exercise their right of withdrawal.",
-            "highlight": "Returns are accepted within 14 days.",
-            "text2": "Products must be returned in their original condition, unused, and in their original packaging.",
-            "text3": "Return costs remain the responsibility of the Buyer.",
-            "text4": "Refund will be made after receipt and verification of the returned products."
+            "title": "Artigo 6. Direito de Retratação e Devoluções",
+            "text1": "De acordo com a legislação aplicável, o Comprador dispõe de catorze (14) dias a partir da receção da sua encomenda para exercer o seu direito de retratação.",
+            "highlight": "As devoluções são aceites no prazo de 14 dias.",
+            "text2": "Os produtos devem ser devolvidos no seu estado original, não utilizados e na sua embalagem original.",
+            "text3": "Os custos de devolução são da responsabilidade do Comprador.",
+            "text4": "O reembolso será efetuado após a receção e verificação dos produtos devolvidos."
           },
           "delivery": {
-            "title": "Article 7. Delivery",
-            "text1": "Deliveries are made to the address indicated at the time of order.",
-            "text2": "Delivery times are indicative. In case of delay exceeding thirty (30) days, the Buyer may request cancellation of the order and refund.",
-            "text3": "Transport risks are transferred to the Buyer upon handover of the package to the carrier."
+            "title": "Artigo 7. Entrega",
+            "text1": "As entregas são efetuadas na morada indicada no momento da encomenda.",
+            "text2": "Os prazos de entrega são indicativos. Em caso de atraso superior a trinta (30) dias, o Comprador pode solicitar o cancelamento da encomenda e o reembolso.",
+            "text3": "O risco de transporte é transferido para o Comprador no momento da entrega da encomenda ao transportador."
           },
           "warranty": {
-            "title": "Article 8. Warranty",
-            "text1": "All products benefit from legal guarantees of conformity and hidden defects as provided by Articles 1641 et seq. of the Civil Code.",
-            "text2": "Any claim, exchange, or refund request must be made by email or mail within thirty (30) days of delivery."
+            "title": "Artigo 8. Garantia",
+            "text1": "Todos os produtos beneficiam das garantias legais de conformidade e de defeitos ocultos, conforme previsto nos artigos do Código Civil.",
+            "text2": "Qualquer reclamação, pedido de troca ou reembolso deve ser efetuado por email ou correio no prazo de trinta (30) dias após a entrega."
           },
           "liability": {
-            "title": "Article 9. Liability",
-            "text": "STRONGSIDE Technologies cannot be held liable for damages resulting from the use of the Internet, such as data loss, intrusion, virus, or service interruption."
+            "title": "Artigo 9. Responsabilidade",
+            "text": "A STRONGSIDE Technologies não pode ser responsabilizada por danos resultantes da utilização da Internet, tais como perda de dados, intrusão, vírus ou interrupção do serviço."
           },
           "ip": {
-            "title": "Article 10. Intellectual Property",
-            "text1": "All elements of the website https://www.strongside.tech/ are and remain the exclusive intellectual property of STRONGSIDE Technologies.",
-            "text2": "Any reproduction, exploitation, or use, even partial, without prior authorization is strictly prohibited."
+            "title": "Artigo 10. Propriedade Intelectual",
+            "text1": "Todos os elementos do site https://www.strongside.tech/ são e permanecem propriedade intelectual exclusiva da STRONGSIDE Technologies.",
+            "text2": "Qualquer reprodução, exploração ou utilização, mesmo que parcial, sem autorização prévia é estritamente proibida."
           },
           "data": {
-            "title": "Article 11. Personal Data",
-            "text1": "STRONGSIDE Technologies is committed to preserving the confidentiality of personal information provided by the Buyer.",
-            "text2": "In accordance with the Data Protection Act and GDPR, the Buyer has the right to access, rectify, and delete their personal data."
+            "title": "Artigo 11. Dados Pessoais",
+            "text1": "A STRONGSIDE Technologies compromete-se a preservar a confidencialidade das informações pessoais fornecidas pelo Comprador.",
+            "text2": "De acordo com a Lei de Proteção de Dados e o RGPD, o Comprador tem o direito de aceder, retificar e eliminar os seus dados pessoais."
           },
           "disputes": {
-            "title": "Article 12. Dispute Resolution",
-            "text1": "These general terms and conditions of sale are governed by French law.",
-            "text2": "In case of dispute, an amicable solution will be sought before any legal action. Failing that, the competent courts will be those of the defendant's domicile or the place of delivery."
+            "title": "Artigo 12. Resolução de Litígios",
+            "text1": "Estas condições gerais de venda regem-se pela lei francesa.",
+            "text2": "Em caso de litígio, será procurada uma solução amigável antes de qualquer ação judicial. Na falta desta, os tribunais competentes serão os do domicílio do réu ou do local de entrega."
           },
           "entirety": {
-            "title": "Article 13. Entirety",
-            "text": "If any clause of these general terms and conditions of sale is declared null, the other clauses will retain their full validity."
+            "title": "Artigo 13. Integridade",
+            "text": "Se alguma cláusula destas condições gerais de venda for declarada nula, as restantes cláusulas manterão a sua plena validade."
           },
           "duration": {
-            "title": "Article 14. Duration",
-            "text": "These conditions apply for the entire duration of the online services offered by STRONGSIDE Technologies."
+            "title": "Artigo 14. Duração",
+            "text": "Estas condições aplicam-se durante toda a duração dos serviços online oferecidos pela STRONGSIDE Technologies."
           },
           "proof": {
-            "title": "Article 15. Proof",
-            "text": "The computerized records kept in the computer systems of STRONGSIDE Technologies will constitute proof of communications, orders, and payments between the parties."
+            "title": "Artigo 15. Prova",
+            "text": "Os registos informatizados conservados nos sistemas informáticos da STRONGSIDE Technologies constituirão prova das comunicações, encomendas e pagamentos entre as partes."
           }
         }
       },
       "legal": {
-        "title": "Legal Notice",
-        "back": "Back",
-        "lastUpdate": "Legal notice updated on 12/15/2025",
+        "title": "Aviso Legal",
+        "back": "Voltar",
+        "lastUpdate": "Aviso legal atualizado em 15/12/2025",
         "sections": {
           "identification": {
-            "title": "Identification and Publication",
-            "editor": "Publisher",
-            "editorText": "This site is published by ADAM ALOUI – STRONGSIDE Technologies.",
-            "director": "Publication Director: Adam Aloui",
-            "host": "Host",
-            "hostText": "This site is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA."
+            "title": "Identificação e Publicação",
+            "editor": "Editor",
+            "editorText": "Este site é publicado por ADAM ALOUI – STRONGSIDE Technologies.",
+            "director": "Diretor de Publicação: Adam Aloui",
+            "host": "Alojamento",
+            "hostText": "Este site é alojado pela Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, EUA."
           },
           "ip": {
-            "title": "Intellectual Property",
-            "protection": "All graphic elements, structure, and more generally, the content of the STRONGSIDE Technologies site are protected by copyright, trademark law, and design rights.",
-            "privateUse": "Anyone who collects or downloads content or information from the site only has a private, personal, and non-transferable right of use.",
-            "reproduction": "Reproduction of a page of the site in a context external to STRONGSIDE or insertion of a page belonging to STRONGSIDE in another site's page is prohibited.",
-            "sanctions": "Similarly, any reproduction or representation of the site in part or in whole is prohibited without the written consent of STRONGSIDE and would constitute infringement punishable under applicable intellectual property laws.",
-            "paperReproduction": "Texts, graphics, drawings, logos, and photos published by STRONGSIDE may be reproduced on paper or electronic media, provided the name and address of the site are cited and no commercial use is made.",
-            "infringement": "Non-compliance with the above provisions may constitute infringement involving civil or criminal liability of the author.",
-            "hyperlink": "Creating a hypertext link to the site www.strongside.tech can only be done with the authorization of STRONGSIDE, and provided no confusion can exist in the minds of users regarding the identity of the site or the origin of information."
+            "title": "Propriedade Intelectual",
+            "protection": "Todos os elementos gráficos, a estrutura e, mais geralmente, o conteúdo do site da STRONGSIDE Technologies estão protegidos por direitos de autor, direito de marcas e direitos de design.",
+            "privateUse": "Qualquer pessoa que recolha ou descarregue conteúdo ou informações do site tem apenas um direito de uso privado, pessoal e intransmissível.",
+            "reproduction": "A reprodução de uma página do site num contexto externo à STRONGSIDE ou a inserção de uma página pertencente à STRONGSIDE na página de outro site é proibida.",
+            "sanctions": "Do mesmo modo, qualquer reprodução ou representação do site, total ou parcial, é proibida sem o consentimento por escrito da STRONGSIDE e constituiria uma contrafação punível ao abrigo das leis de propriedade intelectual aplicáveis.",
+            "paperReproduction": "Textos, gráficos, desenhos, logótipos e fotos publicados pela STRONGSIDE podem ser reproduzidos em papel ou suportes eletrónicos, desde que o nome e a morada do site sejam citados e não seja feito uso comercial.",
+            "infringement": "O incumprimento das disposições acima pode constituir uma contrafação que implique a responsabilidade civil ou criminal do autor.",
+            "hyperlink": "A criação de uma hiperligação para o site www.strongside.tech só pode ser feita com a autorização da STRONGSIDE, e desde que não possa existir confusão na mente dos utilizadores quanto à identidade do site ou à origem das informações."
           },
           "data": {
-            "title": "Data Protection & Cookies",
-            "intro": "We use tracking technologies to improve your experience and analyze how our site is used.",
+            "title": "Proteção de Dados e Cookies",
+            "intro": "Utilizamos tecnologias de rastreio para melhorar a sua experiência e analisar como o nosso site é utilizado.",
             "ga4Title": "Google Analytics 4",
-            "ga4Text": "We use Google Analytics 4 to understand how visitors interact with our site. This data is anonymized and helps us optimize your browsing experience. No personally identifiable information is collected.",
+            "ga4Text": "Utilizamos o Google Analytics 4 para compreender como os visitantes interagem com o nosso site. Estes dados são anonimizados e ajudam-nos a otimizar a sua experiência de navegação. Não são recolhidas informações de identificação pessoal.",
             "shopifyTitle": "Shopify",
-            "shopifyText": "Payment transactions are securely managed by Shopify Payments. During the checkout process, Shopify may collect information necessary to process your order (name, address, email, payment information) in accordance with their privacy policy.",
+            "shopifyText": "As transações de pagamento são geridas de forma segura pela Shopify Payments. Durante o processo de checkout, a Shopify pode recolher informações necessárias para processar a sua encomenda (nome, morada, email, informações de pagamento) de acordo com a sua política de privacidade.",
             "vercelTitle": "Vercel Analytics",
-            "vercelText": "Our hosting provider Vercel collects anonymized performance data to optimize site speed.",
-            "consent": "By continuing to use this site, you consent to the use of these tracking technologies."
+            "vercelText": "O nosso fornecedor de alojamento Vercel recolhe dados de desempenho anonimizados para otimizar a velocidade do site.",
+            "consent": "Ao continuar a utilizar este site, consente a utilização destas tecnologias de rastreio."
           }
         }
       }
