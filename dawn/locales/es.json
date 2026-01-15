@@ -757,6 +757,142 @@
         "7_q": "¿Es duradero?",
         "7_a": "Probado para entrenamiento intensivo."
       }
+    },
+    "legal_pages": {
+      "contact": {
+        "title": "Contacto",
+        "back": "Atrás"
+      },
+      "cgv": {
+        "title": "Condiciones Generales de Venta",
+        "back": "Atrás",
+        "lastUpdate": "CGV actualizadas el 16/12/2025",
+        "sections": {
+          "preliminary": {
+            "title": "Artículo Preliminar",
+            "text": "Estas condiciones generales de venta se celebran, por una parte, por STRONGSIDE Technologies, operada por Adam Aloui, en adelante denominado 'el Vendedor', que opera el sitio web https://www.strongside.tech/, y, por otra parte, por cualquier persona física o jurídica que desee realizar una compra a través del sitio web https://www.strongside.tech/, en adelante denominada 'el Comprador'."
+          },
+          "object": {
+            "title": "Artículo 1. Objeto",
+            "text1": "El objeto de estas condiciones generales de venta es definir la relación contractual entre STRONGSIDE Technologies y el Comprador, así como las condiciones aplicables a cualquier compra realizada a través del sitio web https://www.strongside.tech/.",
+            "text2": "La compra de un producto a través de este sitio implica la aceptación sin reservas por parte del Comprador de estas condiciones generales de venta, que reconoce haber leído antes de realizar su pedido.",
+            "text3": "Antes de cualquier transacción, el Comprador declara tener plena capacidad legal para comprometerse con estas condiciones generales de venta.",
+            "text4": "STRONGSIDE Technologies se reserva el derecho de modificar estas condiciones generales de venta en cualquier momento para cumplir con nuevas regulaciones o mejorar el uso de su sitio. Las condiciones aplicables serán las vigentes en la fecha del pedido."
+          },
+          "products": {
+            "title": "Artículo 2. Productos",
+            "text1": "Los productos ofrecidos son los que figuran en el sitio web https://www.strongside.tech/, sujetos a disponibilidad. STRONGSIDE Technologies se reserva el derecho de modificar la gama de productos en cualquier momento.",
+            "text2": "Cada producto se presenta en el sitio con una descripción de sus principales características técnicas. Las fotografías son lo más precisas posible pero no vinculan al Vendedor."
+          },
+          "prices": {
+            "title": "Artículo 3. Precios",
+            "text1": "Los precios mostrados en las páginas de productos están en euros (€), incluidos todos los impuestos (IVA) aplicables en la fecha del pedido.",
+            "text2": "STRONGSIDE Technologies se reserva el derecho de modificar sus precios en cualquier momento, entendiéndose que el precio mostrado en el momento del pedido será el único aplicable al Comprador.",
+            "text3": "Los precios mostrados no incluyen los gastos de envío, que se cobran por separado según el importe total del pedido y el destino."
+          },
+          "order": {
+            "title": "Artículo 4. Pedido y Pago",
+            "text1": "Antes de cualquier pedido, el Comprador debe crear una cuenta en el sitio web https://www.strongside.tech/.",
+            "paymentMethods": "Los métodos de pago aceptados son:",
+            "method_card": "Tarjeta de crédito",
+            "method_paypal": "PayPal",
+            "method_transfer": "Transferencia bancaria",
+            "method_other": "Cualquier otro método de pago ofrecido en el sitio en el momento del pedido",
+            "text2": "La validación del pedido implica la aceptación plena y completa de estas condiciones generales de venta.",
+            "text3": "Se enviará una confirmación de pedido por correo electrónico al Comprador."
+          },
+          "ownership": {
+            "title": "Artículo 5. Reserva de Dominio",
+            "text": "STRONGSIDE Technologies conserva la plena propiedad de los productos vendidos hasta el pago completo del precio, incluidos gastos e impuestos."
+          },
+          "returns": {
+            "title": "Artículo 6. Derecho de Desistimiento y Devoluciones",
+            "text1": "De acuerdo con la legislación aplicable, el Comprador dispone de catorce (14) días a partir de la recepción de su pedido para ejercer su derecho de desistimiento.",
+            "highlight": "Se aceptan devoluciones dentro de los 14 días.",
+            "text2": "Los productos deben devolverse en su estado original, sin usar y en su embalaje original.",
+            "text3": "Los gastos de devolución corren a cargo del Comprador.",
+            "text4": "El reembolso se realizará tras la recepción y verificación de los productos devueltos."
+          },
+          "delivery": {
+            "title": "Artículo 7. Entrega",
+            "text1": "Las entregas se realizan a la dirección indicada en el momento del pedido.",
+            "text2": "Los plazos de entrega son indicativos. En caso de retraso superior a treinta (30) días, el Comprador podrá solicitar la cancelación del pedido y el reembolso.",
+            "text3": "El riesgo del transporte se transfiere al Comprador en el momento de la entrega del paquete al transportista."
+          },
+          "warranty": {
+            "title": "Artículo 8. Garantía",
+            "text1": "Todos los productos se benefician de las garantías legales de conformidad y vicios ocultos según lo dispuesto por la legislación aplicable.",
+            "text2": "Cualquier reclamación, solicitud de cambio o reembolso debe realizarse por correo electrónico o postal dentro de los treinta (30) días siguientes a la entrega."
+          },
+          "liability": {
+            "title": "Artículo 9. Responsabilidad",
+            "text": "STRONGSIDE Technologies no se hace responsable de los daños resultantes del uso de Internet, como pérdida de datos, intrusión, virus o interrupción del servicio."
+          },
+          "ip": {
+            "title": "Artículo 10. Propiedad Intelectual",
+            "text1": "Todos los elementos del sitio web https://www.strongside.tech/ son y seguirán siendo propiedad intelectual exclusiva de STRONGSIDE Technologies.",
+            "text2": "Cualquier reproducción, explotación o uso, incluso parcial, sin autorización previa está estrictamente prohibido."
+          },
+          "data": {
+            "title": "Artículo 11. Datos Personales",
+            "text1": "STRONGSIDE Technologies se compromete a preservar la confidencialidad de la información personal proporcionada por el Comprador.",
+            "text2": "De acuerdo con las leyes de protección de datos y el RGPD, el Comprador tiene derecho a acceder, rectificar y eliminar sus datos personales."
+          },
+          "disputes": {
+            "title": "Artículo 12. Resolución de Disputas",
+            "text1": "Estas condiciones generales de venta se rigen por la ley francesa.",
+            "text2": "En caso de disputa, se buscará una solución amistosa antes de cualquier acción legal. En su defecto, los tribunales competentes serán los del domicilio del demandado o del lugar de entrega."
+          },
+          "entirety": {
+            "title": "Artículo 13. Integridad",
+            "text": "Si alguna cláusula de estas condiciones generales de venta se declara nula, las demás cláusulas conservarán su plena validez."
+          },
+          "duration": {
+            "title": "Artículo 14. Duración",
+            "text": "Estas condiciones se aplican durante toda la duración de los servicios en línea ofrecidos por STRONGSIDE Technologies."
+          },
+          "proof": {
+            "title": "Artículo 15. Prueba",
+            "text": "Los registros informatizados conservados en los sistemas informáticos de STRONGSIDE Technologies constituirán prueba de las comunicaciones, pedidos y pagos entre las partes."
+          }
+        }
+      },
+      "legal": {
+        "title": "Aviso Legal",
+        "back": "Atrás",
+        "lastUpdate": "Aviso legal actualizado el 15/12/2025",
+        "sections": {
+          "identification": {
+            "title": "Identificación y Publicación",
+            "editor": "Editor",
+            "editorText": "Este sitio es publicado por ADAM ALOUI – STRONGSIDE Technologies.",
+            "director": "Director de Publicación: Adam Aloui",
+            "host": "Host",
+            "hostText": "Este sitio está alojado por Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, EE. UU."
+          },
+          "ip": {
+            "title": "Propiedad Intelectual",
+            "protection": "Todos los elementos gráficos, la estructura y, en general, el contenido del sitio de STRONGSIDE Technologies están protegidos por derechos de autor, derecho de marcas y derechos de diseño.",
+            "privateUse": "Cualquier persona que recopile o descargue contenido o información del sitio solo tiene un derecho de uso privado, personal e intransferible.",
+            "reproduction": "La reproducción de una página del sitio en un contexto externo a STRONGSIDE o la inserción de una página perteneciente a STRONGSIDE en la página de otro sitio está prohibida.",
+            "sanctions": "Del mismo modo, cualquier reproducción o representación del sitio total o parcialmente está prohibida sin el consentimiento por escrito de STRONGSIDE y constituiría una infracción sancionable según las leyes de propiedad intelectual aplicables.",
+            "paperReproduction": "Los textos, gráficos, dibujos, logotipos y fotos publicados por STRONGSIDE pueden reproducirse en papel o medios electrónicos, siempre que se cite el nombre y la dirección del sitio y no se haga uso comercial.",
+            "infringement": "El incumplimiento de las disposiciones anteriores puede constituir una infracción que implique la responsabilidad civil o penal del autor.",
+            "hyperlink": "La creación de un enlace de hipertexto al sitio www.strongside.tech solo puede hacerse con la autorización de STRONGSIDE, y siempre que no pueda existir confusión en la mente de los usuarios con respecto a la identidad del sitio o el origen de la información."
+          },
+          "data": {
+            "title": "Protección de Datos y Cookies",
+            "intro": "Utilizamos tecnologías de seguimiento para mejorar su experiencia y analizar cómo se utiliza nuestro sitio.",
+            "ga4Title": "Google Analytics 4",
+            "ga4Text": "Utilizamos Google Analytics 4 para entender cómo los visitantes interactúan con nuestro sitio. Estos datos son anónimos y nos ayudan a optimizar su experiencia de navegación. No se recopila información de identificación personal.",
+            "shopifyTitle": "Shopify",
+            "shopifyText": "Las transacciones de pago son gestionadas de forma segura por Shopify Payments. Durante el proceso de pago, Shopify puede recopilar información necesaria para procesar su pedido (nombre, dirección, correo electrónico, información de pago) de acuerdo con su política de privacidad.",
+            "vercelTitle": "Vercel Analytics",
+            "vercelText": "Nuestro proveedor de alojamiento Vercel recopila datos de rendimiento anónimos para optimizar la velocidad del sitio.",
+            "consent": "Al continuar utilizando este sitio, usted acepta el uso de estas tecnologías de seguimiento."
+          }
+        }
+      }
     }
   }
 }

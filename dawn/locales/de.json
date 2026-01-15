@@ -757,6 +757,142 @@
         "7_q": "Ist es langlebig?",
         "7_a": "Getestet für intensives Training."
       }
+    },
+    "legal_pages": {
+      "contact": {
+        "title": "Kontakt",
+        "back": "Zurück"
+      },
+      "cgv": {
+        "title": "Allgemeine Verkaufsbedingungen",
+        "back": "Zurück",
+        "lastUpdate": "AGB aktualisiert am 16.12.2025",
+        "sections": {
+          "preliminary": {
+            "title": "Präambel",
+            "text": "Diese allgemeinen Verkaufsbedingungen werden einerseits von STRONGSIDE Technologies, betrieben von Adam Aloui, im Folgenden \"der Verkäufer\" genannt, Betreiber der Website https://www.strongside.tech/, und andererseits von jeder natürlichen oder juristischen Person abgeschlossen, die einen Kauf über die Website https://www.strongside.tech/ tätigen möchte, im Folgenden \"der Käufer\" genannt."
+          },
+          "object": {
+            "title": "Artikel 1. Vertragsgegenstand",
+            "text1": "Zweck dieser allgemeinen Verkaufsbedingungen ist es, die vertraglichen Beziehungen zwischen STRONGSIDE Technologies und dem Käufer sowie die Bedingungen zu definieren, die für jeden Kauf gelten, der über die Website https://www.strongside.tech/ getätigt wird.",
+            "text2": "Der Kauf eines Produkts über diese Website setzt die vorbehaltlose Annahme dieser allgemeinen Verkaufsbedingungen durch den Käufer voraus, der bestätigt, diese vor seiner Bestellung gelesen zu haben.",
+            "text3": "Vor jeder Transaktion erklärt der Käufer, dass er die volle Rechtsfähigkeit besitzt, um sich an diese allgemeinen Verkaufsbedingungen zu binden.",
+            "text4": "STRONGSIDE Technologies behält sich das Recht vor, diese allgemeinen Verkaufsbedingungen jederzeit zu ändern, um neuen Vorschriften zu entsprechen oder die Nutzung seiner Website zu verbessern. Die geltenden Bedingungen sind die zum Zeitpunkt der Bestellung gültigen."
+          },
+          "products": {
+            "title": "Artikel 2. Produkte",
+            "text1": "Die angebotenen Produkte sind diejenigen, die auf der Website https://www.strongside.tech/ aufgeführt sind, solange der Vorrat reicht. STRONGSIDE Technologies behält sich das Recht vor, das Produktsortiment jederzeit zu ändern.",
+            "text2": "Jedes Produkt wird auf der Website mit einer Beschreibung seiner wichtigsten technischen Merkmale präsentiert. Die Fotos sind so genau wie möglich, binden den Verkäufer jedoch nicht vertraglich."
+          },
+          "prices": {
+            "title": "Artikel 3. Preise",
+            "text1": "Die auf den Produktseiten angegebenen Preise verstehen sich in Euro (€) inklusive aller Steuern (MwSt.), die am Tag der Bestellung gelten.",
+            "text2": "STRONGSIDE Technologies behält sich das Recht vor, seine Preise jederzeit zu ändern, wobei der zum Zeitpunkt der Bestellung angezeigte Preis der einzige für den Käufer geltende Preis ist.",
+            "text3": "Die angegebenen Preise enthalten keine Versandkosten, die separat basierend auf dem Gesamtbestellwert und dem Bestimmungsort berechnet werden."
+          },
+          "order": {
+            "title": "Artikel 4. Bestellung und Zahlung",
+            "text1": "Vor jeder Bestellung muss der Käufer ein Konto auf der Website https://www.strongside.tech/ erstellen.",
+            "paymentMethods": "Akzeptierte Zahlungsmethoden sind:",
+            "method_card": "Kreditkarte",
+            "method_paypal": "PayPal",
+            "method_transfer": "Banküberweisung",
+            "method_other": "Jede andere Zahlungsmethode, die zum Zeitpunkt der Bestellung auf der Website angeboten wird",
+            "text2": "Die Bestätigung der Bestellung bedeutet die vollständige und uneingeschränkte Annahme dieser allgemeinen Verkaufsbedingungen.",
+            "text3": "Eine Auftragsbestätigung wird dem Käufer per E-Mail zugesandt."
+          },
+          "ownership": {
+            "title": "Artikel 5. Eigentumsvorbehalt",
+            "text": "STRONGSIDE Technologies behält sich das volle Eigentum an den verkauften Produkten bis zur vollständigen Zahlung des Preises, einschließlich Kosten und Steuern, vor."
+          },
+          "returns": {
+            "title": "Artikel 6. Widerrufsrecht und Rücksendungen",
+            "text1": "Gemäß den geltenden Gesetzen hat der Käufer vierzehn (14) Tage ab Erhalt seiner Bestellung Zeit, um sein Widerrufsrecht auszuüben.",
+            "highlight": "Rücksendungen werden innerhalb von 14 Tagen akzeptiert.",
+            "text2": "Produkte müssen im Originalzustand, unbenutzt und in der Originalverpackung zurückgesendet werden.",
+            "text3": "Die Rücksendekosten trägt der Käufer.",
+            "text4": "Die Rückerstattung erfolgt nach Eingang und Überprüfung der zurückgesandten Produkte."
+          },
+          "delivery": {
+            "title": "Artikel 7. Lieferung",
+            "text1": "Lieferungen erfolgen an die zum Zeitpunkt der Bestellung angegebene Adresse.",
+            "text2": "Lieferzeiten sind Richtwerte. Bei einer Verzögerung von mehr als dreißig (30) Tagen kann der Käufer die Stornierung der Bestellung und eine Rückerstattung verlangen.",
+            "text3": "Das Transportrisiko geht mit Übergabe des Pakets an den Spediteur auf den Käufer über."
+          },
+          "warranty": {
+            "title": "Artikel 8. Gewährleistung",
+            "text1": "Alle Produkte unterliegen den gesetzlichen Garantien für Konformität und versteckte Mängel gemäß den geltenden gesetzlichen Bestimmungen.",
+            "text2": "Jede Reklamation, jeder Umtausch oder Rückerstattungsantrag muss per E-Mail oder Post innerhalb von dreißig (30) Tagen nach Lieferung erfolgen."
+          },
+          "liability": {
+            "title": "Artikel 9. Haftung",
+            "text": "STRONGSIDE Technologies kann nicht für Schäden haftbar gemacht werden, die aus der Nutzung des Internets resultieren, wie z.B. Datenverlust, Eindringen, Viren oder Dienstunterbrechungen."
+          },
+          "ip": {
+            "title": "Artikel 10. Geistiges Eigentum",
+            "text1": "Alle Elemente der Website https://www.strongside.tech/ sind und bleiben das exklusive geistige Eigentum von STRONGSIDE Technologies.",
+            "text2": "Jede Reproduktion, Verwertung oder Nutzung, auch teilweise, ohne vorherige Genehmigung ist strengstens untersagt."
+          },
+          "data": {
+            "title": "Artikel 11. Personenbezogene Daten",
+            "text1": "STRONGSIDE Technologies verpflichtet sich, die Vertraulichkeit der vom Käufer angegebenen persönlichen Informationen zu wahren.",
+            "text2": "Gemäß den Datenschutzgesetzen und der DSGVO hat der Käufer das Recht auf Zugang, Berichtigung und Löschung seiner personenbezogenen Daten."
+          },
+          "disputes": {
+            "title": "Artikel 12. Streitbeilegung",
+            "text1": "Diese allgemeinen Verkaufsbedingungen unterliegen französischem Recht.",
+            "text2": "Im Streitfall wird vor jeder rechtlichen Maßnahme eine gütliche Lösung angestrebt. Andernfalls sind die Gerichte am Wohnsitz des Beklagten oder am Ort der Lieferung zuständig."
+          },
+          "entirety": {
+            "title": "Artikel 13. Gesamtheit",
+            "text": "Sollte eine Klausel dieser allgemeinen Verkaufsbedingungen für nichtig erklärt werden, behalten die anderen Klauseln ihre volle Gültigkeit."
+          },
+          "duration": {
+            "title": "Artikel 14. Dauer",
+            "text": "Diese Bedingungen gelten für die gesamte Dauer der von STRONGSIDE Technologies angebotenen Online-Dienste."
+          },
+          "proof": {
+            "title": "Artikel 15. Beweis",
+            "text": "Die in den Computersystemen von STRONGSIDE Technologies gespeicherten computergestützten Aufzeichnungen gelten als Beweis für die Kommunikation, Bestellungen und Zahlungen zwischen den Parteien."
+          }
+        }
+      },
+      "legal": {
+        "title": "Impressum",
+        "back": "Zurück",
+        "lastUpdate": "Rechtliche Hinweise aktualisiert am 15.12.2025",
+        "sections": {
+          "identification": {
+            "title": "Identifikation und Veröffentlichung",
+            "editor": "Herausgeber",
+            "editorText": "Diese Website wird herausgegeben von ADAM ALOUI – STRONGSIDE Technologies.",
+            "director": "Veröffentlichungsdirektor: Adam Aloui",
+            "host": "Host",
+            "hostText": "Diese Website wird gehostet von Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA."
+          },
+          "ip": {
+            "title": "Geistiges Eigentum",
+            "protection": "Alle grafischen Elemente, die Struktur und generell der Inhalt der Website von STRONGSIDE Technologies sind urheberrechtlich, markenrechtlich und geschmacksmusterrechtlich geschützt.",
+            "privateUse": "Jeder, der Inhalte oder Informationen von der Website sammelt oder herunterlädt, hat nur ein privates, persönliches und nicht übertragbares Nutzungsrecht.",
+            "reproduction": "Die Reproduktion einer Seite der Website in einem Kontext außerhalb von STRONGSIDE oder das Einfügen einer Seite von STRONGSIDE in die Seite einer anderen Website ist untersagt.",
+            "sanctions": "Ebenso ist jede Reproduktion oder Darstellung der Website ganz oder teilweise ohne schriftliche Zustimmung von STRONGSIDE untersagt und würde eine Verletzung darstellen, die nach den geltenden Gesetzen zum geistigen Eigentum strafbar ist.",
+            "paperReproduction": "Texte, Grafiken, Zeichnungen, Logos und Fotos, die von STRONGSIDE veröffentlicht werden, können auf Papier oder elektronischen Medien reproduziert werden, sofern der Name und die Adresse der Website angegeben werden und keine kommerzielle Nutzung erfolgt.",
+            "infringement": "Die Nichteinhaltung der oben genannten Bestimmungen kann eine Verletzung darstellen, die eine zivil- oder strafrechtliche Haftung des Urhebers nach sich zieht.",
+            "hyperlink": "Das Erstellen eines Hyperlinks zur Website www.strongside.tech darf nur mit Genehmigung von STRONGSIDE erfolgen, vorausgesetzt, dass keine Verwirrung hinsichtlich der Identität der Website oder der Herkunft der Informationen bei den Nutzern entstehen kann."
+          },
+          "data": {
+            "title": "Datenschutz & Cookies",
+            "intro": "Wir verwenden Tracking-Technologien, um Ihr Erlebnis zu verbessern und zu analysieren, wie unsere Website genutzt wird.",
+            "ga4Title": "Google Analytics 4",
+            "ga4Text": "Wir verwenden Google Analytics 4, um zu verstehen, wie Besucher mit unserer Website interagieren. Diese Daten sind anonymisiert und helfen uns, Ihr Surferlebnis zu optimieren. Es werden keine persönlich identifizierbaren Informationen gesammelt.",
+            "shopifyTitle": "Shopify",
+            "shopifyText": "Zahlungstransaktionen werden sicher von Shopify Payments verwaltet. Während des Bestellvorgangs kann Shopify Informationen sammeln, die zur Bearbeitung Ihrer Bestellung erforderlich sind (Name, Adresse, E-Mail, Zahlungsinformationen) gemäß deren Datenschutzrichtlinie.",
+            "vercelTitle": "Vercel Analytics",
+            "vercelText": "Unser Hosting-Anbieter Vercel sammelt anonymisierte Leistungsdaten, um die Geschwindigkeit der Website zu optimieren.",
+            "consent": "Durch die weitere Nutzung dieser Website stimmen Sie der Verwendung dieser Tracking-Technologien zu."
+          }
+        }
+      }
     }
   }
 }

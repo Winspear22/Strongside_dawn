@@ -757,6 +757,142 @@
         "7_q": "Is het duurzaam?",
         "7_a": "Getest voor intensieve training."
       }
+    },
+    "legal_pages": {
+      "contact": {
+        "title": "Contact",
+        "back": "Terug"
+      },
+      "cgv": {
+        "title": "Algemene Verkoopvoorwaarden",
+        "back": "Terug",
+        "lastUpdate": "AV geüpdatet op 16/12/2025",
+        "sections": {
+          "preliminary": {
+            "title": "Inleidend Artikel",
+            "text": "Deze algemene verkoopvoorwaarden worden enerzijds aangegaan door STRONGSIDE Technologies, beheerd door Adam Aloui, hierna te noemen 'de Verkoper', exploitant van de website https://www.strongside.tech/, en anderzijds door elke natuurlijke of rechtspersoon die een aankoop wenst te doen via de website https://www.strongside.tech/, hierna te noemen 'de Koper'."
+          },
+          "object": {
+            "title": "Artikel 1. Doel",
+            "text1": "Het doel van deze algemene verkoopvoorwaarden is om de contractuele relatie tussen STRONGSIDE Technologies en de Koper vast te leggen, evenals de voorwaarden die van toepassing zijn op elke aankoop via de website https://www.strongside.tech/.",
+            "text2": "De aankoop van een product via deze site impliceert de onvoorwaardelijke aanvaarding door de Koper van deze algemene verkoopvoorwaarden, die hij erkent te hebben gelezen voorafgaand aan zijn bestelling.",
+            "text3": "Voor elke transactie verklaart de Koper dat hij de volledige wettelijke bevoegdheid heeft om zich te binden aan deze algemene verkoopvoorwaarden.",
+            "text4": "STRONGSIDE Technologies behoudt zich het recht voor om deze algemene verkoopvoorwaarden op elk moment te wijzigen om te voldoen aan nieuwe regelgeving of om het gebruik van zijn site te verbeteren. De toepasselijke voorwaarden zijn die welke van kracht zijn op de datum van de bestelling."
+          },
+          "products": {
+            "title": "Artikel 2. Producten",
+            "text1": "De aangeboden producten zijn die vermeld op de website https://www.strongside.tech/, zolang de voorraad strekt. STRONGSIDE Technologies behoudt zich het recht voor om het assortiment op elk moment te wijzigen.",
+            "text2": "Elk product wordt op de site gepresenteerd met een beschrijving van de belangrijkste technische kenmerken. De foto's zijn zo nauwkeurig mogelijk, maar binden de Verkoper niet."
+          },
+          "prices": {
+            "title": "Artikel 3. Prijzen",
+            "text1": "De prijzen getoond op productpagina's zijn in euro's (€), inclusief alle belastingen (BTW) die van toepassing zijn op de besteldatum.",
+            "text2": "STRONGSIDE Technologies behoudt zich het recht voor om zijn prijzen op elk moment te wijzigen, met dien verstande dat de prijs die wordt weergegeven op het moment van bestelling de enige is die van toepassing is op de Koper.",
+            "text3": "De getoonde prijzen zijn exclusief verzendkosten, die apart in rekening worden gebracht op basis van het totale bestelbedrag en de bestemming."
+          },
+          "order": {
+            "title": "Artikel 4. Bestelling en Betaling",
+            "text1": "Voor elke bestelling moet de Koper een account aanmaken op de website https://www.strongside.tech/.",
+            "paymentMethods": "Geaccepteerde betaalmethoden zijn:",
+            "method_card": "Creditcard",
+            "method_paypal": "PayPal",
+            "method_transfer": "Bankoverschrijving",
+            "method_other": "Elke andere betaalmethode die op de site wordt aangeboden op het moment van bestelling",
+            "text2": "De validatie van de bestelling impliceert de volledige en onvoorwaardelijke aanvaarding van deze algemene verkoopvoorwaarden.",
+            "text3": "Een orderbevestiging wordt per e-mail naar de Koper gestuurd."
+          },
+          "ownership": {
+            "title": "Artikel 5. Eigendomsvoorbehoud",
+            "text": "STRONGSIDE Technologies behoudt de volledige eigendom van de verkochte producten tot de volledige betaling van de prijs, inclusief kosten en belastingen."
+          },
+          "returns": {
+            "title": "Artikel 6. Herroepingsrecht en Retourzendingen",
+            "text1": "In overeenstemming met de toepasselijke wetgeving heeft de Koper veertien (14) dagen vanaf de ontvangst van zijn bestelling om zijn herroepingsrecht uit te oefenen.",
+            "highlight": "Retourzendingen worden binnen 14 dagen geaccepteerd.",
+            "text2": "Producten moeten in hun originele staat, ongebruikt en in hun originele verpakking worden geretourneerd.",
+            "text3": "Retourkosten blijven voor rekening van de Koper.",
+            "text4": "Terugbetaling zal plaatsvinden na ontvangst en verificatie van de geretourneerde producten."
+          },
+          "delivery": {
+            "title": "Artikel 7. Levering",
+            "text1": "Leveringen vinden plaats op het adres dat is opgegeven op het moment van bestelling.",
+            "text2": "Levertijden zijn indicatief. In geval van vertraging van meer dan dertig (30) dagen, kan de Koper annulering van de bestelling en terugbetaling verzoeken.",
+            "text3": "Het transportrisico gaat over op de Koper bij overdracht van het pakket aan de vervoerder."
+          },
+          "warranty": {
+            "title": "Artikel 8. Garantie",
+            "text1": "Alle producten vallen onder de wettelijke garanties van conformiteit en verborgen gebreken zoals bepaald door de artikelen van het Burgerlijk Wetboek.",
+            "text2": "Elke claim, verzoek om omruiling of terugbetaling moet per e-mail of post worden gedaan binnen dertig (30) dagen na levering."
+          },
+          "liability": {
+            "title": "Artikel 9. Aansprakelijkheid",
+            "text": "STRONGSIDE Technologies kan niet aansprakelijk worden gesteld voor schade die voortvloeit uit het gebruik van internet, zoals gegevensverlies, inbraak, virussen of serviceonderbreking."
+          },
+          "ip": {
+            "title": "Artikel 10. Intellectueel Eigendom",
+            "text1": "Alle elementen van de website https://www.strongside.tech/ zijn en blijven het exclusieve intellectuele eigendom van STRONGSIDE Technologies.",
+            "text2": "Elke reproductie, exploitatie of gebruik, zelfs gedeeltelijk, zonder voorafgaande toestemming is strikt verboden."
+          },
+          "data": {
+            "title": "Artikel 11. Persoonsgegevens",
+            "text1": "STRONGSIDE Technologies verbindt zich ertoe de vertrouwelijkheid van door de Koper verstrekte persoonlijke informatie te bewaren.",
+            "text2": "In overeenstemming met de wet op de gegevensbescherming en de AVG heeft de Koper het recht op toegang, correctie en verwijdering van zijn persoonsgegevens."
+          },
+          "disputes": {
+            "title": "Artikel 12. Geschillenbeslechting",
+            "text1": "Deze algemene verkoopvoorwaarden worden beheerst door Frans recht.",
+            "text2": "In geval van geschil zal een minnelijke oplossing worden gezocht voorafgaand aan elke gerechtelijke actie. Bij gebreke daarvan zijn de rechtbanken van de woonplaats van de verweerder of de plaats van levering bevoegd."
+          },
+          "entirety": {
+            "title": "Artikel 13. Volledigheid",
+            "text": "Indien een clausule van deze algemene verkoopvoorwaarden nietig wordt verklaard, behouden de overige clausules hun volledige geldigheid."
+          },
+          "duration": {
+            "title": "Artikel 14. Duur",
+            "text": "Deze voorwaarden zijn van toepassing gedurende de gehele duur van de online diensten aangeboden door STRONGSIDE Technologies."
+          },
+          "proof": {
+            "title": "Artikel 15. Bewijs",
+            "text": "De gecomputeriseerde registers die in de computersystemen van STRONGSIDE Technologies worden bewaard, vormen het bewijs van communicatie, bestellingen en betalingen tussen de partijen."
+          }
+        }
+      },
+      "legal": {
+        "title": "Juridische Kennisgeving",
+        "back": "Terug",
+        "lastUpdate": "Juridische kennisgeving geüpdatet op 15/12/2025",
+        "sections": {
+          "identification": {
+            "title": "Identificatie en Publicatie",
+            "editor": "Uitgever",
+            "editorText": "Deze site wordt uitgegeven door ADAM ALOUI – STRONGSIDE Technologies.",
+            "director": "Publicatiedirecteur: Adam Aloui",
+            "host": "Host",
+            "hostText": "Deze site wordt gehost door Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, VS."
+          },
+          "ip": {
+            "title": "Intellectueel Eigendom",
+            "protection": "Alle grafische elementen, de structuur en meer in het algemeen de inhoud van de site van STRONGSIDE Technologies zijn beschermd door auteursrecht, merkenrecht en modelrechten.",
+            "privateUse": "Iedereen die inhoud of informatie van de site verzamelt of downloadt, heeft slechts een privé, persoonlijk en niet-overdraagbaar gebruiksrecht.",
+            "reproduction": "Reproductie van een pagina van de site in een context buiten STRONGSIDE of invoeging van een pagina behorend tot STRONGSIDE in de pagina van een andere site is verboden.",
+            "sanctions": "Evenzo is elke reproductie of weergave van de site geheel of gedeeltelijk verboden zonder de schriftelijke toestemming van STRONGSIDE en zou dit een inbreuk vormen die strafbaar is volgens de toepasselijke wetten inzake intellectueel eigendom.",
+            "paperReproduction": "Teksten, grafieken, tekeningen, logo's en foto's gepubliceerd door STRONGSIDE kunnen worden gereproduceerd op papier of elektronische media, mits de naam en het adres van de site worden vermeld en er geen commercieel gebruik wordt gemaakt.",
+            "infringement": "Niet-naleving van bovenstaande bepalingen kan een inbreuk vormen die de civiele of strafrechtelijke aansprakelijkheid van de auteur met zich meebrengt.",
+            "hyperlink": "Het maken van een hyperlink naar de site www.strongside.tech kan alleen met toestemming van STRONGSIDE, en mits er geen verwarring kan bestaan bij gebruikers over de identiteit van de site of de oorsprong van informatie."
+          },
+          "data": {
+            "title": "Gegevensbescherming & Cookies",
+            "intro": "We gebruiken trackingtechnologieën om uw ervaring te verbeteren en te analyseren hoe onze site wordt gebruikt.",
+            "ga4Title": "Google Analytics 4",
+            "ga4Text": "We gebruiken Google Analytics 4 om te begrijpen hoe bezoekers onze site gebruiken. Deze gegevens worden geanonimiseerd en helpen ons uw browse-ervaring te optimaliseren. Er wordt geen persoonlijk identificeerbare informatie verzameld.",
+            "shopifyTitle": "Shopify",
+            "shopifyText": "Betalingstransacties worden veilig beheerd door Shopify Payments. Tijdens het afrekenproces kan Shopify informatie verzamelen die nodig is voor het verwerken van uw bestelling (naam, adres, e-mail, betalingsinformatie) in overeenstemming met hun privacybeleid.",
+            "vercelTitle": "Vercel Analytics",
+            "vercelText": "Onze hostingprovider Vercel verzamelt geanonimiseerde prestatiegegevens om de snelheid van de site te optimaliseren.",
+            "consent": "Door deze site te blijven gebruiken, stemt u in met het gebruik van deze trackingtechnologieën."
+          }
+        }
+      }
     }
   }
 }
