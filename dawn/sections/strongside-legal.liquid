@@ -1,0 +1,165 @@
+{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="page-width page-width--narrow section-{{ section.id }}-padding">
+  <div class="rte">
+    <div style="margin-bottom: 2rem;">
+      <a
+        href="{{ routes.root_url }}"
+        class="link link--text"
+        style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: rgba(var(--color-foreground), 0.75);"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 19l-7-7 7-7"/>
+        </svg>
+        {{ 'strongside.legal_pages.legal.back' | t }}
+      </a>
+    </div>
+
+    <h1 class="main-page-title page-title h0 center">
+      {{ 'strongside.legal_pages.legal.title' | t }}
+    </h1>
+
+    <div class="legal-content" style="margin-top: 3rem;">
+      <!-- Identification et publication -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.legal.sections.identification.title' | t }}
+        </h2>
+        <p>
+          <strong>{{ 'strongside.legal_pages.legal.sections.identification.editor' | t }} :</strong><br>
+          {{ 'strongside.legal_pages.legal.sections.identification.editorText' | t }}
+        </p>
+
+        <p>{{ 'strongside.legal_pages.legal.sections.identification.director' | t }}</p>
+
+        <p>
+          <strong>{{ 'strongside.legal_pages.legal.sections.identification.host' | t }} :</strong><br>
+          {{ 'strongside.legal_pages.legal.sections.identification.hostText' | t }}
+        </p>
+      </section>
+
+      <!-- Propriété Intellectuelle -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.legal.sections.ip.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.legal.sections.ip.protection' | t }}</p>
+        <p>{{ 'strongside.legal_pages.legal.sections.ip.privateUse' | t }}</p>
+        <p>{{ 'strongside.legal_pages.legal.sections.ip.reproduction' | t }}</p>
+        <p>{{ 'strongside.legal_pages.legal.sections.ip.sanctions' | t }}</p>
+        <p>{{ 'strongside.legal_pages.legal.sections.ip.paperReproduction' | t }}</p>
+        <p>{{ 'strongside.legal_pages.legal.sections.ip.infringement' | t }}</p>
+        <p>{{ 'strongside.legal_pages.legal.sections.ip.hyperlink' | t }}</p>
+      </section>
+
+      <!-- Protection des données et cookies -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.legal.sections.data.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.legal.sections.data.intro' | t }}</p>
+
+        <h3 class="h4" style="margin-top: 1.5rem;">{{ 'strongside.legal_pages.legal.sections.data.ga4Title' | t }}</h3>
+        <p>{{ 'strongside.legal_pages.legal.sections.data.ga4Text' | t }}</p>
+
+        <h3 class="h4" style="margin-top: 1.5rem;">
+          {{ 'strongside.legal_pages.legal.sections.data.shopifyTitle' | t }}
+        </h3>
+        <p>{{ 'strongside.legal_pages.legal.sections.data.shopifyText' | t }}</p>
+
+        <h3 class="h4" style="margin-top: 1.5rem;">
+          {{ 'strongside.legal_pages.legal.sections.data.vercelTitle' | t }}
+        </h3>
+        <p>{{ 'strongside.legal_pages.legal.sections.data.vercelText' | t }}</p>
+
+        <p style="margin-top: 1.5rem; font-style: italic;">
+          {{ 'strongside.legal_pages.legal.sections.data.consent' | t }}
+        </p>
+      </section>
+
+      <!-- Last Update -->
+      <p style="text-align: center; font-size: 0.9em; opacity: 0.7; margin-top: 3rem; border-top: 1px solid rgba(var(--color-foreground), 0.1); padding-top: 2rem;">
+        {{ 'strongside.legal_pages.legal.lastUpdate' | t }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // GA4 Page View Tracking
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_title: 'Mentions Légales',
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Mentions Légales",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

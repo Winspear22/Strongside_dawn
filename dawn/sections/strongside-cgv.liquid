@@ -1,0 +1,304 @@
+{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="page-width page-width--narrow section-{{ section.id }}-padding">
+  <div class="rte">
+    <div style="margin-bottom: 2rem;">
+      <a
+        href="{{ routes.root_url }}"
+        class="link link--text"
+        style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: rgba(var(--color-foreground), 0.75);"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 19l-7-7 7-7"/>
+        </svg>
+        {{ 'strongside.legal_pages.cgv.back' | t }}
+      </a>
+    </div>
+
+    <h1 class="main-page-title page-title h0 center">
+      {{ 'strongside.legal_pages.cgv.title' | t }}
+    </h1>
+
+    <div class="legal-content" style="margin-top: 3rem;">
+      <!-- Article préliminaire -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.preliminary.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.preliminary.text' | t }}</p>
+      </section>
+
+      <!-- Article 1. Objet -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.object.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.object.text1' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.object.text2' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.object.text3' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.object.text4' | t }}</p>
+      </section>
+
+      <!-- Article 2. Produits -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.products.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.products.text1' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.products.text2' | t }}</p>
+      </section>
+
+      <!-- Article 3. Tarifs -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.prices.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.prices.text1' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.prices.text2' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.prices.text3' | t }}</p>
+      </section>
+
+      <!-- Article 4. Commande et modalités de paiement -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.order.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.order.text1' | t }}</p>
+        <p>
+          <strong>{{ 'strongside.legal_pages.cgv.sections.order.paymentMethods' | t }}</strong>
+        </p>
+        <ul>
+          <li>{{ 'strongside.legal_pages.cgv.sections.order.method_card' | t }}</li>
+          <li>{{ 'strongside.legal_pages.cgv.sections.order.method_paypal' | t }}</li>
+          <li>{{ 'strongside.legal_pages.cgv.sections.order.method_transfer' | t }}</li>
+          <li>{{ 'strongside.legal_pages.cgv.sections.order.method_other' | t }}</li>
+        </ul>
+        <p>{{ 'strongside.legal_pages.cgv.sections.order.text2' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.order.text3' | t }}</p>
+      </section>
+
+      <!-- Article 5. Réserve de propriété -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.ownership.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.ownership.text' | t }}</p>
+      </section>
+
+      <!-- Article 6. Droit de rétractation et retours -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.returns.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.returns.text1' | t }}</p>
+        <p style="font-weight: bold; color: rgb(var(--color-accent));">
+          👉 {{ 'strongside.legal_pages.cgv.sections.returns.highlight' | t }}
+        </p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.returns.text2' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.returns.text3' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.returns.text4' | t }}</p>
+      </section>
+
+      <!-- Article 7. Livraison -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.delivery.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.delivery.text1' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.delivery.text2' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.delivery.text3' | t }}</p>
+      </section>
+
+      <!-- Article 8. Garantie -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.warranty.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.warranty.text1' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.warranty.text2' | t }}</p>
+      </section>
+
+      <!-- Article 9. Responsabilité -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.liability.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.liability.text' | t }}</p>
+      </section>
+
+      <!-- Article 10. Propriété intellectuelle -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.ip.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.ip.text1' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.ip.text2' | t }}</p>
+      </section>
+
+      <!-- Article 11. Données personnelles -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.data.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.data.text1' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.data.text2' | t }}</p>
+      </section>
+
+      <!-- Article 12. Règlement des litiges -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.disputes.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.disputes.text1' | t }}</p>
+        <p>{{ 'strongside.legal_pages.cgv.sections.disputes.text2' | t }}</p>
+      </section>
+
+      <!-- Article 13. Intégralité -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.entirety.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.entirety.text' | t }}</p>
+      </section>
+
+      <!-- Article 14. Durée -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.duration.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.duration.text' | t }}</p>
+      </section>
+
+      <!-- Article 15. Preuve -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2
+          class="h3"
+          style="border-bottom: 1px solid rgba(var(--color-foreground), 0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;"
+        >
+          {{ 'strongside.legal_pages.cgv.sections.proof.title' | t }}
+        </h2>
+        <p>{{ 'strongside.legal_pages.cgv.sections.proof.text' | t }}</p>
+      </section>
+
+      <!-- Last Update -->
+      <p style="text-align: center; font-size: 0.9em; opacity: 0.7; margin-top: 3rem; border-top: 1px solid rgba(var(--color-foreground), 0.1); padding-top: 2rem;">
+        {{ 'strongside.legal_pages.cgv.lastUpdate' | t }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // GA4 Page View Tracking
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_title: 'Conditions Générales de vente',
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Conditions Générales",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
