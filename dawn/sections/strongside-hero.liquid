@@ -1463,10 +1463,21 @@
     const itemsPerPage = isMobile ? 4 : visibleCount;
     const totalPages = isMobile ? Math.ceil(videos.length / itemsPerPage) : videos.length;
     const maxIndex = isMobile ? (totalPages - 1) : Math.max(0, videos.length - visibleCount);
+    
+    // Helper to stop all videos (Global Scope)
+    const stopAllVideos = () => {
+      if (!isMobile) return;
+      track.querySelectorAll('video').forEach(v => {
+        v.pause();
+        const parent = v.parentElement;
+        if (parent) {
+           const overlay = parent.querySelector('.mobile-play-overlay');
+           if (overlay) overlay.style.opacity = '1';
+        }
+      });
+    };
 
     function init() {
-      if (!track) return;
-
       track.innerHTML = '';
 
       if (isMobile) {
@@ -1506,7 +1517,10 @@
             
             vidItem.addEventListener('click', (e) => {
               if (e.target.closest('.mobile-mute-btn')) return;
+              
               if (vid.paused) {
+                // Stop others before playing
+                stopAllVideos();
                 vid.play();
                 overlay.style.opacity = '0';
               } else {
@@ -1527,6 +1541,90 @@
           
           track.appendChild(slide);
         }
+
+        // --- SIMPLIFIED TOUCH SWIPE (Direct Transform Update) ---
+        let isDragging = false;
+        let startPos = 0;
+        let startTime = 0;
+        let videoStopped = false;
+
+        function setCarouselTransition(enable) {
+          track.style.transition = enable ? 'transform 0.3s ease-out' : 'none';
+        }
+
+        function getPositionX(event) {
+          return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+        }
+
+        function touchStart(event) {
+          isDragging = true;
+          startPos = getPositionX(event);
+          startTime = Date.now();
+          setCarouselTransition(false);
+          videoStopped = false;
+        }
+
+        function touchMove(event) {
+          if (!isDragging) return;
+          
+          const currentPosition = getPositionX(event);
+          const diff = currentPosition - startPos;
+          
+          // Stop videos ONLY if user swipes (threshold > 5px)
+          if (!videoStopped && Math.abs(diff) > 5) {
+              stopAllVideos();
+              videoStopped = true;
+          }
+          
+          const containerWidth = track.parentElement.offsetWidth;
+          const diffPercent = (diff / containerWidth) * 100;
+
+          const step = isMobile ? 100 : 33.3333;
+          let newTranslate = -currentIndex * step + diffPercent;
+
+          // Elastic Bounds
+          const minTranslate = -maxIndex * step;
+          if (newTranslate > 0) {
+            newTranslate = newTranslate * 0.3;
+          } else if (newTranslate < minTranslate) {
+            const over = minTranslate - newTranslate;
+            newTranslate = minTranslate - over * 0.3;
+          }
+
+          track.style.transform = `translateX(${newTranslate}%)`;
+        }
+
+        function touchEnd(event) {
+          if (!isDragging) return;
+          isDragging = false;
+          setCarouselTransition(true);
+
+          const endPos = event.changedTouches ? event.changedTouches[0].clientX : event.pageX;
+          const diff = endPos - startPos;
+          const containerWidth = track.parentElement.offsetWidth;
+          const diffPercent = (diff / containerWidth) * 100;
+          const duration = Date.now() - startTime;
+          const velocity = Math.abs(diffPercent) / duration;
+
+          const threshold = 15;
+          
+          // Swipe left (next)
+          if (diffPercent < -threshold || (diffPercent < 0 && velocity > 0.3)) {
+            if (currentIndex < maxIndex) currentIndex++;
+          }
+          // Swipe right (prev)
+          else if (diffPercent > threshold || (diffPercent > 0 && velocity > 0.3)) {
+            if (currentIndex > 0) currentIndex--;
+          }
+
+          updateCarousel();
+        }
+
+        track.addEventListener('touchstart', touchStart, { passive: true });
+        track.addEventListener('touchmove', touchMove, { passive: true });
+        track.addEventListener('touchend', touchEnd);
+
+        updateCarousel();
       } else {
         // --- DESKTOP: Horizontal Carousel ---
         track.style.gap = '1.05rem';
@@ -1653,79 +1751,6 @@
       );
       document.querySelectorAll('#hero-modal-scroller > div').forEach((el) => observer.observe(el));
 
-      // --- SIMPLIFIED TOUCH SWIPE (Direct Transform Update) ---
-      let isDragging = false;
-      let startPos = 0;
-      let startTime = 0;
-
-      function setCarouselTransition(enable) {
-        track.style.transition = enable ? 'transform 0.3s ease-out' : 'none';
-      }
-
-      function getPositionX(event) {
-        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-      }
-
-      function touchStart(event) {
-        isDragging = true;
-        startPos = getPositionX(event);
-        startTime = Date.now();
-        setCarouselTransition(false);
-      }
-
-      function touchMove(event) {
-        if (!isDragging) return;
-        
-        const currentPosition = getPositionX(event);
-        const diff = currentPosition - startPos;
-        const containerWidth = track.parentElement.offsetWidth;
-        const diffPercent = (diff / containerWidth) * 100;
-
-        const step = isMobile ? 100 : 33.3333;
-        let newTranslate = -currentIndex * step + diffPercent;
-
-        // Elastic Bounds
-        const minTranslate = -maxIndex * step;
-        if (newTranslate > 0) {
-          newTranslate = newTranslate * 0.3;
-        } else if (newTranslate < minTranslate) {
-          const over = minTranslate - newTranslate;
-          newTranslate = minTranslate - over * 0.3;
-        }
-
-        track.style.transform = `translateX(${newTranslate}%)`;
-      }
-
-      function touchEnd(event) {
-        if (!isDragging) return;
-        isDragging = false;
-        setCarouselTransition(true);
-
-        const endPos = event.changedTouches ? event.changedTouches[0].clientX : event.pageX;
-        const diff = endPos - startPos;
-        const containerWidth = track.parentElement.offsetWidth;
-        const diffPercent = (diff / containerWidth) * 100;
-        const duration = Date.now() - startTime;
-        const velocity = Math.abs(diffPercent) / duration;
-
-        const threshold = 15;
-        
-        // Swipe left (next)
-        if (diffPercent < -threshold || (diffPercent < 0 && velocity > 0.3)) {
-          if (currentIndex < maxIndex) currentIndex++;
-        }
-        // Swipe right (prev)
-        else if (diffPercent > threshold || (diffPercent > 0 && velocity > 0.3)) {
-          if (currentIndex > 0) currentIndex--;
-        }
-
-        updateCarousel();
-      }
-
-      track.addEventListener('touchstart', touchStart, { passive: true });
-      track.addEventListener('touchmove', touchMove, { passive: true });
-      track.addEventListener('touchend', touchEnd);
-
       updateCarousel();
     }
 
@@ -1759,6 +1784,7 @@
 
     if (btnPrev)
       btnPrev.onclick = () => {
+        stopAllVideos();
         if (currentIndex > 0) {
           currentIndex--;
           updateCarousel();
@@ -1766,6 +1792,7 @@
       };
     if (btnNext)
       btnNext.onclick = () => {
+        stopAllVideos();
         if (currentIndex < maxIndex) {
           currentIndex++;
           updateCarousel();
