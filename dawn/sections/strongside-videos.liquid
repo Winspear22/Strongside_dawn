@@ -65,9 +65,9 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 9999px;
-    background-color: #1a1a1a !important; /* Always dark grey/black */
+    background-color: rgba(var(--color-foreground), 0.1);
     border: none;
-    color: #ffffff !important; /* Always white icon */
+    color: rgb(var(--color-foreground));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,16 +75,8 @@
     transition: background-color 0.2s;
   }
 
-  .strongside-nav-btn svg {
-    stroke: #ffffff !important; /* Force white SVG stroke */
-  }
-
   .strongside-nav-btn:hover {
-    background-color: #333333 !important;
-  }
-
-  .strongside-nav-btn:hover svg {
-    stroke: #ff2222 !important; /* Red on hover */
+    background-color: rgba(var(--color-foreground), 0.2);
   }
 
   .strongside-nav-btn:disabled {
@@ -469,91 +461,6 @@
           location.reload(); // Simple way to reset state on major breakpoint change
         }
       });
-
-      // --- FLUID TOUCH SWIPE (Sync Version) ---
-      let isDragging = false;
-      let startX = 0;
-      let startTime = 0;
-      let currentTranslate = 0;
-      let prevTranslate = 0;
-
-      function getClientX(e) {
-        if (e.touches && e.touches.length > 0) {
-          return e.touches[0].clientX;
-        }
-        return e.clientX !== undefined ? e.clientX : null;
-      }
-
-      function touchStart(e) {
-        const x = getClientX(e);
-        if (x === null) return;
-        
-        isDragging = true;
-        startX = x;
-        startTime = Date.now();
-        // Store current position (% based on index)
-        const step = isMobile ? 51 : 34;
-        prevTranslate = -currentIndex * step;
-        
-        track.style.transition = 'none';
-      }
-
-      function touchMove(e) {
-        if (!isDragging) return;
-        
-        const currentX = getClientX(e);
-        if (currentX === null) return;
-        
-        const deltaX = currentX - startX;
-        const containerWidth = track.parentElement.offsetWidth;
-        if (containerWidth === 0) return;
-        
-        const deltaPercent = (deltaX / containerWidth) * 100;
-        currentTranslate = prevTranslate + deltaPercent;
-        
-        // Soft resistance at boundaries
-        const step = isMobile ? 51 : 34;
-        const maxTranslate = 0;
-        const minTranslate = -maxIndex * step;
-        
-        if (currentTranslate > maxTranslate) {
-            currentTranslate = maxTranslate + (currentTranslate - maxTranslate) * 0.2;
-        } else if (currentTranslate < minTranslate) {
-            currentTranslate = minTranslate + (currentTranslate - minTranslate) * 0.2;
-        }
-        
-        track.style.transform = `translateX(${currentTranslate}%)`;
-      }
-
-      function touchEnd() {
-        if (!isDragging) return;
-        isDragging = false;
-        
-        const step = isMobile ? 51 : 34;
-        const movedPercent = currentTranslate - prevTranslate;
-        const timeTaken = Date.now() - startTime;
-        const velocity = Math.abs(movedPercent) / timeTaken;
-        
-        let newIndex = currentIndex;
-        
-        // Threshold: 10% OR velocity > 0.15
-        if (movedPercent < -10 || (movedPercent < 0 && velocity > 0.15)) {
-            newIndex++;
-        } else if (movedPercent > 10 || (movedPercent > 0 && velocity > 0.15)) {
-            newIndex--;
-        }
-        
-        newIndex = Math.max(0, Math.min(newIndex, maxIndex));
-        
-        track.style.transition = 'transform 0.3s ease-out';
-        currentIndex = newIndex;
-        updateCarousel();
-      }
-
-      track.addEventListener('touchstart', touchStart, { passive: true });
-      track.addEventListener('touchmove', touchMove, { passive: true });
-      track.addEventListener('touchend', touchEnd);
-      track.addEventListener('touchcancel', touchEnd);
     }
 
     // --- DESKTOP RENDER ---
@@ -584,11 +491,6 @@
             v.play().catch((e) => {
               /* Autoplay block handled silently */
             });
-
-            // GA4 Tracking
-            if (window.SS_GA4) {
-              window.SS_GA4.trackVideoHover(video.title, 'videos_section');
-            }
           }
         });
         card.addEventListener('mouseleave', () => {
@@ -641,11 +543,6 @@
       if (newIndex >= 0 && newIndex <= maxIndex) {
         currentIndex = newIndex;
         updateCarousel();
-
-        // GA4 Tracking
-        if (window.SS_GA4) {
-          window.SS_GA4.trackVideoCarouselNav(direction > 0 ? 'droite' : 'gauche', currentIndex, 'videos_section');
-        }
       }
     }
 
