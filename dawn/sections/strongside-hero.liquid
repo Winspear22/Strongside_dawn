@@ -1653,14 +1653,11 @@
       );
       document.querySelectorAll('#hero-modal-scroller > div').forEach((el) => observer.observe(el));
 
-      // --- FLUID TOUCH SWIPE SUPPORT (1:1 Tracking) ---
+      // --- SIMPLIFIED TOUCH SWIPE (Direct Transform Update) ---
       let isDragging = false;
       let startPos = 0;
-      let currentTranslate = 0;
-      let animationID;
       let startTime = 0;
 
-      // Disable transition during drag for responsiveness
       function setCarouselTransition(enable) {
         track.style.transition = enable ? 'transform 0.3s ease-out' : 'none';
       }
@@ -1672,73 +1669,62 @@
       function touchStart(event) {
         isDragging = true;
         startPos = getPositionX(event);
-        startTime = new Date().getTime();
+        startTime = Date.now();
         setCarouselTransition(false);
-        animationID = requestAnimationFrame(animation);
       }
 
       function touchMove(event) {
-        if (isDragging) {
-          const currentPosition = getPositionX(event);
-          const currentDiff = currentPosition - startPos;
-
-          // Calculate % diff based on container width
-          const containerWidth = track.parentElement.offsetWidth;
-          const diffPercent = (currentDiff / containerWidth) * 100;
-
-          // Current base translate - use step based on mode
-          const step = isMobile ? 100 : 33.3333;
-          const baseTranslate = -currentIndex * step;
-          currentTranslate = baseTranslate + diffPercent;
-
-          // Elastic Bounds
-          const minTranslate = -maxIndex * step;
-          if (currentTranslate > 0) currentTranslate *= 0.3;
-          else if (currentTranslate < minTranslate) {
-            const over = minTranslate - currentTranslate;
-            currentTranslate = minTranslate - over * 0.3;
-          }
-        }
-      }
-
-      function touchEnd() {
-        isDragging = false;
-        cancelAnimationFrame(animationID);
-        setCarouselTransition(true);
+        if (!isDragging) return;
+        
+        const currentPosition = getPositionX(event);
+        const diff = currentPosition - startPos;
+        const containerWidth = track.parentElement.offsetWidth;
+        const diffPercent = (diff / containerWidth) * 100;
 
         const step = isMobile ? 100 : 33.3333;
-        const movedBy = currentTranslate - -currentIndex * step;
-        const endTime = new Date().getTime();
-        const duration = endTime - startTime;
+        let newTranslate = -currentIndex * step + diffPercent;
 
-        // Thresholds
-        const threshold = 15; // Increased for stability
-        const velocity = Math.abs(movedBy) / duration;
+        // Elastic Bounds
+        const minTranslate = -maxIndex * step;
+        if (newTranslate > 0) {
+          newTranslate = newTranslate * 0.3;
+        } else if (newTranslate < minTranslate) {
+          const over = minTranslate - newTranslate;
+          newTranslate = minTranslate - over * 0.3;
+        }
 
-        if (movedBy < -threshold || (movedBy < 0 && velocity > 0.5)) {
+        track.style.transform = `translateX(${newTranslate}%)`;
+      }
+
+      function touchEnd(event) {
+        if (!isDragging) return;
+        isDragging = false;
+        setCarouselTransition(true);
+
+        const endPos = event.changedTouches ? event.changedTouches[0].clientX : event.pageX;
+        const diff = endPos - startPos;
+        const containerWidth = track.parentElement.offsetWidth;
+        const diffPercent = (diff / containerWidth) * 100;
+        const duration = Date.now() - startTime;
+        const velocity = Math.abs(diffPercent) / duration;
+
+        const threshold = 15;
+        
+        // Swipe left (next)
+        if (diffPercent < -threshold || (diffPercent < 0 && velocity > 0.3)) {
           if (currentIndex < maxIndex) currentIndex++;
-        } else if (movedBy > threshold || (movedBy > 0 && velocity > 0.5)) {
+        }
+        // Swipe right (prev)
+        else if (diffPercent > threshold || (diffPercent > 0 && velocity > 0.3)) {
           if (currentIndex > 0) currentIndex--;
         }
 
         updateCarousel();
       }
 
-      function animation() {
-        track.style.transform = `translateX(${currentTranslate}%)`;
-        if (isDragging) requestAnimationFrame(animation);
-      }
-
       track.addEventListener('touchstart', touchStart, { passive: true });
       track.addEventListener('touchmove', touchMove, { passive: true });
       track.addEventListener('touchend', touchEnd);
-      // Mouse support for dev
-      track.addEventListener('mousedown', touchStart);
-      track.addEventListener('mousemove', touchMove);
-      track.addEventListener('mouseup', touchEnd);
-      track.addEventListener('mouseleave', () => {
-        if (isDragging) touchEnd();
-      });
 
       updateCarousel();
     }
