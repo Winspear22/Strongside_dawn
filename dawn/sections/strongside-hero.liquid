@@ -1084,7 +1084,7 @@
           </div>
         </div>
 
-        <div class="strongside-hero-carousel" style="overflow:hidden; margin-bottom:1rem;">
+        <div class="strongside-hero-carousel" id="hero-video-container" style="overflow:hidden; margin-bottom:1rem;">
           <div id="hero-video-track" style="display:flex; gap:1.05rem; transition:transform 0.3s ease-out;">
             <!-- JS Injected -->
           </div>
@@ -1470,16 +1470,22 @@
       track.innerHTML = '';
 
       if (isMobile) {
-        // --- MOBILE: 2x2 GRID PAGES ---
-        track.style.gap = '0';
+        // --- MOBILE: Simple transform-based carousel (same as image track) ---
+        const container = document.getElementById('hero-video-container');
+        
+        // Container: just overflow hidden, no scroll
+        container.style.cssText = 'overflow:hidden; margin-bottom:1rem;';
+        
+        // Track: flex with transform for sliding
+        track.style.cssText = 'display:flex; transition:transform 0.3s ease-out;';
         
         for (let p = 0; p < totalPages; p++) {
           const slide = document.createElement('div');
-          slide.style.cssText = 'flex-shrink:0; width:100%; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(2, min-content); gap:0.5rem; padding:0 0.25rem; box-sizing:border-box;';
+          slide.style.cssText = 'width:100%; flex-shrink:0; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:0.5rem; padding:0 0.5rem; box-sizing:border-box;';
           
           const pageVideos = videos.slice(p * itemsPerPage, (p + 1) * itemsPerPage);
           
-          pageVideos.forEach((video, idx) => {
+          pageVideos.forEach((video) => {
             const vidItem = document.createElement('div');
             vidItem.style.cssText = 'position:relative; width:100%; aspect-ratio:9/16; border-radius:0.75rem; overflow:hidden; background:#000;';
             
@@ -1498,7 +1504,6 @@
             const overlay = vidItem.querySelector('.mobile-play-overlay');
             const muteBtn = vidItem.querySelector('.mobile-mute-btn');
             
-            // Click to play/pause
             vidItem.addEventListener('click', (e) => {
               if (e.target.closest('.mobile-mute-btn')) return;
               if (vid.paused) {
@@ -1510,7 +1515,6 @@
               }
             });
             
-            // Mute toggle
             muteBtn.addEventListener('click', (e) => {
               e.stopPropagation();
               vid.muted = !vid.muted;
