@@ -1140,6 +1140,19 @@
   >
 </div>
 
+<!-- Mobile Video Carousel Optimization -->
+<style>
+  @media (max-width: 767px) {
+    .strongside-hero-videos {
+      margin-left: -1rem !important;
+      margin-right: -1rem !important;
+      width: calc(100% + 2rem) !important;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+</style>
+
 <script>
   /* --- PRODUCT IMAGES DATA --- */
   const heroImages = [
@@ -1429,7 +1442,8 @@
     const priceDisplay = document.querySelector('.strongside-price-main');
     if (priceDisplay) priceDisplay.innerText = price;
   }
-
+</script>
+<script>
   /* --- INTEGRATED VIDEO CAROUSEL LOGIC --- */
   (function () {
     const videos = [
@@ -1458,17 +1472,17 @@
     const closeBtn = document.getElementById('hero-modal-close');
 
     let currentIndex = 0;
-    
+
     // UNIFIED LAYOUT: 3 videos visible (3x1) for both Mobile and Desktop
     const visibleCount = 3;
     const maxIndex = Math.max(0, videos.length - visibleCount);
-    
+
     // Helper to stop all videos (Global Scope)
     const stopAllVideos = () => {
-      track.querySelectorAll('video').forEach(v => {
+      track.querySelectorAll('video').forEach((v) => {
         v.pause();
         const icon = v.parentElement.querySelector('.hero-play-icon');
-        if(icon) icon.style.opacity = '1';
+        if (icon) icon.style.opacity = '1';
       });
     };
 
@@ -1476,17 +1490,29 @@
       if (!track) return;
       track.innerHTML = '';
 
-      // Unified Styles: Flex row, gap 1.05rem
-      track.style.cssText = 'display:flex; gap:1.05rem; transition:transform 0.3s ease-out;';
-      
+      // RESPONSIVE SIZING LOGIC
+      // Check if mobile (using same breakpoint as CSS)
+      const isMobile = window.innerWidth < 768;
+
+      // Mobile: Smaller gap (0.4rem) to maximize card width. Edge-to-edge css handles container.
+      // Desktop: Standard gap (1.05rem).
+      const gapVal = isMobile ? '0.4rem' : '1.05rem';
+
+      // Width Calculation (3 items per row):
+      // Total Gap Space = 2 * gapVal
+      // Per Item Reduction = (2 * gapVal) / 3
+      // Mobile: (0.8 / 3) approx 0.27rem -> Round up to 0.3rem for safety
+      // Desktop: (2.1 / 3) = 0.7rem
+      const widthCalc = isMobile ? 'calc(33.333% - 0.3rem)' : 'calc(33.333% - 0.7rem)';
+
+      track.style.cssText = `display:flex; gap:${gapVal}; transition:transform 0.3s ease-out;`;
+
       videos.forEach((video, index) => {
-          const card = document.createElement('div');
-          // Width Calculation: 
-          // 3 items per row. 2 gaps of 1.05rem.
-          // width = calc(33.333% - 0.7rem)
-          card.style.cssText = 'position:relative; flex-shrink:0; aspect-ratio:9/16; border-radius:1rem; overflow:hidden; cursor:pointer; background:#171717; width:calc(33.333% - 0.7rem); border:none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);';
-          
-          card.innerHTML = `
+        const card = document.createElement('div');
+        // Responsive Width applied here
+        card.style.cssText = `position:relative; flex-shrink:0; aspect-ratio:9/16; border-radius:1rem; overflow:hidden; cursor:pointer; background:#171717; width:${widthCalc}; border:none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);`;
+
+        card.innerHTML = `
             <video src="${video.src}" loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;opacity:0.9;transition:transform 0.5s ease;pointer-events:none;" class="hero-video-el"></video>
             <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 30%, transparent 100%); opacity:1; pointer-events:none;"></div>
             <div class="hero-play-icon" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; transition:opacity 0.2s; opacity:1;">
@@ -1500,31 +1526,31 @@
             </button>
           `;
 
-          const vid = card.querySelector('video');
-          const playIcon = card.querySelector('.hero-play-icon');
-          const muteBtn = card.querySelector('.hero-card-mute');
+        const vid = card.querySelector('video');
+        const playIcon = card.querySelector('.hero-play-icon');
+        const muteBtn = card.querySelector('.hero-card-mute');
 
-          // Play Logic: Click to toggle (Mobile/Desktop friendly)
-          card.addEventListener('click', (e) => {
-             if (e.target.closest('.hero-card-mute')) return;
-             if (vid.paused) {
-                 stopAllVideos();
-                 vid.play();
-                 playIcon.style.opacity = '0';
-             } else {
-                 vid.pause();
-                 playIcon.style.opacity = '1';
-             }
-          });
+        // Play Logic: Click to toggle (Mobile/Desktop friendly)
+        card.addEventListener('click', (e) => {
+          if (e.target.closest('.hero-card-mute')) return;
+          if (vid.paused) {
+            stopAllVideos();
+            vid.play();
+            playIcon.style.opacity = '0';
+          } else {
+            vid.pause();
+            playIcon.style.opacity = '1';
+          }
+        });
 
-          muteBtn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              vid.muted = !vid.muted;
-              muteBtn.style.background = vid.muted ? 'rgba(0,0,0,0.4)' : 'white';
-              muteBtn.style.color = vid.muted ? 'white' : 'black';
-          });
-          
-          track.appendChild(card);
+        muteBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          vid.muted = !vid.muted;
+          muteBtn.style.background = vid.muted ? 'rgba(0,0,0,0.4)' : 'white';
+          muteBtn.style.color = vid.muted ? 'white' : 'black';
+        });
+
+        track.appendChild(card);
       });
 
       // --- UNIFIED FLUID TOUCH SWIPE ---
@@ -1603,7 +1629,9 @@
       track.addEventListener('mousedown', touchStart);
       track.addEventListener('mousemove', touchMove);
       track.addEventListener('mouseup', touchEnd);
-      track.addEventListener('mouseleave', () => { if (isDragging) touchEnd(); });
+      track.addEventListener('mouseleave', () => {
+        if (isDragging) touchEnd();
+      });
 
       updateCarousel();
     }
@@ -1616,27 +1644,45 @@
       pagination.innerHTML = '';
       const dotCount = Math.min(maxIndex + 1, 15);
       for (let i = 0; i < dotCount; i++) {
-         const dot = document.createElement('button');
-         dot.style.cssText = `width:${i===currentIndex?'1.2rem':'0.4rem'};height:0.4rem;border-radius:999px;background:${i===currentIndex?'#ff2222':'rgba(255,255,255,0.2)'};border:none;cursor:pointer;transition:all 0.2s;`;
-         dot.onclick = () => { currentIndex = i; updateCarousel(); };
-         pagination.appendChild(dot);
+        const dot = document.createElement('button');
+        dot.style.cssText = `width:${
+          i === currentIndex ? '1.2rem' : '0.4rem'
+        };height:0.4rem;border-radius:999px;background:${
+          i === currentIndex ? '#ff2222' : 'rgba(255,255,255,0.2)'
+        };border:none;cursor:pointer;transition:all 0.2s;`;
+        dot.onclick = () => {
+          currentIndex = i;
+          updateCarousel();
+        };
+        pagination.appendChild(dot);
       }
 
       if (btnPrev) btnPrev.style.opacity = currentIndex === 0 ? '0.3' : '1';
       if (btnNext) btnNext.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
     }
 
-    if (btnPrev) btnPrev.onclick = () => {
+    if (btnPrev)
+      btnPrev.onclick = () => {
         stopAllVideos();
-        if (currentIndex > 0) { currentIndex--; updateCarousel(); }
-    };
-    if (btnNext) btnNext.onclick = () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      };
+    if (btnNext)
+      btnNext.onclick = () => {
         stopAllVideos();
-        if (currentIndex < maxIndex) { currentIndex++; updateCarousel(); }
-    };
-    
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          updateCarousel();
+        }
+      };
+
     // Modal Close (Optional, if modal exists in DOM)
-    if (closeBtn && modal) closeBtn.onclick = () => { modal.style.display = 'none'; };
+    if (closeBtn && modal)
+      closeBtn.onclick = () => {
+        modal.style.display = 'none';
+      };
 
     if (document.readyState !== 'loading') init();
     else document.addEventListener('DOMContentLoaded', init);
