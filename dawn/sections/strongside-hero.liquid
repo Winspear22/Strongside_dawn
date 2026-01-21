@@ -604,6 +604,15 @@
   .hero-nav-btn:hover svg {
     stroke: #ff2222 !important;
   }
+
+  .mobile-only-btn {
+    display: flex !important;
+  }
+  @media (min-width: 768px) {
+    .mobile-only-btn {
+      display: none !important;
+    }
+  }
 </style>
 
 <div class="strongside-hero color-{{ section.settings.color_scheme }} gradient" id="strongside-hero-wrapper">
@@ -1472,6 +1481,7 @@
     const closeBtn = document.getElementById('hero-modal-close');
 
     let currentIndex = 0;
+    let currentTranslate = 0;
 
     // UNIFIED LAYOUT: 3 videos visible (3x1) for both Mobile and Desktop
     const visibleCount = 3;
@@ -1517,7 +1527,7 @@
             <button class="hero-card-mute" style="position:absolute; top:0.5rem; right:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; display:flex; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
                <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
             </button>
-            <button class="hero-card-fullscreen" style="position:absolute; top:0.5rem; left:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; display:flex; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
+            <button class="hero-card-fullscreen mobile-only-btn" style="position:absolute; top:0.5rem; left:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
                <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
             </button>
           `;
@@ -1573,7 +1583,7 @@
           item.style.cssText = 'width:100%;height:100%;scroll-snap-align:center;position:relative;background:black;';
           item.id = `hero-modal-video-${index}`;
           item.innerHTML = `
-            <video src="${video.src}" loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>
+            <video src="${video.src}" loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>
             <div class="strongside-play-overlay" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none;"><div style="width:4rem;height:4rem;background:rgba(0,0,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
             <button class="hero-modal-mute" style="position:absolute;top:7rem;right:1rem;z-index:50;width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,0.4);color:white;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg></button>
             <div style="position:absolute;bottom:4rem;left:1rem;right:4rem;pointer-events:none;">
@@ -1616,7 +1626,7 @@
               }
             });
           },
-          { threshold: 0.6 }
+          { threshold: 0.4 }
         );
         document.querySelectorAll('#hero-modal-scroller > div').forEach((el) => observer.observe(el));
       }
@@ -1624,7 +1634,6 @@
       // --- UNIFIED FLUID TOUCH SWIPE ---
       let isDragging = false;
       let startPos = 0;
-      let currentTranslate = 0;
       let startTime = 0;
 
       function setCarouselTransition(enable) {
