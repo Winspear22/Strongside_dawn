@@ -217,6 +217,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Seite nicht gefunden",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfe die Schreibweise oder versuche es mit einer anderen Suchanfrage.",
       "results_with_count": {
@@ -260,10 +264,6 @@
         "error_heading": "Bitte passe Folgendes an:",
         "title": "Kontaktformular"
       }
-    },
-    "404": {
-      "title": "Seite nicht gefunden",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -579,7 +579,7 @@
     },
     "cta": {
       "smallSubtitle": "ÚNETE",
-      "title": "¿Listo para Transformar Tu Entrenamiento?",
+      "title": "USO DIARIO",
       "subtitle": "Únete a miles de atletas que han elegido la excelencia.",
       "button": "Pedir Ahora"
     },
@@ -634,7 +634,7 @@
       "securePayment": "Pago seguro vía"
     },
     "videos": {
-      "title": "Videos de Entrenamiento",
+      "title": "USO DIARIO",
       "list": {
         "1_title": "Upper Body Power",
         "2_title": "Shadow Boxing Flow",
@@ -651,7 +651,7 @@
         "13_title": "Cool Down Stretch"
       },
       "cta": {
-        "title": "Videos de entrenamiento",
+        "title": "USO DIARIO",
         "subtitle": "No pierdas la oportunidad de transformar tu entrenamiento. Únete a la élite ahora.",
         "button": "PEDIR EL MÍO"
       }
@@ -725,7 +725,7 @@
         "card_13": "Hit hard, stay strong."
       },
       "cta": {
-        "title": "Videos de Entrenamiento",
+        "title": "USO DIARIO",
         "subtitle": "No pierdas la oportunidad de transformar tu entrenamiento. Únete a la élite ahora.",
         "button": "PEDIR EL MÍO"
       },

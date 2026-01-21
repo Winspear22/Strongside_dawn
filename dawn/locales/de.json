@@ -217,6 +217,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Seite nicht gefunden",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfe die Schreibweise oder versuche es mit einer anderen Suchanfrage.",
       "results_with_count": {
@@ -260,10 +264,6 @@
         "error_heading": "Bitte passe Folgendes an:",
         "title": "Kontaktformular"
       }
-    },
-    "404": {
-      "title": "Seite nicht gefunden",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -579,7 +579,7 @@
     },
     "cta": {
       "smallSubtitle": "MACH MIT",
-      "title": "Bereit, Ihr Training zu transformieren?",
+      "title": "TÄGLICHER GEBRAUCH",
       "subtitle": "Schließen Sie sich Tausenden von Athleten an, die Exzellenz gewählt haben.",
       "button": "Jetzt bestellen"
     },
@@ -634,7 +634,7 @@
       "securePayment": "Sichere Zahlung über"
     },
     "videos": {
-      "title": "Trainingsvideos",
+      "title": "TÄGLICHER GEBRAUCH",
       "list": {
         "1_title": "Upper Body Power",
         "2_title": "Shadow Boxing Flow",
@@ -651,7 +651,7 @@
         "13_title": "Cool Down Stretch"
       },
       "cta": {
-        "title": "Trainingsvideos",
+        "title": "TÄGLICHER GEBRAUCH",
         "subtitle": "Verpassen Sie nicht Ihre Chance, Ihr Training zu transformieren. Schließen Sie sich jetzt der Elite an.",
         "button": "MEINS BESTELLEN"
       }
@@ -725,7 +725,7 @@
         "card_13": "Hit hard, stay strong."
       },
       "cta": {
-        "title": "Trainingsvideos",
+        "title": "TÄGLICHER GEBRAUCH",
         "subtitle": "Verpassen Sie nicht Ihre Chance, Ihr Training zu transformieren. Schließen Sie sich jetzt der Elite an.",
         "button": "MEINS BESTELLEN"
       },

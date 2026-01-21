@@ -217,6 +217,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Seite nicht gefunden",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfe die Schreibweise oder versuche es mit einer anderen Suchanfrage.",
       "results_with_count": {
@@ -260,10 +264,6 @@
         "error_heading": "Bitte passe Folgendes an:",
         "title": "Kontaktformular"
       }
-    },
-    "404": {
-      "title": "Seite nicht gefunden",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -579,7 +579,7 @@
     },
     "cta": {
       "smallSubtitle": "JOIN US",
-      "title": "Ready to Transform Your Training?",
+      "title": "DAILY USE",
       "subtitle": "Join thousands of athletes who have chosen excellence.",
       "button": "Order Now"
     },
@@ -635,7 +635,7 @@
       "securePayment": "Secure payment via"
     },
     "videos": {
-      "title": "Training Videos",
+      "title": "DAILY USE",
       "list": {
         "1_title": "Upper Body Power",
         "2_title": "Shadow Boxing Flow",
@@ -652,7 +652,7 @@
         "13_title": "Cool Down Stretch"
       },
       "cta": {
-        "title": "Training Videos",
+        "title": "DAILY USE",
         "subtitle": "Don't miss your chance to transform your training. Join the elite now.",
         "button": "ORDER MINE"
       }
@@ -725,10 +725,10 @@
         "card_11": "Rise. Fight. Repeat.",
         "card_12": "Fearless, relentless, unstoppable.",
         "card_13": "Hit hard, stay strong.",
-        "card_14": "Kyokushinkai World Vice-Champion Tested"
+        "card_14": "World Championship Finalist"
       },
       "cta": {
-        "title": "Training Videos",
+        "title": "DAILY USE",
         "subtitle": "Don't miss your chance to transform your training. Join the elite now.",
         "button": "ORDER MINE"
       },

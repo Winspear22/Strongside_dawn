@@ -95,7 +95,7 @@
     "video-section": {
       "type": "video",
       "settings": {
-        "heading": "Vidéos d'Entraînement",
+        "heading": "Usage au Quotidien",
         "heading_size": "h2",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "<p>Découvre comment utiliser ton équipement STRONGSIDE avec nos tutoriels exclusifs.</p>",

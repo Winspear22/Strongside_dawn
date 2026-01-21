@@ -217,6 +217,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Seite nicht gefunden",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfe die Schreibweise oder versuche es mit einer anderen Suchanfrage.",
       "results_with_count": {
@@ -260,10 +264,6 @@
         "error_heading": "Bitte passe Folgendes an:",
         "title": "Kontaktformular"
       }
-    },
-    "404": {
-      "title": "Seite nicht gefunden",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -579,7 +579,7 @@
     },
     "cta": {
       "smallSubtitle": "GÅ MED",
-      "title": "Redo att Förvandla Din Träning?",
+      "title": "DAILY USE",
       "subtitle": "Gå med tusentals atleter som har valt excellens.",
       "button": "Beställ Nu"
     },
@@ -634,7 +634,7 @@
       "securePayment": "Säker betalning via"
     },
     "videos": {
-      "title": "Träningsvideor",
+      "title": "DAILY USE",
       "list": {
         "1_title": "Upper Body Power",
         "2_title": "Shadow Boxing Flow",
@@ -651,7 +651,7 @@
         "13_title": "Cool Down Stretch"
       },
       "cta": {
-        "title": "Träningsvideor",
+        "title": "DAILY USE",
         "subtitle": "Missa inte chansen att förändra din träning. Gå med i eliten nu.",
         "button": "BESTÄLL MIN"
       }
@@ -725,7 +725,7 @@
         "card_13": "Hit hard, stay strong."
       },
       "cta": {
-        "title": "Träningsvideor",
+        "title": "DAILY USE",
         "subtitle": "Missa inte chansen att förändra din träning. Gå med i eliten nu.",
         "button": "BESTÄLL MIN"
       },

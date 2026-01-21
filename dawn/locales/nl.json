@@ -217,6 +217,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Seite nicht gefunden",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Keine Ergebnisse gefunden für \"{{ terms }}\". Überprüfe die Schreibweise oder versuche es mit einer anderen Suchanfrage.",
       "results_with_count": {
@@ -260,10 +264,6 @@
         "error_heading": "Bitte passe Folgendes an:",
         "title": "Kontaktformular"
       }
-    },
-    "404": {
-      "title": "Seite nicht gefunden",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -579,7 +579,7 @@
     },
     "cta": {
       "smallSubtitle": "DOE MEE",
-      "title": "Klaar om je Training te Transformeren?",
+      "title": "DAGELIJKS GEBRUIK",
       "subtitle": "Sluit je aan bij duizenden atleten die voor excellentie hebben gekozen.",
       "button": "Nu Bestellen"
     },
@@ -634,7 +634,7 @@
       "securePayment": "Veilige betaling via"
     },
     "videos": {
-      "title": "Trainingsvideo's",
+      "title": "DAGELIJKS GEBRUIK",
       "list": {
         "1_title": "Upper Body Power",
         "2_title": "Shadow Boxing Flow",
@@ -651,7 +651,7 @@
         "13_title": "Cool Down Stretch"
       },
       "cta": {
-        "title": "Trainingsvideo's",
+        "title": "DAGELIJKS GEBRUIK",
         "subtitle": "Mis je kans niet om je training te transformeren. Sluit je nu aan bij de elite.",
         "button": "BESTEL DE MIJNE"
       }
@@ -725,7 +725,7 @@
         "card_13": "Hit hard, stay strong."
       },
       "cta": {
-        "title": "Trainingsvideo's",
+        "title": "DAGELIJKS GEBRUIK",
         "subtitle": "Mis je kans niet om je training te transformeren. Sluit je nu aan bij de elite.",
         "button": "BESTEL DE MIJNE"
       },

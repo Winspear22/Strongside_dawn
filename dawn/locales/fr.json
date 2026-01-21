@@ -221,6 +221,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Page non trouvée",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Aucun résultat trouvé pour « {{ terms }} ». Vérifiez l'orthographe ou utilisez un autre mot ou une autre expression.",
       "results_with_count": {
@@ -269,10 +273,6 @@
         "error_heading": "Veuillez ajuster les éléments suivants :",
         "title": "Formulaire de contact"
       }
-    },
-    "404": {
-      "title": "Page non trouvée",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -627,10 +627,10 @@
         "card_11": "Rise. Fight. Repeat.",
         "card_12": "Fearless, relentless, unstoppable.",
         "card_13": "Hit hard, stay strong.",
-        "card_14": "Kyokushinkai World Vice-Champion Tested"
+        "card_14": "World Championship Finalist"
       },
       "cta": {
-        "title": "Vidéos d'entraînement",
+        "title": "USAGE AU QUOTIDIEN",
         "subtitle": "Ne laissez pas passer votre chance de transformer votre entraînement. Rejoignez l'élite dès maintenant.",
         "button": "JE COMMANDE LE MIEN"
       },
@@ -746,7 +746,7 @@
     },
     "cta": {
       "smallSubtitle": "REJOINS-NOUS",
-      "title": "Prêt à Transformer Votre Entraînement ?",
+      "title": "USAGE AU QUOTIDIEN",
       "subtitle": "Rejoignez des milliers d'athlètes qui ont choisi l'excellence.",
       "button": "Commander Maintenant"
     },
@@ -761,7 +761,7 @@
       "securePayment": "Paiement sécurisé via"
     },
     "videos": {
-      "title": "Vidéos d'entraînement",
+      "title": "USAGE AU QUOTIDIEN",
       "list": {
         "1_title": "Upper Body Power",
         "2_title": "Shadow Boxing Flow",
