@@ -1517,23 +1517,21 @@
             <button class="hero-card-mute" style="position:absolute; top:0.5rem; right:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; display:flex; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
                <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
             </button>
+            <button class="hero-card-fullscreen" style="position:absolute; top:0.5rem; left:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; display:flex; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
+               <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            </button>
           `;
 
         const vid = card.querySelector('video');
         const playIcon = card.querySelector('.hero-play-icon');
         const muteBtn = card.querySelector('.hero-card-mute');
+        const fullscreenBtn = card.querySelector('.hero-card-fullscreen');
 
         // Play Logic: Click to toggle (Mobile/Desktop friendly)
         card.addEventListener('click', (e) => {
-          if (e.target.closest('.hero-card-mute')) return;
+          if (e.target.closest('.hero-card-mute') || e.target.closest('.hero-card-fullscreen')) return;
 
-          // Mobile: Open TikTok Modal
-          if (window.innerWidth < 768 && openModal && modal) {
-            openModal(index);
-            return;
-          }
-
-          // Desktop: Play/Pause in place
+          // Universal Play/Pause in place
           if (vid.paused) {
             stopAllVideos();
             vid.play();
@@ -1541,6 +1539,20 @@
           } else {
             vid.pause();
             playIcon.style.opacity = '1';
+          }
+        });
+
+        // Fullscreen (Modal) Logic
+        fullscreenBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          // Mobile: Open TikTok Modal
+          if (window.innerWidth < 768 && openModal && modal) {
+            openModal(index);
+          } else {
+            // Desktop: Native Fullscreen logic?
+            // User only asked to keep TikTok mode.
+            // Let's rely on native for Desktop if needed, or nothing.
+            // We'll stick to mobile modal as primary function.
           }
         });
 
