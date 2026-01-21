@@ -1625,13 +1625,6 @@
       track.addEventListener('touchstart', touchStart, { passive: true });
       track.addEventListener('touchmove', touchMove, { passive: true });
       track.addEventListener('touchend', touchEnd);
-      // Mouse support
-      track.addEventListener('mousedown', touchStart);
-      track.addEventListener('mousemove', touchMove);
-      track.addEventListener('mouseup', touchEnd);
-      track.addEventListener('mouseleave', () => {
-        if (isDragging) touchEnd();
-      });
 
       updateCarousel();
     }
