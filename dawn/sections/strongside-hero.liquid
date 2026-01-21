@@ -1613,13 +1613,25 @@
           scroller.appendChild(item);
         });
 
-        // Observer for auto-play on scroll
+        // Observer for auto-play on scroll (only for swiping between videos)
+        // Use a flag to skip time reset for the initially opened video
+        let skipTimeResetForIndex = -1;
+
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               const vid = entry.target.querySelector('video');
+              const itemId = entry.target.id;
+              const itemIndex = parseInt(itemId.replace('hero-modal-video-', ''), 10);
               if (entry.isIntersecting) {
-                vid.currentTime = 0;
+                // Only reset time if NOT the skipped index
+                if (itemIndex !== skipTimeResetForIndex) {
+                  vid.currentTime = 0;
+                }
+                // Clear the skip flag after it's been used once
+                if (itemIndex === skipTimeResetForIndex) {
+                  skipTimeResetForIndex = -1;
+                }
                 vid.play().catch(() => {});
               } else {
                 vid.pause();
@@ -1629,6 +1641,11 @@
           { threshold: 0.4 }
         );
         document.querySelectorAll('#hero-modal-scroller > div').forEach((el) => observer.observe(el));
+
+        // Expose a way to set the skip flag from openModal
+        window._heroModalSkipReset = (idx) => {
+          skipTimeResetForIndex = idx;
+        };
       }
 
       // --- UNIFIED FLUID TOUCH SWIPE ---
@@ -1740,23 +1757,79 @@
 
     function openModal(idx) {
       if (!modal) return;
+
+      // 1. Get the carousel card video and capture its state
+      const carouselCards = track.querySelectorAll('video.hero-video-el');
+      const carouselVid = carouselCards[idx];
+      let capturedTime = 0;
+      let wasMuted = true;
+      let wasPlaying = false;
+      if (carouselVid) {
+        capturedTime = carouselVid.currentTime;
+        wasMuted = carouselVid.muted;
+        wasPlaying = !carouselVid.paused;
+        carouselVid.pause(); // Stop carousel video
+      }
+
+      // 2. Tell observer to skip time reset for this index
+      if (window._heroModalSkipReset) {
+        window._heroModalSkipReset(idx);
+      }
+
       modal.style.display = 'block';
       document.body.style.overflow = 'hidden';
+
       if (scroller) {
-        scroller.scrollTo({ top: idx * window.innerHeight, behavior: 'auto' });
+        // Disable observer temporarily by not scrolling yet
         const item = document.getElementById(`hero-modal-video-${idx}`);
         if (item) {
-          const vid = item.querySelector('video');
-          if (vid) vid.muted = false;
+          const modalVid = item.querySelector('video');
+          if (modalVid) {
+            // Set time BEFORE scroll triggers observer
+            modalVid.currentTime = capturedTime;
+            modalVid.muted = wasMuted;
+          }
         }
+        // Now scroll (which may trigger observer, but skipTimeReset is set)
+        scroller.scrollTo({ top: idx * window.innerHeight, behavior: 'auto' });
+
+        // Ensure video plays with correct time (use small delay to beat observer race)
+        setTimeout(() => {
+          const item = document.getElementById(`hero-modal-video-${idx}`);
+          if (item) {
+            const modalVid = item.querySelector('video');
+            if (modalVid) {
+              modalVid.currentTime = capturedTime;
+              modalVid.muted = wasMuted;
+              modalVid.play().catch(() => {});
+            }
+          }
+        }, 50);
       }
     }
 
     function closeModal() {
       if (!modal) return;
+
+      // Find currently visible modal video and sync back to carousel
+      const scrollerItems = scroller.querySelectorAll(':scope > div');
+      scrollerItems.forEach((item, idx) => {
+        const modalVid = item.querySelector('video');
+        if (modalVid && !modalVid.paused) {
+          // This is the active video - sync back to carousel
+          const carouselCards = track.querySelectorAll('video.hero-video-el');
+          const carouselVid = carouselCards[idx];
+          if (carouselVid) {
+            carouselVid.currentTime = modalVid.currentTime;
+            carouselVid.muted = modalVid.muted;
+            // Keep carousel video paused when returning
+          }
+        }
+        modalVid.pause();
+      });
+
       modal.style.display = 'none';
       document.body.style.overflow = '';
-      document.querySelectorAll('#hero-modal-scroller video').forEach((v) => v.pause());
     }
 
     if (btnPrev)
