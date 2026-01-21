@@ -463,8 +463,9 @@
       }, 500);
     }
 
-    // Safety check with interval still, just in case DOM changes don't trigger what we expect
-    setInterval(translateWidget, 2000);
+    // Safety check with interval, cleared after 10 seconds to prevent memory leaks
+    const translateInterval = setInterval(translateWidget, 2000);
+    setTimeout(() => clearInterval(translateInterval), 10000);
 
     // ============================================
     // JAVASCRIPT DOM REORGANIZATION FOR BUTTONS
