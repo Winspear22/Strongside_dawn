@@ -1577,6 +1577,9 @@
 
       function touchMove(event) {
         if (isDragging) {
+          // Stop videos as soon as user drags
+          stopAllVideos();
+
           const currentPosition = getPositionX(event);
           const currentDiff = currentPosition - startPos;
           const containerWidth = track.parentElement.offsetWidth;
@@ -1608,12 +1611,17 @@
         const duration = endTime - startTime;
         const velocity = Math.abs(movedBy) / duration;
 
-        // Threshold 15%
-        if (movedBy < -15 || (movedBy < 0 && velocity > 0.5)) {
-          if (currentIndex < maxIndex) currentIndex++;
-        } else if (movedBy > 15 || (movedBy > 0 && velocity > 0.5)) {
-          if (currentIndex > 0) currentIndex--;
-        }
+        // Calculate the closest index based on the current position
+        // Each item is 33.3333% wide. Negative translate moves forward.
+        // Formula: Index = - (Translate / 33.3333)
+        const rawIndex = -currentTranslate / 33.3333;
+        let newIndex = Math.round(rawIndex);
+
+        // Clamping
+        if (newIndex < 0) newIndex = 0;
+        if (newIndex > maxIndex) newIndex = maxIndex;
+
+        currentIndex = newIndex;
 
         updateCarousel();
       }
