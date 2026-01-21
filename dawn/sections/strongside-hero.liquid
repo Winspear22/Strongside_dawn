@@ -1573,7 +1573,6 @@
         startPos = getPositionX(event);
         startTime = new Date().getTime();
         setCarouselTransition(false);
-        animationID = requestAnimationFrame(animation);
       }
 
       function touchMove(event) {
@@ -1594,12 +1593,14 @@
             const over = minTranslate - currentTranslate;
             currentTranslate = minTranslate - over * 0.3;
           }
+
+          // Direct Update (No Animation Frame)
+          track.style.transform = `translateX(${currentTranslate}%)`;
         }
       }
 
       function touchEnd() {
         isDragging = false;
-        cancelAnimationFrame(animationID);
         setCarouselTransition(true);
 
         const movedBy = currentTranslate - -currentIndex * 33.3333;
@@ -1617,11 +1618,6 @@
         updateCarousel();
       }
 
-      function animation() {
-        track.style.transform = `translateX(${currentTranslate}%)`;
-        if (isDragging) requestAnimationFrame(animation);
-      }
-
       track.addEventListener('touchstart', touchStart, { passive: true });
       track.addEventListener('touchmove', touchMove, { passive: true });
       track.addEventListener('touchend', touchEnd);
@@ -1631,7 +1627,11 @@
 
     function updateCarousel() {
       // Always 33.33% step
-      track.style.transform = `translateX(-${currentIndex * 33.3333}%)`;
+      const targetTranslate = -currentIndex * 33.3333;
+      track.style.transform = `translateX(${targetTranslate}%)`;
+
+      // SYNC: Update currentTranslate so next touch starts from correct position
+      currentTranslate = targetTranslate;
 
       // Pagination
       pagination.innerHTML = '';
