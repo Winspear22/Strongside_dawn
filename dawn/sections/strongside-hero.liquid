@@ -1433,6 +1433,7 @@
   /* --- INTEGRATED VIDEO CAROUSEL LOGIC --- */
   (function () {
     const videos = [
+      { id: '14', src: "{{ '14_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_14' | t }}" },
       { id: '1', src: "{{ '1.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_1' | t }}" },
       { id: '2', src: "{{ '2.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_2' | t }}" },
       { id: '3', src: "{{ '3.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_3' | t }}" },
@@ -1453,352 +1454,189 @@
     const btnPrev = document.getElementById('hero-vid-prev');
     const btnNext = document.getElementById('hero-vid-next');
     const modal = document.getElementById('hero-mobile-modal');
-    const scroller = document.getElementById('hero-modal-scroller');
+    // const scroller = document.getElementById('hero-modal-scroller'); // Unused in this version
     const closeBtn = document.getElementById('hero-modal-close');
 
     let currentIndex = 0;
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    
+    // UNIFIED LAYOUT: 3 videos visible (3x1) for both Mobile and Desktop
     const visibleCount = 3;
-    // For mobile: 4 videos per page (2x2 grid)
-    const itemsPerPage = isMobile ? 4 : visibleCount;
-    const totalPages = isMobile ? Math.ceil(videos.length / itemsPerPage) : videos.length;
-    const maxIndex = isMobile ? (totalPages - 1) : Math.max(0, videos.length - visibleCount);
+    const maxIndex = Math.max(0, videos.length - visibleCount);
     
     // Helper to stop all videos (Global Scope)
     const stopAllVideos = () => {
-      if (!isMobile) return;
       track.querySelectorAll('video').forEach(v => {
         v.pause();
-        const parent = v.parentElement;
-        if (parent) {
-           const overlay = parent.querySelector('.mobile-play-overlay');
-           if (overlay) overlay.style.opacity = '1';
-        }
+        const icon = v.parentElement.querySelector('.hero-play-icon');
+        if(icon) icon.style.opacity = '1';
       });
     };
 
     function init() {
+      if (!track) return;
       track.innerHTML = '';
 
-      if (isMobile) {
-        // --- MOBILE: Simple transform-based carousel (same as image track) ---
-        const container = document.getElementById('hero-video-container');
-        
-        // Container: just overflow hidden, no scroll
-        container.style.cssText = 'overflow:hidden; margin-bottom:1rem;';
-        
-        // Track: flex with transform for sliding
-        track.style.cssText = 'display:flex; transition:transform 0.3s ease-out;';
-        
-        for (let p = 0; p < totalPages; p++) {
-          const slide = document.createElement('div');
-          slide.style.cssText = 'width:100%; flex-shrink:0; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:0.5rem; padding:0 0.5rem; box-sizing:border-box;';
-          
-          const pageVideos = videos.slice(p * itemsPerPage, (p + 1) * itemsPerPage);
-          
-          pageVideos.forEach((video) => {
-            const vidItem = document.createElement('div');
-            vidItem.style.cssText = 'position:relative; width:100%; aspect-ratio:9/16; border-radius:0.75rem; overflow:hidden; background:#000;';
-            
-            vidItem.innerHTML = `
-              <video src="${video.src}" loop playsinline muted preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
-              <div class="mobile-play-overlay" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);pointer-events:none;transition:opacity 0.2s;">
-                <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <div style="position:absolute;bottom:0.5rem;left:0.5rem;right:0.5rem;color:white;font-weight:700;font-size:0.7rem;text-transform:uppercase;font-style:italic;text-shadow:0 1px 2px rgba(0,0,0,0.8);line-height:1.1;">${video.title}</div>
-              <button class="mobile-mute-btn" style="position:absolute;top:0.5rem;right:0.5rem;width:2rem;height:2rem;border-radius:50%;background:rgba(0,0,0,0.5);border:none;color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;">
-                <svg width="14" height="14" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
-              </button>
-            `;
-            
-            const vid = vidItem.querySelector('video');
-            const overlay = vidItem.querySelector('.mobile-play-overlay');
-            const muteBtn = vidItem.querySelector('.mobile-mute-btn');
-            
-            vidItem.addEventListener('click', (e) => {
-              if (e.target.closest('.mobile-mute-btn')) return;
-              
-              if (vid.paused) {
-                // Stop others before playing
-                stopAllVideos();
-                vid.play();
-                overlay.style.opacity = '0';
-              } else {
-                vid.pause();
-                overlay.style.opacity = '1';
-              }
-            });
-            
-            muteBtn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              vid.muted = !vid.muted;
-              muteBtn.style.background = vid.muted ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.9)';
-              muteBtn.style.color = vid.muted ? 'white' : 'black';
-            });
-            
-            slide.appendChild(vidItem);
-          });
-          
-          track.appendChild(slide);
-        }
-
-        // --- SIMPLIFIED TOUCH SWIPE (Direct Transform Update) ---
-        let isDragging = false;
-        let startPos = 0;
-        let startTime = 0;
-        let videoStopped = false;
-
-        function setCarouselTransition(enable) {
-          track.style.transition = enable ? 'transform 0.3s ease-out' : 'none';
-        }
-
-        function getPositionX(event) {
-          return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-        }
-
-        function touchStart(event) {
-          isDragging = true;
-          startPos = getPositionX(event);
-          startTime = Date.now();
-          setCarouselTransition(false);
-          videoStopped = false;
-        }
-
-        function touchMove(event) {
-          if (!isDragging) return;
-          
-          const currentPosition = getPositionX(event);
-          const diff = currentPosition - startPos;
-          
-          // Stop videos ONLY if user swipes (threshold > 5px)
-          if (!videoStopped && Math.abs(diff) > 5) {
-              stopAllVideos();
-              videoStopped = true;
-          }
-          
-          const containerWidth = track.parentElement.offsetWidth;
-          const diffPercent = (diff / containerWidth) * 100;
-
-          const step = isMobile ? 100 : 33.3333;
-          let newTranslate = -currentIndex * step + diffPercent;
-
-          // Elastic Bounds
-          const minTranslate = -maxIndex * step;
-          if (newTranslate > 0) {
-            newTranslate = newTranslate * 0.3;
-          } else if (newTranslate < minTranslate) {
-            const over = minTranslate - newTranslate;
-            newTranslate = minTranslate - over * 0.3;
-          }
-
-          track.style.transform = `translateX(${newTranslate}%)`;
-        }
-
-        function touchEnd(event) {
-          if (!isDragging) return;
-          isDragging = false;
-          setCarouselTransition(true);
-
-          const endPos = event.changedTouches ? event.changedTouches[0].clientX : event.pageX;
-          const diff = endPos - startPos;
-          const containerWidth = track.parentElement.offsetWidth;
-          const diffPercent = (diff / containerWidth) * 100;
-          const duration = Date.now() - startTime;
-          const velocity = Math.abs(diffPercent) / duration;
-
-          const threshold = 15;
-          
-          // Swipe left (next)
-          if (diffPercent < -threshold || (diffPercent < 0 && velocity > 0.3)) {
-            if (currentIndex < maxIndex) currentIndex++;
-          }
-          // Swipe right (prev)
-          else if (diffPercent > threshold || (diffPercent > 0 && velocity > 0.3)) {
-            if (currentIndex > 0) currentIndex--;
-          }
-
-          updateCarousel();
-        }
-
-        track.addEventListener('touchstart', touchStart, { passive: true });
-        track.addEventListener('touchmove', touchMove, { passive: true });
-        track.addEventListener('touchend', touchEnd);
-
-        updateCarousel();
-      } else {
-        // --- DESKTOP: Horizontal Carousel ---
-        track.style.gap = '1.05rem';
-        
-        videos.forEach((video, index) => {
+      // Unified Styles: Flex row, gap 1.05rem
+      track.style.cssText = 'display:flex; gap:1.05rem; transition:transform 0.3s ease-out;';
+      
+      videos.forEach((video, index) => {
           const card = document.createElement('div');
-          card.style.cssText = 'position:relative; flex-shrink:0; aspect-ratio:9/16; border-radius:1.5rem; overflow:hidden; cursor:pointer; background:#171717; width:calc(33.333% - 1.05rem); border:none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);';
-
+          // Width Calculation: 
+          // 3 items per row. 2 gaps of 1.05rem.
+          // width = calc(33.333% - 0.7rem)
+          card.style.cssText = 'position:relative; flex-shrink:0; aspect-ratio:9/16; border-radius:1rem; overflow:hidden; cursor:pointer; background:#171717; width:calc(33.333% - 0.7rem); border:none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);';
+          
           card.innerHTML = `
             <video src="${video.src}" loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;opacity:0.9;transition:transform 0.5s ease;pointer-events:none;" class="hero-video-el"></video>
             <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 30%, transparent 100%); opacity:1; pointer-events:none;"></div>
-            <div class="hero-play-icon" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; transition:opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); opacity:1;">
-               <div style="width:6.5rem; height:6.5rem; border-radius:50%; background:rgba(0,0,0,0.3); backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center;">
-                  <svg width="48" height="48" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <div class="hero-play-icon" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; transition:opacity 0.2s; opacity:1;">
+               <div style="width:4rem; height:4rem; border-radius:50%; background:rgba(0,0,0,0.3); backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center;">
+                  <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                </div>
             </div>
-            <div style="position:absolute; bottom:1.5rem; left:1.2rem; right:1.2rem; color:white; font-family:'Inter', sans-serif; font-weight:900; font-style:italic; font-size:1.4rem; text-transform:uppercase; line-height:1; letter-spacing:-0.02em; pointer-events:none;">${video.title}.</div>
-            <button style="position:absolute; top:1rem; right:1rem; width:3.25rem; height:3.25rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; display:flex; align-items:center; justify-content:center; z-index:10; cursor:pointer; transition:background 0.2s;" class="hero-card-mute">
-               <svg style="width:20px; height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
+            <div style="position:absolute; bottom:1rem; left:0.5rem; right:0.5rem; color:white; font-family:'Inter', sans-serif; font-weight:900; font-style:italic; font-size:1.15rem; text-transform:uppercase; line-height:1; letter-spacing:-0.02em; pointer-events:none; text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 2px 4px rgba(0,0,0,0.8);">${video.title}</div>
+            <button class="hero-card-mute" style="position:absolute; top:0.5rem; right:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; display:flex; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
+               <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
             </button>
           `;
 
-          // HOVER LOGIC (Desktop only)
-          card.addEventListener('mouseenter', () => {
-            const v = card.querySelector('video');
-            const playIcon = card.querySelector('.hero-play-icon');
-            v.play()
-              .then(() => {
-                playIcon.style.opacity = '0';
-                v.style.transform = 'scale(1.05)';
-                v.style.opacity = '1';
-              })
-              .catch(() => {});
-          });
-
-          card.addEventListener('mouseleave', () => {
-            const v = card.querySelector('video');
-            const playIcon = card.querySelector('.hero-play-icon');
-            v.pause();
-            v.currentTime = 0;
-            playIcon.style.opacity = '1';
-            v.style.transform = 'scale(1)';
-            v.style.opacity = '0.9';
-          });
-
+          const vid = card.querySelector('video');
+          const playIcon = card.querySelector('.hero-play-icon');
           const muteBtn = card.querySelector('.hero-card-mute');
-          muteBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const v = card.querySelector('video');
-            v.muted = !v.muted;
-            muteBtn.style.background = v.muted ? 'rgba(0,0,0,0.5)' : 'white';
-            muteBtn.style.color = v.muted ? 'white' : 'black';
+
+          // Play Logic: Click to toggle (Mobile/Desktop friendly)
+          card.addEventListener('click', (e) => {
+             if (e.target.closest('.hero-card-mute')) return;
+             if (vid.paused) {
+                 stopAllVideos();
+                 vid.play();
+                 playIcon.style.opacity = '0';
+             } else {
+                 vid.pause();
+                 playIcon.style.opacity = '1';
+             }
           });
 
+          muteBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              vid.muted = !vid.muted;
+              muteBtn.style.background = vid.muted ? 'rgba(0,0,0,0.4)' : 'white';
+              muteBtn.style.color = vid.muted ? 'white' : 'black';
+          });
+          
           track.appendChild(card);
-        });
-      }
-
-      // Pagination
-      pagination.innerHTML = '';
-      for (let i = 0; i <= maxIndex; i += 1) {
-        // if (i > 9) break; // Limit dots removed defined by Max Index
-        const dot = document.createElement('button');
-        dot.style.cssText =
-          'width:0.4rem;height:0.4rem;border-radius:999px;background:rgba(255,255,255,0.2);border:none;cursor:pointer;transition:all 0.2s;';
-        dot.onclick = () => {
-          currentIndex = i;
-          updateCarousel();
-        };
-        pagination.appendChild(dot);
-      }
-
-      // Mobile Modal Render
-      scroller.innerHTML = '';
-      videos.forEach((video, index) => {
-        const item = document.createElement('div');
-        item.style.cssText = 'width:100%;height:100dvh;scroll-snap-align:center;position:relative;background:black;';
-        item.id = `hero-modal-video-${index}`;
-        item.innerHTML = `
-           <video src="${video.src}" loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>
-           <div class="strongside-play-overlay" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none;"><div style="width:4rem;height:4rem;background:rgba(0,0,0,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
-           <button class="hero-modal-mute" style="position:absolute;top:7rem;right:1rem;z-index:50;width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,0.4);color:white;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg></button>
-           <div style="position:absolute;bottom:4rem;left:1rem;right:4rem;pointer-events:none;">
-             <div style="color:white;font-size:1.5rem;font-weight:900;font-style:italic;text-transform:uppercase;text-shadow:0 2px 4px rgba(0,0,0,0.8);">${video.title}</div>
-           </div>
-         `;
-        const vid = item.querySelector('video');
-        const overlay = item.querySelector('.strongside-play-overlay');
-        const mute = item.querySelector('.hero-modal-mute');
-
-        item.addEventListener('click', () => {
-          if (vid.paused) {
-            vid.play();
-            overlay.style.display = 'none';
-          } else {
-            vid.pause();
-            overlay.style.display = 'flex';
-          }
-        });
-        mute.addEventListener('click', (e) => {
-          e.stopPropagation();
-          vid.muted = !vid.muted;
-          mute.style.background = vid.muted ? 'white' : 'rgba(0,0,0,0.4)';
-          mute.style.color = vid.muted ? 'black' : 'white';
-        });
-
-        scroller.appendChild(item);
       });
 
-      // Observer
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const vid = entry.target.querySelector('video');
-            if (entry.isIntersecting) {
-              vid.currentTime = 0;
-              vid.play().catch(() => {});
-            } else {
-              vid.pause();
-            }
-          });
-        },
-        { threshold: 0.6 }
-      );
-      document.querySelectorAll('#hero-modal-scroller > div').forEach((el) => observer.observe(el));
+      // --- UNIFIED FLUID TOUCH SWIPE ---
+      let isDragging = false;
+      let startPos = 0;
+      let currentTranslate = 0;
+      let animationID;
+      let startTime = 0;
+
+      function setCarouselTransition(enable) {
+        track.style.transition = enable ? 'transform 0.3s ease-out' : 'none';
+      }
+
+      function getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+      }
+
+      function touchStart(event) {
+        isDragging = true;
+        startPos = getPositionX(event);
+        startTime = new Date().getTime();
+        setCarouselTransition(false);
+        animationID = requestAnimationFrame(animation);
+      }
+
+      function touchMove(event) {
+        if (isDragging) {
+          const currentPosition = getPositionX(event);
+          const currentDiff = currentPosition - startPos;
+          const containerWidth = track.parentElement.offsetWidth;
+          const diffPercent = (currentDiff / containerWidth) * 100;
+
+          // Base translate is 33.33% per index
+          const baseTranslate = -currentIndex * 33.3333;
+          currentTranslate = baseTranslate + diffPercent;
+
+          // Elastic Bounds
+          const minTranslate = -maxIndex * 33.3333;
+          if (currentTranslate > 0) currentTranslate *= 0.3;
+          else if (currentTranslate < minTranslate) {
+            const over = minTranslate - currentTranslate;
+            currentTranslate = minTranslate - over * 0.3;
+          }
+        }
+      }
+
+      function touchEnd() {
+        isDragging = false;
+        cancelAnimationFrame(animationID);
+        setCarouselTransition(true);
+
+        const movedBy = currentTranslate - -currentIndex * 33.3333;
+        const endTime = new Date().getTime();
+        const duration = endTime - startTime;
+        const velocity = Math.abs(movedBy) / duration;
+
+        // Threshold 15%
+        if (movedBy < -15 || (movedBy < 0 && velocity > 0.5)) {
+          if (currentIndex < maxIndex) currentIndex++;
+        } else if (movedBy > 15 || (movedBy > 0 && velocity > 0.5)) {
+          if (currentIndex > 0) currentIndex--;
+        }
+
+        updateCarousel();
+      }
+
+      function animation() {
+        track.style.transform = `translateX(${currentTranslate}%)`;
+        if (isDragging) requestAnimationFrame(animation);
+      }
+
+      track.addEventListener('touchstart', touchStart, { passive: true });
+      track.addEventListener('touchmove', touchMove, { passive: true });
+      track.addEventListener('touchend', touchEnd);
+      // Mouse support
+      track.addEventListener('mousedown', touchStart);
+      track.addEventListener('mousemove', touchMove);
+      track.addEventListener('mouseup', touchEnd);
+      track.addEventListener('mouseleave', () => { if (isDragging) touchEnd(); });
 
       updateCarousel();
     }
 
     function updateCarousel() {
-      // Mobile: 100% per page, Desktop: 33.333% per card
-      const step = isMobile ? 100 : 33.3333;
-      track.style.transform = `translateX(-${currentIndex * step}%)`;
+      // Always 33.33% step
+      track.style.transform = `translateX(-${currentIndex * 33.3333}%)`;
 
-      Array.from(pagination.children).forEach((dot, idx) => {
-        dot.style.background = idx === currentIndex ? '#ff2222' : 'rgba(255,255,255,0.2)';
-        dot.style.width = idx === currentIndex ? '1.2rem' : '0.4rem';
-      });
+      // Pagination
+      pagination.innerHTML = '';
+      const dotCount = Math.min(maxIndex + 1, 15);
+      for (let i = 0; i < dotCount; i++) {
+         const dot = document.createElement('button');
+         dot.style.cssText = `width:${i===currentIndex?'1.2rem':'0.4rem'};height:0.4rem;border-radius:999px;background:${i===currentIndex?'#ff2222':'rgba(255,255,255,0.2)'};border:none;cursor:pointer;transition:all 0.2s;`;
+         dot.onclick = () => { currentIndex = i; updateCarousel(); };
+         pagination.appendChild(dot);
+      }
 
       if (btnPrev) btnPrev.style.opacity = currentIndex === 0 ? '0.3' : '1';
       if (btnNext) btnNext.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
     }
 
-    function openModal(idx) {
-      modal.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-      scroller.scrollTo({ top: idx * window.innerHeight, behavior: 'auto' });
-      const vid = document.getElementById(`hero-modal-video-${idx}`).querySelector('video');
-      vid.muted = false;
-    }
-
-    function closeModal() {
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
-      document.querySelectorAll('#hero-modal-scroller video').forEach((v) => v.pause());
-    }
-
-    if (btnPrev)
-      btnPrev.onclick = () => {
+    if (btnPrev) btnPrev.onclick = () => {
         stopAllVideos();
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateCarousel();
-        }
-      };
-    if (btnNext)
-      btnNext.onclick = () => {
+        if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+    };
+    if (btnNext) btnNext.onclick = () => {
         stopAllVideos();
-        if (currentIndex < maxIndex) {
-          currentIndex++;
-          updateCarousel();
-        }
-      };
-    if (closeBtn) closeBtn.onclick = closeModal;
+        if (currentIndex < maxIndex) { currentIndex++; updateCarousel(); }
+    };
+    
+    // Modal Close (Optional, if modal exists in DOM)
+    if (closeBtn && modal) closeBtn.onclick = () => { modal.style.display = 'none'; };
 
     if (document.readyState !== 'loading') init();
     else document.addEventListener('DOMContentLoaded', init);
