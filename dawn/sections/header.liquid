@@ -471,8 +471,9 @@
       </a>
 
       <!-- Item 3b: ACADEMY (Blog) -->
+      {%- assign academy_path = routes.root_url | append: '/blogs/strongside-academy' | replace: '//', '/' -%}
       <a
-        href="/blogs/strongside-academy"
+        href="{{ academy_path }}"
         class="strongside-nav-link"
       >
         {{- 'strongside.header.academy' | t -}}
@@ -690,8 +691,9 @@
     </a>
 
     <!-- Item Mobile: ACADEMY -->
+    {%- assign academy_path_mobile = routes.root_url | append: '/blogs/strongside-academy' | replace: '//', '/' -%}
     <a
-      href="/blogs/strongside-academy"
+      href="{{ academy_path_mobile }}"
       class="strongside-mobile-link"
       onclick="toggleMobileMenu();"
     >
