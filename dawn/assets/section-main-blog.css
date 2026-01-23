@@ -5,6 +5,17 @@
   row-gap: var(--grid-mobile-vertical-spacing);
 }
 
+/* Fix navbar overlap */
+.main-blog {
+  padding-top: 12rem; /* Mobile padding */
+}
+
+@media screen and (min-width: 750px) {
+  .main-blog {
+    padding-top: 15rem; /* Desktop padding */
+  }
+}
+
 .blog-articles .card-wrapper {
   width: 100%;
 }

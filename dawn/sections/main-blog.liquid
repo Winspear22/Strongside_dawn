@@ -6,12 +6,16 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    /* Force Mobile Padding for Navbar */
+    padding-top: 10rem !important;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
+      /* Force Desktop Padding for Navbar */
+      padding-top: 12rem !important;
     }
   }
 {%- endstyle -%}
