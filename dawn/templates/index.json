@@ -259,10 +259,7 @@
         "faq-6",
         "faq-7"
       ],
-      "settings": {
-        "subtitle": "DES QUESTIONS?",
-        "title": "FAQ"
-      }
+      "settings": {}
     },
     "cta": {
       "type": "strongside-cta",

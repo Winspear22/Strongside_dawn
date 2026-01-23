@@ -446,35 +446,43 @@
       <!-- Hardcoded links to match React exactly, dynamic Shopify links can be added via settings if needed -->
       <!-- Item 1: Equipment (Pill) -->
       <a
-        href="javascript:void(0)"
+        href="{{ routes.root_url }}"
         class="strongside-nav-link is-pill"
-        onclick="window.scrollTo({top:0, behavior:'smooth'})"
+        onclick="if(document.getElementById('elastics-section')) { event.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); }"
       >
         {{- 'strongside.header.equipment' | t -}}
       </a>
 
       <!-- Item 2: Reinforcements -->
       <a
-        href="javascript:void(0)"
+        href="{{ routes.root_url }}#elastics-section"
         class="strongside-nav-link"
-        onclick="const el = document.getElementById('elastics-section'); if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({top: top, behavior: 'smooth'}); }"
+        onclick="const el = document.getElementById('elastics-section'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({top: top, behavior: 'smooth'}); }"
       >
         {{- 'strongside.header.reinforcements' | t -}}
       </a>
 
       <a
-        href="javascript:void(0)"
+        href="{{ routes.root_url }}#training-videos"
         class="strongside-nav-link"
-        onclick="const el = document.getElementById('training-videos'); if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); }"
+        onclick="const el = document.getElementById('training-videos'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); }"
       >
         {{- 'strongside.header.training' | t -}}
       </a>
 
+      <!-- Item 3b: ACADEMY (Blog) -->
+      <a
+        href="/blogs/strongside-academy"
+        class="strongside-nav-link"
+      >
+        ACADEMY
+      </a>
+
       <!-- Item 4: FAQ -->
       <a
-        href="javascript:void(0)"
+        href="{{ routes.root_url }}#faq-section"
         class="strongside-nav-link"
-        onclick="const el = document.getElementById('faq-section'); if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); }"
+        onclick="const el = document.getElementById('faq-section'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); }"
       >
         {{- 'strongside.header.faq' | t -}}
       </a>
@@ -659,30 +667,39 @@
 
   <div class="strongside-mobile-content">
     <a
-      href="javascript:void(0)"
+      href="{{ routes.root_url }}"
       class="strongside-mobile-link is-pill"
-      onclick="toggleMobileMenu(); window.scrollTo({top:0, behavior:'smooth'});"
+      onclick="if(document.getElementById('elastics-section')) { event.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); } toggleMobileMenu();"
     >
       {{- 'strongside.header.equipment' | t -}}
     </a>
     <a
-      href="javascript:void(0)"
+      href="{{ routes.root_url }}#elastics-section"
       class="strongside-mobile-link"
-      onclick="const el = document.getElementById('elastics-section'); if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
+      onclick="const el = document.getElementById('elastics-section'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
     >
       {{- 'strongside.header.reinforcements' | t -}}
     </a>
     <a
-      href="javascript:void(0)"
+      href="{{ routes.root_url }}#training-videos"
       class="strongside-mobile-link"
-      onclick="const el = document.getElementById('training-videos'); if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
+      onclick="const el = document.getElementById('training-videos'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
     >
       {{- 'strongside.header.training' | t -}}
     </a>
+
+    <!-- Item Mobile: ACADEMY -->
     <a
-      href="javascript:void(0)"
+      href="/blogs/strongside-academy"
       class="strongside-mobile-link"
-      onclick="const el = document.getElementById('faq-section'); if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
+      onclick="toggleMobileMenu();"
+    >
+      ACADEMY
+    </a>
+    <a
+      href="{{ routes.root_url }}#faq-section"
+      class="strongside-mobile-link"
+      onclick="const el = document.getElementById('faq-section'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
     >
       {{- 'strongside.header.faq' | t -}}
     </a>
