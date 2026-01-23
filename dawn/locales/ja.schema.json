@@ -3397,5 +3397,10 @@
         "name": "迅速な注文リスト"
       }
     }
+  },
+  "strongside": {
+    "header": {
+      "academy": "ACADEMY"
+    }
   }
 }

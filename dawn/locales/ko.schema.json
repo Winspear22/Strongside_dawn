@@ -3397,5 +3397,10 @@
         "name": "빠른 주문 목록"
       }
     }
+  },
+  "strongside": {
+    "header": {
+      "academy": "ACADEMY"
+    }
   }
 }

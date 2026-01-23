@@ -3397,5 +3397,10 @@
         "name": "Lista de encomendas rápida"
       }
     }
+  },
+  "strongside": {
+    "header": {
+      "academy": "ACADEMIA"
+    }
   }
 }

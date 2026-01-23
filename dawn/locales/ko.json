@@ -217,6 +217,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "페이지를 찾을 수 없음",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "\"{{ terms }}\"에 대한 검색 결과가 없습니다. 철자를 확인하거나 다른 단어/문구를 사용해 보십시오.",
       "results_with_count": {
@@ -260,10 +264,6 @@
         "error_heading": "다음을 조정하십시오.",
         "title": "연락처 양식"
       }
-    },
-    "404": {
-      "title": "페이지를 찾을 수 없음",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -662,6 +662,9 @@
           }
         }
       }
+    },
+    "header": {
+      "academy": "ACADEMY"
     }
   }
 }

@@ -3397,5 +3397,10 @@
         "name": "Schnelle Bestellliste"
       }
     }
+  },
+  "strongside": {
+    "header": {
+      "academy": "AKADEMIE"
+    }
   }
 }

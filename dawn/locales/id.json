@@ -217,6 +217,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Halaman tidak ditemukan",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Tidak ada hasil ditemukan untuk “{{ terms }}”. Periksa ejaan atau gunakan kata atau frasa yang berbeda.",
       "results_with_count": {
@@ -260,10 +264,6 @@
         "error_heading": "Mohon sesuaikan:",
         "title": "Formulir kontak"
       }
-    },
-    "404": {
-      "title": "Halaman tidak ditemukan",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -662,6 +662,9 @@
           }
         }
       }
+    },
+    "header": {
+      "academy": "ACADEMY"
     }
   }
 }

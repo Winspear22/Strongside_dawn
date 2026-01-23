@@ -475,7 +475,7 @@
         href="/blogs/strongside-academy"
         class="strongside-nav-link"
       >
-        ACADEMY
+        {{- 'strongside.header.academy' | t -}}
       </a>
 
       <!-- Item 4: FAQ -->
@@ -540,6 +540,7 @@
                 {%- endfor -%}
               </ul>
               <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+              <input type="hidden" name="return_to" value="{{ request.path }}">
             </div>
           {%- endform -%}
           <script>
@@ -694,7 +695,7 @@
       class="strongside-mobile-link"
       onclick="toggleMobileMenu();"
     >
-      ACADEMY
+      {{- 'strongside.header.academy' | t -}}
     </a>
     <a
       href="{{ routes.root_url }}#faq-section"
@@ -732,6 +733,7 @@
               </button>
             {%- endfor -%}
             <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+            <input type="hidden" name="return_to" value="{{ request.path }}">
           </div>
         {%- endform -%}
       </localization-form>

@@ -3397,5 +3397,10 @@
         "name": "รายการคำสั่งซื้อแบบด่วน"
       }
     }
+  },
+  "strongside": {
+    "header": {
+      "academy": "ACADEMY"
+    }
   }
 }

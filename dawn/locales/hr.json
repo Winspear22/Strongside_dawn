@@ -221,6 +221,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Stranica nije pronađena",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Nije pronađen nijedan rezultat za „{{ terms }}”. Provjerite pravopis ili upotrijebite drugu riječ ili izraz.",
       "title": "Rezultati pretraživanja",
@@ -269,10 +273,6 @@
         "error_heading": "Prilagodite sljedeće:",
         "title": "Obrazac za kontakt"
       }
-    },
-    "404": {
-      "title": "Stranica nije pronađena",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -674,6 +674,9 @@
           }
         }
       }
+    },
+    "header": {
+      "academy": "ACADEMY"
     }
   }
 }

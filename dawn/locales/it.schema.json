@@ -3397,5 +3397,10 @@
         "name": "Elenco ordini rapido"
       }
     }
+  },
+  "strongside": {
+    "header": {
+      "academy": "ACCADEMIA"
+    }
   }
 }

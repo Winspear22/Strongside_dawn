@@ -221,6 +221,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Pagina nu a fost găsită",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Nu s-au găsit rezultate pentru „{{ terms }}”. Verificați ortografia sau utilizați alt cuvânt sau altă expresie.",
       "title": "Rezultatele căutării",
@@ -269,10 +273,6 @@
         "error_heading": "Vă rugăm să ajustați următoarele:",
         "title": "Formular de contact"
       }
-    },
-    "404": {
-      "title": "Pagina nu a fost găsită",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -674,6 +674,9 @@
           }
         }
       }
+    },
+    "header": {
+      "academy": "ACADEMY"
     }
   }
 }

@@ -225,6 +225,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Stránka nebyla nalezena",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Nebyly nalezeny žádné výsledky pro {{ terms }}. Zkontrolujte pravopis nebo zadejte jiné slovo či slovní spojení.",
       "title": "Výsledky hledání",
@@ -278,10 +282,6 @@
         "error_heading": "Upravte prosím následující informace:",
         "title": "Kontaktní formulář"
       }
-    },
-    "404": {
-      "title": "Stránka nebyla nalezena",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -686,6 +686,9 @@
           }
         }
       }
+    },
+    "header": {
+      "academy": "ACADEMY"
     }
   }
 }

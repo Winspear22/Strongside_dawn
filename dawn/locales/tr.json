@@ -217,6 +217,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Sayfa bulunamadı",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "\"{{ terms }}\" için sonuç bulunamadı. Yazım hatası olmadığını doğrulayın veya farklı bir kelime ya da ifade kullanın.",
       "results_with_count": {
@@ -260,10 +264,6 @@
         "error_heading": "Lütfen aşağıdakileri düzenleyin:",
         "title": "İletişim formu"
       }
-    },
-    "404": {
-      "title": "Sayfa bulunamadı",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -662,6 +662,9 @@
           }
         }
       }
+    },
+    "header": {
+      "academy": "ACADEMY"
     }
   }
 }

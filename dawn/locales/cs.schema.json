@@ -3397,5 +3397,10 @@
         "name": "Seznam pro rychlé objednávky"
       }
     }
+  },
+  "strongside": {
+    "header": {
+      "academy": "ACADEMY"
+    }
   }
 }

@@ -3397,5 +3397,10 @@
         "name": "快速訂單清單"
       }
     }
+  },
+  "strongside": {
+    "header": {
+      "academy": "ACADEMY"
+    }
   }
 }

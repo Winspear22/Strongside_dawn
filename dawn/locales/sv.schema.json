@@ -3397,5 +3397,10 @@
         "name": "Snabb orderlista"
       }
     }
+  },
+  "strongside": {
+    "header": {
+      "academy": "ACADEMY"
+    }
   }
 }

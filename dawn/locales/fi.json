@@ -217,6 +217,10 @@
     }
   },
   "templates": {
+    "404": {
+      "title": "Sivua ei löytynyt",
+      "subtext": "404"
+    },
     "search": {
       "no_results": "Ei tuloksia haulla \"{{ terms }}\". Tarkista oikeinkirjoitus tai kokeile toista sanaa tai ilmaisua.",
       "results_with_count": {
@@ -260,10 +264,6 @@
         "error_heading": "Mukauta seuraavat:",
         "title": "Yhteydenottolomake"
       }
-    },
-    "404": {
-      "title": "Sivua ei löytynyt",
-      "subtext": "404"
     }
   },
   "sections": {
@@ -662,6 +662,9 @@
           }
         }
       }
+    },
+    "header": {
+      "academy": "ACADEMY"
     }
   }
 }
