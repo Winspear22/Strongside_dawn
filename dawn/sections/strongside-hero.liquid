@@ -827,25 +827,41 @@
           onclick="const el = document.getElementById('customer-reviews'); if(el) el.scrollIntoView({behavior:'smooth'});"
         >
           <div style="color:#facc15; display:flex; gap:2px;">
-            <!-- 5 Stars SVG -->
-            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-            <svg class="w-4 h-4" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
+            {%- assign rating = product.metafields.reviews.rating.value | default: 0 -%}
+            {%- for i in (1..5) -%}
+              {%- assign fill_pct = 0 -%}
+              {%- assign floor_val = i | minus: 1 -%}
+              {%- if rating >= i -%}
+                {%- assign fill_pct = 100 -%}
+              {%- elsif rating > floor_val -%}
+                {%- assign decimal_part = rating | minus: floor_val -%}
+                {%- if decimal_part < 0.125 -%}
+                  {%- assign fill_pct = 0 -%}
+                {%- elsif decimal_part < 0.375 -%}
+                  {%- assign fill_pct = 25 -%}
+                {%- elsif decimal_part < 0.625 -%}
+                  {%- assign fill_pct = 50 -%}
+                {%- elsif decimal_part < 0.875 -%}
+                  {%- assign fill_pct = 75 -%}
+                {%- else -%}
+                  {%- assign fill_pct = 100 -%}
+                {%- endif -%}
+              {%- endif -%}
+              <svg class="w-4 h-4" width="20" height="20" viewBox="0 0 24 24">
+                <defs>
+                  <linearGradient id="star-grad-{{ i }}">
+                    <stop offset="{{ fill_pct }}%" stop-color="#facc15"/>
+                    <stop offset="{{ fill_pct }}%" stop-color="transparent"/>
+                  </linearGradient>
+                </defs>
+                <path fill="url(#star-grad-{{ i }})" stroke="#facc15" stroke-width="1.5" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            {%- endfor -%}
           </div>
           <span style="font-size:1.4rem; color:#9ca3af; font-family:'Inter',sans-serif; margin-left:1rem;">
-            {{- 'strongside.shop.readComments' | t }} 9 {{ 'strongside.shop.commentsWord' | t -}}
+            {{- 'strongside.shop.readComments' | t }}
+            {{ product.metafields.reviews.rating_count | default: 0 }}
+            {{ 'strongside.shop.commentsWord' | t -}}
           </span>
           <svg width="20" height="20" fill="none" stroke="#9ca3af" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
