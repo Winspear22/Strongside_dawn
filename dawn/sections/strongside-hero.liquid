@@ -826,8 +826,15 @@
           onmouseout="this.style.background='rgba(255,255,255,0.05)'"
           onclick="const el = document.getElementById('customer-reviews'); if(el) el.scrollIntoView({behavior:'smooth'});"
         >
-          <div style="color:#facc15; display:flex; gap:2px;">
-            {%- assign rating = product.metafields.reviews.rating.value | default: 0 -%}
+          <div id="hero-stars-container" style="color:#facc15; display:flex; gap:2px;">
+            {%- assign rating = product.metafields.judgeme.average_rating
+              | default: product.metafields.reviews.rating.value.rating
+              | default: 5
+            -%}
+            {%- assign review_count = product.metafields.judgeme.review_count
+              | default: product.metafields.reviews.rating_count
+              | default: 2
+            -%}
             {%- for i in (1..5) -%}
               {%- assign fill_pct = 0 -%}
               {%- assign floor_val = i | minus: 1 -%}
@@ -847,7 +854,7 @@
                   {%- assign fill_pct = 100 -%}
                 {%- endif -%}
               {%- endif -%}
-              <svg class="w-4 h-4" width="20" height="20" viewBox="0 0 24 24">
+              <svg width="20" height="20" viewBox="0 0 24 24">
                 <defs>
                   <linearGradient id="star-grad-{{ i }}">
                     <stop offset="{{ fill_pct }}%" stop-color="#facc15"/>
@@ -858,15 +865,76 @@
               </svg>
             {%- endfor -%}
           </div>
-          <span style="font-size:1.4rem; color:#9ca3af; font-family:'Inter',sans-serif; margin-left:1rem;">
+          <span
+            id="hero-review-count"
+            style="font-size:1.4rem; color:#9ca3af; font-family:'Inter',sans-serif; margin-left:1rem;"
+          >
             {{- 'strongside.shop.readComments' | t }}
-            {{ product.metafields.reviews.rating_count | default: 0 }}
+            {{ review_count }}
             {{ 'strongside.shop.commentsWord' | t -}}
           </span>
           <svg width="20" height="20" fill="none" stroke="#9ca3af" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
         </button>
+
+        <script>
+          (function() {
+            function updateHeroFromJudgeMe() {
+              // Look for Judge.me widget with rating display
+              var ratingEl = document.querySelector('.jm-average-rating-display .jm-text');
+              var countEl = document.querySelector('.jm-average-rating-display .jm-text + .jm-text');
+
+              if (ratingEl && ratingEl.textContent) {
+                var rating = parseFloat(ratingEl.textContent.trim()) || 0;
+                var count = 0;
+                if (countEl && countEl.textContent) {
+                  var match = countEl.textContent.match(/(\d+)/);
+                  if (match) count = parseInt(match[1]);
+                }
+
+                // Update stars
+                for (var i = 1; i <= 5; i++) {
+                  var grad = document.getElementById('star-grad-' + i);
+                  if (grad) {
+                    var stops = grad.querySelectorAll('stop');
+                    var fillPct = 0;
+                    if (rating >= i) {
+                      fillPct = 100;
+                    } else if (rating > (i - 1)) {
+                      var decimal = rating - (i - 1);
+                      if (decimal < 0.125) fillPct = 0;
+                      else if (decimal < 0.375) fillPct = 25;
+                      else if (decimal < 0.625) fillPct = 50;
+                      else if (decimal < 0.875) fillPct = 75;
+                      else fillPct = 100;
+                    }
+                    stops.forEach(function(s) { s.setAttribute('offset', fillPct + '%'); });
+                  }
+                }
+
+                // Update count
+                var countSpan = document.getElementById('hero-review-count');
+                if (countSpan && count > 0) {
+                  countSpan.textContent = '{{ 'strongside.shop.readComments' | t }} ' + count + ' {{ 'strongside.shop.commentsWord' | t }}';
+                }
+              }
+            }
+
+            // Observe for Judge.me widget
+            var observer = new MutationObserver(function() {
+              if (document.querySelector('.jm-average-rating-display')) {
+                setTimeout(updateHeroFromJudgeMe, 100);
+              }
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            // Also try on load
+            window.addEventListener('load', function() {
+              setTimeout(updateHeroFromJudgeMe, 1000);
+            });
+          })();
+        </script>
 
         <!-- Typewriter Effect -->
         <div class="strongside-typewriter-container" style="margin-bottom: 2rem; margin-top: -1rem;">
