@@ -64,8 +64,15 @@
   }
   #shopify-section-{{ section.id }} .ss-acc-desc {
     color: rgba(var(--color-foreground), 0.6);
-    max-width: 36rem;
+    max-width: 55rem; /* Widened from 36rem to allow 2 lines */
     margin: 0 auto;
+    font-size: 1rem; /* Mobile: Ensure ~3 lines */
+    line-height: 1.5;
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .ss-acc-desc {
+      font-size: 1.25rem; /* Larger on desktop */
+    }
   }
 
   /* CARD CONTAINER */
