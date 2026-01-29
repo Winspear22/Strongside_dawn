@@ -4,6 +4,32 @@
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'strongside-header.js' | asset_url }}" defer="defer"></script>
+<script>
+  function scrollToSection(id, customOffset) {
+    const el = document.getElementById(id);
+    if (el) {
+      event.preventDefault();
+      // Use hardcoded offset if provided, otherwise default to dynamic calculation
+      let offset;
+      if (customOffset !== undefined && customOffset !== null) {
+        offset = customOffset;
+      } else {
+        const header = document.querySelector('.strongside-header-wrapper');
+        const headerHeight = header ? header.offsetHeight : 0;
+        offset = headerHeight + 50;
+      }
+
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+
+      // Close mobile menu if open
+      const mobileMenu = document.getElementById('strongside-mobile-menu');
+      if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+        toggleMobileMenu();
+      }
+    }
+  }
+</script>
 
 <style>
   /* Base reset for header - Adjusted for Mobile */
@@ -457,7 +483,7 @@
       <a
         href="{{ routes.root_url }}#elastics-section"
         class="strongside-nav-link"
-        onclick="const el = document.getElementById('elastics-section'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({top: top, behavior: 'smooth'}); }"
+        onclick="scrollToSection('elastics-section', 30)"
       >
         {{- 'strongside.header.reinforcements' | t -}}
       </a>
@@ -465,7 +491,7 @@
       <a
         href="{{ routes.root_url }}#training-videos"
         class="strongside-nav-link"
-        onclick="const el = document.getElementById('training-videos'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); }"
+        onclick="scrollToSection('training-videos', 10)"
       >
         {{- 'strongside.header.training' | t -}}
       </a>
@@ -483,7 +509,7 @@
       <a
         href="{{ routes.root_url }}#faq-section"
         class="strongside-nav-link"
-        onclick="const el = document.getElementById('faq-section'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); }"
+        onclick="scrollToSection('faq-section', 30)"
       >
         {{- 'strongside.header.faq' | t -}}
       </a>
@@ -678,14 +704,14 @@
     <a
       href="{{ routes.root_url }}#elastics-section"
       class="strongside-mobile-link"
-      onclick="const el = document.getElementById('elastics-section'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
+      onclick="scrollToSection('elastics-section', 20)"
     >
       {{- 'strongside.header.reinforcements' | t -}}
     </a>
     <a
       href="{{ routes.root_url }}#training-videos"
       class="strongside-mobile-link"
-      onclick="const el = document.getElementById('training-videos'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
+      onclick="scrollToSection('training-videos', 10)"
     >
       {{- 'strongside.header.training' | t -}}
     </a>
@@ -702,7 +728,7 @@
     <a
       href="{{ routes.root_url }}#faq-section"
       class="strongside-mobile-link"
-      onclick="const el = document.getElementById('faq-section'); if(el) { event.preventDefault(); const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top: top, behavior: 'smooth'}); } toggleMobileMenu();"
+      onclick="scrollToSection('faq-section', 20)"
     >
       {{- 'strongside.header.faq' | t -}}
     </a>
