@@ -274,11 +274,11 @@
   #shopify-section-{{ section.id }} .ss-acc-btn-add {
     width: 100%;
     margin-top: 2rem;
-    padding: 1.6rem; /* Reduced by 10% */
+    padding: 2rem; /* Increased from 1.6rem */
     background-color: white !important; /* Always white */
     color: black !important; /* Always black */
     font-weight: 700;
-    font-size: 1.35rem; /* Reduced by 10% */
+    font-size: 1.6rem; /* Increased from 1.35rem */
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border-radius: 9999px;
@@ -557,16 +557,18 @@
             </button>
 
             <!-- BUY NOW (Direct Checkout Link) -->
-            <a
-              href="/cart/{{ variant.id }}:1"
-              class="ss-acc-btn-buy"
-              style="display:flex; align-items:center; justify-content:center; gap:0.5rem; text-decoration:none;"
-            >
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              <span>{{ 'strongside.accessories.buy_now' | t }}</span>
-            </a>
+            {% comment %}
+              <a
+                href="/cart/{{ variant.id }}:1"
+                class="ss-acc-btn-buy"
+                style="display:flex; align-items:center; justify-content:center; gap:0.5rem; text-decoration:none;"
+              >
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <span>{{ 'strongside.accessories.buy_now' | t }}</span>
+              </a>
+            {% endcomment %}
           </div>
         {% endform %}
       </product-form>
