@@ -852,6 +852,82 @@
           </svg>
         </button>
 
+        <!-- Typewriter Effect -->
+        <div class="strongside-typewriter-container" style="margin-bottom: 2rem; margin-top: -1rem;">
+          <style>
+            /* Default (Light Mode) */
+            .strongside-typewriter-container h2,
+            .strongside-typewriter-container span {
+              color: rgb(var(--color-foreground));
+            }
+            /* Dark Mode Override */
+            .strongside-dark .strongside-typewriter-container h2,
+            .strongside-dark .strongside-typewriter-container span,
+            .strongside-dark .strongside-typewriter-container .Typewriter__cursor {
+              color: #ffffff !important;
+            }
+          </style>
+          <h2
+            class="h2 heading-with-icon title title--word_break_an js-anim-typewriter"
+            style="font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 900; font-style: italic; text-transform: uppercase; display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem; line-height: 1.2;"
+          >
+            <span>{{ section.settings.typewriter_static_text }}</span>
+            <span class="js-anim-title" style="position: relative; white-space:nowrap;">
+              <span class="Typewriter__wrapper"></span><span class="Typewriter__cursor">|</span>
+            </span>
+          </h2>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const rawWords = '{{ section.settings.typewriter_words | escape }}';
+            const words = rawWords
+              .split(',')
+              .map((w) => w.trim())
+              .filter((w) => w.length > 0);
+            const wrapper = document.querySelector('.Typewriter__wrapper');
+            const cursor = document.querySelector('.Typewriter__cursor');
+
+            if (!wrapper || words.length === 0) return;
+
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 100;
+
+            function type() {
+              const currentWord = words[wordIndex];
+              if (isDeleting) {
+                wrapper.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50;
+              } else {
+                wrapper.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 150;
+              }
+
+              if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                typeSpeed = 2000;
+              } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500;
+              }
+              setTimeout(type, typeSpeed);
+            }
+
+            const style = document.createElement('style');
+            style.innerHTML = `
+              .Typewriter__cursor { animation: blink 1s step-end infinite; color: rgb(var(--color-foreground)); margin-left: 2px; font-weight: 900; }
+              @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+            `;
+            document.head.appendChild(style);
+
+            type();
+          });
+        </script>
+
         <!-- Variants -->
         {% unless product.has_only_default_variant %}
           <div class="strongside-variants">
@@ -1870,6 +1946,24 @@
       "type": "product",
       "id": "product",
       "label": "Product to display"
+    },
+    {
+      "type": "header",
+      "content": "Typewriter Effect"
+    },
+    {
+      "type": "text",
+      "id": "typewriter_static_text",
+      "label": "Static Text",
+      "default": "Made for",
+      "info": "The static part of the text (e.g. 'Made for')"
+    },
+    {
+      "type": "textarea",
+      "id": "typewriter_words",
+      "label": "Rotating Words",
+      "default": "Boxers, MMA, STRIKERS, KARATE, KUNG FU, Free fighters",
+      "info": "Comma separated list of words to rotate"
     }
   ],
   "blocks": [

@@ -581,41 +581,44 @@
       </product-form>
 
       <!-- TRUST -->
-      <div class="ss-acc-trust">
-        <div class="ss-acc-secure">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
-          </svg>
-          <span>{{ 'strongside.accessories.secure_payment' | t }}</span>
+      <!-- TRUST (Hidden by user request) -->
+      {% comment %}
+        <div class="ss-acc-trust">
+          <div class="ss-acc-secure">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+            </svg>
+            <span>{{ 'strongside.accessories.secure_payment' | t }}</span>
+          </div>
+          <div class="ss-acc-logos">
+            <img
+              src="{{ 'visa mastercard.webp' | asset_url }}"
+              alt="Visa Mastercard"
+              class="ss-acc-logo-img"
+              width="64"
+              height="40"
+              loading="lazy"
+            >
+            <img
+              src="{{ 'paypal logo.webp' | asset_url }}"
+              alt="PayPal"
+              class="ss-acc-logo-img"
+              width="64"
+              height="40"
+              loading="lazy"
+            >
+            <img
+              src="{{ 'cb logo.webp' | asset_url }}"
+              alt="CB"
+              class="ss-acc-logo-img"
+              width="64"
+              height="40"
+              loading="lazy"
+            >
+          </div>
+          <!-- NOTE: Using standard CDN placeholders or text if images missing in assets -->
         </div>
-        <div class="ss-acc-logos">
-          <img
-            src="{{ 'visa mastercard.webp' | asset_url }}"
-            alt="Visa Mastercard"
-            class="ss-acc-logo-img"
-            width="64"
-            height="40"
-            loading="lazy"
-          >
-          <img
-            src="{{ 'paypal logo.webp' | asset_url }}"
-            alt="PayPal"
-            class="ss-acc-logo-img"
-            width="64"
-            height="40"
-            loading="lazy"
-          >
-          <img
-            src="{{ 'cb logo.webp' | asset_url }}"
-            alt="CB"
-            class="ss-acc-logo-img"
-            width="64"
-            height="40"
-            loading="lazy"
-          >
-        </div>
-        <!-- NOTE: Using standard CDN placeholders or text if images missing in assets -->
-      </div>
+      {% endcomment %}
     </div>
   {% else %}
     <p style="text-align:center; color:#9ca3af;">
