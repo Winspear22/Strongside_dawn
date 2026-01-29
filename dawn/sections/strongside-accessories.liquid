@@ -171,6 +171,29 @@
     display: block;
   }
 
+  #shopify-section-{{ section.id }} .ss-acc-price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-price {
+    margin-top: 0;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-price-compare {
+    font-size: 1.4rem;
+    color: rgba(var(--color-foreground), 0.6);
+    text-decoration: line-through;
+  }
+  #shopify-section-{{ section.id }} .ss-acc-discount-badge {
+    background: #ff2222;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
   /* DESCRIPTION TOGGLE */
   #shopify-section-{{ section.id }} .ss-acc-desc-btn {
     width: 100%;
@@ -479,7 +502,23 @@
 
       <!-- INFO -->
       <h3 class="ss-acc-prod-title">{{ product.title }}</h3>
-      <span class="ss-acc-price">{{ variant.price | money }}</span>
+      <div class="ss-acc-price-container">
+        <span class="ss-acc-price">{{ product.price | money_without_trailing_zeros }}</span>
+        {% if product.compare_at_price > product.price %}
+          <span class="ss-acc-price-compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+          <span class="ss-acc-discount-badge"
+            >-
+            {{-
+              product.compare_at_price
+              | minus: product.price
+              | times: 100.0
+              | divided_by: product.compare_at_price
+              | round
+            -}}
+            %</span
+          >
+        {% endif %}
+      </div>
 
       <!-- DESCRIPTION TOGGLE -->
       <button class="ss-acc-desc-btn" onclick="toggleAccessoryDesc('{{ section.id }}')">
