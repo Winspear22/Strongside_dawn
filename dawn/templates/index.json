@@ -43,6 +43,85 @@
         "product": ""
       }
     },
+    "equipment_issues": {
+      "type": "strongside-equipment-issues",
+      "blocks": {
+        "issue-1": {
+          "type": "issue",
+          "settings": {
+            "title": "L’ANCRAGE FIXE",
+            "description": "Vous êtes \"enchaîné\" à un poteau ou un mur. Zéro pivot, zéro déplacement. Le combat, c’est le mouvement, pas la statique."
+          }
+        },
+        "issue-2": {
+          "type": "issue",
+          "settings": {
+            "title": "LES HALTÈRES",
+            "description": "L'haltère tire vers le bas (sol). Vous détruisez vos articulations et perdez votre vitesse de \"fouetté\"."
+          }
+        },
+        "issue-3": {
+          "type": "issue",
+          "settings": {
+            "title": "L’ÉLASTIQUE DORSAL",
+            "description": "Brûlures sous les bras, dos, épaules... et glissements constants. Vous passez plus de temps à le replacer qu'à frapper."
+          }
+        },
+        "issue-4": {
+          "type": "issue",
+          "settings": {
+            "title": "L'OBSTACLE DES POIGNÉES",
+            "description": "Impossible de mettre vos gants. Vous perdez le serrage du poing et les sensations réelles du combat."
+          }
+        },
+        "solution-1": {
+          "type": "solution_benefit",
+          "settings": {
+            "title": "Liberté de mouvement totale",
+            "description": "Oubliez l’ancrage fixe au mur. Notre système d'ancrage mobile à 360° suit vos pivots, vos esquives et vos déplacements sans jamais vous freiner."
+          }
+        },
+        "solution-2": {
+          "type": "solution_benefit",
+          "settings": {
+            "title": "Technique de frappe préservée",
+            "description": "Contrairement aux haltères qui tirent vers le bas, Strongside offre une résistance horizontale alignée sur l'axe de vos coups. Vous gagnez en puissance sans dénaturer votre \"fouetté\"."
+          }
+        },
+        "solution-3": {
+          "type": "solution_benefit",
+          "settings": {
+            "title": "Compatible avec vos gants",
+            "description": "Ne sacrifiez plus vos sensations. Notre design ergonomique libère vos mains : enfilez vos gants de combat habituels et travaillez votre garde réelle."
+          }
+        },
+        "solution-4": {
+          "type": "solution_benefit",
+          "settings": {
+            "title": "Confort & Performance",
+            "description": "Un harnais qui ne glisse pas et ne brûle pas. Une tension progressive qui respecte votre anatomie et protège vos articulations."
+          }
+        }
+      },
+      "block_order": [
+        "issue-1",
+        "issue-2",
+        "issue-3",
+        "issue-4",
+        "solution-1",
+        "solution-2",
+        "solution-3",
+        "solution-4"
+      ],
+      "settings": {
+        "section_subtitle": "LE CONSTAT",
+        "section_title": "ARRÊTEZ DE COMBATTRE VOTRE ÉQUIPEMENT",
+        "list_title": "POURQUOI VOTRE ÉQUIPEMENT ACTUEL VOUS BRIDE :",
+        "solution_title": "STRONGSIDE PRO : BOXEZ SANS CHAÎNES",
+        "solution_intro": "Marre des entraînements bridés par du matériel obsolète ? Le Strongside Pro Boxing Harness est la révolution qu’attendaient les combattants exigeants. Conçu pour ceux qui refusent les compromis, ce harnais transforme chaque session de shadow, de sac ou de sparring en une expérience de résistance pure et ultra-réaliste.",
+        "section_quote": "Ne soyez plus l'esclave d'un poteau. Emportez votre ring partout."
+      }
+    },
     "training_modes": {
       "type": "strongside-training-modes",
       "blocks": {
@@ -275,6 +354,7 @@
   "order": [
     "strongside-hero",
     "accessories",
+    "equipment_issues",
     "training_modes",
     "what_you_get",
     "reviews",

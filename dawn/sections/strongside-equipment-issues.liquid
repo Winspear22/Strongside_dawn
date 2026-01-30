@@ -1,0 +1,460 @@
+{% schema %}
+{
+  "name": "Equipment Issues",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "LE CONSTAT"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "ARRÊTEZ DE COMBATTRE VOTRE ÉQUIPEMENT"
+    },
+    {
+      "type": "textarea",
+      "id": "section_intro",
+      "label": "Intro Text",
+      "default": "La plupart des systèmes de résistance ont été conçus par des ingénieurs qui n'ont jamais mis les pieds sur un ring. Résultat ? Vous vous retrouvez avec des gadgets qui freinent votre progression au lieu de la booster."
+    },
+    {
+      "type": "text",
+      "id": "list_title",
+      "label": "List Header",
+      "default": "POURQUOI VOTRE ÉQUIPEMENT ACTUEL VOUS BRIDE :"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Comparison Image"
+    },
+    {
+      "type": "header",
+      "content": "Strongside Solution"
+    },
+    {
+      "type": "text",
+      "id": "solution_title",
+      "label": "Solution Title",
+      "default": "STRONGSIDE"
+    },
+    {
+      "type": "textarea",
+      "id": "solution_intro",
+      "label": "Solution Intro",
+      "default": "Marre des entraînements bridés par du matériel obsolète ? Le Strongside Pro Boxing Harness est la révolution qu’attendaient les combattants exigeants."
+    },
+    {
+      "type": "textarea",
+      "id": "section_quote",
+      "label": "Final Quote",
+      "default": "Ne soyez plus l'esclave d'un poteau. Emportez votre ring partout."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "issue",
+      "name": "Issue Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Issue Title",
+          "default": "L’ANCRAGE FIXE"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Vous êtes \"enchaîné\" à un poteau ou un mur."
+        }
+      ]
+    },
+    {
+      "type": "solution_benefit",
+      "name": "Solution Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Benefit Title",
+          "default": "Liberté de mouvement"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Oubliez l’ancrage fixe au mur."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Strongside Equipment Issues",
+      "blocks": [
+        {
+          "type": "issue",
+          "settings": {
+            "title": "L’ANCRAGE FIXE",
+            "description": "Vous êtes \"enchaîné\" à un poteau ou un mur. Zéro pivot, zéro déplacement. Le combat, c’est le mouvement, pas la statique."
+          }
+        },
+        {
+          "type": "issue",
+          "settings": {
+            "title": "LES HALTÈRES",
+            "description": "L'haltère tire vers le bas (sol). Vous détruisez vos articulations et perdez votre vitesse de \"fouetté\"."
+          }
+        },
+        {
+          "type": "issue",
+          "settings": {
+            "title": "L’ÉLASTIQUE DORSAL",
+            "description": "Brûlures sous les bras, dos, épaules... et glissements constants. Vous passez plus de temps à le replacer qu'à frapper."
+          }
+        },
+        {
+          "type": "issue",
+          "settings": {
+            "title": "L'OBSTACLE DES POIGNÉES",
+            "description": "Impossible de mettre vos gants. Vous perdez le serrage du poing et les sensations réelles du combat."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="strongside-issues-section color-{{ section.settings.color_scheme }} gradient" id="equipment-issues">
+  <div class="strongside-container">
+    <!-- Header -->
+    <div class="strongside-issues-header ss-observe ss-fade-up">
+      {% if section.settings.section_subtitle != blank %}
+        <span class="strongside-subtitle">{{ section.settings.section_subtitle }}</span>
+      {% endif %}
+      <h2 class="strongside-title">
+        {{ section.settings.section_title }}
+      </h2>
+      <p class="strongside-intro">
+        {{ section.settings.section_intro | newline_to_br }}
+      </p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="strongside-content-grid">
+      <!-- Left Column: Text List -->
+      <div class="strongside-text-col ss-observe ss-slide-in-left">
+        <!-- Issues List Removed -->
+
+        <!-- Solution Section -->
+        <div class="strongside-solution-section ss-observe ss-fade-up" style="transition-delay: 200ms;">
+          <h4 class="solution-main-title">{{ section.settings.solution_title }}</h4>
+          <p class="solution-main-intro">{{ section.settings.solution_intro }}</p>
+
+          <div class="solution-benefits-grid">
+            {% for block in section.blocks %}
+              {% if block.type == 'solution_benefit' %}
+                <div class="solution-card">
+                  <h5 class="card-title">{{ block.settings.title }}</h5>
+                  <p class="card-desc">{{ block.settings.description }}</p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {% if section.settings.section_quote != blank %}
+            <div class="solution-quote">"{{ section.settings.section_quote }}"</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Right Column: Image -->
+      <div class="strongside-media-col ss-observe ss-slide-in-right">
+        <div class="media-container">
+          {% if section.settings.image %}
+            <img
+              src="{{ section.settings.image | image_url: width: 1000 }}"
+              alt="{{ section.settings.section_title }}"
+              class="media-content"
+              loading="lazy"
+              width="800"
+              height="800"
+            >
+          {% else %}
+            <!-- Placeholder if no image set, assume asset fallback -->
+            <img
+              src="{{ 'equipment-comparison.jpg' | asset_url }}"
+              alt="{{ section.settings.section_title }}"
+              class="media-content"
+              loading="lazy"
+              width="800"
+              height="800"
+            >
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sectionContainer = document.getElementById('shopify-section-{{ section.id }}');
+    if (!sectionContainer) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    sectionContainer.querySelectorAll('.ss-observe').forEach((el) => observer.observe(el));
+  });
+</script>
+
+<style>
+  /* Scoped Styles */
+  #shopify-section-{{ section.id }} .strongside-issues-section {
+    padding: 5rem 1.5rem;
+    color: rgb(var(--color-foreground));
+    overflow-x: hidden;
+    font-family: 'Inter', system-ui, sans-serif !important;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .strongside-issues-section {
+      padding: 8rem 1.5rem;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .strongside-container {
+    max-width: 1400px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  /* Header */
+  #shopify-section-{{ section.id }} .strongside-issues-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #shopify-section-{{ section.id }} .strongside-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.05em !important;
+    color: rgb(var(--color-foreground)) !important;
+    margin: 0 0 1.5rem 0;
+    line-height: 1 !important;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .strongside-title {
+      font-size: 4rem !important;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .strongside-intro {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    opacity: 0.8;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .strongside-subtitle {
+    color: #ff2222 !important;
+    font-size: 1.25rem !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    display: block;
+    margin-bottom: 0.5rem;
+    line-height: 1.6rem !important;
+  }
+
+  /* Grid */
+  #shopify-section-{{ section.id }} .strongside-content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  @media (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .strongside-content-grid {
+      flex-direction: row;
+      gap: 6rem;
+      align-items: flex-start;
+    }
+  }
+
+  /* Text Column */
+  #shopify-section-{{ section.id }} .strongside-text-col {
+    flex: 1;
+  }
+
+  #shopify-section-{{ section.id }} .list-title {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    color: #ff2222;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+  }
+
+  #shopify-section-{{ section.id }} .issue-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #shopify-section-{{ section.id }} .issue-icon {
+    flex-shrink: 0;
+    width: 24px;
+    padding-top: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .issue-title {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  #shopify-section-{{ section.id }} .issue-desc {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  /* Solution Section */
+  #shopify-section-{{ section.id }} .strongside-solution-section {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    border: 2px solid #ff2222;
+    border-radius: 1rem;
+    background: rgba(255, 34, 34, 0.03);
+  }
+
+  #shopify-section-{{ section.id }} .solution-main-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    color: #ff2222;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+  }
+
+  #shopify-section-{{ section.id }} .solution-main-intro {
+    font-size: 1.1rem !important;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 40rem;
+  }
+
+  /* Benefits Grid */
+  #shopify-section-{{ section.id }} .solution-benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .solution-benefits-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .solution-card {
+    border: 1px solid rgba(var(--color-foreground), 0.15);
+    background: rgba(var(--color-foreground), 0.03); /* Slight tint */
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  #shopify-section-{{ section.id }} .solution-card:hover {
+     border-color: #ff2222;
+     transform: translateY(-2px);
+  }
+
+  #shopify-section-{{ section.id }} .card-title {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground));
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .card-desc {
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  /* Quote */
+  #shopify-section-{{ section.id }} .solution-quote {
+    margin-top: 3rem;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(var(--color-foreground));
+    border-top: 1px solid rgba(var(--color-foreground), 0.1);
+    padding-top: 2rem;
+  }
+
+  /* Media Column */
+  #shopify-section-{{ section.id }} .strongside-media-col {
+    flex: 1;
+    position: sticky; /* Optional: Sticky on large screens? */
+    top: 2rem;
+  }
+
+  #shopify-section-{{ section.id }} .media-container {
+    position: relative;
+    width: 100%;
+    /* aspect-ratio can be auto if natural size is preferred, or fixed logic */
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
+  }
+
+  #shopify-section-{{ section.id }} .media-content {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Animations */
+  /* Animations - Defaults to Visible for stability */
+  .ss-observe { opacity: 1; transition: none; }
+  .ss-fade-up { transform: none; }
+  .ss-slide-in-left { transform: none; }
+  .ss-slide-in-right { transform: none; }
+</style>
