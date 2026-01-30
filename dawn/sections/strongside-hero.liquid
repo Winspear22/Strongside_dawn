@@ -2116,6 +2116,11 @@
       });
 
     init();
+
+    // Auto-Pause after 1s (showing first frame/thumbnail effectively)
+    setTimeout(() => {
+      stopAllVideos();
+    }, 1000);
   })();
 </script>
 
