@@ -890,8 +890,52 @@
             "shopifyText": "Las transacciones de pago son gestionadas de forma segura por Shopify Payments. Durante el proceso de pago, Shopify puede recopilar información necesaria para procesar su pedido (nombre, dirección, correo electrónico, información de pago) de acuerdo con su política de privacidad.",
             "vercelTitle": "Vercel Analytics",
             "vercelText": "Nuestro proveedor de alojamiento Vercel recopila datos de rendimiento anónimos para optimizar la velocidad del sitio.",
-            "consent": "Al continuar utilizando este sitio, usted acepta el uso de estas tecnologías de seguimiento."
           }
+        }
+      }
+    },
+    "equipment_issues": {
+      "title": "LA REALIDAD",
+      "list_title": "POR QUÉ TU EQUIPO ACTUAL TE LIMITA:",
+      "issues": {
+        "fixed_anchor": {
+          "title": "ANCLAJE FIJO",
+          "desc": "Estás \"encadenado\" a un poste o pared. Cero pivote, cero desplazamiento. El combate es movimiento, no estática."
+        },
+        "dumbbells": {
+          "title": "LAS PESAS",
+          "desc": "La pesa tira hacia abajo (gravedad). Destruyes tus articulaciones y pierdes tu velocidad de \"latigazo\"."
+        },
+        "dorsal_elastic": {
+          "title": "ELÁSTICO DORSAL",
+          "desc": "Rozaduras bajo los brazos, espalda, hombros... y deslizamientos constantes. Pasas más tiempo recolocándolo que golpeando."
+        },
+        "handles": {
+          "title": "OBSTÁCULO DE AGARRES",
+          "desc": "Imposible usar tus guantes. Pierdes el cierre del puño y las sensaciones reales del combate."
+        }
+      },
+      "solution": {
+        "title": "STRONGSIDE PRO: BOXEA SIN CADENAS",
+        "intro": "¿Harto de entrenamientos limitados por material obsoleto? El Strongside Pro Boxing Harness es la revolución que esperaban los combatientes exigentes. Diseñado para quienes rechazan los compromisos, este arnés transforma cada sesión de sombra, saco o sparring en una experiencia de resistencia pura y ultra-realista.",
+        "quote": "No seas más esclavo de un poste. Lleva tu ring a todas partes."
+      },
+      "benefits": {
+        "freedom": {
+          "title": "Libertad de movimiento total",
+          "desc": "Olvida el anclaje fijo a la pared. Nuestro sistema de anclaje móvil 360° sigue tus pivotes, esquivas y desplazamientos sin frenarte nunca."
+        },
+        "technique": {
+          "title": "Técnica de golpeo preservada",
+          "desc": "A diferencia de las pesas que tiran hacia abajo, Strongside ofrece una resistencia horizontal alineada con el eje de tus golpes. Ganas potencia sin desnaturalizar tu \"latigazo\"."
+        },
+        "comfort": {
+          "title": "Confort y Rendimiento",
+          "desc": "Un arnés que no desliza y no quema. Una tensión progresiva que respeta tu anatomía y protege tus articulaciones."
+        },
+        "gloves": {
+          "title": "Compatible con tus guantes",
+          "desc": "No sacrifiques tus sensaciones. Nuestro diseño ergonómico libera tus manos: ponte tus guantes de combate habituales y trabaja tu guardia real."
         }
       }
     }

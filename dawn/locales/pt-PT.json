@@ -894,6 +894,51 @@
           }
         }
       }
+    },
+    "equipment_issues": {
+      "title": "A REALIDADE",
+      "list_title": "POR QUE O SEU EQUIPAMENTO ATUAL O LIMITA:",
+      "issues": {
+        "fixed_anchor": {
+          "title": "ANCORAGEM FIXA",
+          "desc": "Está \"acorrentado\" a um poste ou parede. Zero pivô, zero deslocamento. O combate é movimento, não estática."
+        },
+        "dumbbells": {
+          "title": "HALTERES",
+          "desc": "O halter puxa para baixo (gravidade). Destrói as suas articulações e perde a sua velocidade de \"chicote\"."
+        },
+        "dorsal_elastic": {
+          "title": "ELÁSTICO DORSAL",
+          "desc": "Assaduras debaixo dos braços, costas, ombros... e deslizamentos constantes. Passa mais tempo a ajustá-lo do que a bater."
+        },
+        "handles": {
+          "title": "OBSTÁCULO DAS MANOPLAS",
+          "desc": "Impossível usar luvas. Perde o fecho do punho e as sensações reais de combate."
+        }
+      },
+      "solution": {
+        "title": "STRONGSIDE PRO: BOXE SEM CORRENTES",
+        "intro": "Cansado de treinos limitados por equipamentos obsoletos? O Strongside Pro Boxing Harness é a revolução que os lutadores exigentes esperavam. Projetado para quem recusa compromissos, este arnês transforma cada sessão de sombra, saco ou sparring numa experiência de resistência pura e ultra-realista.",
+        "quote": "Não seja mais escravo de um poste. Leve o seu ringue para qualquer lugar."
+      },
+      "benefits": {
+        "freedom": {
+          "title": "Liberdade de Movimento Total",
+          "desc": "Esqueça a ancoragem fixa na parede. O nosso sistema de ancoragem móvel 360° segue os seus pivôs, esquivas e deslocamentos sem nunca o travar."
+        },
+        "technique": {
+          "title": "Técnica de Golpe Preservada",
+          "desc": "Ao contrário dos halteres que puxam para baixo, a Strongside oferece resistência horizontal alinhada com o eixo dos seus golpes. Ganha potência sem distorcer o seu \"chicote\"."
+        },
+        "comfort": {
+          "title": "Conforto & Desempenho",
+          "desc": "Um arnês que não escorrega e não queima. Uma tensão progressiva que respeita a sua anatomia e protege as suas articulações."
+        },
+        "gloves": {
+          "title": "Compatível com as suas Luvas",
+          "desc": "Não sacrifique as suas sensações. O nosso design ergonómico liberta as suas mãos: calce as suas luvas de combate habituais e trabalhe a sua guarda real."
+        }
+      }
     }
   }
 }

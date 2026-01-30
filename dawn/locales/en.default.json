@@ -897,6 +897,51 @@
           }
         }
       }
+    },
+    "equipment_issues": {
+      "title": "THE REALITY",
+      "list_title": "WHY YOUR CURRENT GEAR HOLDS YOU BACK:",
+      "issues": {
+        "fixed_anchor": {
+          "title": "FIXED ANCHOR",
+          "desc": "You are \"chained\" to a pole or wall. No pivoting, no movement. Fighting is movement, not static."
+        },
+        "dumbbells": {
+          "title": "DUMBBELLS",
+          "desc": "They pull downwards (gravity). You destroy your joints and lose your snappy speed."
+        },
+        "dorsal_elastic": {
+          "title": "BACK ELASTIC",
+          "desc": "Chafing under arms, back, shoulders... and constant slipping. You spend more time adjusting it than punching."
+        },
+        "handles": {
+          "title": "HANDLES OBSTACLE",
+          "desc": "Impossible to wear gloves. You lose the fist clench and real fight sensations."
+        }
+      },
+      "solution": {
+        "title": "STRONGSIDE PRO: BOX WITHOUT CHAINS",
+        "intro": "Tired of training held back by obsolete gear? The Strongside Pro Boxing Harness is the revolution demanding fighters have been waiting for. Designed for those who refuse compromise, this harness transforms every shadow, bag, or sparring session into a pure, ultra-realistic resistance experience.",
+        "quote": "Don't be a slave to a pole anymore. Take your ring everywhere."
+      },
+      "benefits": {
+        "freedom": {
+          "title": "Total Freedom of Movement",
+          "desc": "Forget the wall anchor. Our 360° mobile anchor system follows your pivots, slips, and movement without ever slowing you down."
+        },
+        "technique": {
+          "title": "Striking Technique Preserved",
+          "desc": "Unlike dumbbells that pull down, Strongside offers horizontal resistance aligned with your punch axis. You gain power without distorting your \"snap\"."
+        },
+        "comfort": {
+          "title": "Comfort & Performance",
+          "desc": "A harness that doesn't slip or burn. Progressive tension that respects your anatomy and protects your joints."
+        },
+        "gloves": {
+          "title": "Compatible with Your Gloves",
+          "desc": "Don't sacrifice your feel. Our ergonomic design frees your hands: put on your usual combat gloves and work your real guard."
+        }
+      }
     }
   }
 }

@@ -689,6 +689,51 @@
     },
     "header": {
       "academy": "ACADEMY"
+    },
+    "equipment_issues": {
+      "title": "RZECZYWISTOŚĆ",
+      "list_title": "DLACZEGO TWOJE OBECNE WYPOSAŻENIE CIĘ OGRANICZA:",
+      "issues": {
+        "fixed_anchor": {
+          "title": "STAŁE KOTWICZENIE",
+          "desc": "Jesteś \"przykuty\" do słupa lub ściany. Brak obrotu, brak przemieszczania. Walka to ruch, a nie bezruch."
+        },
+        "dumbbells": {
+          "title": "HANTLE",
+          "desc": "Hantla ciągnie w dół (grawitacja). Niszczysz stawy i tracisz szybkość \"strzału\"."
+        },
+        "dorsal_elastic": {
+          "title": "ELASTYCZNE PLECY",
+          "desc": "Otara pod pachami, plecy, ramiona... i ciągłe zsuwanie. Spędzasz więcej czasu na poprawianiu niż na uderzaniu."
+        },
+        "handles": {
+          "title": "PRZESZKODA UCHWYTÓW",
+          "desc": "Niemożliwe założenie rękawic. Tracisz zaciśnięcie pięści i prawdziwe odczucia walki."
+        }
+      },
+      "solution": {
+        "title": "STRONGSIDE PRO: BOKS BEZ ŁAŃCUCHÓW",
+        "intro": "Masz dość treningów ograniczanych przez przestarzały sprzęt? Strongside Pro Boxing Harness to rewolucja, na którą czekali wymagający wojownicy. Zaprojektowana dla tych, którzy nie uznają kompromisów, ta uprząż zmienia każdą sesję cienia, worka lub sparingu w czyste, ultra-realistyczne doświadczenie oporu.",
+        "quote": "Nie bądź już niewolnikiem słupa. Zabierz swój ring wszędzie."
+      },
+      "benefits": {
+        "freedom": {
+          "title": "Całkowita Swoboda Ruchu",
+          "desc": "Zapomnij o stałym kotwiczeniu do ściany. Nasz system mobilnego kotwiczenia 360° podąża za Twoimi obrotami, unikami i przemieszczaniem, nigdy Cię nie hamując."
+        },
+        "technique": {
+          "title": "Technika Uderzeń Zachowana",
+          "desc": "W przeciwieństwie do hantli, które ciągną w dół, Strongside oferuje opór poziomy zgodny z osią Twoich ciosów. Zyskujesz moc bez zniekształcania swojego \"strzału\"."
+        },
+        "comfort": {
+          "title": "Komfort i Wydajność",
+          "desc": "Uprząż, która się nie ślizga i nie parzy. Progresywne napięcie, które szanuje Twoją anatomię i chroni Twoje stawy."
+        },
+        "gloves": {
+          "title": "Kompatybilne z Twoimi Rękawicami",
+          "desc": "Nie poświęcaj swoich odczuć. Nasz ergonomiczny design uwalnia Twoje ręce: załóż swoje zwykłe rękawice bojowe i pracuj nad swoją prawdziwą gardą."
+        }
+      }
     }
   }
 }

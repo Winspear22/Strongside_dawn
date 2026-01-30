@@ -894,6 +894,51 @@
           }
         }
       }
+    },
+    "equipment_issues": {
+      "title": "DIE REALITÄT",
+      "list_title": "WARUM DEINE AKTUELLE AUSRÜSTUNG DICH BREMST:",
+      "issues": {
+        "fixed_anchor": {
+          "title": "FESTER ANKER",
+          "desc": "Du bist an einen Pfosten oder eine Wand \"gekettet\". Keine Drehung, keine Bewegung. Kampf ist Bewegung, nicht Stillstand."
+        },
+        "dumbbells": {
+          "title": "HANTELN",
+          "desc": "Die Hantel zieht nach unten (Schwerkraft). Du zerstörst deine Gelenke und verlierst deine Schnelligkeit."
+        },
+        "dorsal_elastic": {
+          "title": "RÜCKENELASTIK",
+          "desc": "Scheuern unter den Armen, Rücken, Schultern... und ständiges Verrutschen. Du verbringst mehr Zeit mit Korrigieren als mit Schlagen."
+        },
+        "handles": {
+          "title": "GRIFFHINDERNIS",
+          "desc": "Unmöglich, Handschuhe zu tragen. Du verlierst den Faustschluss und das echte Kampfgefühl."
+        }
+      },
+      "solution": {
+        "title": "STRONGSIDE PRO: BOXEN OHNE KETTEN",
+        "intro": "Genug von Training, das durch veraltete Ausrüstung gebremst wird? Das Strongside Pro Boxing Harness ist die Revolution, auf die anspruchsvolle Kämpfer gewartet haben. Entworfen für diejenigen, die keine Kompromisse eingehen, verwandelt dieses Geschirr jede Schatten-, Sack- oder Sparring-Session in ein reines, ultra-realistisches Widerstandserlebnis.",
+        "quote": "Sei kein Sklave eines Pfostens mehr. Nimm deinen Ring überallhin mit."
+      },
+      "benefits": {
+        "freedom": {
+          "title": "Totale Bewegungsfreiheit",
+          "desc": "Vergiss den Wandanker. Unser bewegliches 360°-Ankersystem folgt deinen Drehungen, Ausweichmanövern und Bewegungen, ohne dich jemals zu bremsen."
+        },
+        "technique": {
+          "title": "Schlagtechnik bewahrt",
+          "desc": "Im Gegensatz zu Hanteln, die nach unten ziehen, bietet Strongside horizontalen Widerstand, der auf deine Schlagachse ausgerichtet ist. Du gewinnst an Kraft, ohne deinen \"Snap\" zu verfälschen."
+        },
+        "comfort": {
+          "title": "Komfort & Leistung",
+          "desc": "Ein Geschirr, das nicht rutscht und nicht scheuert. Progressive Spannung, die deine Anatomie respektiert und deine Gelenke schützt."
+        },
+        "gloves": {
+          "title": "Kompatibel mit deinen Handschuhen",
+          "desc": "Opfere nicht dein Gefühl. Unser ergonomisches Design befreit deine Hände: Zieh deine gewohnten Kampfhandschuhe an und arbeite an deiner echten Deckung."
+        }
+      }
     }
   }
 }

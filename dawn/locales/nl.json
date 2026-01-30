@@ -894,6 +894,51 @@
           }
         }
       }
+    },
+    "equipment_issues": {
+      "title": "DE REALITEIT",
+      "list_title": "WAAROM JE HUIDIGE UITRUSTING JE TEGENHOUDT:",
+      "issues": {
+        "fixed_anchor": {
+          "title": "VASTE ANKER",
+          "desc": "Je zit \"vastgeketend\" aan een paal of muur. Geen draai, geen verplaatsing. Vechten is beweging, geen stilstand."
+        },
+        "dumbbells": {
+          "title": "HALTERS",
+          "desc": "De halter trekt naar beneden (zwaartekracht). Je vernietigt je gewrichten en verliest je \"snap\" snelheid."
+        },
+        "dorsal_elastic": {
+          "title": "RUGELASTIEK",
+          "desc": "Schuren onder de armen, rug, schouders... en constant glijden. Je besteedt meer tijd aan het goed doen dan aan stoten."
+        },
+        "handles": {
+          "title": "HANDVAT OBSTAKEL",
+          "desc": "Onmogelijk om handschoenen te dragen. Je verliest de vuistbal en echte gevechtssensaties."
+        }
+      },
+      "solution": {
+        "title": "STRONGSIDE PRO: BOKSEN ZONDER KETTINGEN",
+        "intro": "Moe van trainingen die worden tegengehouden door verouderde uitrusting? De Strongside Pro Boxing Harness is de revolutie waar veeleisende vechters op hebben gewacht. Ontworpen voor degenen die geen compromissen sluiten, transformeert dit harnas elke schaduw-, zak- of sparringsessie in een pure, ultra-realistische weerstandservaring.",
+        "quote": "Wees geen slaaf meer van een paal. Neem je ring overal mee naartoe."
+      },
+      "benefits": {
+        "freedom": {
+          "title": "Totale Bewegingsvrijheid",
+          "desc": "Vergeet het vaste muuranker. Ons 360° mobiele ankersysteem volgt je draaien, ontwijkingen en bewegingen zonder je ooit af te remmen."
+        },
+        "technique": {
+          "title": "Stoottechniek Behoud",
+          "desc": "In tegenstelling tot halters die naar beneden trekken, biedt Strongside horizontale weerstand uitgelijnd met je stootas. Je wint kracht zonder je \"snap\" te vervormen."
+        },
+        "comfort": {
+          "title": "Comfort & Prestaties",
+          "desc": "Een harnas dat niet glijdt en niet brandt. Progressieve spanning die je anatomie respecteert en je gewrichten beschermt."
+        },
+        "gloves": {
+          "title": "Compatibel met je Handschoenen",
+          "desc": "Offer je gevoel niet op. Ons ergonomische ontwerp bevrijdt je handen: trek je gebruikelijke vechthandschoenen aan en werk aan je echte dekking."
+        }
+      }
     }
   }
 }

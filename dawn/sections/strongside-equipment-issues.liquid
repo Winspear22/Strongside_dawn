@@ -139,45 +139,55 @@
 <div class="strongside-issues-section color-{{ section.settings.color_scheme }} gradient" id="equipment-issues">
   <div class="strongside-container">
     <!-- Header -->
+      <!-- Left Column: Text List -->
+      <div class="strongside-text-col ss-observe ss-slide-in-left">
+        
+        <!-- Headers (Moved inside column or kept above? The HTML structure had headers above the grid. I will keep them above the grid in the next chunk if needed, but here I am inside strongside-container > strongside-issues-header is separate.)
+        Wait, I am strictly inside strongside-text-col here.
+        The previous file view shows strongside-issues-header is at line 142. My Text Col starts at 159.
+        I will handle the Header in a separate edit or include it if I target a larger range.
+        I will target lines 142 to 181 to cover everything.
+        -->
+
+    <!-- Header -->
     <div class="strongside-issues-header ss-observe ss-fade-up">
-      {% if section.settings.section_subtitle != blank %}
-        <span class="strongside-subtitle">{{ section.settings.section_subtitle }}</span>
-      {% endif %}
-      <h2 class="strongside-title">
-        {{ section.settings.section_title }}
-      </h2>
-      {% if section.settings.section_intro != blank %}
-        <p class="strongside-intro">
-          {{ section.settings.section_intro | newline_to_br }}
-        </p>
-      {% endif %}
+      <h2 class="strongside-title">{{ 'strongside.equipment_issues.title' | t }}</h2>
     </div>
 
     <!-- Main Content Grid -->
     <div class="strongside-content-grid">
       <!-- Left Column: Text List -->
       <div class="strongside-text-col ss-observe ss-slide-in-left">
-        <!-- Issues List Removed -->
-
+        
         <!-- Solution Section -->
         <div class="strongside-solution-section ss-observe ss-fade-up" style="transition-delay: 200ms;">
-          <h4 class="solution-main-title">{{ section.settings.solution_title }}</h4>
-          <p class="solution-main-intro">{{ section.settings.solution_intro }}</p>
+          <h4 class="solution-main-title">{{ 'strongside.equipment_issues.solution.title' | t }}</h4>
+          <p class="solution-main-intro">{{ 'strongside.equipment_issues.solution.intro' | t }}</p>
 
           <div class="solution-benefits-grid">
-            {% for block in section.blocks %}
-              {% if block.type == 'solution_benefit' %}
-                <div class="solution-card">
-                  <h5 class="card-title">{{ block.settings.title }}</h5>
-                  <p class="card-desc">{{ block.settings.description }}</p>
-                </div>
-              {% endif %}
-            {% endfor %}
+            <!-- Benefit 1: Freedom -->
+            <div class="solution-card">
+              <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.freedom.title' | t }}</h5>
+              <p class="card-desc">{{ 'strongside.equipment_issues.benefits.freedom.desc' | t }}</p>
+            </div>
+            <!-- Benefit 2: Technique -->
+            <div class="solution-card">
+              <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.technique.title' | t }}</h5>
+              <p class="card-desc">{{ 'strongside.equipment_issues.benefits.technique.desc' | t }}</p>
+            </div>
+            <!-- Benefit 3: Comfort -->
+            <div class="solution-card">
+              <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.comfort.title' | t }}</h5>
+              <p class="card-desc">{{ 'strongside.equipment_issues.benefits.comfort.desc' | t }}</p>
+            </div>
+            <!-- Benefit 4: Gloves -->
+            <div class="solution-card">
+              <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.gloves.title' | t }}</h5>
+              <p class="card-desc">{{ 'strongside.equipment_issues.benefits.gloves.desc' | t }}</p>
+            </div>
           </div>
 
-          {% if section.settings.section_quote != blank %}
-            <div class="solution-quote">"{{ section.settings.section_quote }}"</div>
-          {% endif %}
+          <div class="solution-quote">"{{ 'strongside.equipment_issues.solution.quote' | t }}"</div>
         </div>
       </div>
 

@@ -664,7 +664,52 @@
       }
     },
     "header": {
-      "academy": "ACADEMY"
+      "academy": "AKATEMIA"
+    },
+    "equipment_issues": {
+      "title": "TODELLISUUS",
+      "list_title": "MIKSI NYKYINEN VARUSTEESI PIDÄTTELEE SINUA:",
+      "issues": {
+        "fixed_anchor": {
+          "title": "KIINTEÄ ANKKUROINTI",
+          "desc": "Olet \"kahlittu\" tolppaan tai seinään. Ei kääntymistä, ei liikkumista. Taistelu on liikettä, ei paikallaan oloa."
+        },
+        "dumbbells": {
+          "title": "KÄSIPAINOT",
+          "desc": "Käsipaino vetää alaspäin (painovoima). Tuhoat nivelesi ja menetät \"räjähtävän\" nopeutesi."
+        },
+        "dorsal_elastic": {
+          "title": "SELKÄKUMINAUHA",
+          "desc": "Hiertymiä kainaloissa, selässä, hartioissa... ja jatkuvaa liukumista. Käytät enemmän aikaa sen korjaamiseen kuin lyömiseen."
+        },
+        "handles": {
+          "title": "KAHVAESTE",
+          "desc": "Mahdotonta käyttää hanskoja. Menetät nyrkin puristuksen ja todelliset taistelutuntemukset."
+        }
+      },
+      "solution": {
+        "title": "STRONGSIDE PRO: NYRKEILE ILMAN KAHLEITA",
+        "intro": "Kyllästynyt treeniin, jota vanhentuneet varusteet rajoittavat? Strongside Pro Boxing Harness on vallankumous, jota vaativat taistelijat ovat odottaneet. Suunniteltu niille, jotka eivät suostu kompromisseihin, tämä valjaat muuttaa jokaisen varjo-, säkki- tai sparraussession puhtaaksi, ultrarealistiseksi vastustuskokemukseksi.",
+        "quote": "Älä ole enää tolpan orja. Vie kehäsi minne vain."
+      },
+      "benefits": {
+        "freedom": {
+          "title": "Täydellinen Liikkenvapaus",
+          "desc": "Unohda kiinteä seinäankkurointi. 360° liikkuva ankkurijärjestelmämme seuraa kääntymisiäsi, väistöjäsi ja liikkeitäsi hidastamatta sinua koskaan."
+        },
+        "technique": {
+          "title": "Lyöntitekniikka Säilyy",
+          "desc": "Toisin kuin käsipainot, jotka vetävät alaspäin, Strongside tarjoaa vaakasuoraa vastusta, joka on linjassa lyöntiakselisi kanssa. Voitat voimaa vääristämättä \"räjähtävyyttäsi\"."
+        },
+        "comfort": {
+          "title": "Mukavuus & Suorituskyky",
+          "desc": "Valjaat, jotka eivät liu'u eivätkä polta. Progressiivinen jännitys, joka kunnioittaa anatomiaasi ja suojaa niveliäsi."
+        },
+        "gloves": {
+          "title": "Yhteensopiva Hanskojesi Kanssa",
+          "desc": "Älä uhraa tunnettasi. Ergonominen suunnittelumme vapauttaa kätesi: laita tavalliset taisteluhanskasi ja työskentele todellisen suojauksesi parissa."
+        }
+      }
     }
   }
 }

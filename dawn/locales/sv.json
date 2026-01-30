@@ -894,6 +894,51 @@
           }
         }
       }
+    },
+    "equipment_issues": {
+      "title": "VERKLIGHETEN",
+      "list_title": "VARFÖR DIN NUVARANDE UTRUSTNING HÅLLER DIG TILLBAKA:",
+      "issues": {
+        "fixed_anchor": {
+          "title": "FAST FÖRANKRING",
+          "desc": "Du är \"fastkedjad\" vid en stolpe eller vägg. Ingen vridning, ingen förflyttning. Kamp är rörelse, inte stillastående."
+        },
+        "dumbbells": {
+          "title": "HANTLAR",
+          "desc": "Hanteln drar nedåt (tyngdkraften). Du förstör dina leder och förlorar din \"snärt\"-hastighet."
+        },
+        "dorsal_elastic": {
+          "title": "RYGGELASTIK",
+          "desc": "Skav under armarna, rygg, axlar... och konstant glidande. Du tillbringar mer tid med att justera än att slå."
+        },
+        "handles": {
+          "title": "HANDTAGSHINDER",
+          "desc": "Omöjligt att bära handskar. Du förlorar knytnävstrycket och de verkliga kampsensationerna."
+        }
+      },
+      "solution": {
+        "title": "STRONGSIDE PRO: BOXAS UTAN KEDJOR",
+        "intro": "Trött på träning som hindras av föråldrad utrustning? Strongside Pro Boxing Harness är revolutionen som krävande fighters har väntat på. Designad för dem som vägrar kompromissa, förvandlar denna sele varje skugg-, säck- eller sparringsession till en ren, ultrarealistisk motståndsupplevelse.",
+        "quote": "Var inte längre slav under en stolpe. Ta din ring överallt."
+      },
+      "benefits": {
+        "freedom": {
+          "title": "Total Rörelsefrihet",
+          "desc": "Glöm den fasta väggförankringen. Vårt 360° mobila ankarsystem följer dina vridningar, undanmanövrar och förflyttningar utan att någonsin bromsa dig."
+        },
+        "technique": {
+          "title": "Slagteknik Bevarad",
+          "desc": "I motsats till hantlar som drar nedåt, erbjuder Strongside horisontellt motstånd i linje med din slagaxel. Du vinner kraft utan att förvränga din \"snärt\"."
+        },
+        "comfort": {
+          "title": "Komfort & Prestanda",
+          "desc": "En sele som inte glider och inte bränner. Progressiv spänning som respekterar din anatomi och skyddar dina leder."
+        },
+        "gloves": {
+          "title": "Kompatibel med dina Handskar",
+          "desc": "Offra inte din känsla. Vår ergonomiska design frigör dina händer: ta på dig dina vanliga kamphandskar och arbeta på din riktiga gard."
+        }
+      }
     }
   }
 }

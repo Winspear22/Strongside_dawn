@@ -906,6 +906,51 @@
           }
         }
       }
+    },
+    "equipment_issues": {
+      "title": "LA REALTÀ",
+      "list_title": "PERCHÉ LA TUA ATTREZZATURA ATTUALE TI FRENA:",
+      "issues": {
+        "fixed_anchor": {
+          "title": "ANCORAGGIO FISSO",
+          "desc": "Sei \"incatenato\" a un palo o a un muro. Zero perno, zero spostamento. Il combattimento è movimento, non staticità."
+        },
+        "dumbbells": {
+          "title": "MANUBRI",
+          "desc": "Il manubrio tira verso il basso (gravità). Distruggi le tue articolazioni e perdi la tua velocità di \"schiocco\"."
+        },
+        "dorsal_elastic": {
+          "title": "ELASTICO DORSALE",
+          "desc": "Bruciori sotto le braccia, schiena, spalle... e scivolamenti costanti. Passi più tempo a riposizionarlo che a colpire."
+        },
+        "handles": {
+          "title": "OSTACOLO DELLE MANIGLIE",
+          "desc": "Impossibile indossare i guanti. Perdi la chiusura del pugno e le vere sensazioni del combattimento."
+        }
+      },
+      "solution": {
+        "title": "STRONGSIDE PRO: BOXA SENZA CATENE",
+        "intro": "Stanco di allenamenti frenati da attrezzature obsolete? Lo Strongside Pro Boxing Harness è la rivoluzione che i combattenti esigenti stavano aspettando. Progettato per coloro che rifiutano compromessi, questa imbracatura trasforma ogni sessione di ombra, sacco o sparring in un'esperienza di resistenza pura e ultra-realistica.",
+        "quote": "Non essere più schiavo di un palo. Porta il tuo ring ovunque."
+      },
+      "benefits": {
+        "freedom": {
+          "title": "Libertà di movimento totale",
+          "desc": "Dimentica l'ancoraggio fisso al muro. Il nostro sistema di ancoraggio mobile a 360° segue i tuoi perni, schivate e spostamenti senza mai frenarti."
+        },
+        "technique": {
+          "title": "Tecnica di colpo preservata",
+          "desc": "A differenza dei manubri che tirano verso il basso, Strongside offre una resistenza orizzontale allineata sull'asse dei tuoi colpi. Guadagni potenza senza snaturare il tuo \"schiocco\"."
+        },
+        "comfort": {
+          "title": "Comfort & Performance",
+          "desc": "Un'imbracatura che non scivola e non brucia. Una tensione progressiva che rispetta la tua anatomia e protegge le tue articolazioni."
+        },
+        "gloves": {
+          "title": "Compatibile con i tuoi guanti",
+          "desc": "Non sacrificare le tue sensazioni. Il nostro design ergonomico libera le tue mani: indossa i tuoi soliti guanti da combattimento e lavora sulla tua vera guardia."
+        }
+      }
     }
   }
 }
