@@ -1844,8 +1844,9 @@
         };
       }
 
-      // --- UNIFIED FLUID TOUCH SWIPE ---
+      // --- UNIFIED FLUID TOUCH SWIPE & TAP HANDLING ---
       let isDragging = false;
+      let isSwiping = false; // Distinguish swipe from tap
       let startPos = 0;
       let startTime = 0;
 
@@ -1859,6 +1860,7 @@
 
       function touchStart(event) {
         isDragging = true;
+        isSwiping = false; // Reset
         startPos = getPositionX(event);
         startTime = new Date().getTime();
         setCarouselTransition(false);
@@ -1866,11 +1868,19 @@
 
       function touchMove(event) {
         if (isDragging) {
-          // Stop videos as soon as user drags
-          stopAllVideos();
-
           const currentPosition = getPositionX(event);
           const currentDiff = currentPosition - startPos;
+
+          // Threshold (10px) to detect swipe vs tap
+          if (Math.abs(currentDiff) > 10) {
+            isSwiping = true;
+          }
+
+          if (!isSwiping) return; // Treat as tap/static until threshold crossed
+
+          // Stop videos ONLY if actually swiping
+          stopAllVideos();
+
           const containerWidth = track.parentElement.offsetWidth;
           const diffPercent = (currentDiff / containerWidth) * 100;
 
@@ -1891,18 +1901,79 @@
         }
       }
 
-      function touchEnd() {
+      function touchEnd(event) {
         isDragging = false;
         setCarouselTransition(true);
 
+        // HANDLE TAP (If didn't swipe)
+        // This bypasses unreliable 'click' events on iOS
+        if (!isSwiping) {
+          const target = event.target;
+          const card = target.closest('.hero-video-el')?.parentElement || target.closest('div[style*="aspect-ratio"]');
+
+          // 1. Check Buttons
+          const muteBtn = target.closest('.hero-card-mute');
+          const fsBtn = target.closest('.hero-card-fullscreen');
+
+          if (muteBtn) {
+            // Manual Mute Toggle
+            event.preventDefault();
+            event.stopPropagation();
+            // Find video associated with this button
+            // We can find it via DOM traversal since we are in the track scope
+            // But easier: dispatch a click? No, we said click is broken.
+            // Re-implement logic inline or find the card's data
+            const cardParent = muteBtn.parentElement;
+            const vid = cardParent.querySelector('video');
+            if (vid) {
+              vid.muted = !vid.muted;
+              muteBtn.style.background = vid.muted ? 'rgba(0,0,0,0.4)' : 'white';
+              muteBtn.style.color = vid.muted ? 'white' : 'black';
+            }
+            return;
+          }
+
+          if (fsBtn) {
+            // Manual Fullscreen
+            event.preventDefault();
+            event.stopPropagation();
+            // Re-find index?
+            // We can compute index from card position in DOM
+            const cardParent = fsBtn.parentElement;
+            const index = Array.from(track.children).indexOf(cardParent);
+            if (index !== -1 && window.openModal) {
+              openModal(index);
+            }
+            return;
+          }
+
+          // 2. Check Card (Video Toggle)
+          // If we tapped the card (and not a button)
+          if (card) {
+            event.preventDefault();
+            const vid = card.querySelector('video');
+            const playIcon = card.querySelector('.hero-play-icon');
+            if (vid) {
+              if (vid.paused) {
+                stopAllVideos();
+                vid.play().catch((e) => console.log('Swipe-tap play error', e));
+                if (playIcon) playIcon.style.opacity = '0';
+              } else {
+                vid.pause();
+                if (playIcon) playIcon.style.opacity = '1';
+              }
+            }
+            return;
+          }
+          return; // Nothing relevant tapped
+        }
+
+        // HANDLE SWIPE COMPLETION
         const movedBy = currentTranslate - -currentIndex * 33.3333;
         const endTime = new Date().getTime();
         const duration = endTime - startTime;
-        const velocity = Math.abs(movedBy) / duration;
 
-        // Calculate the closest index based on the current position
-        // Each item is 33.3333% wide. Negative translate moves forward.
-        // Formula: Index = - (Translate / 33.3333)
+        // Calculate the closest index
         const rawIndex = -currentTranslate / 33.3333;
         let newIndex = Math.round(rawIndex);
 
@@ -1917,7 +1988,7 @@
 
       track.addEventListener('touchstart', touchStart, { passive: true });
       track.addEventListener('touchmove', touchMove, { passive: true });
-      track.addEventListener('touchend', touchEnd);
+      track.addEventListener('touchend', touchEnd); // Not passive, we need preventDefault
 
       updateCarousel();
     }
