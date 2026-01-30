@@ -469,9 +469,35 @@
   }
 
   /* Animations */
-  /* Animations - Defaults to Visible for stability */
-  .ss-observe { opacity: 1; transition: none; }
-  .ss-fade-up { transform: none; }
-  .ss-slide-in-left { transform: none; }
-  .ss-slide-in-right { transform: none; }
+  .ss-observe {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Fade Up */
+  .ss-fade-up {
+    transform: translateY(30px);
+  }
+  .ss-fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Slide In Left */
+  .ss-slide-in-left {
+    transform: translateX(-50px);
+  }
+  .ss-slide-in-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Slide In Right */
+  .ss-slide-in-right {
+    transform: translateX(50px);
+  }
+  .ss-slide-in-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 </style>
