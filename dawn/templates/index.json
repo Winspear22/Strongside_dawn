@@ -274,6 +274,7 @@
   },
   "order": [
     "strongside-hero",
+    "accessories",
     "training_modes",
     "what_you_get",
     "reviews",
