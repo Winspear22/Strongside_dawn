@@ -2074,6 +2074,8 @@
         }, 50);
       }
     }
+    // Expose for external calls (like our Touch handling)
+    window.openModal = openModal;
 
     function closeModal() {
       if (!modal) return;
@@ -2098,28 +2100,22 @@
       modal.style.display = 'none';
       document.body.style.overflow = '';
     }
+    window.closeModal = closeModal;
 
+    // Attach Listeners
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
     if (btnPrev)
-      btnPrev.onclick = () => {
-        stopAllVideos();
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateCarousel();
-        }
-      };
+      btnPrev.addEventListener('click', () => {
+        currentIndex = Math.max(0, currentIndex - 1);
+        updateCarousel();
+      });
     if (btnNext)
-      btnNext.onclick = () => {
-        stopAllVideos();
-        if (currentIndex < maxIndex) {
-          currentIndex++;
-          updateCarousel();
-        }
-      };
+      btnNext.addEventListener('click', () => {
+        currentIndex = Math.min(maxIndex, currentIndex + 1);
+        updateCarousel();
+      });
 
-    if (closeBtn && modal) closeBtn.onclick = closeModal;
-
-    if (document.readyState !== 'loading') init();
-    else document.addEventListener('DOMContentLoaded', init);
+    init();
   })();
 </script>
 
