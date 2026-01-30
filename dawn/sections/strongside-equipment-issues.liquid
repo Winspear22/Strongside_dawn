@@ -309,13 +309,15 @@
     #shopify-section-{{ section.id }} .strongside-content-grid {
       flex-direction: row;
       gap: 6rem;
-      align-items: flex-start;
+      /* align-items: stretch; implied by default, ensuring matched height */
     }
   }
 
   /* Text Column */
   #shopify-section-{{ section.id }} .strongside-text-col {
     flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   #shopify-section-{{ section.id }} .list-title {
@@ -361,6 +363,10 @@
     border: 2px solid #ff2222;
     border-radius: 1rem;
     background: rgba(255, 34, 34, 0.03);
+    height: 100%; /* Fill the column height provided by the tall image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   #shopify-section-{{ section.id }} .solution-main-title {
