@@ -371,29 +371,185 @@
     font-weight: 700;
   }
 
-  #strongside-hero-wrapper .strongside-variant-btn {
-    border: 1px solid rgba(var(--color-foreground), 0.2);
-    background: transparent;
-    color: rgba(var(--color-foreground), 0.6);
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 700;
-    text-transform: uppercase;
+  /* Container for Side-by-Side Cards */
+  #strongside-hero-wrapper .strongside-variants-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Wraps only if screen is very narrow */
+    gap: 10px;
+    width: 100%;
   }
 
+  /* Premium Variant Option Cards (Pill Shape) */
+  #strongside-hero-wrapper .strongside-variant-btn {
+    border: 1px solid rgba(var(--color-foreground), 0.2);
+    background: linear-gradient(
+      145deg,
+      rgba(var(--color-foreground), 0.05) 0%,
+      rgba(var(--color-foreground), 0.1) 100%
+    );
+    color: rgba(var(--color-foreground), 0.8);
+    padding: 1rem 1.5rem;
+    border-radius: 9999px; /* Pill Shape */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: visible; /* Needed for badge */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    /* FLEX CHILD PROPERTIES */
+    flex: 1 1 150px; /* Grow, Shrink, Basis */
+    min-width: 0; /* Allow flex shrink below content size if needed */
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    #strongside-hero-wrapper .strongside-variant-btn {
+      /* Desktop adjustments if needed */
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  /* Internal Layout */
+  #strongside-hero-wrapper .variant-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+  }
+
+  #strongside-hero-wrapper .variant-title {
+    font-size: 1rem; /* Slightly smaller to fit side-by-side */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    white-space: nowrap; /* Prevent wrapping title if possible */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  #strongside-hero-wrapper .variant-pricing {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    flex-wrap: wrap;
+  }
+
+  #strongside-hero-wrapper .variant-price {
+    font-size: 1.3rem;
+    font-weight: 900;
+  }
+
+  #strongside-hero-wrapper .variant-compare {
+    font-size: 0.9rem;
+    text-decoration: line-through;
+    opacity: 0.6;
+    font-weight: 500;
+  }
+
+  #strongside-hero-wrapper .variant-discount {
+    background: #ff2222;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.2rem 0.5rem;
+    border-radius: 9999px;
+    display: inline-block;
+  }
+
+  /* Hover State */
+  #strongside-hero-wrapper .strongside-variant-btn:hover {
+    border-color: rgba(var(--color-foreground), 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Selected State */
   #strongside-hero-wrapper .strongside-variant-btn.is-selected {
     background: rgb(var(--color-foreground));
     color: rgb(var(--color-background));
     border-color: rgb(var(--color-foreground));
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* FORCE CONTRAST ON CHILDREN WHEN SELECTED */
+  #strongside-hero-wrapper .strongside-variant-btn.is-selected .variant-title,
+  #strongside-hero-wrapper .strongside-variant-btn.is-selected .variant-price,
+  #strongside-hero-wrapper .strongside-variant-btn.is-selected .variant-pricing {
+    color: rgb(var(--color-background)) !important;
+  }
+
+  #strongside-hero-wrapper .strongside-variant-btn.is-selected .variant-compare {
+    color: rgba(var(--color-background), 0.6) !important;
+  }
+
+  /* ELITE GLOW EFFECT */
+  #strongside-hero-wrapper .strongside-variant-btn.is-elite {
+    /* Border Gradient trick via background origin? Or just simple colored border */
+    border: 2px solid #ff4444;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.15);
+  }
+
+  #strongside-hero-wrapper .strongside-variant-btn.is-elite:not(.is-selected) .variant-pricing {
+    color: #ff4444;
+  }
+
+  #strongside-hero-wrapper .strongside-variant-btn.is-elite.is-selected {
+    background: linear-gradient(135deg, #ff4444 0%, #a80000 100%);
+    color: white !important; /* Always white for Elite */
+    border-color: #ff8888;
+    box-shadow: 0 0 25px rgba(255, 68, 68, 0.6);
+  }
+
+  #strongside-hero-wrapper .strongside-variant-btn.is-elite.is-selected .variant-price,
+  #strongside-hero-wrapper .strongside-variant-btn.is-elite.is-selected .variant-title,
+  #strongside-hero-wrapper .strongside-variant-btn.is-elite.is-selected .variant-pricing {
+    color: white !important;
+  }
+
+  #strongside-hero-wrapper .strongside-variant-btn.is-elite.is-selected .variant-compare {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  /* ELITE BADGE */
+  #strongside-hero-wrapper .strongside-elite-badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background: linear-gradient(90deg, #ff2222 0%, #ff8822 100%);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(255, 68, 68, 0.4);
+    z-index: 20;
+    animation: pulseBadge 2s infinite;
+  }
+
+  @keyframes pulseBadge {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
+    }
+    70% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 6px rgba(255, 68, 68, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
+    }
   }
 
   #strongside-hero-wrapper .strongside-actions {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
     margin-bottom: 2.4rem;
   }
 
@@ -1018,15 +1174,39 @@
             <label class="strongside-variant-label" style="font-size:1.2rem; font-family:'Inter', sans-serif;">
               {{- 'strongside.shop.selectOption' | t -}}
             </label>
-            <div class="flex flex-wrap gap-2">
+            <div class="strongside-variants-grid">
               {% for variant in product.variants %}
+                {%- assign is_elite = false -%}
+                {%- if variant.title contains 'Elite' or variant.price > 6000 -%}
+                  {%- assign is_elite = true -%}
+                {%- endif -%}
+
+                {%- assign has_discount = false -%}
+                {%- if variant.compare_at_price > variant.price -%}
+                  {%- assign has_discount = true -%}
+                  {%- assign diff = variant.compare_at_price | minus: variant.price -%}
+                  {%- assign pct = diff | times: 100.0 | divided_by: variant.compare_at_price | round -%}
+                {%- endif -%}
+
                 <button
-                  class="strongside-variant-btn {% if forloop.first %}is-selected{% endif %}"
+                  class="strongside-variant-btn {% if forloop.first %}is-selected{% endif %} {% if is_elite %}is-elite{% endif %}"
                   data-variant-id="{{ variant.id }}"
                   onclick="selectVariant(this, '{{ variant.id }}', '{{ variant.price | money }}', '{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}')"
-                  style="border:1px solid {% if forloop.first %}white{% else %}rgba(255,255,255,0.2){% endif %}; background:{% if forloop.first %}white{% else %}transparent{% endif %}; color:{% if forloop.first %}black{% else %}#9ca3af{% endif %}; padding:1rem 2rem; font-size:1.2rem; font-family:'Inter',sans-serif;"
                 >
-                  {{ variant.title }}
+                  {%- if is_elite -%}
+                    <div class="strongside-elite-badge">OFFRE ÉLITE</div>
+                  {%- endif -%}
+
+                  <div class="variant-info">
+                    <span class="variant-title">{{ variant.title }}</span>
+                    <div class="variant-pricing">
+                      <span class="variant-price">{{ variant.price | money }}</span>
+                      {% if has_discount %}
+                        <span class="variant-compare">{{ variant.compare_at_price | money }}</span>
+                        <span class="variant-discount">-{{ pct }}%</span>
+                      {% endif %}
+                    </div>
+                  </div>
                 </button>
               {% endfor %}
             </div>
@@ -1037,6 +1217,55 @@
         <!-- Actions with Native <product-form> for AJAX Drawer & Analytics -->
         <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+        <script>
+          function selectVariant(el, id, price, comparePrice) {
+            // Update hidden input
+            const form = document.getElementById('{{ product_form_id }}');
+            if (form) {
+              const input = form.querySelector('input[name="id"]');
+              if (input) input.value = id;
+            }
+
+            // Update UI visually
+            const allBtns = document.querySelectorAll('.strongside-variant-btn');
+            allBtns.forEach((btn) => {
+              btn.classList.remove('is-selected');
+            });
+
+            // Add selected class to clicked button
+            el.classList.add('is-selected');
+
+            // Update Prices and URL (existing logic simplified)
+            // ... (rest of logic handles text updates) ...
+
+            // Update Price Display
+            const priceMain = document.querySelector('.strongside-price-main');
+            const priceCompare = document.querySelector('.strongside-price-compare');
+            const badge = document.querySelector('.strongside-discount-badge');
+
+            if (priceMain) priceMain.textContent = price;
+
+            if (priceCompare) {
+              if (comparePrice) {
+                priceCompare.textContent = comparePrice;
+                priceCompare.style.display = 'inline';
+              } else {
+                priceCompare.style.display = 'none';
+              }
+            }
+
+            // Logic to update badge visibility if needed
+            if (badge) {
+              badge.style.display = comparePrice ? 'inline-block' : 'none';
+            }
+
+            // Update URL without reload
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('variant', id);
+            window.history.replaceState({}, '', newUrl);
+          }
+        </script>
 
         {% if product %}
           <product-form class="product-form">
@@ -1589,64 +1818,6 @@
   }
 
   // Auto-select first variant on load if needed
-  function selectVariant(btn, id, price, comparePrice) {
-    // Styling
-    document.querySelectorAll('.strongside-variant-btn').forEach((b) => {
-      b.classList.remove('is-selected');
-      b.style.background = 'transparent';
-      b.style.color = '#9ca3af';
-      b.style.borderColor = 'rgba(255,255,255,0.2)';
-    });
-    btn.classList.add('is-selected');
-    btn.style.background = 'white';
-    btn.style.color = 'black';
-    btn.style.borderColor = 'white';
-
-    // Logic
-    // Find hidden input for form
-    const input = document.querySelector('input[name="id"]');
-    if (input) input.value = id;
-
-    // Update Price
-    const priceDisplay = document.querySelector('.strongside-price-main');
-    if (priceDisplay) priceDisplay.innerText = price;
-
-    // Update Compare Price and Badge
-    const compareDisplay = document.querySelector('.strongside-price-compare');
-    const badgeDisplay = document.querySelector('.strongside-discount-badge');
-    
-    // Parse prices for calculation (remove currency symbols/spaces)
-    // Assuming format "99,90 €" or "99.90"
-    // We pass raw strings, but for math we need numbers? 
-    // Actually, liquid passes formatted strings. 
-    // Better to recalculate badge if possible or pass pre-calculated values.
-    // Let's rely on passed string for display.
-    
-    if (compareDisplay && comparePrice) {
-       compareDisplay.innerText = comparePrice;
-       compareDisplay.style.display = 'inline';
-       
-       // Calculate Discount %
-       try {
-         // rough parsing: remove non-numeric chars except dot/comma
-         const priceNum = parseFloat(price.replace(/[^0-9.,]/g, '').replace(',', '.'));
-         const compareNum = parseFloat(comparePrice.replace(/[^0-9.,]/g, '').replace(',', '.'));
-         
-         if (compareNum > priceNum && badgeDisplay) {
-           const percent = Math.round(((compareNum - priceNum) / compareNum) * 100);
-           badgeDisplay.innerText = '-' + percent + '%';
-           badgeDisplay.style.display = 'inline-block';
-         } else if (badgeDisplay) {
-            badgeDisplay.style.display = 'none';
-         }
-       } catch(e) {
-         console.warn('Price parsing error', e);
-       }
-    } else {
-       if(compareDisplay) compareDisplay.style.display = 'none';
-       if(badgeDisplay) badgeDisplay.style.display = 'none';
-    }
-  }
 </script>
 <script>
   /* --- INTEGRATED VIDEO CAROUSEL LOGIC --- */
