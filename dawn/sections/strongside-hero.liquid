@@ -441,23 +441,23 @@
   }
 
   #strongside-hero-wrapper .variant-price {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     font-weight: 900;
   }
 
   #strongside-hero-wrapper .variant-compare {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     text-decoration: line-through;
-    opacity: 0.6;
-    font-weight: 500;
+    opacity: 0.7;
+    font-weight: 600;
   }
 
   #strongside-hero-wrapper .variant-discount {
     background: #ff2222;
-    color: white;
-    font-size: 0.75rem;
+    color: white !important; /* Force white text */
+    font-size: 0.9rem;
     font-weight: 800;
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem 0.6rem;
     border-radius: 9999px;
     display: inline-block;
   }
@@ -511,8 +511,17 @@
     color: white !important;
   }
 
+  /* Fix visibility on Red Background */
   #strongside-hero-wrapper .strongside-variant-btn.is-elite.is-selected .variant-compare {
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: rgba(255, 255, 255, 0.9) !important; /* Brighter */
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  #strongside-hero-wrapper .strongside-variant-btn.is-elite.is-selected .variant-discount {
+    background: white !important;
+    color: #cc0000 !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   /* ELITE BADGE */
