@@ -1023,7 +1023,7 @@
                 <button
                   class="strongside-variant-btn {% if forloop.first %}is-selected{% endif %}"
                   data-variant-id="{{ variant.id }}"
-                  onclick="selectVariant(this, '{{ variant.id }}', '{{ variant.price | money }}')"
+                  onclick="selectVariant(this, '{{ variant.id }}', '{{ variant.price | money }}', '{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}')"
                   style="border:1px solid {% if forloop.first %}white{% else %}rgba(255,255,255,0.2){% endif %}; background:{% if forloop.first %}white{% else %}transparent{% endif %}; color:{% if forloop.first %}black{% else %}#9ca3af{% endif %}; padding:1rem 2rem; font-size:1.2rem; font-family:'Inter',sans-serif;"
                 >
                   {{ variant.title }}
@@ -1589,7 +1589,7 @@
   }
 
   // Auto-select first variant on load if needed
-  function selectVariant(btn, id, price) {
+  function selectVariant(btn, id, price, comparePrice) {
     // Styling
     document.querySelectorAll('.strongside-variant-btn').forEach((b) => {
       b.classList.remove('is-selected');
@@ -1610,6 +1610,42 @@
     // Update Price
     const priceDisplay = document.querySelector('.strongside-price-main');
     if (priceDisplay) priceDisplay.innerText = price;
+
+    // Update Compare Price and Badge
+    const compareDisplay = document.querySelector('.strongside-price-compare');
+    const badgeDisplay = document.querySelector('.strongside-discount-badge');
+    
+    // Parse prices for calculation (remove currency symbols/spaces)
+    // Assuming format "99,90 €" or "99.90"
+    // We pass raw strings, but for math we need numbers? 
+    // Actually, liquid passes formatted strings. 
+    // Better to recalculate badge if possible or pass pre-calculated values.
+    // Let's rely on passed string for display.
+    
+    if (compareDisplay && comparePrice) {
+       compareDisplay.innerText = comparePrice;
+       compareDisplay.style.display = 'inline';
+       
+       // Calculate Discount %
+       try {
+         // rough parsing: remove non-numeric chars except dot/comma
+         const priceNum = parseFloat(price.replace(/[^0-9.,]/g, '').replace(',', '.'));
+         const compareNum = parseFloat(comparePrice.replace(/[^0-9.,]/g, '').replace(',', '.'));
+         
+         if (compareNum > priceNum && badgeDisplay) {
+           const percent = Math.round(((compareNum - priceNum) / compareNum) * 100);
+           badgeDisplay.innerText = '-' + percent + '%';
+           badgeDisplay.style.display = 'inline-block';
+         } else if (badgeDisplay) {
+            badgeDisplay.style.display = 'none';
+         }
+       } catch(e) {
+         console.warn('Price parsing error', e);
+       }
+    } else {
+       if(compareDisplay) compareDisplay.style.display = 'none';
+       if(badgeDisplay) badgeDisplay.style.display = 'none';
+    }
   }
 </script>
 <script>
