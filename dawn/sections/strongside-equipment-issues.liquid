@@ -146,9 +146,11 @@
       <h2 class="strongside-title">
         {{ section.settings.section_title }}
       </h2>
-      <p class="strongside-intro">
-        {{ section.settings.section_intro | newline_to_br }}
-      </p>
+      {% if section.settings.section_intro != blank %}
+        <p class="strongside-intro">
+          {{ section.settings.section_intro | newline_to_br }}
+        </p>
+      {% endif %}
     </div>
 
     <!-- Main Content Grid -->
@@ -384,7 +386,7 @@
     font-size: 1.1rem !important;
     line-height: 1.6;
     margin-bottom: 2.5rem;
-    max-width: 40rem;
+    max-width: 52rem; /* Widened to allow 3 lines */
     text-align: center;
     margin-left: auto;
     margin-right: auto;
