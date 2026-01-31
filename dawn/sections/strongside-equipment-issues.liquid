@@ -156,66 +156,87 @@
 
     <!-- Main Content Grid -->
     <div class="strongside-content-grid">
-      <!-- Left Column: Text List -->
-      <div class="strongside-text-col ss-observe ss-slide-in-left">
-        
-        <!-- Solution Section -->
-        <div class="strongside-solution-section ss-observe ss-fade-up" style="transition-delay: 200ms;">
-          <h4 class="solution-main-title">{{ 'strongside.equipment_issues.solution.title' | t }}</h4>
-          <p class="solution-main-intro">{{ 'strongside.equipment_issues.solution.intro' | t }}</p>
-
-          <div class="solution-benefits-grid">
-            <!-- Benefit 1: Freedom -->
-            <div class="solution-card">
-              <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.freedom.title' | t }}</h5>
-              <p class="card-desc">{{ 'strongside.equipment_issues.benefits.freedom.desc' | t }}</p>
-            </div>
-            <!-- Benefit 2: Technique -->
-            <div class="solution-card">
-              <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.technique.title' | t }}</h5>
-              <p class="card-desc">{{ 'strongside.equipment_issues.benefits.technique.desc' | t }}</p>
-            </div>
-            <!-- Benefit 3: Comfort -->
-            <div class="solution-card">
-              <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.comfort.title' | t }}</h5>
-              <p class="card-desc">{{ 'strongside.equipment_issues.benefits.comfort.desc' | t }}</p>
-            </div>
-            <!-- Benefit 4: Gloves -->
-            <div class="solution-card">
-              <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.gloves.title' | t }}</h5>
-              <p class="card-desc">{{ 'strongside.equipment_issues.benefits.gloves.desc' | t }}</p>
-            </div>
-          </div>
-
-          <div class="solution-quote">"{{ 'strongside.equipment_issues.solution.quote' | t }}"</div>
+      
+      <!-- Card 1: Fixed Anchor -->
+      <div class="issue-card ss-observe ss-fade-up">
+        <div class="issue-image-container">
+          <img src="{{ 'point1.webp' | asset_url }}" alt="Ancrage Fixe" loading="lazy" width="800" height="800">
+        </div>
+        <div class="issue-text-box">
+          <h3 class="issue-title">{{ 'strongside.equipment_issues.issues.fixed_anchor.title' | t }}</h3>
+          <p class="issue-desc">{{ 'strongside.equipment_issues.issues.fixed_anchor.desc' | t }}</p>
         </div>
       </div>
 
-      <!-- Right Column: Image -->
-      <div class="strongside-media-col ss-observe ss-slide-in-right">
-        <div class="media-container">
-          {% if section.settings.image %}
-            <img
-              src="{{ section.settings.image | image_url: width: 1000 }}"
-              alt="{{ section.settings.section_title }}"
-              class="media-content"
-              loading="lazy"
-              width="800"
-              height="800"
-            >
-          {% else %}
-            <!-- Placeholder if no image set, assume asset fallback -->
-            <img
-              src="{{ 'comparaison4.webp' | asset_url }}"
-              alt="{{ section.settings.section_title }}"
-              class="media-content"
-              loading="lazy"
-              width="800"
-              height="800"
-            >
-          {% endif %}
+      <!-- Card 2: Dumbbells -->
+      <div class="issue-card ss-observe ss-fade-up" style="transition-delay: 100ms;">
+        <div class="issue-image-container">
+          <img src="{{ 'point2.webp' | asset_url }}" alt="Haltères" loading="lazy" width="800" height="800">
+        </div>
+        <div class="issue-text-box">
+          <h3 class="issue-title">{{ 'strongside.equipment_issues.issues.dumbbells.title' | t }}</h3>
+          <p class="issue-desc">{{ 'strongside.equipment_issues.issues.dumbbells.desc' | t }}</p>
         </div>
       </div>
+
+      <!-- Card 3: Elastic -->
+      <div class="issue-card ss-observe ss-fade-up" style="transition-delay: 200ms;">
+        <div class="issue-image-container">
+          <img src="{{ 'point3.webp' | asset_url }}" alt="Élastique" loading="lazy" width="800" height="800">
+        </div>
+        <div class="issue-text-box">
+          <h3 class="issue-title">{{ 'strongside.equipment_issues.issues.dorsal_elastic.title' | t }}</h3>
+          <p class="issue-desc">{{ 'strongside.equipment_issues.issues.dorsal_elastic.desc' | t }}</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Handles -->
+      <div class="issue-card ss-observe ss-fade-up" style="transition-delay: 300ms;">
+        <div class="issue-image-container">
+          <img src="{{ 'point4.webp' | asset_url }}" alt="Poignées" loading="lazy" width="800" height="800">
+        </div>
+        <div class="issue-text-box">
+          <h3 class="issue-title">{{ 'strongside.equipment_issues.issues.handles.title' | t }}</h3>
+          <p class="issue-desc">{{ 'strongside.equipment_issues.issues.handles.desc' | t }}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Solution Section (Moved below the grid as a full-width block or separate? 
+         The user said "I want the same [red box styling] below each image." 
+         And implied preserving the "Solution" section? 
+         "Non, justement, je veux les images au dessus du texte... Je veux la même chose en dessous de chaque image."
+         This refers to the *issues*.
+         I should keep the "Solution" section (Strongside Pro) separate, maybe below the grid?
+         The previous layout had it in the left column.
+         I will place it BELOW the grid for now, or maybe the user just focused on the issues appearing this way.
+         I'll add the Solution section below the grid. -->
+    
+    <div class="strongside-solution-section ss-observe ss-fade-up" style="margin-top: 4rem;">
+      <h4 class="solution-main-title">{{ 'strongside.equipment_issues.solution.title' | t }}</h4>
+      <p class="solution-main-intro">{{ 'strongside.equipment_issues.solution.intro' | t }}</p>
+
+      <div class="solution-benefits-grid">
+        <div class="solution-card">
+          <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.freedom.title' | t }}</h5>
+          <p class="card-desc">{{ 'strongside.equipment_issues.benefits.freedom.desc' | t }}</p>
+        </div>
+        <div class="solution-card">
+          <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.technique.title' | t }}</h5>
+          <p class="card-desc">{{ 'strongside.equipment_issues.benefits.technique.desc' | t }}</p>
+        </div>
+        <div class="solution-card">
+          <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.comfort.title' | t }}</h5>
+          <p class="card-desc">{{ 'strongside.equipment_issues.benefits.comfort.desc' | t }}</p>
+        </div>
+        <div class="solution-card">
+          <h5 class="card-title">{{ 'strongside.equipment_issues.benefits.gloves.title' | t }}</h5>
+          <p class="card-desc">{{ 'strongside.equipment_issues.benefits.gloves.desc' | t }}</p>
+        </div>
+      </div>
+
+      <div class="solution-quote">"{{ 'strongside.equipment_issues.solution.quote' | t }}"</div>
     </div>
   </div>
 </div>
@@ -313,69 +334,77 @@
 
   /* Grid */
   #shopify-section-{{ section.id }} .strongside-content-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: 1 col */
     gap: 2rem;
+    /* align-items: stretch; Default behavior ensures rows are equal height */
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     #shopify-section-{{ section.id }} .strongside-content-grid {
-      flex-direction: row;
-      gap: 6rem;
-      /* align-items: stretch; implied by default, ensuring matched height */
+      grid-template-columns: 1fr 1fr; /* Desktop: 2 cols */
+      gap: 3rem;
     }
   }
 
-  /* Text Column */
-  #shopify-section-{{ section.id }} .strongside-text-col {
-    flex: 1;
+  /* Issue Cards */
+  #shopify-section-{{ section.id }} .issue-card {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    height: 100%; /* Fill grid cell height */
   }
 
-  #shopify-section-{{ section.id }} .list-title {
+  #shopify-section-{{ section.id }} .issue-image-container {
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 1 / 1; /* Force square aspect ratio */
+  }
+
+  #shopify-section-{{ section.id }} .issue-image-container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* Cover ensures no empty space, since images are near-square this is safe */
+  }
+
+  /* Issue Text Box (Red Box) */
+  #shopify-section-{{ section.id }} .issue-text-box {
+    border: 2px solid #ff2222;
+    border-radius: 1rem;
+    background: rgba(255, 34, 34, 0.03);
+    padding: 1.5rem;
+    flex-grow: 1; /* Grow to fill available space in the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text vertically if box is taller */
+  }
+
+  #shopify-section-{{ section.id }} .issue-title {
+    font-family: 'Inter', system-ui, sans-serif !important;
     font-size: 1.25rem !important;
     font-weight: 800 !important;
     text-transform: uppercase;
     color: #ff2222;
-    margin-bottom: 2rem;
-    letter-spacing: 0.05em;
-  }
-
-  #shopify-section-{{ section.id }} .issue-item {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  #shopify-section-{{ section.id }} .issue-icon {
-    flex-shrink: 0;
-    width: 24px;
-    padding-top: 4px;
-  }
-
-  #shopify-section-{{ section.id }} .issue-title {
-    font-size: 1.1rem !important;
-    font-weight: 800 !important;
-    text-transform: uppercase;
     margin: 0 0 0.5rem 0;
-    color: rgb(var(--color-foreground));
   }
 
   #shopify-section-{{ section.id }} .issue-desc {
     font-size: 1rem !important;
     line-height: 1.5 !important;
-    opacity: 0.7;
+    color: rgb(var(--color-foreground));
+    opacity: 0.8;
     margin: 0;
   }
 
   /* Solution Section */
   #shopify-section-{{ section.id }} .strongside-solution-section {
-    margin-top: 0;
+    margin-top: 4rem;
     padding: 2.5rem;
     border: 2px solid #ff2222;
     border-radius: 1rem;
     background: rgba(255, 34, 34, 0.03);
-    height: 100%; /* Fill the column height provided by the tall image */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -396,7 +425,7 @@
     font-size: 1.1rem !important;
     line-height: 1.6;
     margin-bottom: 2.5rem;
-    max-width: 52rem; /* Widened to allow 3 lines */
+    max-width: 52rem; 
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -416,7 +445,7 @@
 
   #shopify-section-{{ section.id }} .solution-card {
     border: 1px solid rgba(var(--color-foreground), 0.15);
-    background: rgba(var(--color-foreground), 0.03); /* Slight tint */
+    background: rgba(var(--color-foreground), 0.03);
     border-radius: 0.75rem;
     padding: 1.5rem;
     display: flex;
@@ -456,28 +485,6 @@
     padding-top: 2rem;
   }
 
-  /* Media Column */
-  #shopify-section-{{ section.id }} .strongside-media-col {
-    flex: 1;
-    position: sticky; /* Optional: Sticky on large screens? */
-    top: 2rem;
-  }
-
-  #shopify-section-{{ section.id }} .media-container {
-    position: relative;
-    width: 100%;
-    /* aspect-ratio can be auto if natural size is preferred, or fixed logic */
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
-  }
-
-  #shopify-section-{{ section.id }} .media-content {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
   /* Animations */
   .ss-observe {
     opacity: 0;
@@ -493,7 +500,7 @@
     transform: translateY(0);
   }
 
-  /* Slide In Left */
+  /* Slide In Left - Optional if not used anymore, but good to keep */
   .ss-slide-in-left {
     transform: translateX(-50px);
   }
