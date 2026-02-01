@@ -220,3 +220,18 @@ cart-items {
     gap: 1rem;
   }
 }
+
+/* Custom Checkount Button Green */
+#checkout {
+  background-color: #28a745 !important;
+  border: none !important;
+  color: white !important;
+}
+
+#checkout:hover {
+  background-color: #218838 !important;
+}
+
+#checkout::after {
+    box-shadow: none !important;
+}

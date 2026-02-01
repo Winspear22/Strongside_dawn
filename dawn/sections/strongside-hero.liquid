@@ -262,33 +262,81 @@
     }
   }
 
+    /* REDIÉSIGN DU BOUTON "VOIR DESCRIPTION"
+  */
+  /* BOUTON MOBILE MAGNÉTIQUE */
   #strongside-hero-wrapper .strongside-desc-toggle {
     width: 100%;
-    margin-bottom: 0.5rem;
-    padding: 1.25rem 1.6rem;
-    background-color: rgba(var(--color-foreground), 0.05);
-    border: 1px solid rgba(var(--color-foreground), 0.1);
-    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+    padding: 1.8rem; /* Plus haut pour le clic au pouce */
+    background: rgb(var(--color-foreground)); /* Fond plein pour un impact immédiat */
+    color: rgb(var(--color-background)); /* Texte contrasté */
+    border: none;
+    border-radius: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: all 0.2s;
-    color: rgb(var(--color-foreground));
-    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(var(--color-foreground), 0.2);
+    /* Animation de pulsation douce pour attirer l'oeil sur mobile */
+    animation: mobilePulse 2s infinite ease-in-out;
   }
 
-  #strongside-hero-wrapper .strongside-desc-toggle:hover {
-    background-color: rgba(var(--color-foreground), 0.1);
-  }
-
-  #strongside-hero-wrapper .strongside-desc-toggle span {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-    font-weight: 700;
+  /* Texte ultra-lisible */
+#strongside-hero-wrapper .strongside-desc-toggle span {
+    font-size: 1.4rem;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: rgb(var(--color-foreground));
+    letter-spacing: 0.1em;
+    color: #FFFFFF !important; /* Force la couleur blanche */
+  }
+
+  /* Flèche plus grosse pour le tactile */
+  #strongside-hero-wrapper #desc-arrow {
+    width: 2.4rem;
+    height: 2.4rem;
+    background: rgba(var(--color-background), 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Effet de brillance qui traverse le bouton sur mobile */
+  #strongside-hero-wrapper .strongside-desc-toggle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(var(--color-background), 0.3),
+      transparent
+    );
+    animation: mobileShine 3s infinite;
+  }
+
+  @keyframes mobileShine {
+    0% { left: -150%; }
+    30% { left: 150%; }
+    100% { left: 150%; }
+  }
+
+  @keyframes mobilePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+
+  /* Feedback au toucher (Active state) */
+  #strongside-hero-wrapper .strongside-desc-toggle:active {
+    transform: scale(0.95);
+    background: rgba(var(--color-foreground), 0.9);
   }
 
   #strongside-hero-wrapper #desc-arrow {
