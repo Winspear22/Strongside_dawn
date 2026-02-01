@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="js" lang="{{ request.locale.iso_code }}">
+<html class="js strongside-light" lang="{{ request.locale.iso_code }}">
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WYBFRYRK6N"></script>
@@ -318,9 +318,57 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    <style>
+      /* CRITICAL: Prevent Dark Mode Flash (FOIT) */
+      /* If JS detects light mode, these overrides apply immediately before Shopify's dark classes can paint. */
+      html.strongside-light .color-scheme-1,
+      html.strongside-light .color-scheme-2,
+      html.strongside-light .color-scheme-3,
+      html.strongside-light .color-scheme-4 {
+        --color-background: 255, 255, 255 !important;
+        --gradient-background: #ffffff !important;
+        --color-foreground: 17, 24, 39 !important;
+        --color-background-contrast: 255, 255, 255 !important;
+        --color-shadow: 0, 0, 0 !important;
+        --color-button: 17, 24, 39 !important;
+        --color-button-text: 255, 255, 255 !important;
+        --color-secondary-button: 255, 255, 255 !important;
+        --color-secondary-button-text: 17, 24, 39 !important;
+        --color-link: 17, 24, 39 !important;
+        --color-badge-foreground: 17, 24, 39 !important;
+        --color-badge-background: 255, 255, 255 !important;
+        --color-badge-border: 17, 24, 39 !important;
+      }
+    </style>
   </head>
 
-  <body class="gradient strongside-dark{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="gradient strongside-light{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+    <script>
+      (function () {
+        // Immediate Theme Check to prevent Flash
+        try {
+          var storedTheme = localStorage.getItem('theme');
+          var isDark = storedTheme === 'dark'; // Default is LIGHT if null or 'light'
+
+          var html = document.documentElement;
+          var body = document.body;
+
+          if (isDark) {
+            html.classList.add('strongside-dark');
+            html.classList.remove('strongside-light');
+          } else {
+            // Light Mode (Default)
+            html.classList.add('strongside-light');
+            html.classList.remove('strongside-dark');
+            body.classList.add('strongside-light');
+            body.classList.remove('strongside-dark');
+          }
+        } catch (e) {
+          console.error('Theme init error', e);
+        }
+      })();
+    </script>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
