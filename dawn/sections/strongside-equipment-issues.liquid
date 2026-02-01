@@ -242,7 +242,7 @@
 
   <div class="issue-card ss-observe ss-fade-up" style="transition-delay: 200ms;">
     <div class="issue-image-container">
-      <img src="https://cdn.shopify.com/s/files/1/0934/6426/5037/files/revall.jpg?v=1769901187" alt="Confort Elite" loading="lazy" width="800" height="800">
+      <img src="{{ 'revall.webp' | asset_url }}" alt="Confort Elite" loading="lazy" width="800" height="800">
     </div>
     <div class="issue-text-box">
       <h3 class="issue-title">{{ 'strongside.equipment_issues.benefits.comfort.title' | t }}</h3>
@@ -278,7 +278,7 @@
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.01, rootMargin: '0px 0px 50px 0px' }
     );
 
     sectionContainer.querySelectorAll('.ss-observe').forEach((el) => observer.observe(el));
