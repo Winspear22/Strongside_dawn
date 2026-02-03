@@ -422,8 +422,8 @@
     overflow: visible; /* Needed for badge */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center; /* Centered alignment */
+    text-align: center; /* Centered text */
     /* FLEX CHILD PROPERTIES */
     flex: 1 1 150px; /* Grow, Shrink, Basis */
     min-width: 0; /* Allow flex shrink below content size if needed */
@@ -443,6 +443,7 @@
     flex-direction: column;
     gap: 0.25rem;
     width: 100%;
+    align-items: center; /* Ensure children are centered */
   }
 
   #strongside-hero-wrapper .variant-title {
@@ -460,6 +461,7 @@
   #strongside-hero-wrapper .variant-pricing {
     display: flex;
     align-items: center;
+    justify-content: center; /* Clean center alignment for pricing row */
     gap: 0.5rem;
     font-family: inherit;
     flex-wrap: wrap;
@@ -471,8 +473,10 @@
   }
 
   #strongside-hero-wrapper .variant-compare {
-    font-size: 1.2rem;
+    font-size: 1.4rem; /* Increased size */
     text-decoration: line-through;
+    text-decoration-color: #ff0000 !important; /* Red strikethrough */
+    text-decoration-thickness: 2px; /* Visible thickness */
     opacity: 0.7;
     font-weight: 600;
   }
@@ -1252,7 +1256,7 @@
                 <button
                   class="strongside-variant-btn {% if forloop.first %}is-selected{% endif %} {% if is_elite %}is-elite{% endif %}"
                   data-variant-id="{{ variant.id }}"
-                  onclick="selectVariant(this, '{{ variant.id }}', '{{ variant.price | money }}', '{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money }}{% endif %}')"
+                  onclick="selectVariant(this, '{{ variant.id }}', '{{ variant.price | money_without_trailing_zeros | remove: ",00" | remove: ".00" }}', '{% if variant.compare_at_price > variant.price %}{{ variant.compare_at_price | money_without_trailing_zeros | remove: ",00" | remove: ".00" }}{% endif %}')"
                 >
                   {%- if is_elite -%}
                     <div class="strongside-elite-badge">OFFRE ÉLITE</div>
@@ -1261,9 +1265,18 @@
                   <div class="variant-info">
                     <span class="variant-title">{{ variant.title }}</span>
                     <div class="variant-pricing">
-                      <span class="variant-price">{{ variant.price | money }}</span>
+                      <span class="variant-price">
+                        {{- variant.price | money_without_trailing_zeros | remove: ',00' | remove: '.00' -}}
+                      </span>
                       {% if has_discount %}
-                        <span class="variant-compare">{{ variant.compare_at_price | money }}</span>
+                        <span class="variant-compare">
+                          {{-
+                            variant.compare_at_price
+                            | money_without_trailing_zeros
+                            | remove: ',00'
+                            | remove: '.00'
+                          -}}
+                        </span>
                         <span class="variant-discount">-{{ pct }}%</span>
                       {% endif %}
                     </div>
