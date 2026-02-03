@@ -24,6 +24,18 @@
       <link rel="icon" type="image/jpeg" href="{{ 'favicon.jpg' | asset_url }}">
     {%- endif -%}
 
+    {%- if template.name == 'index' -%}
+      {%- assign hero_product = all_products['strongside-pro-boxing-harness'] -%}
+      {%- if hero_product != blank and hero_product.featured_media != blank -%}
+        <link
+          rel="preload"
+          as="image"
+          href="{{ hero_product.featured_media | image_url: width: 1200 }}"
+          fetchpriority="high"
+        >
+      {%- endif -%}
+    {%- endif -%}
+
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
@@ -341,9 +353,6 @@
         --color-badge-border: 17, 24, 39 !important;
       }
     </style>
-  </head>
-
-  <body class="gradient strongside-light{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <script>
       (function () {
         // Immediate Theme Check to prevent Flash
@@ -361,14 +370,19 @@
             // Light Mode (Default)
             html.classList.add('strongside-light');
             html.classList.remove('strongside-dark');
-            body.classList.add('strongside-light');
-            body.classList.remove('strongside-dark');
+            if (body) {
+              body.classList.add('strongside-light');
+              body.classList.remove('strongside-dark');
+            }
           }
         } catch (e) {
           console.error('Theme init error', e);
         }
       })();
     </script>
+  </head>
+
+  <body class="gradient strongside-light{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

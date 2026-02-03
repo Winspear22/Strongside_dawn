@@ -265,35 +265,40 @@
   /* REDIÉSIGN DU BOUTON "VOIR DESCRIPTION"
   */
   /* BOUTON MOBILE MAGNÉTIQUE */
+  /* DESCRIPTION DÉROULÉE PAR DÉFAUT */
   #strongside-hero-wrapper .strongside-desc-toggle {
     width: 100%;
-    margin: 1.5rem 0;
-    padding: 1.8rem; /* Plus haut pour le clic au pouce */
-    background: rgb(var(--color-foreground)); /* Fond plein pour un impact immédiat */
-    color: rgb(var(--color-background)); /* Texte contrasté */
+    margin: 1.5rem 0 0 0; /* Pas de marge en bas car la desc suit */
+    padding: 1.8rem;
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
     border: none;
-    border-radius: 0.8rem;
+    border-radius: 0.8rem 0.8rem 0 0; /* Arrondi seulement en haut */
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(var(--color-foreground), 0.2);
-    /* Animation de pulsation douce pour attirer l'oeil sur mobile */
-    animation: mobilePulse 2s infinite ease-in-out;
+    /* Suppression des animations Pulse et Shine pour un look pro et stable */
+    animation: none;
+    box-shadow: none;
   }
 
-  /* Texte ultra-lisible */
+  /* Désactive l'animation de brillance */
+  #strongside-hero-wrapper .strongside-desc-toggle::before {
+    display: none;
+  }
+
   #strongside-hero-wrapper .strongside-desc-toggle span {
     font-size: 1.4rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #ffffff !important; /* Force la couleur blanche */
+    color: #ffffff !important;
   }
 
-  /* Flèche plus grosse pour le tactile */
+  /* La flèche pointe vers le bas par défaut (ouvert) */
   #strongside-hero-wrapper #desc-arrow {
     width: 2.4rem;
     height: 2.4rem;
@@ -302,62 +307,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  /* Effet de brillance qui traverse le bouton sur mobile */
-  #strongside-hero-wrapper .strongside-desc-toggle::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(var(--color-background), 0.3), transparent);
-    animation: mobileShine 3s infinite;
-  }
-
-  @keyframes mobileShine {
-    0% {
-      left: -150%;
-    }
-    30% {
-      left: 150%;
-    }
-    100% {
-      left: 150%;
-    }
-  }
-
-  @keyframes mobilePulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.02);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  /* Feedback au toucher (Active state) */
-  #strongside-hero-wrapper .strongside-desc-toggle:active {
-    transform: scale(0.95);
-    background: rgba(var(--color-foreground), 0.9);
-  }
-
-  /* Dark mode: En mode sombre, le fond du bouton devient clair, donc texte noir */
-  html.strongside-dark #strongside-hero-wrapper .strongside-desc-toggle span {
-    color: #000000 !important;
-  }
-
-  #strongside-hero-wrapper #desc-arrow {
-    width: 1.6rem;
-    height: 1.6rem;
+    transform: rotate(180deg);
     transition: transform 0.3s;
-    display: flex;
-    align-items: center;
-    color: rgba(var(--color-foreground), 0.6);
   }
 
   #strongside-hero-wrapper .strongside-price-container {
@@ -365,6 +316,7 @@
     align-items: baseline;
     gap: 1.2rem;
     margin-bottom: 1rem;
+    min-height: 4.5rem; /* Reserve space to prevent CLS */
   }
 
   #strongside-hero-wrapper .strongside-price-main {
@@ -878,15 +830,22 @@
               {% for media in product.media %}
                 <div style="width:100%; height:100%; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
                   <img
-                    src="{{ media | image_url: width: 1200 }}"
+                    src="{{ media | image_url: width: 1000 }}"
                     class="strongside-main-image"
                     style="width:100%; height:100%; object-fit:contain;"
                     draggable="false"
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="sync"
-                    width="1200"
-                    height="800"
+                    {% if forloop.first %}
+                      loading="eager"
+                      fetchpriority="high"
+                      decoding="sync"
+                    {% else %}
+                      loading="lazy"
+                      fetchpriority="low"
+                      decoding="async"
+                    {% endif %}
+                    width="1000"
+                    height="1000"
+                    alt="{{ media.alt | escape }}"
                   >
                 </div>
               {% endfor %}
@@ -1432,25 +1391,28 @@
           </div>
           <div class="strongside-trust-logos">
             <img
-              src="{{ 'visa mastercard.webp' | asset_url }}"
+              src="{{ 'visa_mastercard_optimized.webp' | asset_url }}"
               alt="Visa Mastercard"
               class="strongside-trust-logo-img"
               width="40"
               height="25"
+              loading="lazy"
             >
             <img
-              src="{{ 'paypal logo.webp' | asset_url }}"
+              src="{{ 'paypal_logo_optimized.webp' | asset_url }}"
               alt="PayPal"
               class="strongside-trust-logo-img"
               width="40"
               height="25"
+              loading="lazy"
             >
             <img
-              src="{{ 'cb logo.webp' | asset_url }}"
+              src="{{ 'cb_logo_optimized.webp' | asset_url }}"
               alt="CB"
               class="strongside-trust-logo-img"
               width="40"
               height="25"
+              loading="lazy"
             >
           </div>
         </div>
@@ -1843,14 +1805,7 @@
     }
   }
 
-  function toggleDescription() {
-    const desc = document.getElementById('desc-content');
-    const arrow = document.getElementById('desc-arrow');
-    desc.classList.toggle('is-open');
-    arrow.style.transform = desc.classList.contains('is-open') ? 'rotate(180deg)' : 'rotate(0deg)';
-  }
-
-  function toggleDescription() {
+function toggleDescription() {
     const content = document.getElementById('desc-content');
     const arrow = document.getElementById('desc-arrow');
 
@@ -1862,6 +1817,18 @@
       arrow.style.transform = 'rotate(180deg)';
     }
   }
+
+  // FORCE L'OUVERTURE AU CHARGEMENT
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+      const content = document.getElementById('desc-content');
+      const arrow = document.getElementById('desc-arrow');
+      if (content && arrow) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        arrow.style.transform = 'rotate(180deg)';
+      }
+    }, 500); // Petit délai pour laisser le temps au navigateur de calculer les hauteurs
+  });
 
   function toggleAccordion(btn) {
     const content = btn.nextElementSibling;
