@@ -136,13 +136,23 @@
     border-radius: 1rem;
     background: rgba(var(--color-foreground), 0.05);
     cursor: zoom-in;
+    /* Added min-height to prevent flex collapse that blocks LCP detection on mobile */
+    min-height: 300px;
+  }
+
+  @media (min-width: 768px) {
+    .strongside-main-image-container {
+      min-height: 400px;
+    }
   }
 
   .strongside-main-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transition: opacity 0.3s;
+    /* Removed transition: opacity 0.3s - was causing Lighthouse LCP detection to fail on mobile */
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .strongside-zoom-hint {
@@ -830,7 +840,7 @@
               {% for media in product.media %}
                 <div style="width:100%; height:100%; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
                   <img
-                    src="{{ media | image_url: width: 1000 }}"
+                    src="{{ media | image_url: width: 500 }}"
                     class="strongside-main-image"
                     style="width:100%; height:100%; object-fit:contain;"
                     draggable="false"
@@ -843,8 +853,8 @@
                       fetchpriority="low"
                       decoding="async"
                     {% endif %}
-                    width="1000"
-                    height="1000"
+                    width="500"
+                    height="500"
                     alt="{{ media.alt | escape }}"
                   >
                 </div>
@@ -884,7 +894,7 @@
         <!-- Description Toggle -->
         <button class="strongside-desc-toggle" onclick="toggleDescription()">
           <span>{{ 'strongside.shop.showDetails' | t }}</span>
-          <div id="desc-arrow">
+          <div id="desc-arrow" style="transform: rotate(180deg);">
             <svg width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
@@ -894,7 +904,7 @@
         <div
           id="desc-content"
           class="strongside-desc-content"
-          style="overflow:hidden;max-height:0;transition:max-height 0.3s ease-out; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased;"
+          style="overflow:hidden;max-height:2000px;transition:max-height 0.3s ease-out; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased;"
         >
           <div class="prose prose-invert strongside-desc-body">
             <style>
@@ -1818,17 +1828,7 @@ function toggleDescription() {
     }
   }
 
-  // FORCE L'OUVERTURE AU CHARGEMENT
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(() => {
-      const content = document.getElementById('desc-content');
-      const arrow = document.getElementById('desc-arrow');
-      if (content && arrow) {
-        content.style.maxHeight = content.scrollHeight + 'px';
-        arrow.style.transform = 'rotate(180deg)';
-      }
-    }, 500); // Petit délai pour laisser le temps au navigateur de calculer les hauteurs
-  });
+  // Description is now open by default via CSS (max-height: 2000px)
 
   function toggleAccordion(btn) {
     const content = btn.nextElementSibling;
