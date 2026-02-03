@@ -305,7 +305,7 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #ffffff !important;
+    color: rgb(var(--color-background)) !important;
   }
 
   /* La flèche pointe vers le bas par défaut (ouvert) */
@@ -342,17 +342,20 @@
   }
 
   #strongside-hero-wrapper .strongside-price-compare {
-    font-size: 2.4rem;
+    font-size: calc(3.6rem + 3px);
+    font-weight: 700;
     color: rgba(var(--color-foreground), 0.6);
     text-decoration: line-through;
+    text-decoration-color: #ff0000 !important;
+    text-decoration-thickness: 2px;
   }
 
   #strongside-hero-wrapper .strongside-discount-badge {
     background: #ff2222;
-    color: white;
-    padding: 0.4rem 0.8rem;
+    color: white !important;
+    padding: 0.8rem 1.6rem;
     border-radius: 9999px;
-    font-size: 1.4rem;
+    font-size: 2.8rem;
     font-weight: 700;
   }
 
@@ -703,18 +706,14 @@
     margin-top: 1rem;
   }
 
-  #strongside-hero-wrapper .strongside-trust-logo-img {
-    height: 7rem !important;
+  #strongside-hero-wrapper .strongside-trust-logo-img,
+  #strongside-hero-wrapper .strongside-trust-logos svg {
+    height: 4.5rem !important; /* Increased to 4.5rem per user request */
     width: auto !important;
     max-width: 112px !important;
     object-fit: contain;
     opacity: 0.7;
     transition: opacity 0.2s;
-    /* Invert colors in light mode? No, payment logos usually have fixed colors or work on white. 
-       If they are white PNGs, they will disappear on white background.
-       We might need filter: invert(1) in light mode if they are white.
-       Assuming they are colored or white. */
-    /* Removing filters to show original colored logos in both modes */
     filter: none;
   }
 
@@ -833,14 +832,38 @@
             onclick="openHeroModalWithIndex()"
             style="overflow:hidden;"
           >
+            <!-- STATIC LCP IMAGE - Guaranteed visible for Lighthouse -->
+            {% if product.featured_media %}
+              <img
+                id="hero-lcp-image"
+                src="{{ product.featured_media | image_url: width: 800 }}"
+                srcset="
+                  {{ product.featured_media | image_url: width: 400 }} 400w,
+                  {{ product.featured_media | image_url: width: 600 }} 600w,
+                  {{ product.featured_media | image_url: width: 800 }} 800w,
+                  {{ product.featured_media | image_url: width: 1200 }} 1200w,
+                  {{ product.featured_media | image_url: width: 1600 }} 1600w
+                "
+                sizes="(max-width: 767px) 100vw, 50vw"
+                class="strongside-main-image"
+                style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; z-index:1;"
+                loading="eager"
+                fetchpriority="high"
+                decoding="sync"
+                width="800"
+                height="800"
+                alt="{{ product.featured_media.alt | escape | default: product.title }}"
+              >
+            {% endif %}
+
             <div
               id="hero-image-track"
-              style="display:flex; height:100%; transition:transform 0.3s ease-out; will-change:transform; backface-visibility:hidden; -webkit-backface-visibility:hidden;"
+              style="display:flex; height:100%; transition:transform 0.3s ease-out; will-change:transform; backface-visibility:hidden; -webkit-backface-visibility:hidden; position:relative; z-index:2;"
             >
               {% for media in product.media %}
                 <div style="width:100%; height:100%; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
                   <img
-                    src="{{ media | image_url: width: 500 }}"
+                    src="{{ media | image_url: width: 1600 }}"
                     class="strongside-main-image"
                     style="width:100%; height:100%; object-fit:contain;"
                     draggable="false"
@@ -853,8 +876,8 @@
                       fetchpriority="low"
                       decoding="async"
                     {% endif %}
-                    width="500"
-                    height="500"
+                    width="1600"
+                    height="1600"
                     alt="{{ media.alt | escape }}"
                   >
                 </div>
@@ -894,7 +917,7 @@
         <!-- Description Toggle -->
         <button class="strongside-desc-toggle" onclick="toggleDescription()">
           <span>{{ 'strongside.shop.showDetails' | t }}</span>
-          <div id="desc-arrow">
+          <div id="desc-arrow" style="transform: rotate(180deg);">
             <svg width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
@@ -904,7 +927,7 @@
         <div
           id="desc-content"
           class="strongside-desc-content"
-          style="overflow:hidden;max-height:0;transition:max-height 0.3s ease-out; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased;"
+          style="overflow:hidden;max-height:20000px;transition:max-height 0.3s ease-out; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased;"
         >
           <div class="prose prose-invert strongside-desc-body">
             <style>
@@ -1400,30 +1423,21 @@
             </span>
           </div>
           <div class="strongside-trust-logos">
-            <img
-              src="{{ 'visa_mastercard_optimized.webp' | asset_url }}"
-              alt="Visa Mastercard"
-              class="strongside-trust-logo-img"
-              width="40"
-              height="25"
-              loading="lazy"
-            >
-            <img
-              src="{{ 'paypal_logo_optimized.webp' | asset_url }}"
-              alt="PayPal"
-              class="strongside-trust-logo-img"
-              width="40"
-              height="25"
-              loading="lazy"
-            >
+            <!-- Payment Icons: ApplePay | Visa | Master | PayPal | CB | GooglePay -->
+            {{ 'apple_pay' | payment_type_svg_tag: class: 'strongside-trust-logo-svg' }}
+            {{ 'visa' | payment_type_svg_tag: class: 'strongside-trust-logo-svg' }}
+            {{ 'master' | payment_type_svg_tag: class: 'strongside-trust-logo-svg' }}
+            {{ 'paypal' | payment_type_svg_tag: class: 'strongside-trust-logo-svg' }}
             <img
               src="{{ 'cb_logo_optimized.webp' | asset_url }}"
               alt="CB"
               class="strongside-trust-logo-img"
-              width="40"
-              height="25"
+              width="75"
+              height="45"
               loading="lazy"
+              style="border-radius: 4px; filter: brightness(1.40);"
             >
+            {{ 'google_pay' | payment_type_svg_tag: class: 'strongside-trust-logo-svg' }}
           </div>
         </div>
       </div>

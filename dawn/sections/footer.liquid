@@ -287,11 +287,48 @@
           <div class="footer__payment">
             <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
             <ul class="list list-payment" role="list">
-              {%- for type in shop.enabled_payment_types -%}
-                <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                </li>
-              {%- endfor -%}
+              <li class="list-payment__item">
+                <img
+                  src="{{ 'apple_pay_optimized.webp' | asset_url }}"
+                  alt="Apple Pay"
+                  width="42"
+                  height="42"
+                  loading="lazy"
+                  class="icon icon--full-color"
+                  style="height:4.2rem;width:auto;"
+                >
+              </li>
+              <li class="list-payment__item">
+                {{ 'visa' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+              <li class="list-payment__item">
+                {{ 'master' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+              <li class="list-payment__item">
+                {{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+              <li class="list-payment__item">
+                <img
+                  src="{{ 'cb_logo_optimized.webp' | asset_url }}"
+                  alt="CB"
+                  width="38"
+                  height="24"
+                  loading="lazy"
+                  class="icon icon--full-color"
+                  style="height:2.4rem;width:auto;"
+                >
+              </li>
+              <li class="list-payment__item">
+                <img
+                  src="{{ 'google_pay_optimized.webp' | asset_url }}"
+                  alt="Google Pay"
+                  width="58"
+                  height="25"
+                  loading="lazy"
+                  class="icon icon--full-color"
+                  style="height:2.4rem;width:auto;"
+                >
+              </li>
             </ul>
           </div>
         {%- endif -%}

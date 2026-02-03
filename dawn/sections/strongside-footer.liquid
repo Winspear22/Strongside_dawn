@@ -199,6 +199,12 @@
     height: 4.1rem !important;
   }
 
+  .ss-footer-payment-icons svg {
+    height: 5.5rem !important;
+    width: auto !important;
+    margin: 0 0.5rem !important;
+  }
+
   /* Copyright */
   .ss-footer-copyright {
     margin-top: 3rem !important;
@@ -299,30 +305,21 @@
     <div class="ss-footer-payment">
       <span class="ss-footer-payment-label">{{ 'strongside.footer.securePayment' | t }}</span>
       <div class="ss-footer-payment-icons">
-        <img
-          src="{{ 'visa_mastercard_optimized.webp' | asset_url }}"
-          alt="Visa Mastercard"
-          class="ss-footer-payment-img"
-          width="88"
-          height="55"
-          loading="lazy"
-        >
-        <img
-          src="{{ 'paypal_logo_optimized.webp' | asset_url }}"
-          alt="PayPal"
-          class="ss-footer-payment-img"
-          width="88"
-          height="55"
-          loading="lazy"
-        >
+        <!-- Payment Icons: ApplePay | Visa | Master | PayPal | CB | GooglePay -->
+        {{ 'apple_pay' | payment_type_svg_tag: class: 'ss-footer-payment-icon-svg' }}
+        {{ 'visa' | payment_type_svg_tag: class: 'ss-footer-payment-icon-svg' }}
+        {{ 'master' | payment_type_svg_tag: class: 'ss-footer-payment-icon-svg' }}
+        {{ 'paypal' | payment_type_svg_tag: class: 'ss-footer-payment-icon-svg' }}
         <img
           src="{{ 'cb_logo_optimized.webp' | asset_url }}"
           alt="CB"
-          class="ss-footer-payment-img ss-footer-payment-img-small"
+          class="ss-footer-payment-img"
           width="66"
           height="41"
           loading="lazy"
+          style="border-radius: 4px; filter: brightness(1.40);"
         >
+        {{ 'google_pay' | payment_type_svg_tag: class: 'ss-footer-payment-icon-svg' }}
       </div>
     </div>
 

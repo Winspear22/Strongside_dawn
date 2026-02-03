@@ -45,7 +45,15 @@
         <link
           rel="preload"
           as="image"
-          href="{{ hero_product.featured_media | image_url: width: 500 }}"
+          href="{{ hero_product.featured_media | image_url: width: 800 }}"
+          imagesrcset="
+            {{ hero_product.featured_media | image_url: width: 400 }} 400w,
+            {{ hero_product.featured_media | image_url: width: 600 }} 600w,
+            {{ hero_product.featured_media | image_url: width: 800 }} 800w,
+            {{ hero_product.featured_media | image_url: width: 1200 }} 1200w,
+            {{ hero_product.featured_media | image_url: width: 1600 }} 1600w
+          "
+          imagesizes="(max-width: 767px) 100vw, 50vw"
           fetchpriority="high"
         >
       {%- endif -%}
@@ -87,6 +95,72 @@
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <!-- Judge.me Script Deferral for TBT optimization -->
+    <script>
+      (function () {
+        var deferredScripts = [];
+        var userInteracted = false;
+
+        // Function to load deferred scripts
+        function loadDeferredScripts() {
+          if (userInteracted) return;
+          userInteracted = true;
+          deferredScripts.forEach(function (scriptInfo) {
+            var s = document.createElement('script');
+            if (scriptInfo.src) {
+              s.src = scriptInfo.src;
+              s.async = true;
+            } else {
+              s.textContent = scriptInfo.content;
+            }
+            document.head.appendChild(s);
+          });
+          deferredScripts = [];
+        }
+
+        // Trigger on user interaction
+        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (e) {
+          window.addEventListener(e, loadDeferredScripts, { once: true, passive: true });
+        });
+
+        // Fallback after 4 seconds (reviews should appear even without interaction)
+        setTimeout(loadDeferredScripts, 4000);
+
+        // MutationObserver to intercept Judge.me scripts
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            mutation.addedNodes.forEach(function (node) {
+              if (node.tagName === 'SCRIPT') {
+                var src = node.src || '';
+                var content = node.textContent || '';
+                // Check if it's a Judge.me script
+                if (
+                  src.indexOf('judge.me') !== -1 ||
+                  src.indexOf('judgeme') !== -1 ||
+                  content.indexOf('jdgm') !== -1 ||
+                  content.indexOf('judge.me') !== -1
+                ) {
+                  // Block it
+                  node.type = 'javascript/blocked';
+                  node.remove();
+                  // Queue for later
+                  deferredScripts.push({ src: src || null, content: src ? null : content });
+                }
+              }
+            });
+          });
+        });
+
+        observer.observe(document.head, { childList: true });
+        // Stop observing after DOM is complete
+        document.addEventListener('DOMContentLoaded', function () {
+          setTimeout(function () {
+            observer.disconnect();
+          }, 100);
+        });
+      })();
+    </script>
 
     {{ content_for_header }}
 
