@@ -24,7 +24,8 @@
       ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (e) {
         window.addEventListener(e, window.loadGTM, { once: true, passive: true });
       });
-      setTimeout(window.loadGTM, 3000);
+      // Removed setTimeout fallback to force load ONLY on interaction for maximum TBT reduction
+      // setTimeout(window.loadGTM, 3000);
     </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
