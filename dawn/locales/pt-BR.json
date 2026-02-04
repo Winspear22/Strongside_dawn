@@ -78,7 +78,12 @@
     "total_reviews": "total de avaliações",
     "star_reviews_info": "{{ rating_value }} de {{ rating_max }} estrelas",
     "collapsible_content_title": "Conteúdo recolhível",
-    "complementary_products": "Produtos complementares"
+    "complementary_products": "Produtos complementares",
+    "view_image": "Ver imagem",
+    "thumbnail": "miniatura",
+    "cart": "Carrinho",
+    "open_menu": "Abrir menu",
+    "close_menu": "Fechar menu"
   },
   "blogs": {
     "article": {

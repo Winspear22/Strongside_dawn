@@ -921,12 +921,14 @@
               class="strongside-thumb-btn {% if forloop.first %}is-active{% endif %}"
               style="width:3rem;height:3rem;"
               onclick="goToImageIndex({{ forloop.index0 }})"
+              aria-label="{{ 'accessibility.view_image' | t }} {{ forloop.index }}"
             >
               <img
                 src="{{ media | image_url: width: 200 }}"
                 class="w-full h-full object-cover"
                 width="200"
                 height="200"
+                alt="{{ media.alt | default: product.title | escape }} - {{ 'accessibility.thumbnail' | t }} {{ forloop.index }}"
               >
             </button>
           {% endfor %}
@@ -967,7 +969,7 @@
                 color: #d1d5db;
                 padding-top: 1rem;
               }
-              .strongside-desc-body h3 {
+              .strongside-desc-body h2 {
                 font-size: 1.125rem;
                 font-weight: 800;
                 text-transform: uppercase;
@@ -977,7 +979,7 @@
                 letter-spacing: 0.05em;
                 line-height: 1.4;
               }
-              .strongside-desc-body h4 {
+              .strongside-desc-body h3 {
                 font-size: 1rem;
                 font-weight: 700;
                 color: white;
@@ -1012,10 +1014,10 @@
                   font-size: 1rem;
                   line-height: 1.75;
                 }
-                .strongside-desc-body h3 {
+                .strongside-desc-body h2 {
                   font-size: 1.25rem;
                 }
-                .strongside-desc-body h4 {
+                .strongside-desc-body h3 {
                   font-size: 1.125rem;
                 }
               }
@@ -1023,7 +1025,7 @@
             {% if product.description != blank %}
               {{ product.description }}
             {% else %}
-              <h3>{{ 'strongside.shop.features.title' | t }}</h3>
+              <h2>{{ 'strongside.shop.features.title' | t }}</h2>
               <p>Conçu pour sculpter votre puissance de frappe. <strong>MORE RESISTANCE MORE POWER.</strong></p>
               <p>
                 Conçu pour le Shadow Boxing, le travail au sac, les pads, les paos et le conditionnement physique
@@ -1034,8 +1036,8 @@
                 <em>Un équipement sports de combat unique, conçu et disponible exclusivement sur strongside.tech</em>
               </p>
 
-              <h3>{{ 'strongside.shop.whatYouGet.title' | t }} :</h3>
-              <h4>1. STRONGSIDE Pro Boxing Harness (Ajustable)</h4>
+              <h2>{{ 'strongside.shop.whatYouGet.title' | t }} :</h2>
+              <h3>1. STRONGSIDE Pro Boxing Harness (Ajustable)</h3>
               <ul>
                 <li>Conception ergonomique pour un maintien parfait sans gêner les mouvements.</li>
                 <li>Matériaux haute résistance.</li>
@@ -1539,6 +1541,7 @@
           <div style="display:flex; gap:0.5rem;">
             <button
               id="hero-vid-prev"
+              aria-label="Previous video"
               style="width:3.25rem;height:3.25rem;border-radius:9999px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;"
               onmouseover="this.style.background='#333333'; this.querySelector('svg').style.stroke='#ff2222';"
               onmouseout="this.style.background='#1a1a1a'; this.querySelector('svg').style.stroke='white';"
@@ -1556,6 +1559,7 @@
             </button>
             <button
               id="hero-vid-next"
+              aria-label="Next video"
               style="width:3.25rem;height:3.25rem;border-radius:9999px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:white;border:none;cursor:pointer;transition:background 0.2s;"
               onmouseover="this.style.background='#333333'; this.querySelector('svg').style.stroke='#ff2222';"
               onmouseout="this.style.background='#1a1a1a'; this.querySelector('svg').style.stroke='white';"
@@ -2034,10 +2038,10 @@ function toggleDescription() {
                </div>
             </div>
             <div style="position:absolute; bottom:1rem; left:0.5rem; right:0.5rem; color:white; font-family:'Inter', sans-serif; font-weight:900; font-style:italic; font-size:1.15rem; text-transform:uppercase; line-height:1; letter-spacing:-0.02em; pointer-events:none; text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 2px 4px rgba(0,0,0,0.8);">${video.title}</div>
-            <button class="hero-card-mute" style="position:absolute; top:0.5rem; right:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; display:flex; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
+            <button class="hero-card-mute" aria-label="Toggle sound" style="position:absolute; top:0.5rem; right:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; display:flex; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
                <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg>
             </button>
-            <button class="hero-card-fullscreen mobile-only-btn" style="position:absolute; top:0.5rem; left:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
+            <button class="hero-card-fullscreen mobile-only-btn" aria-label="Fullscreen" style="position:absolute; top:0.5rem; left:0.5rem; width:2.5rem; height:2.5rem; border-radius:50%; background:rgba(0,0,0,0.4); backdrop-filter:blur(4px); border:none; color:white; align-items:center; justify-content:center; z-index:10; cursor:pointer;">
                <svg style="width:16px; height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
             </button>
           `;

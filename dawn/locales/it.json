@@ -78,7 +78,12 @@
     "total_reviews": "total des critiques",
     "star_reviews_info": "{{ rating_value }} sur {{ rating_max }} étoiles",
     "collapsible_content_title": "Contenu réductible",
-    "complementary_products": "Produits complémentaires"
+    "complementary_products": "Produits complémentaires",
+    "view_image": "Visualizza immagine",
+    "thumbnail": "miniatura",
+    "cart": "Carrello",
+    "open_menu": "Apri menu",
+    "close_menu": "Chiudi menu"
   },
   "blogs": {
     "article": {

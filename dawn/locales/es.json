@@ -78,7 +78,12 @@
     "total_reviews": "Bewertungen insgesamt",
     "star_reviews_info": "{{ rating_value }} von {{ rating_max }} Sternen",
     "collapsible_content_title": "Einklappbarer Inhalt",
-    "complementary_products": "Ergänzende Produkte"
+    "complementary_products": "Ergänzende Produkte",
+    "view_image": "Ver imagen",
+    "thumbnail": "miniatura",
+    "cart": "Carrito",
+    "open_menu": "Abrir menú",
+    "close_menu": "Cerrar menú"
   },
   "blogs": {
     "article": {
