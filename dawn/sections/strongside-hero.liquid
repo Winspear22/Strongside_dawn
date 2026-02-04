@@ -252,6 +252,21 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Force buttons to not be huge */
+  html body #strongside-hero-wrapper .strongside-variant-btn {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 0.65rem !important; /* Even more compact */
+  }
+
+  /* BADGE FIX - THE ONE THE USER POINTED OUT */
+  html body #strongside-hero-wrapper .strongside-discount-badge {
+    font-size: 1.5rem !important; /* Reduced from 2.8rem */
+    padding: 0.4rem 0.8rem !important; /* Reduced padding */
+  }
+
   #strongside-hero-wrapper .strongside-product-title {
     font-family: 'Inter', system-ui, sans-serif !important;
     font-size: 3.6rem !important;
@@ -323,7 +338,7 @@
 
   #strongside-hero-wrapper .strongside-price-container {
     display: flex;
-    align-items: baseline;
+    align-items: center; /* Changed from baseline to center for badge alignment */
     gap: 1.2rem;
     margin-bottom: 1rem;
     min-height: 4.5rem; /* Reserve space to prevent CLS */
@@ -399,10 +414,16 @@
   /* Container for Side-by-Side Cards */
   #strongside-hero-wrapper .strongside-variants-grid {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; /* Wraps only if screen is very narrow */
+    flex-direction: column; /* Stack vertically on mobile */
     gap: 10px;
     width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    #strongside-hero-wrapper .strongside-variants-grid {
+      flex-direction: row; /* Side-by-side on desktop */
+      flex-wrap: wrap;
+    }
   }
 
   /* Premium Variant Option Cards (Pill Shape) */
@@ -425,15 +446,17 @@
     align-items: center; /* Centered alignment */
     text-align: center; /* Centered text */
     /* FLEX CHILD PROPERTIES */
-    flex: 1 1 150px; /* Grow, Shrink, Basis */
-    min-width: 0; /* Allow flex shrink below content size if needed */
+    flex: 1 1 auto; /* Mobile: Content-based height */
+    width: 100%; /* Mobile: Full width */
     height: auto;
   }
 
   @media (min-width: 768px) {
     #strongside-hero-wrapper .strongside-variant-btn {
-      /* Desktop adjustments if needed */
+      /* Desktop adjustments */
       padding: 1.5rem 2rem;
+      flex: 1 1 150px; /* Desktop: Basis is width */
+      width: auto;
     }
   }
 
@@ -447,12 +470,12 @@
   }
 
   #strongside-hero-wrapper .variant-title {
-    font-size: 1rem; /* Slightly smaller to fit side-by-side */
+    font-size: 1.3rem; /* Restored larger size */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     line-height: 1.2;
-    white-space: nowrap; /* Prevent wrapping title if possible */
+    white-space: normal; /* Allow wrapping */
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
@@ -473,10 +496,10 @@
   }
 
   #strongside-hero-wrapper .variant-compare {
-    font-size: 1.4rem; /* Increased size */
+    font-size: 1.4rem; /* Restored larger size */
     text-decoration: line-through;
-    text-decoration-color: #ff0000 !important; /* Red strikethrough */
-    text-decoration-thickness: 2px; /* Visible thickness */
+    text-decoration-color: #ff0000 !important; /* Red strikethrough kept */
+    text-decoration-thickness: 2px; /* Visible thickness kept */
     opacity: 0.7;
     font-weight: 600;
   }
@@ -487,7 +510,7 @@
     font-size: 0.9rem;
     font-weight: 800;
     padding: 0.2rem 0.6rem;
-    border-radius: 9999px;
+    border-radius: 999px;
     display: inline-block;
   }
 
@@ -706,13 +729,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap; /* Fix mobile horizontal scroll */
     gap: 1.5rem;
     margin-top: 1rem;
   }
 
   #strongside-hero-wrapper .strongside-trust-logo-img,
   #strongside-hero-wrapper .strongside-trust-logos svg {
-    height: 4.5rem !important; /* Increased to 4.5rem per user request */
+    height: 3.6rem !important; /* Revert to original size */
     width: auto !important;
     max-width: 112px !important;
     object-fit: contain;

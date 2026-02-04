@@ -178,13 +178,14 @@
 
   .ss-footer-payment-icons {
     display: flex !important;
+    flex-wrap: wrap !important; /* Fix mobile overflow */
     align-items: center !important;
     justify-content: center !important;
-    gap: 1.5rem !important;
+    gap: 1rem !important;
   }
 
   .ss-footer-payment-img {
-    height: 5.5rem !important;
+    height: 3rem !important; /* Mobile friendly size */
     width: auto !important;
     object-fit: contain !important;
     opacity: 0.6 !important;
@@ -195,14 +196,20 @@
     opacity: 1 !important;
   }
 
-  .ss-footer-payment-img-small {
-    height: 4.1rem !important;
-  }
-
   .ss-footer-payment-icons svg {
-    height: 5.5rem !important;
+    height: 3rem !important; /* Mobile friendly size */
     width: auto !important;
     margin: 0 0.5rem !important;
+  }
+
+  @media (min-width: 768px) {
+    .ss-footer-payment-icons {
+      gap: 1.5rem !important;
+    }
+    .ss-footer-payment-img,
+    .ss-footer-payment-icons svg {
+      height: 4.5rem !important; /* Larger on desktop */
+    }
   }
 
   /* Copyright */
