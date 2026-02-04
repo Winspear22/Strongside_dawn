@@ -155,15 +155,21 @@
   /* GRID */
   #shopify-section-{{ section.id }} .ss-wyg-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3.75rem; /* Scaled 2.5x (was 1.5rem) */
+    grid-template-columns: 1fr; /* Mobile: 1 colonne (images plus grandes) */
+    gap: 2rem;
     justify-content: center;
     margin-bottom: 2.5rem;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 600px) {
     #shopify-section-{{ section.id }} .ss-wyg-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5rem; /* Scaled 2.5x (was 2rem) */
+      grid-template-columns: repeat(2, 1fr); /* Tablet: 2 colonnes */
+      gap: 3rem;
+    }
+  }
+  @media (min-width: 900px) {
+    #shopify-section-{{ section.id }} .ss-wyg-grid {
+      grid-template-columns: repeat(3, 1fr); /* Desktop: 3 colonnes */
+      gap: 5rem;
     }
   }
 

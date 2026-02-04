@@ -1910,20 +1910,76 @@ function toggleDescription() {
   /* --- INTEGRATED VIDEO CAROUSEL LOGIC --- */
   (function () {
     const videos = [
-      { id: '14', src: "{{ '14_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_14' | t }}" },
-      { id: '1', src: "{{ '1_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_1' | t }}" },
-      { id: '2', src: "{{ '2_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_2' | t }}" },
-      { id: '3', src: "{{ '3_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_3' | t }}" },
-      { id: '4', src: "{{ '4_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_4' | t }}" },
-      { id: '5', src: "{{ '5_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_5' | t }}" },
-      { id: '6', src: "{{ '6_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_6' | t }}" },
-      { id: '7', src: "{{ '7_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_7' | t }}" },
-      { id: '8', src: "{{ '8_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_8' | t }}" },
-      { id: '9', src: "{{ '9_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_9' | t }}" },
-      { id: '10', src: "{{ '10_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_10' | t }}" },
-      { id: '11', src: "{{ '11_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_11' | t }}" },
-      { id: '12', src: "{{ '12_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_12' | t }}" },
-      { id: '13', src: "{{ '13_redux.mp4' | asset_url }}", title: "{{ 'strongside.training.cards.card_13' | t }}" },
+      {
+        id: '14',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232168/14_redux_rckaqg.mp4',
+        title: "{{ 'strongside.training.cards.card_14' | t }}",
+      },
+      {
+        id: '1',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232166/1_redux_mad79t.mp4',
+        title: "{{ 'strongside.training.cards.card_1' | t }}",
+      },
+      {
+        id: '2',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232245/2_redux_rkejdl.mp4',
+        title: "{{ 'strongside.training.cards.card_2' | t }}",
+      },
+      {
+        id: '3',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232166/3_redux_armplh.mp4',
+        title: "{{ 'strongside.training.cards.card_3' | t }}",
+      },
+      {
+        id: '4',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232168/4_redux_ghiesk.mp4',
+        title: "{{ 'strongside.training.cards.card_4' | t }}",
+      },
+      {
+        id: '5',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232166/5_redux_fqem5n.mp4',
+        title: "{{ 'strongside.training.cards.card_5' | t }}",
+      },
+      {
+        id: '6',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232166/6_redux_fi0miz.mp4',
+        title: "{{ 'strongside.training.cards.card_6' | t }}",
+      },
+      {
+        id: '7',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232165/7_redux_zt60kz.mp4',
+        title: "{{ 'strongside.training.cards.card_7' | t }}",
+      },
+      {
+        id: '8',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232245/8_redux_sf7pdn.mp4',
+        title: "{{ 'strongside.training.cards.card_8' | t }}",
+      },
+      {
+        id: '9',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232167/9_redux_xiqh0q.mp4',
+        title: "{{ 'strongside.training.cards.card_9' | t }}",
+      },
+      {
+        id: '10',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232167/10_redux_kwx5oh.mp4',
+        title: "{{ 'strongside.training.cards.card_10' | t }}",
+      },
+      {
+        id: '11',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232167/11_redux_pdgswn.mp4',
+        title: "{{ 'strongside.training.cards.card_11' | t }}",
+      },
+      {
+        id: '12',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232167/12_redux_w04mcg.mp4',
+        title: "{{ 'strongside.training.cards.card_12' | t }}",
+      },
+      {
+        id: '13',
+        src: 'https://res.cloudinary.com/dgelmjyp7/video/upload/v1770232167/13_redux_ywu3xa.mp4',
+        title: "{{ 'strongside.training.cards.card_13' | t }}",
+      },
     ];
 
     const track = document.getElementById('hero-video-track');

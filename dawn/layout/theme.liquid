@@ -36,7 +36,7 @@
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- else -%}
-      <link rel="icon" type="image/jpeg" href="{{ 'favicon.jpg' | asset_url }}">
+      <link rel="icon" type="image/png" href="{{ 'favicon_32.png' | asset_url }}">
     {%- endif -%}
 
     {%- if template.name == 'index' -%}
@@ -63,14 +63,21 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    <!-- GOOGLE FONTS - Inter (Preload for faster FCP) -->
+    <!-- GOOGLE FONTS - Inter (NON-BLOCKING for faster FCP) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-      fetchpriority="high"
+      onload="this.rel='stylesheet'"
     >
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      >
+    </noscript>
 
     <title>
       {{ page_title }}
