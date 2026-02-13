@@ -9,7 +9,7 @@ translations = {
         "cgv": {
             "title": "Termos e Condições Gerais de Venda", "back": "Voltar", "lastUpdate": "TC atualizados em 16/12/2025",
             "sections": {
-                "preliminary": { "title": "Artigo Preliminar", "text": "Estes termos e condições gerais de venda são acordados entre a STRONGSIDE Technologies, operada por Adam Aloui, doravante designada 'o Vendedor', e qualquer pessoa que deseje efetuar uma compra através do site https://www.strongside.tech/, doravante designada 'o Comprador'." },
+                "preliminary": { "title": "Artigo Preliminar", "text": "Estes termos e condições gerais de venda são acordados entre a STRONGSIDE Technologies, operada por STRONGSIDE, doravante designada 'o Vendedor', e qualquer pessoa que deseje efetuar uma compra através do site https://www.strongside.tech/, doravante designada 'o Comprador'." },
                 "object": {
                     "title": "Artigo 1. Objeto",
                     "text1": "O objetivo destas condições gerais de venda é definir a relação contratual entre a STRONGSIDE Technologies e o Comprador, bem como as condições aplicáveis a qualquer compra efetuada através do site https://www.strongside.tech/.",
@@ -86,8 +86,8 @@ translations = {
                 "identification": {
                     "title": "Identificação e Publicação",
                     "editor": "Editor",
-                    "editorText": "Este site é publicado por ADAM ALOUI – STRONGSIDE Technologies.",
-                    "director": "Diretor de Publicação: Adam Aloui",
+                    "editorText": "Este site é publicado por STRONGSIDE – STRONGSIDE Technologies.",
+                    "director": "Diretor de Publicação: STRONGSIDE",
                     "host": "Alojamento",
                     "hostText": "Este site é alojado pela Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, EUA."
                 },
@@ -120,7 +120,7 @@ translations = {
         "cgv": {
             "title": "Termos e Condições Gerais de Venda", "back": "Voltar", "lastUpdate": "TC atualizados em 16/12/2025",
             "sections": {
-                "preliminary": { "title": "Artigo Preliminar", "text": "Estes termos e condições gerais de venda são acordados entre a STRONGSIDE Technologies, operada por Adam Aloui, doravante denominada 'o Vendedor', e qualquer pessoa que deseje efetuar uma compra através do site https://www.strongside.tech/, doravante denominada 'o Comprador'." },
+                "preliminary": { "title": "Artigo Preliminar", "text": "Estes termos e condições gerais de venda são acordados entre a STRONGSIDE Technologies, operada por STRONGSIDE, doravante denominada 'o Vendedor', e qualquer pessoa que deseje efetuar uma compra através do site https://www.strongside.tech/, doravante denominada 'o Comprador'." },
                 "object": {
                     "title": "Artigo 1. Objeto",
                     "text1": "O objetivo destas condições gerais de venda é definir a relação contratual entre a STRONGSIDE Technologies e o Comprador, bem como as condições aplicáveis a qualquer compra efetuada através do site https://www.strongside.tech/.",
@@ -197,8 +197,8 @@ translations = {
                 "identification": {
                     "title": "Identificação e Publicação",
                     "editor": "Editor",
-                    "editorText": "Este site é publicado por ADAM ALOUI – STRONGSIDE Technologies.",
-                    "director": "Diretor de Publicação: Adam Aloui",
+                    "editorText": "Este site é publicado por STRONGSIDE – STRONGSIDE Technologies.",
+                    "director": "Diretor de Publicação: STRONGSIDE",
                     "host": "Hospedagem",
                     "hostText": "Este site é hospedado pela Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, EUA."
                 },
@@ -235,7 +235,7 @@ translations = {
             "sections": {
                 "preliminary": {
                     "title": "Inledning",
-                    "text": "Dessa allmänna försäljningsvillkor ingås mellan STRONGSIDE Technologies, driven av Adam Aloui, hädanefter kallad 'Säljaren', som driver webbplatsen https://www.strongside.tech/, och varje fysisk eller juridisk person som önskar göra ett köp via webbplatsen https://www.strongside.tech/, hädanefter kallad 'Köparen'."
+                    "text": "Dessa allmänna försäljningsvillkor ingås mellan STRONGSIDE Technologies, driven av STRONGSIDE, hädanefter kallad 'Säljaren', som driver webbplatsen https://www.strongside.tech/, och varje fysisk eller juridisk person som önskar göra ett köp via webbplatsen https://www.strongside.tech/, hädanefter kallad 'Köparen'."
                 },
                 "object": {
                     "title": "Artikel 1. Syfte",
@@ -330,8 +330,8 @@ translations = {
                 "identification": {
                     "title": "Identifikation och Publicering",
                     "editor": "Utgivare",
-                    "editorText": "Denna webbplats publiceras av ADAM ALOUI – STRONGSIDE Technologies.",
-                    "director": "Ansvarig utgivare: Adam Aloui",
+                    "editorText": "Denna webbplats publiceras av STRONGSIDE – STRONGSIDE Technologies.",
+                    "director": "Ansvarig utgivare: STRONGSIDE",
                     "host": "Webbhotell",
                     "hostText": "Denna webbplats hostas av Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA."
                 },

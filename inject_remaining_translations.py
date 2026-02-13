@@ -9,7 +9,7 @@ translations = {
         "cgv": {
             "title": "Termos e Condições Gerais de Venda", "back": "Voltar", "lastUpdate": "TC atualizados em 16/12/2025",
             "sections": {
-                "preliminary": { "title": "Artigo Preliminar", "text": "Estes termos e condições gerais de venda são acordados entre a STRONGSIDE Technologies, operada por Adam Aloui, doravante designada 'o Vendedor', e qualquer pessoa que deseje efetuar uma compra através do site https://www.strongside.tech/, doravante designada 'o Comprador'." },
+                "preliminary": { "title": "Artigo Preliminar", "text": "Estes termos e condições gerais de venda são acordados entre a STRONGSIDE Technologies, operada por STRONGSIDE, doravante designada 'o Vendedor', e qualquer pessoa que deseje efetuar uma compra através do site https://www.strongside.tech/, doravante designada 'o Comprador'." },
                 "object": { "title": "Artigo 1. Objeto", "text1": "O objetivo destas condições é definir a relação contratual entre a STRONGSIDE Technologies e o Comprador.", "text2": "A compra de um produto implica a aceitação sem reservas destas condições.", "text3": "O Comprador declara ter capacidade legal plena.", "text4": "A STRONGSIDE reserva-se o direito de modificar estas condições a qualquer momento." },
                 "products": { "title": "Artigo 2. Produtos", "text1": "Os produtos oferecidos são os listados no site, sujeitos à disponibilidade.", "text2": "As fotografias são o mais precisas possível, mas não contratuais." },
                 "prices": { "title": "Artigo 3. Preços", "text1": "Os preços são em euros (€) com impostos incluídos.", "text2": "Os preços podem ser alterados a qualquer momento.", "text3": "Os custos de envio são cobrados separadamente." },
@@ -30,7 +30,7 @@ translations = {
         "legal": {
             "title": "Aviso Legal", "back": "Voltar", "lastUpdate": "Atualizado em 15/12/2025",
             "sections": {
-                "identification": { "title": "Identificação", "editor": "Editor", "editorText": "Adam Aloui – STRONGSIDE Technologies.", "director": "Diretor: Adam Aloui", "host": "Alojamento: Vercel Inc." },
+                "identification": { "title": "Identificação", "editor": "Editor", "editorText": "STRONGSIDE – STRONGSIDE Technologies.", "director": "Diretor: STRONGSIDE", "host": "Alojamento: Vercel Inc." },
                 "ip": { "title": "Propriedade Intelectual", "protection": "Conteúdo protegido por direitos de autor.", "privateUse": "Uso privado apenas.", "reproduction": "Reprodução proibida.", "sanctions": "Violações sujeitas a sanções.", "paperReproduction": "Citação permitida com fonte.", "infringement": "Violação constitui contrafação.", "hyperlink": "Links requerem autorização." },
                 "data": { "title": "Dados e Cookies", "intro": "Usamos tecnologias de rastreio.", "ga4Title": "Google Analytics 4", "ga4Text": "Análise anonimizada de tráfego.", "shopifyTitle": "Shopify", "shopifyText": "Pagamentos seguros e processamento de encomendas.", "vercelTitle": "Vercel", "vercelText": "Otimização de desempenho.", "consent": "O uso implica consentimento." }
             }
@@ -60,7 +60,7 @@ translations = {
                 "proof": { "title": "Artigo 15. Provas", "text": "Registros digitais válidos." }
             }
         },
-        "legal": { "title": "Aviso Legal", "back": "Voltar", "lastUpdate": "Atualizado em 15/12/2025", "sections": { "identification": { "title": "Identificação", "editor": "Editor", "editorText": "STRONGSIDE Technologies.", "director": "Diretor: Adam Aloui", "host": "Host: Vercel Inc." }, "ip": { "title": "Propriedade Intelectual", "protection": "Todos os direitos reservados.", "privateUse": "Uso pessoal.", "reproduction": "Proibida.", "sanctions": "Sujeito a sanções.", "paperReproduction": "Citação permitida.", "infringement": "Contrafação.", "hyperlink": "Autorização necessária." }, "data": { "title": "Dados e Cookies", "intro": "Rastreament para melhoria.", "ga4Title": "GA4", "ga4Text": "Análise anônima.", "shopifyTitle": "Shopify", "shopifyText": "Pagamento seguro.", "vercelTitle": "Vercel", "vercelText": "Performance.", "consent": "Aceite ao usar." } } }
+        "legal": { "title": "Aviso Legal", "back": "Voltar", "lastUpdate": "Atualizado em 15/12/2025", "sections": { "identification": { "title": "Identificação", "editor": "Editor", "editorText": "STRONGSIDE Technologies.", "director": "Diretor: STRONGSIDE", "host": "Host: Vercel Inc." }, "ip": { "title": "Propriedade Intelectual", "protection": "Todos os direitos reservados.", "privateUse": "Uso pessoal.", "reproduction": "Proibida.", "sanctions": "Sujeito a sanções.", "paperReproduction": "Citação permitida.", "infringement": "Contrafação.", "hyperlink": "Autorização necessária." }, "data": { "title": "Dados e Cookies", "intro": "Rastreament para melhoria.", "ga4Title": "GA4", "ga4Text": "Análise anônima.", "shopifyTitle": "Shopify", "shopifyText": "Pagamento seguro.", "vercelTitle": "Vercel", "vercelText": "Performance.", "consent": "Aceite ao usar." } } }
     },
     # SWEDISH
     "sv": {
@@ -86,7 +86,7 @@ translations = {
                 "proof": { "title": "Artikel 15. Bevis", "text": "Digitala loggar gäller." }
             }
         },
-        "legal": { "title": "Juridisk information", "back": "Tillbaka", "lastUpdate": "Uppdaterad 2025-12-15", "sections": { "identification": { "title": "Identifikation", "editor": "Utgivare", "editorText": "STRONGSIDE Technologies.", "director": "Ansvarig: Adam Aloui", "host": "Värd: Vercel Inc." }, "ip": { "title": "Rättigheter", "protection": "Skyddat innehåll.", "privateUse": "Privat bruk.", "reproduction": "Förbjudet.", "sanctions": "Straffbart.", "paperReproduction": "Tillåtet med källa.", "infringement": "Intrång.", "hyperlink": "Kräver tillstånd." }, "data": { "title": "Data & Cookies", "intro": "Vi använder spårning.", "ga4Title": "GA4", "ga4Text": "Anonym analys.", "shopifyTitle": "Shopify", "shopifyText": "Säker betalning.", "vercelTitle": "Vercel", "vercelText": "Prestanda.", "consent": "Godkännande vid användning." } } }
+        "legal": { "title": "Juridisk information", "back": "Tillbaka", "lastUpdate": "Uppdaterad 2025-12-15", "sections": { "identification": { "title": "Identifikation", "editor": "Utgivare", "editorText": "STRONGSIDE Technologies.", "director": "Ansvarig: STRONGSIDE", "host": "Värd: Vercel Inc." }, "ip": { "title": "Rättigheter", "protection": "Skyddat innehåll.", "privateUse": "Privat bruk.", "reproduction": "Förbjudet.", "sanctions": "Straffbart.", "paperReproduction": "Tillåtet med källa.", "infringement": "Intrång.", "hyperlink": "Kräver tillstånd." }, "data": { "title": "Data & Cookies", "intro": "Vi använder spårning.", "ga4Title": "GA4", "ga4Text": "Anonym analys.", "shopifyTitle": "Shopify", "shopifyText": "Säker betalning.", "vercelTitle": "Vercel", "vercelText": "Prestanda.", "consent": "Godkännande vid användning." } } }
     },
     # DANISH
     "da": {
@@ -112,7 +112,7 @@ translations = {
                 "proof": { "title": "Artikel 15. Bevis", "text": "Digitale data gælder." }
             }
         },
-        "legal": { "title": "Juridisk", "back": "Tilbage", "lastUpdate": "Opdateret 15/12/2025", "sections": { "identification": { "title": "Info", "editor": "Udgiver", "editorText": "STRONGSIDE Technologies.", "director": "Direktør: Adam Aloui", "host": "Host: Vercel Inc." }, "ip": { "title": "Rettigheder", "protection": "Ophavsretligt beskyttet.", "privateUse": "Privat brug.", "reproduction": "Forbudt.", "sanctions": "Strafbart.", "paperReproduction": "Tilladt med kilde.", "infringement": "Lovbrud.", "hyperlink": "Kræver tilladelse." }, "data": { "title": "Data & Cookies", "intro": "Tracking anvendes.", "ga4Title": "GA4", "ga4Text": "Anonym statistik.", "shopifyTitle": "Shopify", "shopifyText": "Sikker betaling.", "vercelTitle": "Vercel", "vercelText": "Hosting.", "consent": "Accept ved brug." } } }
+        "legal": { "title": "Juridisk", "back": "Tilbage", "lastUpdate": "Opdateret 15/12/2025", "sections": { "identification": { "title": "Info", "editor": "Udgiver", "editorText": "STRONGSIDE Technologies.", "director": "Direktør: STRONGSIDE", "host": "Host: Vercel Inc." }, "ip": { "title": "Rettigheder", "protection": "Ophavsretligt beskyttet.", "privateUse": "Privat brug.", "reproduction": "Forbudt.", "sanctions": "Strafbart.", "paperReproduction": "Tilladt med kilde.", "infringement": "Lovbrud.", "hyperlink": "Kræver tilladelse." }, "data": { "title": "Data & Cookies", "intro": "Tracking anvendes.", "ga4Title": "GA4", "ga4Text": "Anonym statistik.", "shopifyTitle": "Shopify", "shopifyText": "Sikker betaling.", "vercelTitle": "Vercel", "vercelText": "Hosting.", "consent": "Accept ved brug." } } }
     },
     # JAPANESE
     "ja": {
@@ -138,7 +138,7 @@ translations = {
                 "proof": { "title": "第15条 証拠", "text": "デジタル記録を証拠とします。" }
             }
         },
-        "legal": { "title": "法的通知", "back": "戻る", "lastUpdate": "2025年12月15日 更新", "sections": { "identification": { "title": "運営者情報", "editor": "発行者", "editorText": "STRONGSIDE Technologies.", "director": "責任者: Adam Aloui", "host": "ホスト: Vercel Inc." }, "ip": { "title": "知的財産", "protection": "著作権で保護されています。", "privateUse": "私的利用のみ。", "reproduction": "複製禁止。", "sanctions": "処罰の対象。", "paperReproduction": "引用可。", "infringement": "侵害。", "hyperlink": "許可が必要。" }, "data": { "title": "データとCookie", "intro": "追跡技術を使用。", "ga4Title": "GA4", "ga4Text": "匿名分析。", "shopifyTitle": "Shopify", "shopifyText": "安全な決済。", "vercelTitle": "Vercel", "vercelText": "パフォーマンス。", "consent": "利用により同意。" } } }
+        "legal": { "title": "法的通知", "back": "戻る", "lastUpdate": "2025年12月15日 更新", "sections": { "identification": { "title": "運営者情報", "editor": "発行者", "editorText": "STRONGSIDE Technologies.", "director": "責任者: STRONGSIDE", "host": "ホスト: Vercel Inc." }, "ip": { "title": "知的財産", "protection": "著作権で保護されています。", "privateUse": "私的利用のみ。", "reproduction": "複製禁止。", "sanctions": "処罰の対象。", "paperReproduction": "引用可。", "infringement": "侵害。", "hyperlink": "許可が必要。" }, "data": { "title": "データとCookie", "intro": "追跡技術を使用。", "ga4Title": "GA4", "ga4Text": "匿名分析。", "shopifyTitle": "Shopify", "shopifyText": "安全な決済。", "vercelTitle": "Vercel", "vercelText": "パフォーマンス。", "consent": "利用により同意。" } } }
     },
     # CHINESE SIMPLIFIED
     "zh-CN": {
@@ -164,7 +164,7 @@ translations = {
                 "proof": { "title": "第15条 证据", "text": "电子记录为证。" }
             }
         },
-        "legal": { "title": "法律声明", "back": "返回", "lastUpdate": "Updated 12/15/2025", "sections": { "identification": { "title": "信息", "editor": "发行人", "editorText": "STRONGSIDE Technologies.", "director": "总监: Adam Aloui", "host": "主机: Vercel Inc." }, "ip": { "title": "知识产权", "protection": "受保护。", "privateUse": "仅限私用。", "reproduction": "禁止。", "sanctions": "受罚。", "paperReproduction": "允许引用。", "infringement": "侵权。", "hyperlink": "需授权。" }, "data": { "title": "数据与Cookie", "intro": "使用追踪技术。", "ga4Title": "GA4", "ga4Text": "匿名分析。", "shopifyTitle": "Shopify", "shopifyText": "安全支付。", "vercelTitle": "Vercel", "vercelText": "性能。", "consent": "使用即同意。" } } }
+        "legal": { "title": "法律声明", "back": "返回", "lastUpdate": "Updated 12/15/2025", "sections": { "identification": { "title": "信息", "editor": "发行人", "editorText": "STRONGSIDE Technologies.", "director": "总监: STRONGSIDE", "host": "主机: Vercel Inc." }, "ip": { "title": "知识产权", "protection": "受保护。", "privateUse": "仅限私用。", "reproduction": "禁止。", "sanctions": "受罚。", "paperReproduction": "允许引用。", "infringement": "侵权。", "hyperlink": "需授权。" }, "data": { "title": "数据与Cookie", "intro": "使用追踪技术。", "ga4Title": "GA4", "ga4Text": "匿名分析。", "shopifyTitle": "Shopify", "shopifyText": "安全支付。", "vercelTitle": "Vercel", "vercelText": "性能。", "consent": "使用即同意。" } } }
     },
     # POLISH
     "pl": {
@@ -190,7 +190,7 @@ translations = {
                 "proof": { "title": "Art. 15. Dowód", "text": "Zapisy cyfrowe." }
             }
         },
-        "legal": { "title": "Informacje prawne", "back": "Wstecz", "lastUpdate": "Zaktualizowano 15.12.2025", "sections": { "identification": { "title": "Identyfikacja", "editor": "Wydawca", "editorText": "STRONGSIDE Technologies.", "director": "Dyrektor: Adam Aloui", "host": "Host: Vercel Inc." }, "ip": { "title": "Własność", "protection": "Chronione prawem.", "privateUse": "Użytek prywatny.", "reproduction": "Zabroniona.", "sanctions": "Karalne.", "paperReproduction": "Dozwolone z cytatem.", "infringement": "Naruszenie.", "hyperlink": "Wymagana zgoda." }, "data": { "title": "Dane i Cookies", "intro": "Śledzenie.", "ga4Title": "GA4", "ga4Text": "Anonimowe.", "shopifyTitle": "Shopify", "shopifyText": "Bezpieczne płatności.", "vercelTitle": "Vercel", "vercelText": "Wydajność.", "consent": "Zgoda przez użycie." } } }
+        "legal": { "title": "Informacje prawne", "back": "Wstecz", "lastUpdate": "Zaktualizowano 15.12.2025", "sections": { "identification": { "title": "Identyfikacja", "editor": "Wydawca", "editorText": "STRONGSIDE Technologies.", "director": "Dyrektor: STRONGSIDE", "host": "Host: Vercel Inc." }, "ip": { "title": "Własność", "protection": "Chronione prawem.", "privateUse": "Użytek prywatny.", "reproduction": "Zabroniona.", "sanctions": "Karalne.", "paperReproduction": "Dozwolone z cytatem.", "infringement": "Naruszenie.", "hyperlink": "Wymagana zgoda." }, "data": { "title": "Dane i Cookies", "intro": "Śledzenie.", "ga4Title": "GA4", "ga4Text": "Anonimowe.", "shopifyTitle": "Shopify", "shopifyText": "Bezpieczne płatności.", "vercelTitle": "Vercel", "vercelText": "Wydajność.", "consent": "Zgoda przez użycie." } } }
     },
     # GENERIC FALLBACK FOR OTHERS (English content but structured)
     "default": {
@@ -216,7 +216,7 @@ translations = {
                 "proof": { "title": "Art 15. Proof", "text": "Digital records." }
             }
         },
-        "legal": { "title": "Legal Notice", "back": "Back", "lastUpdate": "Updated 12/15/2025", "sections": { "identification": { "title": "ID", "editor": "Publisher", "editorText": "STRONGSIDE.", "director": "Adam Aloui", "host": "Vercel." }, "ip": { "title": "IP", "protection": "Protected.", "privateUse": "Private.", "reproduction": "No.", "sanctions": "Fines.", "paperReproduction": "Citation ok.", "infringement": "Crime.", "hyperlink": "Ask first." }, "data": { "title": "Data", "intro": "Tracking used.", "ga4Title": "GA4", "ga4Text": "Anon.", "shopifyTitle": "Shopify", "shopifyText": "Secure.", "vercelTitle": "Vercel", "vercelText": "Fast.", "consent": "Consent implied." } } }
+        "legal": { "title": "Legal Notice", "back": "Back", "lastUpdate": "Updated 12/15/2025", "sections": { "identification": { "title": "ID", "editor": "Publisher", "editorText": "STRONGSIDE.", "director": "STRONGSIDE", "host": "Vercel." }, "ip": { "title": "IP", "protection": "Protected.", "privateUse": "Private.", "reproduction": "No.", "sanctions": "Fines.", "paperReproduction": "Citation ok.", "infringement": "Crime.", "hyperlink": "Ask first." }, "data": { "title": "Data", "intro": "Tracking used.", "ga4Title": "GA4", "ga4Text": "Anon.", "shopifyTitle": "Shopify", "shopifyText": "Secure.", "vercelTitle": "Vercel", "vercelText": "Fast.", "consent": "Consent implied." } } }
     }
 }
 
