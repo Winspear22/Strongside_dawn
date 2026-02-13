@@ -771,7 +771,7 @@
         "sections": {
           "preliminary": {
             "title": "Inledning",
-            "text": "Dessa allmänna försäljningsvillkor ingås mellan STRONGSIDE Technologies, driven av Adam Aloui, hädanefter kallad 'Säljaren', som driver webbplatsen https://www.strongside.tech/, och varje fysisk eller juridisk person som önskar göra ett köp via webbplatsen https://www.strongside.tech/, hädanefter kallad 'Köparen'."
+            "text": "Dessa allmänna försäljningsvillkor ingås mellan STRONGSIDE Technologies, hädanefter kallad 'Säljaren', som driver webbplatsen https://www.strongside.tech/, och varje fysisk eller juridisk person som önskar göra ett köp via webbplatsen https://www.strongside.tech/, hädanefter kallad 'Köparen'."
           },
           "object": {
             "title": "Artikel 1. Syfte",
@@ -866,8 +866,8 @@
           "identification": {
             "title": "Identifikation och Publicering",
             "editor": "Utgivare",
-            "editorText": "Denna webbplats publiceras av ADAM ALOUI – STRONGSIDE Technologies.",
-            "director": "Ansvarig utgivare: Adam Aloui",
+            "editorText": "Denna webbplats publiceras av STRONGSIDE Technologies.",
+            "director": "Ansvarig utgivare: STRONGSIDE Technologies",
             "host": "Webbhotell",
             "hostText": "Denna webbplats hostas av Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA."
           },

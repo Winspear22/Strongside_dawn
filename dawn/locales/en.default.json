@@ -779,7 +779,7 @@
         "sections": {
           "preliminary": {
             "title": "Preliminary Article",
-            "text": "These terms and conditions of sale are entered into, on the one hand, by STRONGSIDE Technologies, operated by Adam Aloui, hereinafter referred to as 'the Seller', operating the website https://www.strongside.tech/, and, on the other hand, by any natural or legal person wishing to make a purchase through the website https://www.strongside.tech/, hereinafter referred to as 'the Buyer'."
+            "text": "These terms and conditions of sale are entered into, on the one hand, by STRONGSIDE Technologies, hereinafter referred to as 'the Seller', operating the website https://www.strongside.tech/, and, on the other hand, by any natural or legal person wishing to make a purchase through the website https://www.strongside.tech/, hereinafter referred to as 'the Buyer'."
           },
           "object": {
             "title": "Article 1. Purpose",
@@ -874,8 +874,8 @@
           "identification": {
             "title": "Identification and Publication",
             "editor": "Publisher",
-            "editorText": "This site is published by ADAM ALOUI – STRONGSIDE Technologies.",
-            "director": "Publication Director: Adam Aloui",
+            "editorText": "This site is published by STRONGSIDE Technologies.",
+            "director": "Publication Director: STRONGSIDE Technologies",
             "host": "Host",
             "hostText": "This site is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA."
           },

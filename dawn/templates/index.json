@@ -40,7 +40,10 @@
         "info-3"
       ],
       "settings": {
-        "product": ""
+        "color_scheme": "",
+        "product": "",
+        "typewriter_static_text": "Made for",
+        "typewriter_words": "Boxers, MMA, STRIKERS, KARATE, Combat Sports, Free fighters"
       }
     },
     "equipment_issues": {
@@ -88,18 +91,18 @@
             "description": "Contrairement aux haltères qui tirent vers le bas, Strongside offre une résistance horizontale alignée sur l'axe de vos coups. Vous gagnez en puissance sans dénaturer votre \"fouetté\"."
           }
         },
-        "solution-3": {
-          "type": "solution_benefit",
-          "settings": {
-            "title": "Compatible avec vos gants",
-            "description": "Ne sacrifiez plus vos sensations. Notre design ergonomique libère vos mains : enfilez vos gants de combat habituels et travaillez votre garde réelle."
-          }
-        },
         "solution-4": {
           "type": "solution_benefit",
           "settings": {
             "title": "Confort & Performance",
             "description": "Un harnais qui ne glisse pas et ne brûle pas. Une tension progressive qui respecte votre anatomie et protège vos articulations."
+          }
+        },
+        "solution-3": {
+          "type": "solution_benefit",
+          "settings": {
+            "title": "Compatible avec vos gants",
+            "description": "Ne sacrifiez plus vos sensations. Notre design ergonomique libère vos mains : enfilez vos gants de combat habituels et travaillez votre garde réelle."
           }
         }
       },
@@ -114,6 +117,7 @@
         "solution-3"
       ],
       "settings": {
+        "color_scheme": "",
         "section_subtitle": "",
         "section_title": "LE CONSTAT",
         "section_intro": "",
@@ -131,7 +135,7 @@
           "settings": {
             "number": "01",
             "title": "SAC DE FRAPPE",
-            "description": "Déchaîne ta puissance sur le sac avec le STRONGSIDE Boxing Harness Pro. La résistance progressive transforme chaque frappe en coup dévastateur.",
+            "description": "La Chaîne Cinétique (Ground Force) : La force part du sol, passe par les hanches et finit dans le poing. L'adéquation Strongside : L'ancrage dorsal STRONGSIDE tire le haut du corps vers l'arrière. Pour frapper malgré cela, le boxeur est obligé d'utiliser ses jambes et ses hanches pour s'ancrer. Impossible de frapper avec les bras seuls. Le harnais vous impose de recruter vos hanches et vos appuis. C'est l'apprentissage forcé du transfert de masse.",
             "video_filename": "1.mp4"
           }
         },
@@ -140,7 +144,7 @@
           "settings": {
             "number": "02",
             "title": "PATTES D'OURS",
-            "description": "Entraîne-toi avec un partenaire et ses pattes d'ours plus efficacement grâce au STRONGSIDE Boxing Harness Pro. Combine avec les Extra Performance 34kg resistance bands pour une explosivité maximale.",
+            "description": "La Rigidité à l'Impact (Stiffness): Au moment où le poing touche, le corps doit devenir un bloc solide pour transférer toute l'énergie. Si l'épaule ou le poignet flotte, la puissance s'évapore. L'adéquation Strongside : À 52 kg de tension en fin de course, le système nerveux force une contraction massive de la chaîne du corps. Vous apprenez à verrouiller votre structure au millimètre près. À l'impact, vous n'êtes plus un bras, vous êtes une barre de metal de 52 kg.",
             "video_filename": "2.mp4"
           }
         },
@@ -149,7 +153,7 @@
           "settings": {
             "number": "03",
             "title": "SHADOW BOXING",
-            "description": "Perfectionne ta technique n'importe où avec le STRONGSIDE Boxing Harness Pro. Ajoute les Extra Performance 34kg resistance bands pour un conditionnement intense lors du Shadow boxing.",
+            "description": "L'Accélération Terminale : Un coup puissant ne doit pas être poussé, il doit accélérer jusqu'au point de contact. L'adéquation Strongside : Grâce à la résistance exponentielle, le boxeur est obligé d'accélérer son mouvement pour compenser la tension qui augmente. Le Strongside ne vous freine pas, il vous force à être plus rapide à mesure que vous approchez de la cible.",
             "video_filename": "3.mp4"
           }
         }
@@ -160,13 +164,10 @@
         "mode-3"
       ],
       "settings": {
+        "color_scheme": "",
         "section_subtitle": "Un Outil, Infinies Possibilités",
         "section_title": "Utilise STRONGSIDE Partout"
       }
-    },
-    "accessories": {
-      "type": "strongside-accessories",
-      "settings": {}
     },
     "what_you_get": {
       "type": "strongside-what-you-get",
@@ -247,7 +248,8 @@
       "settings": {
         "title": "CE QUE VOUS OBTENEZ",
         "subtitle": "Tout ce qu'il vous faut pour des frappes plus explosives",
-        "tagline": "Amplifiez encore plus votre entraînement avec les Extra Performance 34kg resistance bands."
+        "tagline": "Amplifiez encore plus votre entraînement avec les Extra Performance 34kg resistance bands.",
+        "color_scheme": ""
       }
     },
     "reviews": {
@@ -349,7 +351,6 @@
   },
   "order": [
     "strongside-hero",
-    "accessories",
     "equipment_issues",
     "training_modes",
     "what_you_get",

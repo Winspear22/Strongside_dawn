@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -642,11 +651,11 @@
       },
       "modes": {
         "1_title": "SAC DE FRAPPE",
-        "1_desc": "Déchaîne ta puissance sur le sac avec le STRONGSIDE Boxing Harness Pro. La résistance progressive transforme chaque frappe en coup dévastateur.",
+        "1_desc": "GROUND FORCE : LE TRANSFERT DE MASSE Strongside impose un recrutement total de la chaîne cinétique. En créant une tension dorsale opposée. Résultat : vous êtes forcé d’utiliser vos appuis et la rotation des hanches pour générer de la puissance. La technique parfaite devient une obligation",
         "2_title": "PATTES D'OURS",
-        "2_desc": "Entraînez-vous plus efficacement avec un partenaire et ses pattes d'ours grâce au STRONGSIDE Boxing Harness Pro. Combinez-le avec les bandes de résistance Elite. Et montez à 50kg de resistance pour une explosivité maximale.",
+        "2_desc": "La Rigidité à l'Impact (Stiffness): Une puissance qui se dissipe est une puissance perdue. À +50 kg de tension en fin de course, le système nerveux verrouille chaque articulation. Épaule, poignet et tronc. À l'impact, vous ne frappez plus avec un bras, vous frappez avec une barre de métal.",
         "3_title": "SHADOW BOXING",
-        "3_desc": "Perfectionne ta technique n'importe où avec le STRONGSIDE Boxing Harness Pro. Ajoute les Extra Performance 34kg resistance bands pour un conditionnement intense lors du Shadow boxing."
+        "3_desc": "L'Accélération Terminale (le Snap): Pour vaincre une tension qui augmente, le corps n'a qu'une solution : accélérer. En chargeant la fin du mouvement, STRONGSIDE impose une accélération terminale constante. Vous développez l'instinct de traverser la cible"
       }
     },
     "faq": {
@@ -736,7 +745,7 @@
       "guideDesc": "Exercices & routine",
       "extra": "OPTION: + PUISSANCE",
       "extraDesc": "Ajoute jusqu'à 34KG (75LBS) de résistance",
-      "tagline": "Amplifie encore plus ton entraînement avec les Extra Performance 34kg resistance bands.",
+      "tagline": "Amplifie encore plus ton entraînement avec le Pack Elite: Extra Performance 34kg resistance bands.",
       "item1": "Harnais de Performance STRONGSIDE™",
       "item1Desc": "H: 60cm/23.62in - C: 77cm/30.31in (Ajustable)",
       "item2": "2x Résistance 16KG",
@@ -839,7 +848,7 @@
         "sections": {
           "preliminary": {
             "title": "Article préliminaire",
-            "text": "Les présentes conditions de vente sont conclues d'une part par l'entreprise STRONGSIDE Technologies, exploitée par Adam Aloui, ci-après dénommée « le Vendeur », et gérant le site https://www.strongside.tech/, et d'autre part, par toute personne physique ou morale souhaitant procéder à un achat via le site internet https://www.strongside.tech/, dénommée ci-après « l'Acheteur »."
+            "text": "Les présentes conditions de vente sont conclues d'une part par l'entreprise STRONGSIDE Technologies, ci-après dénommée « le Vendeur », et gérant le site https://www.strongside.tech/, et d'autre part, par toute personne physique ou morale souhaitant procéder à un achat via le site internet https://www.strongside.tech/, dénommée ci-après « l'Acheteur »."
           },
           "object": {
             "title": "Article 1. Objet",
@@ -934,8 +943,8 @@
           "identification": {
             "title": "Identification et publication",
             "editor": "Éditeur",
-            "editorText": "Ce site est publié par ADAM ALOUI – STRONGSIDE Technologies.",
-            "director": "Directeur de la publication : Adam Aloui",
+            "editorText": "Ce site est publié par STRONGSIDE Technologies.",
+            "director": "Directeur de la publication : STRONGSIDE Technologies",
             "host": "Hébergeur",
             "hostText": "Ce site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA."
           },
@@ -986,8 +995,8 @@
       },
       "solution": {
         "title": "STRONGSIDE PRO : BOXEZ SANS CHAÎNES",
-        "intro": "Marre des entraînements bridés par du matériel obsolète ? Le Strongside Pro Boxing Harness est la révolution qu’attendaient les combattants exigeants. Conçu pour ceux qui refusent les compromis, ce harnais transforme chaque session de shadow, de sac ou de sparring en une expérience de résistance pure et ultra-réaliste.",
-        "quote": "Ne soyez plus l'esclave d'un poteau. Emportez votre ring partout."
+        "intro": "FORCE. VITESSE. CARDIO. SANS COMPROMIS. Le harnais Strongside Pro supercharge vos muscles à chaque coup de poing. Développez une puissance brute et une vitesse d’exécution supérieure en intégrant la résistance à vos routines habituelles (sac, shadow, cardio). Chaque minute passée sous tension booste votre performance réelle sur le ring.",
+        "quote": "Arrêtez de frapper dans le vide. Ajoutez la résistance qui forge les champions."
       },
       "benefits": {
         "freedom": {
@@ -996,7 +1005,7 @@
         },
         "technique": {
           "title": "Technique de frappe préservée",
-          "desc": "Contrairement aux haltères qui tirent vers le bas, Strongside offre une résistance horizontale alignée sur l'axe de vos coups. Vous gagnez en puissance sans dénaturer votre \"fouetté\"."
+          "desc": "Contrairement aux haltères qui tirent vers le bas, Strongside offre une résistance horizontale alignée sur l'axe de vos coups. Vous gagnez en puissance sans dénaturer votre technique."
         },
         "comfort": {
           "title": "Confort & Performance",
@@ -1004,7 +1013,7 @@
         },
         "gloves": {
           "title": "Compatible avec vos gants",
-          "desc": "Ne sacrifiez plus vos sensations. Notre design ergonomique libère vos mains : enfilez vos gants de combat habituels et travaillez votre garde réelle."
+          "desc": "Ne sacrifiez plus vos sensations. Notre design ergonomique libère vos mains : enfilez vos gants de combat habituels et travaillez comme jamais."
         }
       }
     }

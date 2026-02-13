@@ -557,7 +557,7 @@
         "sections": {
           "preliminary": {
             "title": "Artigo Preliminar",
-            "text": "Estes termos e condições gerais de venda são acordados entre a STRONGSIDE Technologies, operada por Adam Aloui, doravante denominada 'o Vendedor', e qualquer pessoa que deseje efetuar uma compra através do site https://www.strongside.tech/, doravante denominada 'o Comprador'."
+            "text": "Estes termos e condições gerais de venda são acordados entre a STRONGSIDE Technologies, doravante denominada 'o Vendedor', e qualquer pessoa que deseje efetuar uma compra através do site https://www.strongside.tech/, doravante denominada 'o Comprador'."
           },
           "object": {
             "title": "Artigo 1. Objeto",
@@ -652,8 +652,8 @@
           "identification": {
             "title": "Identificação e Publicação",
             "editor": "Editor",
-            "editorText": "Este site é publicado por ADAM ALOUI – STRONGSIDE Technologies.",
-            "director": "Diretor de Publicação: Adam Aloui",
+            "editorText": "Este site é publicado por STRONGSIDE Technologies.",
+            "director": "Diretor de Publicação: STRONGSIDE Technologies",
             "host": "Hospedagem",
             "hostText": "Este site é hospedado pela Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, EUA."
           },
@@ -705,51 +705,6 @@
       "solution": {
         "title": "STRONGSIDE PRO: BOXE SEM CORRENTES",
         "intro": "Cansado de treinos limitados por equipamentos obsoletos? O Strongside Pro Boxing Harness é a revolução que os lutadores exigentes esperavam. Projetado para quem recusa compromissos, este arnês transforma cada sessão de sombra, saco o sparring em uma experiência de resistência pura e ultra-realista.",
-        "quote": "Não seja mais escravo de um poste. Leve seu ringue para qualquer lugar."
-      },
-      "benefits": {
-        "freedom": {
-          "title": "Liberdade de Movimento Total",
-          "desc": "Esqueça a ancoragem fixa na parede. Nosso sistema de ancoragem móvel 360° segue seus pivôs, esquivas e deslocamentos sem nunca te frear."
-        },
-        "technique": {
-          "title": "Técnica de Golpe Preservada",
-          "desc": "Ao contrário dos halteres que puxam para baixo, o Strongside oferece resistência horizontal alinhada ao eixo dos seus golpes. Você ganha potência sem distorcer seu \"chicote\"."
-        },
-        "comfort": {
-          "title": "Conforto & Desempenho",
-          "desc": "Um arnês que não escorrega e não queima. Uma tensão progressiva que respeita sua anatomia e protege suas articulações."
-        },
-        "gloves": {
-          "title": "Compatível com suas Luvas",
-          "desc": "Não sacrifique suas sensações. Nosso design ergonômico libera suas mãos: coloque suas luvas de combate habituais e trabalhe sua guarda real."
-        }
-      }
-    },
-    "equipment_issues": {
-      "title": "A REALIDADE",
-      "list_title": "POR QUE SEU EQUIPAMENTO ATUAL TE LIMITA:",
-      "issues": {
-        "fixed_anchor": {
-          "title": "ANCORAGEM FIXA",
-          "desc": "Você está \"acorrentado\" a um poste ou parede. Zero pivô, zero deslocamento. Luta é movimento, não estática."
-        },
-        "dumbbells": {
-          "title": "HALTERES",
-          "desc": "O halter puxa para baixo (gravidade). Você destrói suas articulações e perde sua velocidade de \"chicote\"."
-        },
-        "dorsal_elastic": {
-          "title": "ELÁSTICO DORSAL",
-          "desc": "Assaduras sob os braços, costas, ombros... e deslizamentos constantes. Você passa mais tempo ajustando do que batendo."
-        },
-        "handles": {
-          "title": "OBSTÁCULO DAS MANOPLAS",
-          "desc": "Impossível usar luvas. Você perde o fechamento do punho e as sensações reais de combate."
-        }
-      },
-      "solution": {
-        "title": "STRONGSIDE PRO: BOXE SEM CORRENTES",
-        "intro": "Cansado de treinos limitados por equipamentos obsoletos? O Strongside Pro Boxing Harness é a revolução que os lutadores exigentes esperavam. Projetado para quem recusa compromissos, este arnês transforma cada sessão de sombra, saco ou sparring em uma experiência de resistência pura e ultra-realista.",
         "quote": "Não seja mais escravo de um poste. Leve seu ringue para qualquer lugar."
       },
       "benefits": {

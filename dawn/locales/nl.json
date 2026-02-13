@@ -776,7 +776,7 @@
         "sections": {
           "preliminary": {
             "title": "Inleidend Artikel",
-            "text": "Deze algemene verkoopvoorwaarden worden enerzijds aangegaan door STRONGSIDE Technologies, beheerd door Adam Aloui, hierna te noemen 'de Verkoper', exploitant van de website https://www.strongside.tech/, en anderzijds door elke natuurlijke of rechtspersoon die een aankoop wenst te doen via de website https://www.strongside.tech/, hierna te noemen 'de Koper'."
+            "text": "Deze algemene verkoopvoorwaarden worden enerzijds aangegaan door STRONGSIDE Technologies, hierna te noemen 'de Verkoper', exploitant van de website https://www.strongside.tech/, en anderzijds door elke natuurlijke of rechtspersoon die een aankoop wenst te doen via de website https://www.strongside.tech/, hierna te noemen 'de Koper'."
           },
           "object": {
             "title": "Artikel 1. Doel",
@@ -871,8 +871,8 @@
           "identification": {
             "title": "Identificatie en Publicatie",
             "editor": "Uitgever",
-            "editorText": "Deze site wordt uitgegeven door ADAM ALOUI – STRONGSIDE Technologies.",
-            "director": "Publicatiedirecteur: Adam Aloui",
+            "editorText": "Deze site wordt uitgegeven door STRONGSIDE Technologies.",
+            "director": "Publicatiedirecteur: STRONGSIDE Technologies",
             "host": "Host",
             "hostText": "Deze site wordt gehost door Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, VS."
           },

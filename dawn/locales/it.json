@@ -788,14 +788,14 @@
         "sections": {
           "preliminary": {
             "title": "Articolo Preliminare",
-            "text": "Le presenti condizioni generali di vendita sono stipulate, da una parte, da STRONGSIDE Technologies, gestita da Adam Aloui, di seguito denominata 'il Venditore', che gestisce il sito web https://www.strongside.tech/, e, dall'altra parte, da qualsiasi persona fisica o giuridica che desideri effettuare un acquisto tramite il sito web https://www.strongside.tech/, di seguito denominata 'l'Acquirente'."
+            "text": "Le presenti condizioni generali di vendita sono stipulate, da una parte, da STRONGSIDE Technologies, di seguito denominata 'il Venditore', che gestisce il sito web https://www.strongside.tech/, e, dall'altra parte, da qualsiasi persona fisica o giuridica che desideri effettuare un acquisto tramite il sito web https://www.strongside.tech/, di seguito denominata 'l'Acquirente'."
           },
           "object": {
             "title": "Articolo 1. Oggetto",
             "text1": "Oggetto delle presenti condizioni generali di vendita è definire il rapporto contrattuale tra STRONGSIDE Technologies e l'Acquirente, nonché le condizioni applicabili a qualsiasi acquisto effettuato tramite il sito web https://www.strongside.tech/.",
             "text2": "L'acquisto di un prodotto tramite questo sito implica l'accettazione senza riserve da parte dell'Acquirente delle presenti condizioni generali di vendita, che riconosce di aver letto prima di effettuare l'ordine.",
             "text3": "Prima di qualsiasi transazione, l'Acquirente dichiara di avere la piena capacità giuridica di impegnarsi con le presenti condizioni generali di vendita.",
-            "text4": "STRONGSIDE Technologies si riserva il diritto di modificare le presenti condizioni generali di vendita in qualsiasi momento per conformarsi a nuove normative o migliorare l'uso del proprio sito. Le condizioni applicabili saranno quelle in vigore alla data dell'ordine."
+            "text4": "STRONGSIDE Technologies si riserva il diritto di modificare le presenti condizioni generali di vendita in qualsiasi momento per conformarsi a nuove regolamentazioni o migliorare l'uso del proprio sito. Le condizioni applicabili saranno quelle in vigore alla data dell'ordine."
           },
           "products": {
             "title": "Articolo 2. Prodotti",
@@ -849,7 +849,7 @@
           "ip": {
             "title": "Articolo 10. Proprietà Intellettuale",
             "text1": "Tutti gli elementi del sito web https://www.strongside.tech/ sono e rimangono proprietà intellettuale esclusiva di STRONGSIDE Technologies.",
-            "text2": "Qualsiasi riproduzione, sfruttamento o utilizzo, anche parziale, senza previa autorizzazione è severamente vietato."
+            "text2": "Qualsiasi riproduzione, sfruttamento o utilizzo, anche parziale, senza previa autorizzazione è severamente proibito."
           },
           "data": {
             "title": "Articolo 11. Dati Personali",
@@ -883,8 +883,8 @@
           "identification": {
             "title": "Identificazione e Pubblicazione",
             "editor": "Editore",
-            "editorText": "Questo sito è pubblicato da ADAM ALOUI – STRONGSIDE Technologies.",
-            "director": "Direttore della pubblicazione: Adam Aloui",
+            "editorText": "Questo sito è pubblicato da STRONGSIDE Technologies.",
+            "director": "Direttore della pubblicazione: STRONGSIDE Technologies",
             "host": "Provider",
             "hostText": "Questo sito è ospitato da Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA."
           },

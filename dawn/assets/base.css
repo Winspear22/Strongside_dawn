@@ -3656,3 +3656,196 @@ button.strongside-btn.button.cart__checkout-button svg {
 .strongside-btn.button.cart__checkout-button::before {
   display: none !important;
 }
+
+.strongside-full-features {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background: #ffffff; /* Ou rgba(255,255,255,0.05) si tu es en mode sombre */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.features-main-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: #111;
+  letter-spacing: 0.5px;
+}
+
+.features-grid-system {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.f-icon {
+  flex-shrink: 0;
+  color: #111;
+  background: #f3f4f6;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+}
+
+.f-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.f-text strong {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.f-text span {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+@media (max-width: 600px) {
+  .features-grid-system {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+.strongside-usp-container {
+  margin-top: -1rem; /* Pour coller au badge reviews si besoin */
+  margin-bottom: 2.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.usp-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.usp-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.usp-icon {
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.usp-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.usp-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.usp-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* Responsive Mobile */
+@media (max-width: 749px) {
+  .usp-grid {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .usp-item {
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+    padding-bottom: 0.5rem;
+  }
+}
+.strongside-usp-section {
+  background-color: rgba(var(--color-foreground), 0.04);
+  border: 1px solid rgba(var(--color-foreground), 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.usp-header-title {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 900 !important;
+  font-style: italic !important;
+  text-transform: uppercase !important;
+  color: rgb(var(--color-foreground)) !important;
+  margin-bottom: 1.8rem !important;
+}
+
+.usp-main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.usp-card-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.usp-icon-box {
+  background-color: rgba(var(--color-foreground), 0.08);
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: rgb(var(--color-foreground));
+}
+
+.usp-icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+.usp-content-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.usp-title-bold {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgb(var(--color-foreground));
+}
+
+.usp-desc-light {
+  font-size: 0.8rem;
+  color: rgba(var(--color-foreground), 0.5);
+}
+
+@media (max-width: 600px) {
+  .usp-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
